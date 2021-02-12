@@ -1,0 +1,168 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: whitesmoke;
+  color: #b63d45;
+  height: 100%;
+}
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+.navbar {
+  background-color: #b63d45;
+}
+
+.navbar-brand,
+.nav-link {
+  font-weight: 600;
+  color: white !important;
+}
+
+.nav-link {
+  margin-right: 30px;
+}
+
+i {
+  font-size: 16px;
+}
+
+.home {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 5px;
+}
+
+.head {
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding-left: 5px;
+  margin-bottom: 20px;
+}
+
+.card {
+  margin: auto;
+  border-radius: 20px;
+  background-color: #072438;
+}
+
+.tabcontent {
+  color: #072438;
+  display: none;
+  margin: auto;
+  width: 100%;
+  padding: 70px 20px;
+  border-radius: 25px;
+}
+
+.tablink {
+  padding: 10px 0;
+  font-size: 25px;
+  width: 50%;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.body-content {
+  width: 90%;
+  margin: auto;
+}
+
+.satker {
+  border-radius: 25px 0 0 0;
+  color: #f4c58f;
+  background-color: #072438;
+  font-weight: 700;
+}
+
+.pegawai {
+  border-radius: 0 25px 0 0;
+  color: #072438;
+  background-color: #f4c58f;
+  font-weight: 700;
+}
+
+#Satker {
+  background-color: #072438;
+}
+
+#Pegawai {
+  background-color: #f4c58f;
+}
+
+.tahun {
+  background-color: #f4c58f;
+  padding: 7px 5px;
+  margin: 10px 5px;
+  color: #072438;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+.isi-tahun {
+  background-color: #072438;
+  color: #f4c58f;
+  font-weight: 600;
+  border: none;
+}
+
+.title {
+  color: #f4c58f;
+  font-weight: 500;
+}
+.box {
+  background-color: white;
+  height: 200px;
+  border-radius: 10px;
+  border: none;
+}
+
+.foot {
+  margin-top: 20px;
+  background-color: #b63d45;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+}
+
+.judul-tab-pegawai {
+  background-color: #072438;
+  border-radius: 10px;
+  color: #f4c58f;
+  padding: 10px;
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+.title-pegawai {
+  color: #072438;
+  font-weight: 500;
+}
+
+/* DESKTOP*/
+@media (min-width: 992px) {
+  .home {
+    margin-top: 25px;
+    margin-left: 50px;
+    margin-right: 5px;
+  }
+  .box {
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tahun {
+    margin-top: 30px;
+  }
+  .tablink {
+    font-size: 20px;
+  }
+  .box {
+    width: 90%;
+  }
+}

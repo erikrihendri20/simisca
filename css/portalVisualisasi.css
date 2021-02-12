@@ -1,0 +1,259 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/*include mobile*/
+
+.jumbotron {
+  background-image: url(/db/img/kantor-bps.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  color: #f4c58f;
+  position: relative;
+  margin-bottom: 0px;
+}
+
+.jumbotron .container {
+  margin-top: 25px;
+  margin-left: 25px;
+  position: relative;
+  z-index: 1;
+}
+
+.jumbotron .container .display-4 {
+  font-size: 40px;
+}
+
+.jumbotron .container h2 {
+  font-size: 15px;
+}
+
+.jumbotron .container .lead {
+  color: white;
+  font-weight: 400;
+  width: 300px;
+  font-size: 15px;
+}
+
+.far {
+  margin-top: 15px;
+  color: white;
+  font-size: 30px;
+  transition: 0.3s;
+}
+
+.far:hover {
+  color: #f4c58f;
+  text-decoration: none;
+}
+
+.navbar {
+  margin-top: 100px;
+  background-image: linear-gradient(
+    to top,
+    rgba(103, 31, 35, 1),
+    rgba(182, 61, 69, 1)
+  );
+}
+
+.navbar-brand,
+.nav-link {
+  font-weight: 600;
+  color: white !important;
+}
+
+.nav-link {
+  margin-right: 30px;
+}
+
+.bg2 {
+  background-color: #072438;
+  height: 900px;
+  color: #f4c58f;
+  text-align: center;
+}
+
+.bg2 h1 {
+  padding-top: 50px;
+  text-transform: uppercase;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.bg2 .desc {
+  color: white !important;
+}
+
+.bg2 .container {
+  margin-bottom: 20px;
+}
+
+.bg2 .col-sm-3 {
+  font-weight: bold;
+  padding: 5px;
+}
+
+.bg2 .bar1 {
+  background-color: whitesmoke;
+  color: #b63d45;
+}
+
+.bg2 .bar2 {
+  background-color: #b63d45;
+  color: #f4c58f;
+}
+
+.bg2 .bar3 {
+  background-color: #f4c58f;
+  color: #03375b;
+}
+
+.btn-danger {
+  border: none;
+  background-color: #b63d45;
+  color: #f4c58f;
+}
+
+footer {
+  background-image: linear-gradient(to top, #b63d45, #660007);
+  border-radius: 40px 40px 0 0;
+  height: 650px;
+  padding: 20px 0px 40px 0px;
+  margin-top: -25%;
+}
+
+.info {
+  margin-top: 10px;
+  text-align: center;
+  color: #f4c58f;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.logo {
+  text-align: center;
+}
+
+.credit {
+  margin-top: 40px;
+  text-align: center;
+  color: #f4c58f;
+  font-size: 12px;
+}
+
+li {
+  color: #f4c58f;
+  font-size: 10px;
+}
+
+.info::after {
+  content: "";
+  display: block;
+  border-bottom: 3px solid #03375b;
+  width: 25%;
+  margin: auto;
+}
+
+#crit {
+  height: 100px;
+}
+
+footer img {
+  width: 80px;
+  margin: auto;
+  padding: 10px 10px;
+  text-align: center;
+}
+
+.submit {
+  background-image: linear-gradient(to top, #03375b, #03375b);
+  color: #f4c58f;
+}
+
+.custom-shape-divider-top-1608744525 {
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1608744525 svg {
+  display: block;
+  width: calc(109% + 1.3px);
+  height: 70px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1608744525 .shape-fill {
+  fill: #b2303a;
+}
+
+/* desktop*/
+
+@media (min-width: 992px) {
+  .jumbotron {
+    height: 475px;
+  }
+  .jumbotron .container {
+    margin-left: 100px;
+  }
+  .jumbotron .container .display-4 {
+    font-size: 80px;
+  }
+  .jumbotron .container h2 {
+    font-size: 45px;
+  }
+  .jumbotron .container .lead {
+    width: 400px;
+    font-size: 20px;
+  }
+  .far {
+    font-size: 50px;
+  }
+  .bg2 .desc {
+    color: white !important;
+    padding: 0 350px;
+  }
+  .carousel {
+    height: 55%;
+    width: 825px;
+    text-align: center;
+    border-radius: 20px;
+    margin: auto;
+  }
+  footer {
+    border-radius: 40px 40px 0 0;
+    height: 400px;
+    margin-top: -50px;
+    padding: 40px 0px;
+  }
+  .info {
+    margin-top: 10px;
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+  li {
+    font-size: 15px;
+  }
+  .info::after {
+    border-bottom: 3px solid #03375b;
+    width: 25%;
+  }
+  footer img {
+    width: 80px;
+    padding: 10px 10px;
+  }
+  .credit {
+    margin-top: 50px;
+    font-size: 18px;
+  }
+  .custom-shape-divider-top-1608744525 svg {
+    height: 140px;
+  }
+}
