@@ -47,6 +47,7 @@ $routes->get('/portalvisualisasi', 'Visualisasi::portalVisualisasi');
 $routes->get('/visualisasi', 'Visualisasi::visualisasi');
 $routes->get('/Visualisasi', 'Visualisasi::visualisasi');
 
+$routes->post('/getKabupaten', 'Visualisasi::getKabupaten');
 
 
 /**

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Satker_model;
 use App\Models\Pegawai_model;
+use App\Models\Sampel_satker_model;
 
 class Visualisasi extends BaseController
 {
@@ -18,12 +19,31 @@ class Visualisasi extends BaseController
         return view('visualisasi/portalVisualisasi', $data);
     }
 
+    public function getKabupatenKota()
+    {
+        $model = new Sampel_satker_model();
+        $data = $model->getSatker(substr($this->request->getVar('kodelevel'), 0, 2));
+        return json_encode($data);
+    }
+
+    public function getSpiderChart()
+    {
+        $model = new Satker_model();
+        $filter = [
+            'provinsi' => $this->request->getVar('provinsi'),
+            'kabupaten' => $this->request->getVar('kabupaten')
+        ];
+        return json_encode($model->getSpiderChart($filter));
+    }
+
     public function visualisasi()
     {
+        $model = new Sampel_satker_model();
         $data = [
             'title' => 'visualisasi',
             'css' => 'visualisasi.css',
-            'js' => 'visualisasi.js'
+            'js' => 'visualisasi.js',
+            'provinsi' => $model->getSatker()
         ];
         return view('visualisasi/visualisasi', $data);
     }

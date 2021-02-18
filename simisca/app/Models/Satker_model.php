@@ -28,7 +28,6 @@ class Satker_model extends Model
                 $this->builder()->select('imkb');
             }
         } elseif ($filter['keseluruhan'] == 0) {
-
             if ($filter['kebakaran'] == 0 && $filter['bencanaalam'] == 1 && $filter['pandemicovid'] == 0) {
                 $this->builder()->join('kesiapan', 'kesiapan.kode=index_satker.kode_bencana_alam');
                 $this->builder()->select(' dsdp_bencana_alam , drtd_bencana_alam , dppd_bencana_alam , dpa_bencana_alam , sub_bencana_alam , kategori');
@@ -55,6 +54,15 @@ class Satker_model extends Model
         }
         $this->builder()->join('satker', 'satker.kodesatker=index_satker.kodesatker');
         $this->builder()->join('level', "index_satker.kodelevel=level.kodelevel");
+        return $this->builder()->get()->getResultArray();
+    }
+
+    public function getSpiderChart($filter)
+    {
+        $this->builder()->select('namasatker , dimensi1 , dimensi2 , dimensi3 , dimensi4 , imkb');
+        $this->builder()->where('index_satker.kodesatker', [$filter['provinsi']]);
+        $this->builder()->orWhere('index_satker.kodesatker', [$filter['kabupaten']]);
+        $this->builder()->join('satker', 'satker.kodesatker=index_satker.kodesatker');
         return $this->builder()->get()->getResultArray();
     }
 }
