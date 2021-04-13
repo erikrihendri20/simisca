@@ -41,7 +41,7 @@ body {
 }
 
 .jumbotron {
-  background-image: url(/db/img/foto-awal.jpg);
+  background-image: url(/simisca/img/foto-awal.jpg);
   background-size: cover;
   height: 300px;
   border-radius: 0px 0px 30px 30px;
