@@ -36,7 +36,7 @@ $(document).ready(function() {
     //spiderchart
     function getKabupatenKota() {
         $('#filterSpiderKabupaten').html('')
-        $.post('/db/Visualisasi/getKabupatenKota', {
+        $.post('visualisasi/getKabupatenKota', {
             kodelevel: $('#filterSpiderProvinsi').val()
         }, function(data, status) {
             result = JSON.parse(data)
@@ -58,7 +58,7 @@ $(document).ready(function() {
     function getSpiderChart(){
         $( "#tidak-ditemukan" ).remove();
 
-        $.post('/db/Visualisasi/getSpiderChart',{
+        $.post('Visualisasi/getSpiderChart',{
             provinsi: $('#filterSpiderProvinsi').val(),
             kabupaten: $('#filterSpiderKabupaten').val()
         },function(data,status){

@@ -1,5 +1,5 @@
 function requestTabelSatker() {
-  $.post('/db/Visualisasi/getTabel/satker', {
+  $.post('Visualisasi/getTabel/satker', {
     kodelevel: $('#wilayahsatker').val(),
     tahun: $('#tahunsatker').val(),
     pilihsemua: $('#pilihsemua:checked').val(),
@@ -14,7 +14,7 @@ function requestTabelSatker() {
 }
 
 function requestTabelPegawai() {
-  $.post('/db/Visualisasi/getTabel/pegawai', {
+  $.post('Visualisasi/getTabel/pegawai', {
     kodelevel: $('#wilayahpegawai').val()
   }, function(data, status) {
     $('#tabeldinamis').html(data)
