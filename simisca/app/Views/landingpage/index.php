@@ -38,6 +38,7 @@
                     <a class="nav-item nav-link" href="#tentang">Tentang</a>
                     <a class="nav-item nav-link" href="#statistik">Statistik</a>
                     <a class="nav-item nav-link" href="#kontak">Kontak</a>
+                    <a class="nav-item nav-link" href="" onclick="loginSSO()">Login</a>
                 </div>
             </div>
         </div>
