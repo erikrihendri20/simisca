@@ -114,10 +114,8 @@
     <div class="konten-2" id="statistik">
         <div class="container py-5">
             <p class="py-3 font-weight-bold" data-aos="fade-down">Statistik Geografis Satuan Kerja BPS Indonesia</p>
-            <div class="row justify-content-center">
                 <!-- Area Chart -->
-                <div id="map" class="col-10 mb-4">
-                </div>
+                <div style="border-radius:20px !important;  overflow: hidden;"> <iframe id="myIframe" frameborder="0" style="height: 185px; overflow:scroll; width: 100%" src="leaflet/map.html" marginheight="1" marginwidth="1" name="cboxmain" id="cboxmain" seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true"></iframe> </div>
             </div>
         </div>
     </div>
@@ -205,6 +203,15 @@
             }, 1000);
         }
     </script>
+    <script>
+    // Selecting the iframe element
+    var iframe = document.getElementById("myIframe");
+    
+    // Adjusting the iframe height onload event
+    iframe.onload = function(){
+        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+    }
+	</script>
 </body>
 
 </html>
