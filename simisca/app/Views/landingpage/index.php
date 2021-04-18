@@ -37,7 +37,7 @@
                 <div class="navbar-nav ml-auto">
                     <a class="nav-item nav-link" href="#tentang">Tentang</a>
                     <a class="nav-item nav-link" href="#statistik">Statistik</a>
-                    <a class="nav-item nav-link" href="#bg2">Visualisasi</a>
+                    <a class="nav-item nav-link" href="#portalVisualisasi">Visualisasi</a>
                     <a class="nav-item nav-link" href="#kontak">Kontak</a>
                     <span class="line"></span>
                     <a class="nav-item nav-link login-btn" href="" onclick="loginSSO()">Login</a>
@@ -56,17 +56,7 @@
         </div>
     </div>
 
-    <!-- Portal Section -->
-    <div>
-        <div class="btn-toolbar font-weight-bold justify-content-center animate__animated animate__headShake animate__delay-1s" role="toolbar">
-            <a onclick="loginSSO()" class="btn btn-lg shadow-lg class-1">
-                Portal<br><span class="font-weight-bold">Dashboard</span>
-            </a>
-            <!-- <a href="<?= base_url(); ?>/portalvisualisasi" class="btn btn-lg shadow-lg class-2">
-                Portal<br><span class="font-weight-bold">Visualisasi</span>
-            </a> -->
-        </div>
-    </div>
+    <!-- Portal Section (dihapus)-->
 
     <!-- Penjelasan Section -->
     <div class="konten-1" id="tentang">
@@ -122,36 +112,22 @@
     </div>
     </div>
 
-    <!-- Portal Visualisasi -->
-    <nav id="bg2" class="navbar nav-2 navbar-expand-lg navbar-light">
-        <div class="container">
-            <div class="" style="color: white;">VISUALISASI<br>SIMISCA BPS</div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link " href="<?= base_url() ?>/petaTematik">Peta Tematik <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="<?= base_url() ?>/visualisasi">Visualisasi</a>
-                    <a class="nav-item nav-link active" href="<?= base_url() ?>/tabelDinamis">Tabel Dinamis</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <!-- Portal Visualisasi (navbar dihapus) -->
+    <div id="portalVisualisasi"></div>
     <div class="bg2">
         <h1 class="aos-init aos-animate" data-aos="fade-down">Judul</h1>
         <h3 class="aos-init aos-animate" data-aos="fade-up">Sub Judul</h3>
         <p class="desc aos-init aos-animate" data-aos="fade-down">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus expedita autem eveniet magnam veritatis asperiores amet ipsa, inventore aperiam praesentium?</p>
         <div class="container aos-init aos-animate" data-aos="zoom-in">
             <div class="row justify-content-center">
-                <div class="col-sm-3 bar1">
-                    Peta Tematik
+                <div class="col-sm-2 bar1">
+                    <a class="bar1" href="<?= base_url() ?>/petaTematik"> Peta Tematik</a>
                 </div>
-                <div class="col-sm-3 bar2">
-                    Visualisasi
+                <div class="col-sm-2 bar2">
+                    <a class="bar2" href="<?= base_url() ?>/visualisasi">Visualisasi</a>
                 </div>
-                <div class="col-sm-3 bar3">
-                    Tabel Dinamis
+                <div class="col-sm-2 bar3">
+                    <a class="bar3" href="<?= base_url() ?>/tabelDinamis">Tabel Dinamis</a>
                 </div>
             </div>
         </div>
@@ -198,7 +174,7 @@
 
     <!--footer-->
     <footer class="footer shadow-lg" id="kontak">
-        <div class="row m-0 justify-content-center aos-init aos-animate" data-aos="fade-up">
+        <div class="row m-0 justify-content-center">
             <div class="col-sm">
                 <p class="info">Informasi Umum</p>
                 <div class="logo">
@@ -207,7 +183,7 @@
                     <a href="https://pkl.stis.ac.id/" target="_blank"><img src="img/pkl.png"></a>
                 </div>
             </div>
-            <div class="col-sm-4 col-xl-4 aos-animate" data-aos="fade-up">
+            <div class="col-sm-4 col-xl-4">
                 <p class="info">Kontak Kami</p>
                 <ul class="text-left">
                     <li class="mb-3 d-flex">
@@ -240,7 +216,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-sm-4 aos-init aos-animate" data-aos="fade-up">
+            <div class="col-sm-4">
                 <p class="info">Kritik & Saran</p>
                 <div class="form form-row justify-content-center">
                     <div class="col-8">

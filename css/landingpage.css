@@ -68,7 +68,7 @@ html {
 /* portal Visualisasi */
 .bg2 {
   background-color: #072438;
-  height: 950px;
+  height: 800px;
   color: #f4c58f;
   text-align: center;
 }
@@ -89,29 +89,33 @@ html {
   margin-bottom: 20px;
 }
 
-.bg2 .col-sm-3 {
+.bg2 .col-sm-2 {
   font-weight: bold;
   padding: 5px;
 }
 
-.bg2 .bar1 {
+.bg2 .col-sm-2 a {
+  text-decoration: none;
+}
+
+.bar1 {
   background-color: whitesmoke;
   color: #b63d45;
 }
 
-.bg2 .bar2 {
+.bar2 {
   background-color: #b63d45;
   color: #f4c58f;
 }
 
-.bg2 .bar3 {
+.bar3 {
   background-color: #f4c58f;
   color: #03375b;
 }
 
 .carousel-pv {
   height: 55%;
-  width: 825px;
+  width: 600px;
   text-align: center;
   border-radius: 20px;
   margin: auto;
