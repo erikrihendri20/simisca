@@ -25,7 +25,7 @@
 
 <body data-aos-duration="1000" data-aos-delay="0">
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg shadow fixed-top animate__animated animate__slideInDown">
+    <nav class="navbar nav-1 navbar-expand-lg shadow fixed-top animate__animated animate__slideInDown">
         <div class="container-fluid animate__animated animate__fadeIn animate__delay-1s ">
             <a class="navbar-brand font-weight-bold" href="#">
                 <img src="img/pkl.png" width="30" height="30" class="d-inline-block align-top font-weigth-bold" alt=""> SIMISCA BPS
@@ -37,8 +37,10 @@
                 <div class="navbar-nav ml-auto">
                     <a class="nav-item nav-link" href="#tentang">Tentang</a>
                     <a class="nav-item nav-link" href="#statistik">Statistik</a>
+                    <a class="nav-item nav-link" href="#bg2">Visualisasi</a>
                     <a class="nav-item nav-link" href="#kontak">Kontak</a>
-                    <a class="nav-item nav-link" href="" onclick="loginSSO()">Login</a>
+                    <span class="line"></span>
+                    <a class="nav-item nav-link login-btn" href="" onclick="loginSSO()">Login</a>
                 </div>
             </div>
         </div>
@@ -114,15 +116,89 @@
     <div class="konten-2" id="statistik">
         <div class="container py-5">
             <p class="py-3 font-weight-bold" data-aos="fade-down">Statistik Geografis Satuan Kerja BPS Indonesia</p>
-                <!-- Area Chart -->
-                <div style="border-radius:20px !important;  overflow: hidden;"> <iframe id="myIframe" frameborder="0" style="height: 185px; overflow:scroll; width: 100%" src="leaflet/map.html" marginheight="1" marginwidth="1" name="cboxmain" id="cboxmain" seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true"></iframe> </div>
+            <!-- Area Chart -->
+            <div style="border-radius:20px !important;  overflow: hidden;"> <iframe id="myIframe" frameborder="0" style="height: 185px; overflow:scroll; width: 100%" src="leaflet/map.html" marginheight="1" marginwidth="1" name="cboxmain" id="cboxmain" seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true"></iframe> </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Portal Visualisasi -->
+    <nav id="bg2" class="navbar nav-2 navbar-expand-lg navbar-light">
+        <div class="container">
+            <div class="" style="color: white;">VISUALISASI<br>SIMISCA BPS</div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-item nav-link " href="<?= base_url() ?>/petaTematik">Peta Tematik <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="<?= base_url() ?>/visualisasi">Visualisasi</a>
+                    <a class="nav-item nav-link active" href="<?= base_url() ?>/tabelDinamis">Tabel Dinamis</a>
+                </div>
             </div>
         </div>
+    </nav>
+    <div class="bg2">
+        <h1 class="aos-init aos-animate" data-aos="fade-down">Judul</h1>
+        <h3 class="aos-init aos-animate" data-aos="fade-up">Sub Judul</h3>
+        <p class="desc aos-init aos-animate" data-aos="fade-down">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus expedita autem eveniet magnam veritatis asperiores amet ipsa, inventore aperiam praesentium?</p>
+        <div class="container aos-init aos-animate" data-aos="zoom-in">
+            <div class="row justify-content-center">
+                <div class="col-sm-3 bar1">
+                    Peta Tematik
+                </div>
+                <div class="col-sm-3 bar2">
+                    Visualisasi
+                </div>
+                <div class="col-sm-3 bar3">
+                    Tabel Dinamis
+                </div>
+            </div>
+        </div>
+
+        <div id="carouselExampleControls" class="carousel carousel-pv slide aos-init aos-animate" data-aos="zoom-in" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="img/map.jpg" alt="First slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Peta Tematik</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veniam, aut quo provident quasi modi similique inventore praesentium ex explicabo!</p>
+                        <a class="btn btn-danger" href="<?= base_url(); ?>/petatematik">Selengkapnya</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="img/visual.jpg" alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Visualisasi</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veniam, aut quo provident quasi modi similique inventore praesentium ex explicabo!</p>
+                        <a class="btn btn-danger" href="<?= base_url(); ?>/visualisasi">Selengkapnya</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="img/tabel.jpg" alt="Third slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Tabel Dinamis</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veniam, aut quo provident quasi modi similique inventore praesentium ex explicabo!</p>
+                        <a class="btn btn-danger" href="<?= base_url(); ?>/tabeldinamis">Selengkapnya</a>
+                    </div>
+                </div>
+            </div>
+
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
     </div>
 
     <!--footer-->
     <footer class="footer shadow-lg" id="kontak">
-        <div class="row m-0 justify-content-center">
+        <div class="row m-0 justify-content-center aos-init aos-animate" data-aos="fade-up">
             <div class="col-sm">
                 <p class="info">Informasi Umum</p>
                 <div class="logo">
@@ -131,7 +207,7 @@
                     <a href="https://pkl.stis.ac.id/" target="_blank"><img src="img/pkl.png"></a>
                 </div>
             </div>
-            <div class="col-sm-4 col-xl-4">
+            <div class="col-sm-4 col-xl-4 aos-animate" data-aos="fade-up">
                 <p class="info">Kontak Kami</p>
                 <ul class="text-left">
                     <li class="mb-3 d-flex">
@@ -164,7 +240,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4 aos-init aos-animate" data-aos="fade-up">
                 <p class="info">Kritik & Saran</p>
                 <div class="form form-row justify-content-center">
                     <div class="col-8">
@@ -204,14 +280,14 @@
         }
     </script>
     <script>
-    // Selecting the iframe element
-    var iframe = document.getElementById("myIframe");
-    
-    // Adjusting the iframe height onload event
-    iframe.onload = function(){
-        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
-    }
-	</script>
+        // Selecting the iframe element
+        var iframe = document.getElementById("myIframe");
+
+        // Adjusting the iframe height onload event
+        iframe.onload = function() {
+            iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+        }
+    </script>
 </body>
 
 </html>
