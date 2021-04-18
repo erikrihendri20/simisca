@@ -60,9 +60,9 @@
             <a onclick="loginSSO()" class="btn btn-lg shadow-lg class-1">
                 Portal<br><span class="font-weight-bold">Dashboard</span>
             </a>
-            <a href="<?= base_url(); ?>/portalvisualisasi" class="btn btn-lg shadow-lg class-2">
+            <!-- <a href="<?= base_url(); ?>/portalvisualisasi" class="btn btn-lg shadow-lg class-2">
                 Portal<br><span class="font-weight-bold">Visualisasi</span>
-            </a>
+            </a> -->
         </div>
     </div>
 
