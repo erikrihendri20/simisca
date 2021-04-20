@@ -8,7 +8,6 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="css/leaflet.css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="css/leaflet-search.css">
         <style>
         #map {
             width: 1200px;
@@ -29,8 +28,7 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
-        <script src="js/leaflet-search.js"></script>
-        <script src="data/indo_by_prov_0.js"></script>
+        <script src="data/indo_by_prov_1.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -43,25 +41,38 @@
             } else {
               highlightLayer.setStyle({
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: '#F3A750',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 3.0,
+                weight: 3.0
               });
             }
             highlightLayer.openPopup();
         }
         var map = L.map('map', {
-            zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[-9.415536945460028,104.20957652443947],[-3.115243610778672,110.24834824900198]]);
+            zoomControl:true, maxZoom:28, minZoom:3
+        }).fitBounds([[-16.30647517856473,94.22594160678742],[13.775556861123702,142.53611945491159]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
-        function pop_indo_by_prov_0(feature, layer) {
+        map.createPane('pane_GoogleSatelite_0');
+        map.getPane('pane_GoogleSatelite_0').style.zIndex = 400;
+        var layer_GoogleSatelite_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleSatelite_0',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 3,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 18
+        });
+        layer_GoogleSatelite_0;
+        map.addLayer(layer_GoogleSatelite_0);
+        function pop_indo_by_prov_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -77,39 +88,67 @@
                 },
                 mouseover: highlightFeature,
             });
+            if (feature.properties['provinsi'] == 'DKI JAKARTA'){
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">Nama</th>\
+                        <th scope="row">Provinsi</th>\
                         <td>' + (feature.properties['provinsi'] !== null ? autolinker.link(feature.properties['provinsi'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Jumlah Satuan Kerja</th>\
+                        <th scope="row">Jumlah Satker</th>\
                         <td>' + (feature.properties['jmlSatker'] !== null ? autolinker.link(feature.properties['jmlSatker'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Kabupaten/Kota</th>\
+                        <th scope="row">BPS Kab/ Kota</th>\
                         <td>' + (feature.properties['kabkota'] !== null ? autolinker.link(feature.properties['kabkota'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Provinsi</th>\
+                        <th scope="row">BPS Provinsi</th>\
                         <td>' + (feature.properties['prov'] !== null ? autolinker.link(feature.properties['prov'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong> </strong><br />' + (feature.properties['desc1'] !== null ? autolinker.link(feature.properties['desc1'].toLocaleString()) : '') + '</td>\
+                        <th scope="row"> BPS RI</th>\
+                        <td>' + (feature.properties['desc1'] !== null ? autolinker.link(feature.properties['desc1'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong> </strong><br />' + (feature.properties['desc2'] !== null ? autolinker.link(feature.properties['desc2'].toLocaleString()) : '') + '</td>\
+                        <th scope="row"> Pusdiklat</th>\
+                        <td>' + (feature.properties['desc2'] !== null ? autolinker.link(feature.properties['desc2'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong> </strong><br />' + (feature.properties['desc3'] !== null ? autolinker.link(feature.properties['desc3'].toLocaleString()) : '') + '</td>\
+                        <th scope="row"> Polstat STIS</th>\
+                        <td>' + (feature.properties['desc3'] !== null ? autolinker.link(feature.properties['desc3'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
+                }
+                else{
+
+                var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Provinsi</th>\
+                        <td>' + (feature.properties['provinsi'] !== null ? autolinker.link(feature.properties['provinsi'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Jumlah Satker</th>\
+                        <td>' + (feature.properties['jmlSatker'] !== null ? autolinker.link(feature.properties['jmlSatker'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">BPS Kab/ Kota</th>\
+                        <td>' + (feature.properties['kabkota'] !== null ? autolinker.link(feature.properties['kabkota'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">BPS Provinsi</th>\
+                        <td>' + (feature.properties['prov'] !== null ? autolinker.link(feature.properties['prov'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+                }
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_indo_by_prov_0_0() {
+        
+
+        function style_indo_by_prov_1_0() {
             return {
-                pane: 'pane_indo_by_prov_0',
+                pane: 'pane_indo_by_prov_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -118,32 +157,25 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(78,78,243,1.0)',
+                fillColor: 'rgba(244,197,143,1.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane_indo_by_prov_0');
-        map.getPane('pane_indo_by_prov_0').style.zIndex = 400;
-        map.getPane('pane_indo_by_prov_0').style['mix-blend-mode'] = 'normal';
-        var layer_indo_by_prov_0 = new L.geoJson(json_indo_by_prov_0, {
+        map.createPane('pane_indo_by_prov_1');
+        map.getPane('pane_indo_by_prov_1').style.zIndex = 401;
+        map.getPane('pane_indo_by_prov_1').style['mix-blend-mode'] = 'normal';
+        var layer_indo_by_prov_1 = new L.geoJson(json_indo_by_prov_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_indo_by_prov_0',
-            layerName: 'layer_indo_by_prov_0',
-            pane: 'pane_indo_by_prov_0',
-            onEachFeature: pop_indo_by_prov_0,
-            style: style_indo_by_prov_0_0,
+            dataVar: 'json_indo_by_prov_1',
+            layerName: 'layer_indo_by_prov_1',
+            pane: 'pane_indo_by_prov_1',
+            onEachFeature: pop_indo_by_prov_1,
+            style: style_indo_by_prov_1_0,
         });
-        bounds_group.addLayer(layer_indo_by_prov_0);
-        map.addLayer(layer_indo_by_prov_0);
+        bounds_group.addLayer(layer_indo_by_prov_1);
+        map.addLayer(layer_indo_by_prov_1);
         setBounds();
-        map.addControl(new L.Control.Search({
-            layer: layer_indo_by_prov_0,
-            initial: false,
-            hideMarkerOnCollapse: true,
-            propertyName: 'prov'}));
-        document.getElementsByClassName('search-button')[0].className +=
-         ' fa fa-binoculars';
         </script>
     </body>
 </html>
