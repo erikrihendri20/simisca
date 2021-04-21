@@ -4,16 +4,20 @@ namespace App\Controllers;
 
 use App\Models\Survei_model;
 use App\Models\Satker_model;
+use App\Models\Sampel_satker_model;
 
 class Dashboard extends BaseController
 {
     private $modelSurvei = null;
     private $modelSatker = null;
+    private $modelSampelSatker = null;
+
     public function __construct()
     {
         helper("Auth");
         $this->modelSurvei = new Survei_model();
         $this->modelSatker = new Satker_model();
+        $this->modelSampelSatker = new Sampel_satker_model();
     }
 
     public function index()
@@ -38,19 +42,25 @@ class Dashboard extends BaseController
         return view('dashboard/survei', $data);
     }
 
-    public function monitor()
+    public function monitoring()
     {
-        Auth();
-        $selesai = $this->modelSurvei->monitor('selesai');
-        $selesaiSebagian = $this->modelSurvei->monitor('selesai sebagian');
-        $jumlahSatker = $this->modelSatker->countAllResults();
-
-        echo 'selesai mengisi: ' . $selesai / $jumlahSatker;
-        echo '<br>selesai sebagian: ' . $selesaiSebagian / $jumlahSatker;
-        echo '<br>belum selesai: ' . ($jumlahSatker - $selesai) / $jumlahSatker;
+        $data['satker'] = $this->modelSampelSatker->getSatker();
+        return view('dashboard/monitoring',$data);
     }
 
+    public function FunctionName()
+    {
+        dd($this->modelSurvei->participans());
+    }
+    public function countProgressNasional()
+    {
+        return json_encode($this->modelSurvei->progressNasional());
+    }
 
+    public function countProgressPerProvinsi($kode_satker)
+    {
+        return json_encode($this->modelSurvei->progressProvinsi(substr($kode_satker,0,2)));
+    }
     //--------------------------------------------------------------------
 
 }

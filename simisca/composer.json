@@ -7,7 +7,8 @@
 	"require": {
 		"php": ">=7.2",
 		"codeigniter4/framework": "^4",
-		"irsadarief/jkd-sso": "^1.6"
+		"irsadarief/jkd-sso": "^1.6",
+		"weberhofer/jsonrpcphp": "^2.2"
 	},
 	"require-dev": {
 		"fzaninotto/faker": "^1.9@dev",
@@ -30,4 +31,5 @@
 		"source": "https://github.com/codeigniter4/CodeIgniter4",
 		"slack": "https://codeigniterchat.slack.com"
 	}
+
 }

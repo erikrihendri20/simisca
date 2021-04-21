@@ -13,6 +13,7 @@ class Satker_model extends Model
 
     protected $useTimestamps = true;
 
+    
     public function filter($filter)
     {
         $this->builder()->select('namasatker as Nama Satker');
