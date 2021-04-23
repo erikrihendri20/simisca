@@ -107,7 +107,7 @@
         <div class="container py-5">
             <p class="py-3 font-weight-bold" data-aos="fade-down">Statistik Geografis Satuan Kerja BPS Indonesia</p>
             <!-- Area Chart -->
-            <div style="border-radius:20px !important;  overflow: hidden;"> <iframe id="myIframe" frameborder="0" style="height: 185px; overflow:scroll; width: 100%" src="leaflet/map.html" marginheight="1" marginwidth="1" name="cboxmain" id="cboxmain" seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true"></iframe> </div>
+            <div style="border-radius:20px !important;  overflow: hidden;"> <iframe id="myIframe" frameborder="0" style="height: 185px; overflow:scroll; width: 100%" src="leaflet/index.html" marginheight="1" marginwidth="1" name="cboxmain" id="cboxmain" seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true"></iframe> </div>
         </div>
     </div>
     </div>
