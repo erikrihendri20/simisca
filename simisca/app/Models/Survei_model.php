@@ -19,12 +19,39 @@ class Survei_model extends Model
         return $this->builder()->get()->getResultArray();
     }
 
-    public function monitor($status)
+
+    public function showTable($tahun)
     {
-        if ($status == 'selesai')
-            $this->builder()->where('submitdate!=', null);
-        elseif ($status == 'selesai sebagian')
-            $this->builder()->where('submitdate=', null);
-        return $this->builder()->countAllResults();
+        $query = "SHOW TABLES LIKE '%lime_old_survey_423492_".$tahun."%'";
+        $table = $this->db->query($query);
+        return $table->getResultArray();
+    }
+
+    public function participans()
+    {
+        $builder = $this->db->table('lime_tokens_423492');
+        return $builder->countAllResults();
+    }
+    
+    public function progressNasional()
+    {
+        $builder = $this->db->table('lime_survey_423492');
+        $builder->where('submitdate',!NULL);
+        $finish = $builder->countAllResults();
+        return [$finish , $this->participans()-$finish];
+    }
+
+    private function getSatker($kode_provinsi)
+    {
+        $builder = $this->db->table('satker');
+        // $this->builder()->join('index_satker', 'satker.kodesatker=index_satker.kodesatker');
+        // $this->builder()->select('satker.kodesatker , satker.namasatker');
+        $builder->like('satker.kodesatker', $kode_provinsi, 'after')->notLike('satker.kodesatker', '00');
+        return $builder->countAllResults();
+    }
+    
+    public function progressProvinsi($kode_provinsi)
+    {
+        return $this->getSatker($kode_provinsi);
     }
 }
