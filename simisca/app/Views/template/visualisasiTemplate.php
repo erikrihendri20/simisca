@@ -29,7 +29,7 @@
 <body>
     <nav id="bg2" class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="<?= base_url() ?>/portalvisualisasi">VISUALISASI<br>SIMISCA BPS</a>
+            <a class="navbar-brand">VISUALISASI<br>SIMISCA BPS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
