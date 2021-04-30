@@ -1,0 +1,30 @@
+.menu-content {
+  padding-right: 10px;
+  margin: 20px;
+  color: #f4c58f;
+  text-align: justify;
+}
+
+h2 {
+  color: #ffffff;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: #ffffff;
+  color: #072438;
+}
+
+.next {
+  background-color: #072438;
+  color: #ffffff;
+  border-radius: 10px;
+  float: right;
+}

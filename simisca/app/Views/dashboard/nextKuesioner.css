@@ -1,0 +1,143 @@
+.menu-content {
+  padding-right: 10px;
+}
+
+/* Head Content */
+h2 {
+  color: #ffffff;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+/* Progress Bar*/
+#progress {
+  display: flex;
+  padding-bottom: 20px;
+}
+.label {
+  font-size: 1.2em;
+  color: #ffffff;
+  width: 300px;
+}
+#progress #progress-bar {
+  width: 300px;
+  height: 1.5em;
+  background-color: #072438;
+  border-radius: 20px;
+  margin-top: 0.3em;
+}
+#progress #progress-bar #progress-fill {
+  height: 1.5em;
+  background-color: #f4c58f;
+  border-radius: 20px;
+  width: 10%;
+}
+#progress #percent {
+  width: 50px;
+  font-size: 1.2em;
+  color: #ffffff;
+  text-align: right;
+}
+
+/* Index Pertanyaan */
+.index {
+  display: flex;
+  padding-bottom: 40px;
+}
+
+select {
+  width: 350px;
+  background-color: #f4c58f;
+  border-radius: 20px;
+  color: #072438;
+  font-weight: bold;
+}
+
+/* Questionaire */
+.questionaire {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+.boxwrapper {
+  background-color: #ffffff;
+  width: 90%;
+}
+.head {
+  color: #b63d45;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 10px;
+}
+.body {
+  display: block;
+  overflow: auto;
+  height: 350px;
+}
+.rows {
+  display: flex;
+  background-color: #072438;
+  width: 100%;
+}
+.column1 {
+  width: 300px;
+}
+.question {
+  height: 20px;
+  color: #ffffff;
+  font-size: 18px;
+  margin-top: 15px;
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+.info-button {
+  width: 100px;
+  font-size: 12px;
+  margin-left: 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #f4c58f;
+  border: none;
+  white-space: nowrap;
+}
+select.dropdown {
+  margin: 20px;
+  height: 40px;
+  background-color: #f4c58f;
+  border-radius: 20px;
+  font-size: 15px;
+  width: 350px;
+}
+.space {
+  height: 8px;
+  background-color: #ffffff;
+}
+
+/* Icon */
+.icon {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.btn {
+  padding: 0px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  width: 80px;
+  height: 80px;
+  margin: 0px;
+  line-height: 10px;
+  white-space: normal;
+  word-wrap: break-word;
+}
+.btn:hover {
+  background-color: #f4c58f;
+}
+.fa-2x {
+  margin-bottom: 8px;
+}
+.text-button {
+  font-size: 12px;
+}
