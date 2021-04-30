@@ -215,6 +215,283 @@ a[data-toggle="collapse"] {
     padding-left: 10px;
 }
 
+.jumlah{
+    background-color: var(--biru);
+    width:240ppx;
+    border-radius: 10px;
+    display:grid;
+}
+
+.bi bi-building {
+    color:var(--merah);
+}
+
+.row{
+    padding: 15px 10px;
+}
+
+.rate{
+    align-content: space-between;
+    border-spacing: 10px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+}
+
+.respon{
+    background-color:var(--biru);
+    border-radius: 10px;
+    margin-right: 0px;
+    border-spacing: 15px;
+    border-spacing: 10px;
+    width: 100%;
+}
+
+.respon .responRate{
+    padding-left: 5px;
+    border-spacing: 15px;
+    border-spacing: 10px;
+    width:500px;
+    padding-right: 30px;
+}
+
+.btn-sm, .dropdown-item{
+    background-color: var(--merah);
+    color: var(--kuning);
+}
+
+.dropdown-menu{
+    background-color: var(--kuning);
+}
+
+
+.dropdown-item{
+    background-color: var(--kuning);
+    color: var(--merah)
+}
+
+.dropdown-item:hover{
+    color: var(--biru);
+}
+
+
+.jumlah{
+    background-color: var(--biru);
+    margin-right: 10px;
+    border-spacing: 10px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+}
+
+.bangunan{
+    color: var(--merah);
+    margin: auto;
+}
+
+.ket{
+    color: var(--kuning);
+}
+
+
+.box{
+    background-color:var(--merah);
+    border-radius: 10px;
+    display: grid;
+}
+
+.box .section{
+    height: 2em;
+    margin: 10px; 
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.box .section .wilayah{
+    font-size: 1.2em;
+    padding-top: 0.2em;
+    padding-left: 0.5em;
+    margin-right: -10em;
+    color: var(--kuning);
+    width: 190px;
+    border-spacing: 10px;
+}
+.box .section .progressBar{
+    width: 300px;
+    height: 1.2em;
+    background-color: var(--biru);
+	border-radius: 20px;
+    margin-top: 0.4em;
+}
+
+.box .section .progressBar .progressBarFill{
+    /* display: block; */
+	height: 1.2em;
+    background-color: orange;
+	border-radius: 20px;
+    width: 90%;
+}
+
+.visualisasi{
+    height: 300px;
+    display:grid;
+    grid-template-columns: 8fr 7fr;
+    align-items: center;
+    gap:10px;
+}
+
+.container {
+    margin-right: 10px;
+    margin: auto;
+    background-color: var(--biru);
+    border-radius: 10px;
+    height: 300px;
+}
+
+.up {
+    background-color: var(--biru); 
+    border-spacing: 15px;
+    margin-right: -15px;
+    width: 500px;
+    border-radius: 10px;
+}
+
+.card{
+    background-color: var(--biru);
+    border: none;
+}
+
+.tahun{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+.tahun .btn-group.btn{
+    height: 10px;
+}
+
+.card-img-top{
+    background-color: white;
+    border-radius: 10px;
+}
+
+.publikasi{
+    background-color: var(--biru);
+    border-radius: 10px;
+    border-spacing: 10px;
+    height: 300px;
+}
+
+
+.list-group-item:hover{
+    background-color: var(--merah);
+    color: var(--kuning);
+
+}
+
+
+.list-group-item-action{
+    background-color: var(--biru);
+}
+
+.list-group-item{
+    background-color: var(--biru);
+    border: none;
+    width: 50%;
+    padding-left: 10px;
+}
+
+.grup{
+    align-content: center;
+}
+
+.form{
+    background-color: var(--biru);
+    margin: auto;
+}
+
+.building{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+}
+
+.prof{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+}
+
+.satker{
+    width: 25%;
+    margin:auto;
+}
+
+.form .profil{
+    width:100%;
+    margin-left: 30px;
+}
+
+.row .form-control{
+    margin-right: 10%;
+    margin: auto;
+    width: 70%;
+}
+
+.row .ketprof{
+    width: 200px;
+}
+
+.lokasi{
+    background-color: var(--biru);
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+}
+
+
+.putih{
+    background-color: white;
+}
+
+.kuning{
+    background-color: var(--kuning);
+}
+
+.tul{
+    color: var(--merah);
+}
+
+.indeks{
+    background-color: var(--biru);
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+}
+
+table{
+    width: 100%;
+    margin-left: 15px;
+}
+
+table td{
+    padding-left: 10px;
+}
+
+.rekomendasi{
+    background-color: var(--biru);
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+}
+
+.area{
+    width: 70%;
+    margin-left: 15px;
+}
+
+.rekomHasil{
+    margin-right: -20px;
+}
 
 /* ---------------------------------------------------
     MEDIAQUERIES
@@ -256,5 +533,64 @@ a[data-toggle="collapse"] {
     }
     .navbar-right {
         flex-direction: unset;
+    }
+
+    .jumlah{
+        display: none;
+    }
+
+    .box{
+        grid-template-columns: 1fr;
+    }
+
+    .respon{
+        margin: auto;
+        width: 90%;
+    }
+
+    .responRate{
+        margin-bottom: 5px;
+        margin-right: 0px;
+    }
+
+    .card-text{
+        justify-content: center;
+    }
+
+    .list-group-item{
+        width:100%;
+        align-content: center;
+    }
+
+    .list{
+        width:100%;
+        align-content: center;
+        font-size: 13px;
+        margin-right: 20px;
+        margin-left: -5px;
+    }
+
+
+    .row .ketprof{
+        width: 50%;
+    }
+
+    .building, .lokasi, .indeks, .rekomendasi{
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .prof{
+        grid-template-columns: 1fr 3fr;
+        margin-right:-20px;
+        margin-left: -50px;
+    }
+
+    .satker{
+        margin-right: 40px;
+        margin-left: -5px;
+    }
+
+    .hasil{
+        margin-left:30px;
     }
 }
