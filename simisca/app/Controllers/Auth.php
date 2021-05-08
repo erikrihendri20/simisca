@@ -163,8 +163,9 @@ class Auth extends BaseController
             try {
 
                 $user = $provider->getResourceOwner($token);
-
+                
                 $data = [
+                    'SSOLog' => true,
                     'nama' => $user->getName(),
                     'email' => $user->getEmail(),
                     'username' => $user->getUsername(),

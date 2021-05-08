@@ -61,7 +61,7 @@
                     </button>
                     <div class="nav navbar-nav navbar-right">
                         <a href="#"><span class="fas fa-bell"></span></a>
-                        <a href="#"><span class="fas fa-sign-out-alt"></span></a>
+                        <a href="<?= base_url('auth/logout'); ?>"><span class="fas fa-sign-out-alt"></span></a>
                     </div>
                 </div>
             </nav>

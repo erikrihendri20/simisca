@@ -14,7 +14,6 @@ class Dashboard extends BaseController
 
     public function __construct()
     {
-        helper("Auth");
         $this->modelSurvei = new Survei_model();
         $this->modelSatker = new Satker_model();
         $this->modelSampelSatker = new Sampel_satker_model();
