@@ -8,16 +8,6 @@ use App\Models\Sampel_satker_model;
 
 class Dashboard extends BaseController
 {
-    private $modelSurvei = null;
-    private $modelSatker = null;
-    private $modelSampelSatker = null;
-
-    public function __construct()
-    {
-        $this->modelSurvei = new Survei_model();
-        $this->modelSatker = new Satker_model();
-        $this->modelSampelSatker = new Sampel_satker_model();
-    }
 
     public function index()
     {
@@ -46,18 +36,18 @@ class Dashboard extends BaseController
         return view("dashboard/nextKuesioner",$data);
     }
 
-    public function survey()
-    {
-        Auth();
-        if (isset($this->modelSurvei->getToken(session('email'))[0]['token'])) {
-            $data = [
-                'token' => $this->modelSurvei->getToken(session('email'))[0]['token']
-            ];
-        } else {
-            $data = [];
-        }
-        return view('dashboard/survei', $data);
-    }
+    // public function survey()
+    // {
+    //     Auth();
+    //     if (isset($this->modelSurvei->getToken(session('email'))[0]['token'])) {
+    //         $data = [
+    //             'token' => $this->modelSurvei->getToken(session('email'))[0]['token']
+    //         ];
+    //     } else {
+    //         $data = [];
+    //     }
+    //     return view('dashboard/survei', $data);
+    // }
 
     public function monitoring()
     {
@@ -65,7 +55,8 @@ class Dashboard extends BaseController
         $data['script'] = 'monitoring';
         $data['active'] = 'monitoring';
         $data['title'] = 'Monitoring';
-        $data['satker'] = $this->modelSampelSatker->getSatker();
+        $sampelSatkerModel = new Sampel_satker_model();
+        $data['provinsi'] = $sampelSatkerModel->getSatker();
         return view('dashboard/monitoring',$data);
     }
 
@@ -116,19 +107,7 @@ class Dashboard extends BaseController
         return view("dashboard/tentang",$data);
     }
 
-    public function FunctionName()
-    {
-        dd($this->modelSurvei->participans());
-    }
-    public function countProgressNasional()
-    {
-        return json_encode($this->modelSurvei->progressNasional());
-    }
-
-    public function countProgressPerProvinsi($kode_satker)
-    {
-        return json_encode($this->modelSurvei->progressProvinsi(substr($kode_satker,0,2)));
-    }
+    
     //--------------------------------------------------------------------
 
 }

@@ -17,11 +17,9 @@
                 <div class="cards">
                     <h2 class="title" id="provText">Provinsi</h2>
                     <select name="num" id="provinsiChoose">
-                        <option value="">DKI Jakarta</option>
-                        <option value="1">Jawa Barat</option>
-                        <option value="2">Papua Barat</option>
-                        <option value="3">Bali</option>
-                        <option value="4">Sumatera Barat</option>
+                        <?php foreach ($provinsi as $prov) :?>
+                            <option value="<?= $prov['kodesatker']; ?>"><?= $prov['namasatker']; ?></option>
+                        <?php endforeach; ?>
                     </select>
                     <div class="percent">
                         <svg>
