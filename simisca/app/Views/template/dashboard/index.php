@@ -6,13 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Dashboard SIMISCA BPS</title>
+    <title><?= $title; ?> SIMISCA BPS</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="kuesioner.css">
+    <?php if($style=='index'): ?>
+        <link rel="stylesheet" href="<?= base_url('css/dashboard/index.css'); ?>">
+    <?php else: ?>
+        <link rel="stylesheet" href="<?= base_url('css/dashboard/index.css'); ?>">
+        <link rel="stylesheet" href="<?= base_url('css/dashboard/' . $style . '.css'); ?>">
+    <?php endif; ?>
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -26,7 +30,6 @@
 <body>
 
     <div class="wrapper">
-        <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header">
                 <h3>Dashboard<span> SIMISCA BPS</span></h3>
@@ -36,14 +39,14 @@
             </div>
 
             <center>
-                <img src="pkl.png" class="profile_image" alt="">
+                <img src="<?= base_url('img/dashboard/pkl.png'); ?>" class="profile_image" alt="">
             </center>
-            <a href="main.html"><i class="fas fa-home"></i><span>Halaman Utama</span></a>
-            <a href="kuesioner.html" class="active"><i class="fas fa-book-open"></i><span>SMKB Satker</span></a>
-            <a href="monitoring.html"><i class="fas fa-desktop"></i><span>Monitoring SMKB</span></a>
-            <a href="pengolahan.html"><i class="fas fa-cogs"></i><span>Pengolahan SMKB</span></a>
-            <a href="profil.html"><i class="fas fa-user"></i><span>Profil Anda</span></a>
-            <a href="tentang.html"><i class="fas fa-info-circle"></i><span>Tentang</span></a>
+            <a href="<?= base_url('dashboard'); ?>" class="<?= ($active=='dashboard') ? 'active' : ''; ?>"><i class="fas fa-home"></i><span>Halaman Utama</span></a>
+            <a href="<?= base_url('dashboard/kuesioner'); ?>" class="<?= ($active=='kuesioner') ? 'active' : ''; ?>"><i class="fas fa-book-open"></i><span>SMKB Satker</span></a>
+            <a href="<?= base_url('dashboard/monitoring'); ?>" class="<?= ($active=='monitoring') ? 'active' : ''; ?>"><i class="fas fa-desktop"></i><span>Monitoring SMKB</span></a>
+            <a href="<?= base_url('dashboard/pengolahan'); ?>" class="<?= ($active=='pengolahan') ? 'active' : ''; ?>"><i class="fas fa-cogs"></i><span>Pengolahan SMKB</span></a>
+            <a href="<?= base_url('dashboard/profil'); ?>" class="<?= ($active=='profil') ? 'active' : ''; ?>"><i class="fas fa-user"></i><span>Profil Anda</span></a>
+            <a href="<?= base_url('dashboard/tentang'); ?>" class="<?= ($active=='tentang') ? 'active' : ''; ?>"><i class="fas fa-info-circle"></i><span>Tentang</span></a>
         </nav>
 
         <!-- Page Content Holder -->
@@ -62,21 +65,17 @@
                     </div>
                 </div>
             </nav>
-            <div class="menu-content">
-                <div>
-                    <h2>Sensus Mitigasi dan Kesiapsiagaan Terhadap Bencana Satuan Kerja Badan Pusat Statistik (BPS) di Seluruh Indonesia</h2>
-                </div>
-                <div>
-                    <p>Sensus ini merupakan suatu kegiatan pencacahan data secara lengkap terhadap satuan kerja BPS di seluruh Indonesia yang bertujuan untuk menyediakan data tingkat mitigasi dan kesiapsiagaan bencana masing-masing BPS di seluruh Indonesia.</p>
-                    <p>Bencana yang tercakup dalam sensus ini adalah bencana alam dan non alam (kebakaran dan Covid-19) yang akan disajikan dalam bentuk indeks komposit yang dinamakan dengan Indeks Mitigasi dan Kesiapsiagaan Bencana (IMKB) Satuan kerja BPS. Indeks tersebut dibangun oleh berbagai dimensi, indikator, dan variabel yang berkaitan dengan mitigasi dan kesiapsiagaan bencana.</p>
-                    <p>Selain itu, sensus ini juga bertujuan untuk mengetahui determinan apa saja yang memengaruhi tingkat mitigasi dan kesiapsiagaan bencana di BPS di seluruh Indonesia. Harapannya, dari informasi yang disajikan dapat berguna sebagai dasar untuk pengembangan dan perbaikan kebijakan terkait mitigasi dan kesiapsiagaan terhadap bencana di BPS.</p>
-                </div>
-                <div>
-                    <a href="nextKuesioner.html" class="next">BERIKUTNYA &raquo;</a>
-                </div>
-            </div>
+
+            <?= $this->renderSection('content'); ?>
+        
         </div>
+
+
+
     </div>
+
+    
+
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -85,21 +84,18 @@
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#sidebarCollapse').on('click', function() {
-                $('#sidebar').toggleClass('active');
-                $('#overlay').addClass('active');
-                $('.collapse.in').toggleClass('in');
-                $(this).toggleClass('active');
-            });
-            $('#dismiss').on('click', function() {
-                $('#sidebar').removeClass('active');
-                $('#overlay').removeClass('active');
-                $('#sidebarCollapse').removeClass('active');
-            });
-        });
-    </script>
+    <!-- index -->
+    <?php if($script=='index'): ?>
+        <script src="<?= base_url('js/dashboard/index.js'); ?>"></script>
+    <?php else: ?>
+        <script src="<?= base_url('js/dashboard/index.js'); ?>"></script>
+        <script src="<?= base_url('js/dashboard/' . $script . '.js'); ?>"></script>
+    <?php endif; ?>
+    
+    
+
+
+
 </body>
 
 </html>
