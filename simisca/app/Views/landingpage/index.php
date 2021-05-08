@@ -40,7 +40,7 @@
                     <a class="nav-item nav-link" href="#portalVisualisasi">Visualisasi</a>
                     <a class="nav-item nav-link" href="#kontak">Kontak</a>
                     <span class="line"></span>
-                    <a class="nav-item nav-link login-btn" href="" onclick="loginSSO()">Login</a>
+                    <button class="nav-item nav-link login-btn" onclick="loginSSO()">Login</button>
                 </div>
             </div>
         </div>
