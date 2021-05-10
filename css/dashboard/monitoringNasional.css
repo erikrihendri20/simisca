@@ -43,10 +43,14 @@
     flex-direction: column;
 }
 #nasionalTable div table{
-    margin-left: 10px;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
 }
 #nasionalTable th{
     width: 200px;
+}
+#nasionalTable th{
     text-align: left;
     background-color: #072438;
     color: #F4C58F;
@@ -100,7 +104,7 @@ tr:nth-child(2n){
     padding: 10px;
 }
 .cirBar{
-    position: relative;
+    /* position: relative; */
     width: 300px;
     height: 150px;
     display: flex;
@@ -171,10 +175,13 @@ tr:nth-child(2n){
     /* margin-top: 10px; */
 }
 #provinsiPart .box{
-    width: 600px;
+    width: 700px;
+    height: 350px;
     background-color: #072438;
     border-radius: 10px;
     padding: 10px;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 #provinsiPart div p{
     color: #ffffff;
@@ -186,7 +193,7 @@ tr:nth-child(2n){
 #provinsiPart .box .section{
     background-color: #ffffff;
     height: 2em;
-    margin: 10px; 
+    margin: 10px;
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
@@ -196,10 +203,10 @@ tr:nth-child(2n){
     padding-top: 0.2em;
     padding-left: 0.5em;
     color: #072438;
-    width: 190px;
+    width: 50%;
 }
 #provinsiPart .box .section .progressBar{
-    width: 300px;
+    width: 40%;
     height: 1.2em;
     background-color: #072438;
 	border-radius: 20px;
@@ -210,7 +217,8 @@ tr:nth-child(2n){
 	height: 1.2em;
     background-color: #F4C58F;
 	border-radius: 20px;
-    width: 90%;
+    /* CHANGE THIS TO CHANGE THE PROGRESS BAR */
+    width: 80%;
 }
 #provinsiPart .box .section .percentage{
     width: 40px;
@@ -259,8 +267,9 @@ tr:nth-child(2n){
     flex-direction: column;
 }
 #satkerPart .satkerStatusBox table{
-    width: 500px;
-    margin-left: 15px;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
 }
 #satkerPart .satkerStatusBox table th{
     width: 200px;
@@ -278,9 +287,10 @@ tr:nth-child(2n){
 #satkerPart .satkerStatusBox #tableSetting{
     display: flex;
     justify-content: space-between;
+    width: 95%;
     margin-bottom: 5px;
-    margin-left: 15px;
-    margin-right: 15px;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
 }
 #satkerPart .satkerStatusBox #tableSetting .nRows{
     width: 100px;
@@ -319,4 +329,30 @@ tr:nth-child(2n){
 }   
 #satkerPart .satkerStatusBox .footNote .lanjut:hover{
     cursor: pointer;
+}
+@media (max-width: 768px){
+    #nasionalPart{
+        flex-direction: column;
+    }
+    #nasionalPart .tableBox{
+        display: flex;
+        justify-content: center;
+    }
+    #nasionalPart .progressBox{
+        display: flex;
+        justify-content: center;
+    }
+    #nasionalPart .cirBar{
+        margin-top: 10px;
+    }
+}
+@media (max-width: 576px){
+    #provinsiPart .box{
+        width: 100%;
+        font-size: 0.7em;
+    }
+    #satkerPart .satkerStatusBox{
+        width: 100%;
+        font-size: 0.7em;
+    }
 }
