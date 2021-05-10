@@ -30,7 +30,7 @@
                             <h2 id="persentaseNumberProvinsi">0<span>%</span></h2>
                         </div>
                     </div>
-                    <a href="<?= base_url('dashboard/monitoringProvinsi'); ?>"class="text">Lihat detail</a>
+                    <a href="<?= base_url('dashboard/monitoringProvinsi/1100'); ?>"class="text" id="detailProvinsi">Lihat detail</a>
                 </div>
             </div>
 <?= $this->endSection(); ?>

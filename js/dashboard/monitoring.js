@@ -5,6 +5,7 @@ $(document).ready(function() {
             function(data){
                 $('#persentaseProvinsi').css('stroke-dashoffset','calc(440 - (440 * '+data+')/100)')
                 $('#persentaseNumberProvinsi').html(data+'<span>%</span>')
+                $('#detailProvinsi').attr('href',"monitoringProvinsi/"+$('#provinsiChoose').val())
             })
     }
     $('#provinsiChoose').change(function(){

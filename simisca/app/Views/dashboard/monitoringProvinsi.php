@@ -5,16 +5,16 @@
                     <p><span><a href="monitoring.html">Monitoring SMKB</a></span> / <span><a href="monitoringProvinsi.html">Provinsi</a></span></p>
                 </div>
                 <div>
-                    <p id="title1">Progress Provinsi <span>Sumatera Barat</span></p>
+                    <p id="title1">Progress <?= $satker['namasatker']; ?></p>
                 </div>
                 <div id="provinsiPart">
                     <div>
                         <div id="provinsiTable" class="table">
                             <div id="exportProvinsi">
-                                <p>Export Data</p>
+                                <p id="tombolExportProvinsi">Export Data</p>
                             </div>
                             <div>
-                                <table>
+                                <table id="detailMonitoringProvinsi">
                                     <thead>
                                         <tr>
                                             <th>Status</th>
@@ -24,21 +24,21 @@
                                     <tbody>
                                         <tr>
                                             <td>Sudah Mengisi</td>
-                                            <td>14</td>
+                                            <td><?= $detailProgressProvinsi['selesai mengisi']; ?></td>
                                         </tr>
                                         <tr>
                                             <td>Belum mengisi</td>
-                                            <td>5</td>
+                                            <td><?= $detailProgressProvinsi['belum mengisi']; ?></td>
                                         </tr>
                                         <tr>
                                             <td>Belum Selesai</td>
-                                            <td>0</td>
+                                            <td><?= $detailProgressProvinsi['sudah mengisi']; ?></td>
                                         </tr>
                                     </tbody>
                                     <tfoot>
                                         <tr>
                                             <th>Total</th>
-                                            <th>19</th>
+                                            <th><?= array_sum($detailProgressProvinsi); ?></th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -49,10 +49,10 @@
                         <div class="percent">
                             <svg>
                                 <circle cx="70" cy="70" r="70"></circle>
-                                <circle cx="70" cy="70" r="70" id="edit"></circle>
+                                <circle cx="70" cy="70" r="70" id="edit" style="stroke-dashoffset: calc(440 - (440 * <?= $persentaseProvinsi; ?>)/100);"></circle>
                             </svg>
                             <div class="number">
-                                <h2>87<span>%</span></h2>
+                                <h2><?= $persentaseProvinsi; ?><span>%</span></h2>
                             </div>
                         </div>
                     </div>

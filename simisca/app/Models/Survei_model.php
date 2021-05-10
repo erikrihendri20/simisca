@@ -65,17 +65,37 @@ class Survei_model extends Model
         return round(($mengisi/$this->participans($kodesatker)*100),2);
     }
 
-    public function detailProgressNasional()
+
+    public function detailProgress($kodesatker=null)
     {
+        if($kodesatker==null){
+            $builderSelesaiMengisi = $this->db->table('lime_survey_423492');
+            $builderSelesaiMengisi->where('submitdate!=',NULL);
+            $selesaiMengisi = $builderSelesaiMengisi->countAllResults();
+
+            $builderSudahMengisi = $this->db->table('lime_survey_423492');
+            $builderSudahMengisi->where('submitdate',NULL);
+            $sudahMengisi = $builderSudahMengisi->countAllResults();
+            
+            $belumMengisi = $this->participans() - $sudahMengisi - $selesaiMengisi;
+
+            return [
+                'belum mengisi' => $belumMengisi,
+                'sudah mengisi' => $sudahMengisi,
+                'selesai mengisi' => $selesaiMengisi
+            ];
+        }
         $builderSelesaiMengisi = $this->db->table('lime_survey_423492');
         $builderSelesaiMengisi->where('submitdate!=',NULL);
+        $builderSelesaiMengisi->where('423492X1X67',$kodesatker);
         $selesaiMengisi = $builderSelesaiMengisi->countAllResults();
 
         $builderSudahMengisi = $this->db->table('lime_survey_423492');
         $builderSudahMengisi->where('submitdate',NULL);
+        $builderSudahMengisi->where('423492X1X67',$kodesatker);
         $sudahMengisi = $builderSudahMengisi->countAllResults();
         
-        $belumMengisi = $this->participans() - $sudahMengisi - $selesaiMengisi;
+        $belumMengisi = $this->participans($kodesatker) - $sudahMengisi - $selesaiMengisi;
 
         return [
             'belum mengisi' => $belumMengisi,
