@@ -6,33 +6,31 @@
                     <div class="percent">
                         <svg>
                             <circle cx="70" cy="70" r="70"></circle>
-                            <circle cx="70" cy="70" r="70" id="edit"></circle>
+                            <circle cx="70" cy="70" r="70" id="persentaseNasional" style="stroke-dashoffset: calc(440 - (440 * <?= $persentaseNasional; ?>)/100);"></circle>
                         </svg>
                         <div class="number">
-                            <h2>87<span>%</span></h2>
+                            <h2><?= $persentaseNasional; ?><span>%</span></h2>
                         </div>
                     </div>
-                    <a href="monitoringNasional.html"class="text">Lihat detail</a>
+                    <a href="<?= base_url('dashboard/monitoringNasional'); ?>"class="text">Lihat detail</a>
                 </div>
                 <div class="cards">
                     <h2 class="title" id="provText">Provinsi</h2>
                     <select name="num" id="provinsiChoose">
-                        <option value="">DKI Jakarta</option>
-                        <option value="1">Jawa Barat</option>
-                        <option value="2">Papua Barat</option>
-                        <option value="3">Bali</option>
-                        <option value="4">Sumatera Barat</option>
+                        <?php foreach ($provinsi as $prov) :?>
+                            <option value="<?= $prov['kodesatker']; ?>"><?= $prov['namasatker']; ?></option>
+                        <?php endforeach; ?>
                     </select>
                     <div class="percent">
                         <svg>
                             <circle cx="70" cy="70" r="70"></circle>
-                            <circle cx="70" cy="70" r="70" id="edit"></circle>
+                            <circle cx="70" cy="70" r="70" id="persentaseProvinsi"></circle>
                         </svg>
                         <div class="number">
-                            <h2>87<span>%</span></h2>
+                            <h2 id="persentaseNumberProvinsi">0<span>%</span></h2>
                         </div>
                     </div>
-                    <a href="monitoringProvinsi.html"class="text">Lihat detail</a>
+                    <a href="<?= base_url('dashboard/monitoringProvinsi'); ?>"class="text">Lihat detail</a>
                 </div>
             </div>
 <?= $this->endSection(); ?>

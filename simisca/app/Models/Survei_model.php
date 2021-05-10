@@ -27,31 +27,69 @@ class Survei_model extends Model
         return $table->getResultArray();
     }
 
-    public function participans()
+    public function participans($kodesatker=null)
     {
         $builder = $this->db->table('lime_tokens_423492');
-        return $builder->countAllResults();
+        if($kodesatker==null){
+            return $builder->countAllResults();
+        }else{
+            $builder = $this->db->table('satker');
+            $builder->like('kodesatker',$kodesatker,'after');
+            return $builder->countAllResults();
+        }
     }
     
     public function progressNasional()
     {
         $builder = $this->db->table('lime_survey_423492');
-        $builder->where('submitdate',!NULL);
-        $finish = $builder->countAllResults();
-        return [$finish , $this->participans()-$finish];
+        $builder->where('submitdate!=',NULL);
+        $mengisi = $builder->countAllResults();
+        return round(($mengisi/$this->participans()*100),2);
     }
 
-    private function getSatker($kode_provinsi)
+    // private function getSatker($kode_provinsi)
+    // {
+    //     $builder = $this->db->table('satker');
+    //     // $this->builder()->join('index_satker', 'satker.kodesatker=index_satker.kodesatker');
+    //     // $this->builder()->select('satker.kodesatker , satker.namasatker');
+    //     $builder->like('satker.kodesatker', $kode_provinsi, 'after')->notLike('satker.kodesatker', '00');
+    //     return $builder->countAllResults();
+    // }
+
+    public function progressProvinsi($kodesatker)
     {
-        $builder = $this->db->table('satker');
-        // $this->builder()->join('index_satker', 'satker.kodesatker=index_satker.kodesatker');
-        // $this->builder()->select('satker.kodesatker , satker.namasatker');
-        $builder->like('satker.kodesatker', $kode_provinsi, 'after')->notLike('satker.kodesatker', '00');
-        return $builder->countAllResults();
+        $builder = $this->db->table('lime_survey_423492');
+        $builder->where('submitdate!=',NULL);
+        $builder->where('423492X1X67',$kodesatker);
+        $mengisi = $builder->countAllResults();
+        return round(($mengisi/$this->participans($kodesatker)*100),2);
+    }
+
+    public function detailProgressNasional()
+    {
+        $builderSelesaiMengisi = $this->db->table('lime_survey_423492');
+        $builderSelesaiMengisi->where('submitdate!=',NULL);
+        $selesaiMengisi = $builderSelesaiMengisi->countAllResults();
+
+        $builderSudahMengisi = $this->db->table('lime_survey_423492');
+        $builderSudahMengisi->where('submitdate',NULL);
+        $sudahMengisi = $builderSudahMengisi->countAllResults();
+        
+        $belumMengisi = $this->participans() - $sudahMengisi - $selesaiMengisi;
+
+        return [
+            'belum mengisi' => $belumMengisi,
+            'sudah mengisi' => $sudahMengisi,
+            'selesai mengisi' => $selesaiMengisi
+        ];
+    }
+
+    public function statusPengisianSatker()
+    {
+        $builder = $this->db->table('lime_survey_423492');
+        $builder->select('namasatker , submitdate , lastpage');
+        $builder->join('satker','kodesatker=423492X1X68','right');
+        return $builder->get()->getResultArray();
     }
     
-    public function progressProvinsi($kode_provinsi)
-    {
-        return $this->getSatker($kode_provinsi);
-    }
 }
