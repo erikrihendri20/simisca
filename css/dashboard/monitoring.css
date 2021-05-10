@@ -58,8 +58,6 @@
     stroke: #B63D45;
 }
 .cards .percent svg circle:nth-child(2){
-    /* 87 % just change 87 into any percentage that you wanted */
-    stroke-dashoffset: calc(440 - (440 * 87)/100);
     stroke: #F4C58F;
 }
 .cards .percent .number{

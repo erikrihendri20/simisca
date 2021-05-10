@@ -25,4 +25,6 @@ class Sampel_satker_model extends Model
             return $this->builder()->get()->getResultArray();
         }
     }
+
+    
 }

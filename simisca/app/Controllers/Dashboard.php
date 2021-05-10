@@ -57,6 +57,8 @@ class Dashboard extends BaseController
         $data['title'] = 'Monitoring';
         $sampelSatkerModel = new Sampel_satker_model();
         $data['provinsi'] = $sampelSatkerModel->getSatker();
+        $surveyModel = new Survei_model();
+        $data['persentaseNasional'] = $surveyModel->progressNasional();
         return view('dashboard/monitoring',$data);
     }
 
@@ -66,8 +68,45 @@ class Dashboard extends BaseController
         $data['script'] = 'monitoringNasional';
         $data['active'] = 'monitoring';
         $data['title'] = 'Monitoring Nasional';
-        $data['satker'] = $this->modelSampelSatker->getSatker();
+        $sampelSatkerModel = new Sampel_satker_model();
+        $data['provinsi'] = $sampelSatkerModel->getSatker();
+        $surveyModel = new Survei_model();
+        $data['persentaseNasional'] = $surveyModel->progressNasional();
+        $data['progress'] = [];
+        foreach ($data['provinsi'] as $prov) :
+            $kodesatker = substr($prov['kodesatker'],0,2);
+            $progressProvinsi = $surveyModel->progressProvinsi($kodesatker);
+            $progress = [
+                'kodesatker' => $prov['kodesatker'],
+                'namasatker' => $prov['namasatker'],
+                'persentase' => $progressProvinsi
+            ];
+            $data['progressPerProvinsi'][]=$progress;
+        endforeach;
+        
+        $data['detailProgressNasional'] = $surveyModel->detailProgressNasional();
+        $data['statusPengisianNasional'] = $surveyModel->statusPengisianSatker();
+        
+        $data['statusPengisian'] = [];
+        foreach ($data['statusPengisianNasional'] as $s) :
+            $status['namasatker'] = $s['namasatker'];
+            if($s['lastpage']==null){
+                $status['status'] = 'belum mengisi';
+            }elseif($s['submitdate']==null){
+                $status['status'] = 'sedang mengisi';
+            }else{
+                $status['status'] = 'selesai mengisi';
+            }
+            $data['statusPengisian'][]=$status;
+        endforeach;
         return view('dashboard/monitoringNasional',$data);
+    }
+
+    public function persentasePerProvinsi($kodesatker)
+    {
+        $surveyModel = new Survei_model();
+        $progressProvinsi = $surveyModel->progressProvinsi($kodesatker);
+        return json_encode($progressProvinsi);
     }
 
     public function monitoringProvinsi()
@@ -76,7 +115,8 @@ class Dashboard extends BaseController
         $data['script'] = 'monitoringProvinsi';
         $data['active'] = 'monitoring';
         $data['title'] = 'Monitoring Provinsi';
-        $data['satker'] = $this->modelSampelSatker->getSatker();
+        $sampelSatkerModel = new Sampel_satker_model();
+        $data['provinsi'] = $sampelSatkerModel->getSatker();
         return view('dashboard/monitoringProvinsi',$data);
     }
 
