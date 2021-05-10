@@ -122,7 +122,43 @@ class Dashboard extends BaseController
         $data['persentaseProvinsi'] = $this->persentasePerProvinsi(substr($kodesatker,0,2));
 
         $data['detailProgressProvinsi'] = $surveyModel->detailProgress(substr($kodesatker,0,2));
-        $data['provinsi'] = $sampelSatkerModel->getSatker();
+        $data['kabupaten'] = $sampelSatkerModel->getSatker(substr($kodesatker,0,2));
+        array_unshift($data['kabupaten'] , $data['satker']);
+
+        $data['progressPerkabupaten'] = [];
+        
+        
+        foreach ($data['kabupaten'] as $kab) :
+            $ks = $kab['kodesatker'];
+            $persentase = $surveyModel->progressKabupaten($ks);
+            if($persentase==null){
+                $persentase = 0/8*100;
+            }else{
+                $persentase = $persentase[0]['lastpage']/8*100;
+            }
+            $progress = [
+                'kodesatker' => $kab['kodesatker'],
+                'namasatker' => $kab['namasatker'],
+                'persentase' => $persentase
+            ];
+            $data['progressPerkabupaten'][]=$progress;
+        endforeach;
+
+        $data['statusPengisianProvinsi'] = $surveyModel->statusPengisianSatker(substr($kodesatker,0,2));
+
+        $data['statusPengisian'] = [];
+        foreach ($data['statusPengisianProvinsi'] as $s) :
+            $status['namasatker'] = $s['namasatker'];
+            if($s['lastpage']==null){
+                $status['status'] = 'belum mengisi';
+            }elseif($s['submitdate']==null){
+                $status['status'] = 'sedang mengisi';
+            }else{
+                $status['status'] = 'selesai mengisi';
+            }
+            $data['statusPengisian'][]=$status;
+        endforeach;
+
         return view('dashboard/monitoringProvinsi',$data);
     }
 

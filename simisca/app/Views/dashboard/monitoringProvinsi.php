@@ -62,48 +62,22 @@
                         <p>Progress Berdasarkan Kabupaten/Kota</p>
                     </div>
                     <div class="box">
-                        <div class="section">
-                            <div  class="prov">
-                                <span>Kota Padang</span>
+                        <?php foreach ($progressPerkabupaten as $kab) :?>
+                            <div class="section">
+                                <div  class="prov">
+                                    <span><?= $kab['namasatker']; ?></span>
+                                </div>
+                                <div class="progressBar">
+                                    <div class="progressBarFill" style="width: <?= $kab['persentase']; ?>%;"></div>
+                                </div>
+                                <div class="percentage">
+                                    <span class="changePercent"><?= $kab['persentase']; ?>%</span>
+                                </div>
+                                <div class="greater">
+                                    <span class="greaterIn">></span>
+                                </div>
                             </div>
-                            <div class="progressBar">
-                                <div class="progressBarFill"></div>
-                            </div>
-                            <div class="percentage">
-                                <span class="changePercent">80%</span>
-                            </div>
-                            <div class="greater">
-                                <span class="greaterIn">></span>
-                            </div>
-                        </div>
-                        <div class="section">
-                            <div  class="prov">
-                                <span>Kota Bukittinggi</span>
-                            </div>
-                            <div class="progressBar">
-                                <div class="progressBarFill"></div>
-                            </div>
-                            <div class="percentage">
-                                <span class="changePercent">80%</span>
-                            </div>
-                            <div class="greater">
-                                <span class="greaterIn">></span>
-                            </div>
-                        </div>
-                        <div class="section">
-                            <div  class="prov">
-                                <span>Kab. Tanah Datar</span>
-                            </div>
-                            <div class="progressBar">
-                                <div class="progressBarFill"></div>
-                            </div>
-                            <div class="percentage">
-                                <span class="changePercent">80%</span>
-                            </div>
-                            <div class="greater">
-                                <span class="greaterIn">></span>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>            
                 </div>
                 <div id="satkerPart">
@@ -111,25 +85,8 @@
                         <p>Status Pengisian Berdasarkan Satuan Kerja</p>
                     </div>
                     <div class="satkerStatusBox">
-                        <div id="tableSetting">
-                            <div class="nRows">
-                                <span>Show</span>
-                                <select name="nrow" id="rowChoose">
-                                    <option value="5">5</option>
-                                    <option value="10">10</option>
-                                </select>
-                            </div>
-                            <div>
-                                <div id="desc">
-                                    <input name="num" id="satkerSearch">
-                                </div>
-                            </div>
-                            <div>
-                                <button id="buttonExport">Export</button>
-                            </div>
-                        </div>
                         <div>
-                            <table>
+                            <table id="statusPengisian">
                                 <thead>
                                     <tr>
                                         <th>Nama Satker</th>
@@ -137,22 +94,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>BPS Provinsi Sumatera Barat</td>
-                                        <td>Sudah Mengisi</td>
-                                    </tr>
-                                    <tr>
-                                        <td>BPS Kabupaten Agam</td>
-                                        <td>Belum Mengisi</td>
-                                    </tr>
-                                    <tr>
-                                        <td>BPS Kota Padang</td>
-                                        <td>Belum Mengisi</td>
-                                    </tr>
+                                    <?php foreach ($statusPengisian as $s) :?>
+                                        <tr>
+                                            <td><?= $s['namasatker']; ?></td>
+                                            <td><?= $s['status']; ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                                 <tfoot>
                                     <th>Total</th>
-                                    <th>517</th>
+                                    <th><?= count($statusPengisian); ?></th>
                                 </tfoot>
                             </table>
                         </div>

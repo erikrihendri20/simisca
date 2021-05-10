@@ -65,6 +65,16 @@ class Survei_model extends Model
         return round(($mengisi/$this->participans($kodesatker)*100),2);
     }
 
+    public function progressKabupaten($kodesatker)
+    {
+        $builder = $this->db->table('lime_survey_423492');
+        $builder->select('lastpage');
+        $builder->where('423492X1X68',$kodesatker);
+        $builder->orderBy('lastpage','desc');
+        $builder->limit(1);
+        return $builder->get()->getResultArray();
+    }
+
 
     public function detailProgress($kodesatker=null)
     {
@@ -104,12 +114,23 @@ class Survei_model extends Model
         ];
     }
 
-    public function statusPengisianSatker()
+    public function statusPengisianSatker($kodesatker=null)
     {
-        $builder = $this->db->table('lime_survey_423492');
-        $builder->select('namasatker , submitdate , lastpage');
-        $builder->join('satker','kodesatker=423492X1X68','right');
-        return $builder->get()->getResultArray();
+        if($kodesatker==null){
+            $builder = $this->db->table('lime_survey_423492');
+            $builder->select('namasatker , submitdate , lastpage');
+            $builder->join('satker','kodesatker=423492X1X68','right');
+            return $builder->get()->getResultArray();
+        }else{
+            $builder = $this->db->table('lime_survey_423492');
+            $builder->select('namasatker , submitdate , lastpage');
+            $builder->like('kodesatker',substr($kodesatker,0,2),'after');
+            $builder->join('satker','kodesatker=423492X1X68','right');
+            return $builder->get()->getResultArray();
+        }
+        
     }
+
+    
     
 }
