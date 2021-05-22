@@ -239,6 +239,10 @@ h2 {
     color: #b63d45;
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
 /* Footer */
 

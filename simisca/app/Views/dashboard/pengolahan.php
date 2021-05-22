@@ -10,7 +10,7 @@
                 <li>Apa</li>
             </ol>
             
-            <table id="raw-data" style="position: fixed; visibility: hidden;" >
+            <table id="raw-data" style="position: absolute; visibility: hidden;" >
                 <thead>
                     <th>id</th>
                     <th>submitdate</th>
@@ -131,6 +131,91 @@
                     <th>R3B05Q005</th>
 
                     <th>R3B06Q001</th>
+
+                    <th>interviewtime</th>
+                    <th>groupTime147</th>
+                    <th>R3B01Q001Time</th>
+                    <th>R3B01Q002Time</th>
+                    <th>R3B01Q003Time</th>
+                    <th>R3B01Q004Time</th>
+                    <th>R3B01Q005Time</th>
+                    <th>R3B01Q006Time</th>
+                    <th>R3B01Q007Time</th>
+
+                    <th>groupTime148</th>
+                    <th>R3B02Q001Time</th>
+                    <th>R3B02Q002Time</th>
+                    <th>R3B02Q003Time</th>
+                    <th>R3B02Q004Time</th>
+                    <th>R3B02Q005Time</th>
+
+                    <th>groupTime149</th>
+                    <th>R3B03Q001Time</th>
+                    <th>R3B03Q002Time</th>
+                    <th>R3B03Q003Time</th>
+                    <th>R3B03Q004Time</th>
+
+                    <th>groupTime239</th>
+                    <th>R3B04Q001Time</th>
+                    <th>R3B04Q002Time</th>
+                    <th>R3B04Q003Time</th>
+                    <th>R3B04Q004Time</th>
+                    <th>R3B04Q005Time</th>
+                    <th>R3B04Q006Time</th>
+                    <th>R3B04Q007Time</th>
+                    <th>R3B04Q008Time</th>
+                    <th>R3B04Q009Time</th>
+                    <th>R3B04Q010Time</th>
+
+                    <th>groupTime150</th>
+                    <th>R3B04Q011Time</th>
+                    <th>R3B04Q012Time</th>
+                    <th>R3B04Q013Time</th>
+                    <th>R3B04Q013aTime</th>
+                    <th>R3B04Q013bTime</th>
+                    <th>R3B04Q013cTime</th>
+                    <th>R3B04Q014Time</th>
+                    <th>R3B04Q015Time</th>
+                    <th>R3B04Q015aTime</th>
+                    <th>R3B04Q015bTime</th>
+                    <th>R3B04Q016Time</th>
+                    <th>R3B04Q017Time</th>
+                    <th>R3B04Q017aTime</th>
+                    <th>R3B04Q017aaTime</th>
+                    <th>R3B04Q017bTime</th>
+                    <th>R3B004Q017bbTime</th>
+                    <th>R3B04Q017cTime</th>
+                    <th>R3B04Q017ccTime</th>
+                    <th>R3B04Q017dTime</th>
+                    <th>R3B04Q017ddTime</th>
+                    <th>R3B04Q017eTime</th>
+                    <th>R3B04Q017eeTime</th>
+                    <th>R3B04Q017fTime</th>
+                    <th>R3B04Q017ffTime</th>
+                    <th>R3B04Q017gTime</th>
+                    <th>R3B04Q017ggTime</th>
+                    <th>R3B04Q017hTime</th>
+                    <th>R3B04Q017hhTime</th>
+                    <th>R3B04Q018Time</th>
+                    <th>R3B04Q019Time</th>
+                    <th>R3B04Q020Time</th>
+                    <th>groupTime240</th>
+                    <th>R3B04Q021Time</th>
+                    <th>R3B04Q022Time</th>
+                    <th>R3B04Q023Time</th>
+                    <th>R3B04Q024Time</th>
+                    <th>R3B04Q025Time</th>
+                    <th>R3B04Q026Time</th>
+                    <th>groupTime151</th>
+                    <th>R3B05Q001Time</th>
+                    <th>R3B05Q002Time</th>
+                    <th>R3B05Q003Time</th>
+                    <th>R3B05Q004Time</th>
+                    <th>R3B05Q005Time</th>
+                    <th>groupTime152</th>
+                    <th>R3B06Q001Time</th>
+
+
                 </thead>
                 <tbody>
                     <?php foreach ($rawData as $r) :?>
@@ -247,6 +332,85 @@
                         <td><?= $r['423492X5X12']; ?></td>
                         <td><?= $r['423492X5X41']; ?></td>
                         <td><?= $r['423492X6X38']; ?></td>
+
+                        <td><?= $r['interviewtime']; ?></td>
+                        <td><?= $r['423492X1time']; ?></td>
+                        <td><?= $r['423492X1X66time']; ?></td>
+                        <td><?= $r['423492X1X67time']; ?></td>
+                        <td><?= $r['423492X1X68time']; ?></td>
+                        <td><?= $r['423492X1X1time']; ?></td>
+                        <td><?= $r['423492X1X2time']; ?></td>
+                        <td><?= $r['423492X1X39time']; ?></td>
+                        <td><?= $r['423492X1X40time']; ?></td>
+                        <td><?= $r['423492X2time']; ?></td>
+                        <td><?= $r['423492X2X3time']; ?></td>
+                        <td><?= $r['423492X2X4time']; ?></td>
+                        <td><?= $r['423492X2X69time']; ?></td>
+                        <td><?= $r['423492X2X5time']; ?></td>
+                        <td><?= $r['423492X2X6time']; ?></td>
+                        <td><?= $r['423492X3time']; ?></td>
+                        <td><?= $r['423492X3X7time']; ?></td>
+                        <td><?= $r['423492X3X8time']; ?></td>
+                        <td><?= $r['423492X3X9time']; ?></td>
+                        <td><?= $r['423492X3X10time']; ?></td>
+                        <td><?= $r['423492X7time']; ?></td>
+                        <td><?= $r['423492X7X29time']; ?></td>
+                        <td><?= $r['423492X7X42time']; ?></td>
+                        <td><?= $r['423492X7X44time']; ?></td>
+                        <td><?= $r['423492X7X30time']; ?></td>
+                        <td><?= $r['423492X7X32time']; ?></td>
+                        <td><?= $r['423492X7X33time']; ?></td>
+                        <td><?= $r['423492X7X19time']; ?></td>
+                        <td><?= $r['423492X7X20time']; ?></td>
+                        <td><?= $r['423492X7X18time']; ?></td>
+                        <td><?= $r['423492X7X17time']; ?></td>
+                        <td><?= $r['423492X4time']; ?></td>
+                        <td><?= $r['423492X4X36time']; ?></td>
+                        <td><?= $r['423492X4X35time']; ?></td>
+                        <td><?= $r['423492X4X13time']; ?></td>
+                        <td><?= $r['423492X4X61time']; ?></td>
+                        <td><?= $r['423492X4X62time']; ?></td>
+                        <td><?= $r['423492X4X63time']; ?></td>
+                        <td><?= $r['423492X4X14time']; ?></td>
+                        <td><?= $r['423492X4X15time']; ?></td>
+                        <td><?= $r['423492X4X64time']; ?></td>
+                        <td><?= $r['423492X4X65time']; ?></td>
+                        <td><?= $r['423492X4X16time']; ?></td>
+                        <td><?= $r['423492X4X25time']; ?></td>
+                        <td><?= $r['423492X4X45time']; ?></td>
+                        <td><?= $r['423492X4X53time']; ?></td>
+                        <td><?= $r['423492X4X46time']; ?></td>
+                        <td><?= $r['423492X4X54time']; ?></td>
+                        <td><?= $r['423492X4X47time']; ?></td>
+                        <td><?= $r['423492X4X55time']; ?></td>
+                        <td><?= $r['423492X4X48time']; ?></td>
+                        <td><?= $r['423492X4X56time']; ?></td>
+                        <td><?= $r['423492X4X49time']; ?></td>
+                        <td><?= $r['423492X4X57time']; ?></td>
+                        <td><?= $r['423492X4X50time']; ?></td>
+                        <td><?= $r['423492X4X58time']; ?></td>
+                        <td><?= $r['423492X4X51time']; ?></td>
+                        <td><?= $r['423492X4X59time']; ?></td>
+                        <td><?= $r['423492X4X52time']; ?></td>
+                        <td><?= $r['423492X4X60time']; ?></td>
+                        <td><?= $r['423492X4X24time']; ?></td>
+                        <td><?= $r['423492X4X26time']; ?></td>
+                        <td><?= $r['423492X4X27time']; ?></td>
+                        <td><?= $r['423492X8time']; ?></td>
+                        <td><?= $r['423492X8X28time']; ?></td>
+                        <td><?= $r['423492X8X21time']; ?></td>
+                        <td><?= $r['423492X8X22time']; ?></td>
+                        <td><?= $r['423492X8X34time']; ?></td>
+                        <td><?= $r['423492X8X23time']; ?></td>
+                        <td><?= $r['423492X8X37time']; ?></td>
+                        <td><?= $r['423492X5time']; ?></td>
+                        <td><?= $r['423492X5X43time']; ?></td>
+                        <td><?= $r['423492X5X31time']; ?></td>
+                        <td><?= $r['423492X5X11time']; ?></td>
+                        <td><?= $r['423492X5X12time']; ?></td>
+                        <td><?= $r['423492X5X41time']; ?></td>
+                        <td><?= $r['423492X6time']; ?></td>
+                        <td><?= $r['423492X6X38time']; ?></td>
                     <?php endforeach; ?>
                 </tbody>
             </table>
@@ -263,7 +427,10 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
                         aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <p class="selengkapnya"><a href="#">selengkapnya</a></p>
-                    <p class="cardp"><button id="unduh-rcode" class="btn btn-primary"><span class="fa fa-download"></span><b> Unduh R Code</b></button></p>
+                    <form action="<?= base_url('Dashboard/pengolahan'); ?>" method="POST">
+                        <input type="hidden" name="script" value="true">
+                        <p class="cardp"><button id="unduh-rcode" class="btn btn-primary"><span class="fa fa-download"></span><b> Unduh R Code</b></button></p>
+                    </form>
                 </div>
                 <div class="card">
                     <h3>Upload Hasil Pengolahan IMKB Satker</h3>
