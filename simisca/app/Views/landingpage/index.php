@@ -47,7 +47,7 @@
     </nav>
 
     <!-- Masthead -->
-    <div class="jumbotron shadow-lg jumbotron-fluid">
+    <div class="jumbotron shadow-lg jumbotron-fluid" style="background-image: url(<?= base_url('img/foto-awal.jpg'); ?>);">
         <div class="container-fluid">
             <h1 class="display-4 font-weight-bold animate__animated animate__zoomIn">SIMISCA BPS</h1>
             <p class="lead">Sistem Informasi Mitigasi dan Kesiapsiagaan BPS memuat informasi indeks mitigasi dan kesiapsiagaan seluruh kantor BPS seluruh Indonesia. Sistem ini dibuat oleh Politeknik Statistika STIS Angkatan 60 dalam rangka Praktik Kerja Lapangan T.A.
