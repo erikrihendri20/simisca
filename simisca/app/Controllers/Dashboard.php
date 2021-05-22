@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Models\Survei_model;
 use App\Models\Satker_model;
 use App\Models\Sampel_satker_model;
+use \PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class Dashboard extends BaseController
 {
@@ -61,6 +63,8 @@ class Dashboard extends BaseController
         $data['persentaseNasional'] = $surveyModel->progressNasional();
         return view('dashboard/monitoring',$data);
     }
+
+
 
     public function monitoringNasional()
     {
@@ -164,6 +168,8 @@ class Dashboard extends BaseController
 
     public function pengolahan()
     {
+        $surveyModel = new Survei_model();
+        $data['rawData'] = $surveyModel->jawabanKuesioner();
         $data['style'] = 'pengolahan';
         $data['script'] = 'pengolahan';
         $data['active'] = 'pengolahan';

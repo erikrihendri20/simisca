@@ -65,6 +65,17 @@ class Survei_model extends Model
         return round(($mengisi/$this->participans($kodesatker)*100),2);
     }
 
+    public function jawabanKuesioner()
+    {
+        $table = $this->showTable(date('Y'));
+        if($table){
+            $builder = $this->db->table(end($table));
+            return $builder->get()->getResultArray();
+        }else{
+            return;
+        }
+    }
+
     public function progressKabupaten($kodesatker)
     {
         $builder = $this->db->table('lime_survey_423492');
