@@ -64,6 +64,8 @@ class Dashboard extends BaseController
         return view('dashboard/monitoring',$data);
     }
 
+
+
     public function monitoringNasional()
     {
         $data['style'] = 'monitoringNasional';
@@ -174,8 +176,6 @@ class Dashboard extends BaseController
         $data['title'] = 'Pengolahan';
         return view("dashboard/pengolahan",$data);
     }
-
-
 
     public function profil()
     {

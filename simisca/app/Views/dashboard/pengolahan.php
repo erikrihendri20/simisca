@@ -10,8 +10,7 @@
                 <li>Apa</li>
             </ol>
             
-            
-            <table id="raw-data">
+            <table id="raw-data" style="position: fixed; visibility: hidden;" >
                 <thead>
                     <th>id</th>
                     <th>submitdate</th>
@@ -51,6 +50,8 @@
                     <th>R3B03Q004[5]</th>
                     <th>R3B03Q004[6]</th>
                     <th>R3B03Q004[7]</th>
+                    <th>R3B03Q004[8]</th>
+                    <th>R3B03Q004[9]</th>
 
                     <th>R3B04Q001</th>
                     <th>R3B04Q002</th>
@@ -96,6 +97,8 @@
                     <th>R3B04Q017ff</th>
                     <th>R3B04Q017g</th>
                     <th>R3B04Q017gg</th>
+                    <th>R3B04Q017h</th>
+                    <th>R3B04Q017hh</th>
                     <th>R3B04Q018[1]</th>
                     <th>R3B04Q018[2]</th>
                     <th>R3B04Q019</th>
@@ -122,13 +125,13 @@
                     <th>R3B05Q003[3]</th>
                     <th>R3B05Q003[4]</th>
                     <th>R3B05Q003[5]</th>
+                    <th>R3B05Q003[6]</th>
 
                     <th>R3B05Q004</th>
                     <th>R3B05Q005</th>
 
                     <th>R3B06Q001</th>
                 </thead>
-                <?= d($rawData); ?>
                 <tbody>
                     <?php foreach ($rawData as $r) :?>
                         <td><?= $r['id']; ?></td>
