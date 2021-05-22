@@ -69,7 +69,10 @@ class Survei_model extends Model
     {
         $table = $this->showTable(date('Y'));
         if($table){
+            $table1 = array_values(end($table))[0];
+            $table2 = 'lime_old_survey_423492_timings_'.substr(array_values(end($table))[0],23);
             $builder = $this->db->table(end($table));
+            $builder->join($table2,$table1.'.id='.$table2.'.id');
             return $builder->get()->getResultArray();
         }else{
             return;
