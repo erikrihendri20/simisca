@@ -168,6 +168,9 @@ class Dashboard extends BaseController
 
     public function pengolahan()
     {
+        if(isset($_POST['script'])){
+            $this->rScript();
+        }
         $surveyModel = new Survei_model();
         $data['rawData'] = $surveyModel->jawabanKuesioner();
         $data['style'] = 'pengolahan';
@@ -175,6 +178,18 @@ class Dashboard extends BaseController
         $data['active'] = 'pengolahan';
         $data['title'] = 'Pengolahan';
         return view("dashboard/pengolahan",$data);
+    }
+
+    private function rScript()
+    {
+        header('Pragma: public'); 	// required
+        header('Expires: 0');		// no cache
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Cache-Control: private',false);
+        header('Content-Disposition: attachment; filename="'.basename(base_url('RScript/script.R')).'"');
+        header('Content-Transfer-Encoding: binary');
+        header('Connection: close');
+        readfile(base_url('RScript/script.R'));
     }
 
     public function profil()
