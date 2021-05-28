@@ -5,20 +5,11 @@ namespace App\Controllers;
 use App\Models\Survei_model;
 use App\Models\Satker_model;
 use App\Models\Sampel_satker_model;
+use \PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class Dashboard extends BaseController
 {
-    private $modelSurvei = null;
-    private $modelSatker = null;
-    private $modelSampelSatker = null;
-
-    public function __construct()
-    {
-        helper("Auth");
-        $this->modelSurvei = new Survei_model();
-        $this->modelSatker = new Satker_model();
-        $this->modelSampelSatker = new Sampel_satker_model();
-    }
 
     public function index()
     {
@@ -47,18 +38,18 @@ class Dashboard extends BaseController
         return view("dashboard/nextKuesioner",$data);
     }
 
-    public function survey()
-    {
-        Auth();
-        if (isset($this->modelSurvei->getToken(session('email'))[0]['token'])) {
-            $data = [
-                'token' => $this->modelSurvei->getToken(session('email'))[0]['token']
-            ];
-        } else {
-            $data = [];
-        }
-        return view('dashboard/survei', $data);
-    }
+    // public function survey()
+    // {
+    //     Auth();
+    //     if (isset($this->modelSurvei->getToken(session('email'))[0]['token'])) {
+    //         $data = [
+    //             'token' => $this->modelSurvei->getToken(session('email'))[0]['token']
+    //         ];
+    //     } else {
+    //         $data = [];
+    //     }
+    //     return view('dashboard/survei', $data);
+    // }
 
     public function monitoring()
     {
@@ -66,9 +57,14 @@ class Dashboard extends BaseController
         $data['script'] = 'monitoring';
         $data['active'] = 'monitoring';
         $data['title'] = 'Monitoring';
-        $data['satker'] = $this->modelSampelSatker->getSatker();
+        $sampelSatkerModel = new Sampel_satker_model();
+        $data['provinsi'] = $sampelSatkerModel->getSatker();
+        $surveyModel = new Survei_model();
+        $data['persentaseNasional'] = $surveyModel->progressNasional();
         return view('dashboard/monitoring',$data);
     }
+
+
 
     public function monitoringNasional()
     {
@@ -76,27 +72,124 @@ class Dashboard extends BaseController
         $data['script'] = 'monitoringNasional';
         $data['active'] = 'monitoring';
         $data['title'] = 'Monitoring Nasional';
-        $data['satker'] = $this->modelSampelSatker->getSatker();
+        $sampelSatkerModel = new Sampel_satker_model();
+        $data['provinsi'] = $sampelSatkerModel->getSatker();
+        $surveyModel = new Survei_model();
+        $data['persentaseNasional'] = $surveyModel->progressNasional();
+        $data['progress'] = [];
+        foreach ($data['provinsi'] as $prov) :
+            $kodesatker = substr($prov['kodesatker'],0,2);
+            $progressProvinsi = $surveyModel->progressProvinsi($kodesatker);
+            $progress = [
+                'kodesatker' => $prov['kodesatker'],
+                'namasatker' => $prov['namasatker'],
+                'persentase' => $progressProvinsi
+            ];
+            $data['progressPerProvinsi'][]=$progress;
+        endforeach;
+        
+        $data['detailProgressNasional'] = $surveyModel->detailProgress();
+        $data['statusPengisianNasional'] = $surveyModel->statusPengisianSatker();
+        
+        $data['statusPengisian'] = [];
+        foreach ($data['statusPengisianNasional'] as $s) :
+            $status['namasatker'] = $s['namasatker'];
+            if($s['lastpage']==null){
+                $status['status'] = 'belum mengisi';
+            }elseif($s['submitdate']==null){
+                $status['status'] = 'sedang mengisi';
+            }else{
+                $status['status'] = 'selesai mengisi';
+            }
+            $data['statusPengisian'][]=$status;
+        endforeach;
         return view('dashboard/monitoringNasional',$data);
     }
 
-    public function monitoringProvinsi()
+    public function persentasePerProvinsi($kodesatker)
     {
+        $surveyModel = new Survei_model();
+        $progressProvinsi = $surveyModel->progressProvinsi($kodesatker);
+        return json_encode($progressProvinsi);
+    }
+
+    public function monitoringProvinsi($kodesatker)
+    {
+        
         $data['style'] = 'monitoringProvinsi';
         $data['script'] = 'monitoringProvinsi';
         $data['active'] = 'monitoring';
         $data['title'] = 'Monitoring Provinsi';
-        $data['satker'] = $this->modelSampelSatker->getSatker();
+        $sampelSatkerModel = new Sampel_satker_model();
+        $surveyModel = new Survei_model();
+        $data['satker'] = $sampelSatkerModel->find($kodesatker);
+        $data['persentaseProvinsi'] = $this->persentasePerProvinsi(substr($kodesatker,0,2));
+
+        $data['detailProgressProvinsi'] = $surveyModel->detailProgress(substr($kodesatker,0,2));
+        $data['kabupaten'] = $sampelSatkerModel->getSatker(substr($kodesatker,0,2));
+        array_unshift($data['kabupaten'] , $data['satker']);
+
+        $data['progressPerkabupaten'] = [];
+        
+        
+        foreach ($data['kabupaten'] as $kab) :
+            $ks = $kab['kodesatker'];
+            $persentase = $surveyModel->progressKabupaten($ks);
+            if($persentase==null){
+                $persentase = 0/8*100;
+            }else{
+                $persentase = $persentase[0]['lastpage']/8*100;
+            }
+            $progress = [
+                'kodesatker' => $kab['kodesatker'],
+                'namasatker' => $kab['namasatker'],
+                'persentase' => $persentase
+            ];
+            $data['progressPerkabupaten'][]=$progress;
+        endforeach;
+
+        $data['statusPengisianProvinsi'] = $surveyModel->statusPengisianSatker(substr($kodesatker,0,2));
+
+        $data['statusPengisian'] = [];
+        foreach ($data['statusPengisianProvinsi'] as $s) :
+            $status['namasatker'] = $s['namasatker'];
+            if($s['lastpage']==null){
+                $status['status'] = 'belum mengisi';
+            }elseif($s['submitdate']==null){
+                $status['status'] = 'sedang mengisi';
+            }else{
+                $status['status'] = 'selesai mengisi';
+            }
+            $data['statusPengisian'][]=$status;
+        endforeach;
+
         return view('dashboard/monitoringProvinsi',$data);
     }
 
     public function pengolahan()
     {
+        if(isset($_POST['script'])){
+            $this->rScript();
+        }
+        $surveyModel = new Survei_model();
+        $data['rawData'] = $surveyModel->jawabanKuesioner();
         $data['style'] = 'pengolahan';
         $data['script'] = 'pengolahan';
         $data['active'] = 'pengolahan';
         $data['title'] = 'Pengolahan';
         return view("dashboard/pengolahan",$data);
+    }
+
+    private function rScript()
+    {
+        header('Pragma: public'); 	// required
+        header('Expires: 0');		// no cache
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Cache-Control: private',false);
+        header('Content-Disposition: attachment; filename="'.basename(base_url('RScript/script.R')).'"');
+        header('Content-Transfer-Encoding: binary');
+        header('Connection: close');
+        readfile(base_url('RScript/script.R'));
     }
 
     public function profil()
@@ -117,19 +210,7 @@ class Dashboard extends BaseController
         return view("dashboard/tentang",$data);
     }
 
-    public function FunctionName()
-    {
-        dd($this->modelSurvei->participans());
-    }
-    public function countProgressNasional()
-    {
-        return json_encode($this->modelSurvei->progressNasional());
-    }
-
-    public function countProgressPerProvinsi($kode_satker)
-    {
-        return json_encode($this->modelSurvei->progressProvinsi(substr($kode_satker,0,2)));
-    }
+    
     //--------------------------------------------------------------------
 
 }

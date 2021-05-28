@@ -11,10 +11,10 @@
                     <div>
                         <div id="nasionalTable" class="table">
                             <div id="exportNasional">
-                                <p>Export Data</p>
+                                <p id="tombolExportNasional">Export Data</p>
                             </div>
                             <div>
-                                <table>
+                                <table id="detailMonitoringNasional">
                                     <thead>
                                         <tr>
                                             <th>Status</th>
@@ -24,21 +24,21 @@
                                     <tbody>
                                         <tr>
                                             <td>Sudah Mengisi</td>
-                                            <td>465</td>
+                                            <td><?= $detailProgressNasional['selesai mengisi']; ?></td>
                                         </tr>
                                         <tr>
                                             <td>Belum mengisi</td>
-                                            <td>30</td>
+                                            <td><?= $detailProgressNasional['belum mengisi']; ?></td>
                                         </tr>
                                         <tr>
                                             <td>Belum Selesai</td>
-                                            <td>22</td>
+                                            <td><?= $detailProgressNasional['sudah mengisi']; ?></td>
                                         </tr>
                                     </tbody>
                                     <tfoot>
                                         <tr>
                                             <th>Total</th>
-                                            <th>517</th>
+                                            <th><?= array_sum($detailProgressNasional); ?></th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -49,10 +49,10 @@
                         <div class="percent">
                             <svg>
                                 <circle cx="70" cy="70" r="70"></circle>
-                                <circle cx="70" cy="70" r="70" id="edit"></circle>
+                                <circle cx="70" cy="70" r="70" id="persentaseNasional" style="stroke-dashoffset: calc(440 - (440 * <?= $persentaseNasional; ?>)/100);"></circle>
                             </svg>
                             <div class="number">
-                                <h2>87<span>%</span></h2>
+                                <h2><?= $persentaseNasional; ?><span>%</span></h2>
                             </div>
                         </div>
                     </div>
@@ -62,48 +62,22 @@
                         <p>Progress Berdasarkan Provinsi</p>
                     </div>
                     <div class="box">
-                        <div class="section">
-                            <div  class="prov">
-                                <span>Aceh</span>
+                        <?php foreach ($progressPerProvinsi as $ppp) : ?>
+                            <div class="section">
+                                <div  class="prov">
+                                    <span><?= $ppp['namasatker']; ?></span>
+                                </div>
+                                <div class="progressBar">
+                                    <div class="progressBarFill" style="width: <?= $ppp['persentase']; ?>%;"></div>
+                                </div>
+                                <div class="percentage">
+                                    <span class="changePercent"><?= $ppp['persentase']; ?>%</span>
+                                </div>
+                                <div class="greater">
+                                    <span class="greaterIn">></span>
+                                </div>
                             </div>
-                            <div class="progressBar">
-                                <div class="progressBarFill"></div>
-                            </div>
-                            <div class="percentage">
-                                <span class="changePercent">80%</span>
-                            </div>
-                            <div class="greater">
-                                <span class="greaterIn">></span>
-                            </div>
-                        </div>
-                        <div class="section">
-                            <div  class="prov">
-                                <span>Sumatera Utara</span>
-                            </div>
-                            <div class="progressBar">
-                                <div class="progressBarFill"></div>
-                            </div>
-                            <div class="percentage">
-                                <span class="changePercent">80%</span>
-                            </div>
-                            <div class="greater">
-                                <span class="greaterIn">></span>
-                            </div>
-                        </div>
-                        <div class="section">
-                            <div  class="prov">
-                                <span>Sumatera Barat</span>
-                            </div>
-                            <div class="progressBar">
-                                <div class="progressBarFill"></div>
-                            </div>
-                            <div class="percentage">
-                                <span class="changePercent">80%</span>
-                            </div>
-                            <div class="greater">
-                                <span class="greaterIn">></span>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>            
                 </div>
                 <div id="satkerPart">
@@ -111,23 +85,8 @@
                         <p>Status Pengisian Berdasarkan Satuan Kerja</p>
                     </div>
                     <div class="satkerStatusBox">
-                        <div id="tableSetting">
-                            <div class="nRows">
-                                <span>Show</span>
-                                <select name="nrow" id="rowChoose">
-                                    <option value="5">5</option>
-                                    <option value="10">10</option>
-                                </select>
-                            </div>
-                            <div>
-                                <input name="num" id="satkerSearch">
-                            </div>
-                            <div>
-                                <button id="buttonExport">Export</button>
-                            </div>
-                        </div>
                         <div>
-                            <table>
+                            <table id="statusPengisian">
                                 <thead>
                                     <tr>
                                         <th>Nama Satker</th>
@@ -135,28 +94,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>BPS Provinsi Aceh</td>
-                                        <td>Sudah Mengisi</td>
-                                    </tr>
-                                    <tr>
-                                        <td>BPS Kabupaten Aceh Barat</td>
-                                        <td>Belum Mengisi</td>
-                                    </tr>
-                                    <tr>
-                                        <td>BPS Kabupaten Aceh Barat Daya</td>
-                                        <td>Belum Mengisi</td>
-                                    </tr>
+                                    <?php foreach ($statusPengisian as $s) :?>
+                                        <tr>
+                                            <td><?= $s['namasatker']; ?></td>
+                                            <td><?= $s['status']; ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                                 <tfoot>
                                     <th>Total</th>
-                                    <th>517</th>
+                                    <th><?= count($statusPengisian); ?></th>
                                 </tfoot>
                             </table>
                         </div>
-                        <div class="footNote">
-                            <span>Showing 1 to 1 of 517 entries <span class="lanjut">Previous</span> | <span class="lanjut">Next</span></span>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

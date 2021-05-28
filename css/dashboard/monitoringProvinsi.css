@@ -40,7 +40,9 @@
     flex-direction: column;
 }
 #provinsiTable div table{
-    margin-left: 10px;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
 }
 #provinsiTable th{
     width: 200px;
@@ -57,6 +59,7 @@
     text-align: right;
 }
 #provinsiTable td{
+    width: 200px;
     height: 2em;
     color: #B63D45;
 }
@@ -97,7 +100,6 @@ tr:nth-child(2n){
     padding: 10px;
 }
 .cirBar{
-    position: relative;
     width: 300px;
     height: 150px;
     display: flex;
@@ -257,8 +259,9 @@ tr:nth-child(2n){
     flex-direction: column;
 }
 #satkerPart .satkerStatusBox table{
-    width: 500px;
-    margin-left: 15px;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
 }
 #satkerPart .satkerStatusBox table th{
     width: 200px;
@@ -277,8 +280,9 @@ tr:nth-child(2n){
     display: flex;
     justify-content: space-between;
     margin-bottom: 5px;
-    margin-left: 15px;
-    margin-right: 15px;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
 }
 #satkerPart .satkerStatusBox #tableSetting .nRows{
     width: 100px;
@@ -318,4 +322,30 @@ tr:nth-child(2n){
 }   
 #satkerPart .satkerStatusBox .footNote .lanjut:hover{
     cursor: pointer;
+}
+@media (max-width: 768px){
+    #provinsiPart{
+        flex-direction: column;
+    }
+    #provinsiPart .tableBox{
+        display: flex;
+        justify-content: center;
+    }
+    #provinsiPart .progressBox{
+        display: flex;
+        justify-content: center;
+    }
+    #provinsiPart .cirBar{
+        margin-top: 10px;
+    }
+}
+@media (max-width: 576px){
+    #provinsiPart .box{
+        width: 100%;
+        font-size: 0.7em;
+    }
+    #satkerPart .satkerStatusBox{
+        width: 100%;
+        font-size: 0.7em;
+    }
 }

@@ -10,7 +10,7 @@
                     <p>Selain itu, sensus ini juga bertujuan untuk mengetahui determinan apa saja yang memengaruhi tingkat mitigasi dan kesiapsiagaan bencana di BPS di seluruh Indonesia. Harapannya, dari informasi yang disajikan dapat berguna sebagai dasar untuk pengembangan dan perbaikan kebijakan terkait mitigasi dan kesiapsiagaan terhadap bencana di BPS.</p>
                 </div>
                 <div>
-                    <a href="nextKuesioner.html" class="next">BERIKUTNYA &raquo;</a>
+                    <a href="<?= base_url('Dashboard/nextKuesioner'); ?>" class="next">BERIKUTNYA &raquo;</a>
                 </div>
             </div>
 <?= $this->endSection(); ?>
