@@ -45,7 +45,7 @@ i {
 .card {
   margin: auto;
   border-radius: 20px;
-  background-color: #072438;
+  background-color: #ffffff;
 }
 
 .tabcontent {
@@ -113,12 +113,6 @@ i {
 .title {
   color: #f4c58f;
   font-weight: 500;
-}
-.box {
-  background-color: white;
-  height: 200px;
-  border-radius: 10px;
-  border: none;
 }
 
 .foot {

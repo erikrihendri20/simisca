@@ -22,6 +22,8 @@
     <!-- mycss -->
     <link rel="stylesheet" href="<?= base_url() ?>/css/<?= $css; ?>">
 
+    <!-- chartjs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <title>Peta Tematik</title>
 </head>
