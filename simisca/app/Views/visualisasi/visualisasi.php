@@ -656,39 +656,132 @@
         </div>
         <div class="row row-cols-1 row-cols-md-2">
             <div class="col mb-4">
-                <div class="card-title title-pegawai">
-                    Komposisi Jabatan Pegawai
-                </div>
-                <div class="">
-                    <div class="card-body  box">
+                <div class="card">
+                    <h5 class="card-header my-3" style="text-align: center;">IMKB Pegawai Dalam Satuan Kerja BPS Menurut Kategori (%)
+                    </h5>
+                    <div class="card-body">
+                        <canvas id="chart10"></canvas>
                     </div>
                 </div>
-            </div>
+                <script>
+                    const labels10 = ["Sangat Siap", "Siap", "Hampir Siap", "Kurang Siap", "Belum Siap"];
+                    const data10 = {
+                        labels: labels10,
+                        datasets: [{
+                            label: 'Persentase',
+                            data: [27, 49, 18, 5, 1],
+                            borderColor: 'rgb(51,51,51)',
+                            backgroundColor: ['rgba(0, 0, 255,0.5)', 'rgba(51, 204, 51,0.5)', 'rgba(255, 255, 0,0.5)', 'rgba(255, 153, 0,0.5)', 'rgba(255, 0, 0,0.5)'],
+                            borderWidth: 2,
+                            borderRadius: 2,
+                            borderSkipped: false,
+                            radius: '60%'
+                        }]
+                    };
 
+                    const config10 = {
+                        type: 'pie',
+                        data: data10,
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    position: 'bottom',
+                                },
+                                title: {
+                                    display: false,
+                                    font: {
+                                        size: 14,
+                                    },
+                                    text: 'Diagram Batang Indeks Masing-Masing Dimensi Satuan Kerja BPS Menurut Pulau Berdasarkan Dimensi'
+                                }
+                            }
+                        },
+                    };
+
+                    // === include 'setup' then 'config' above ===
+
+                    var chart10 = new Chart(
+                        document.getElementById('chart10'),
+                        config10
+                    );
+                </script>
+            </div>
             <div class="col mb-4">
-                <div class="card-title title-pegawai">
-                    Jenis Kelamin Pegawai
-                </div>
-                <div class="">
-                    <div class="card-body  box">
+                <div class="card" style="background-color: white;">
+                    <h5 class="card-header my-3" style="text-align: center;">Indeks Pegawai Satuan Kerja BPS
+                        Pada Tingkatan Satuan Kerja Menurut Dimensi
+                    </h5>
+                    <div class="card-body">
+                        <canvas id="chart11"></canvas>
                     </div>
                 </div>
+
+                <script>
+                    const labels11 = ["Pengetahuan & Pengalaman", "Sumber Daya Pendukung", "Rencana Tanggap Darurat"];
+                    const data11 = {
+                        labels: labels11,
+                        datasets: [{
+                                label: 'Pusat',
+                                data: [79.38, 65.35, 66.07],
+                                borderColor: 'rgb(255, 0, 0)',
+                                backgroundColor: 'rgba(255, 0, 0,0.5)',
+                                borderWidth: 2,
+                                borderRadius: 2,
+                                borderSkipped: false,
+                            },
+                            {
+                                label: 'Provins',
+                                data: [80.49, 67.97, 66.65],
+                                borderColor: 'rgb(0, 0, 255)',
+                                backgroundColor: 'rgba(0, 0, 255,0.5)',
+                                borderWidth: 2,
+                                borderRadius: 2,
+                                borderSkipped: false,
+                            },
+                            {
+                                label: 'Kabupaten/Kota',
+                                data: [79.73, 68.36, 66.03],
+                                borderColor: 'rgb(255, 255, 0)',
+                                backgroundColor: 'rgba(255, 255, 0,0.5)',
+                                borderWidth: 2,
+                                borderRadius: 2,
+                                borderSkipped: false,
+                            }
+                        ]
+                    };
+
+                    const config11 = {
+                        type: 'bar',
+                        data: data11,
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    position: 'bottom',
+                                },
+                                title: {
+                                    display: false,
+                                    font: {
+                                        size: 14,
+                                    },
+                                    text: 'Diagram Batang Indeks Masing-Masing Dimensi Satuan Kerja BPS Menurut Pulau Berdasarkan Dimensi'
+                                }
+                            }
+                        },
+                    };
+
+                    // === include 'setup' then 'config' above ===
+
+                    var chart11 = new Chart(
+                        document.getElementById('chart11'),
+                        config11
+                    );
+                </script>
             </div>
         </div>
 
-        <div class="row row-cols-1 row-cols-md-2" style="width: 70%; margin: auto;">
-            <div class="col mb-4">
-                <div class="card-title title-pegawai">
-                    Tingkat Pendidikan Pegawai
-                </div>
-                <div class="">
-                    <div class="card-body box">
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-</div>
 
 
-<?= $this->endSection(); ?>
+    <?= $this->endSection(); ?>
