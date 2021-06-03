@@ -20,7 +20,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <title>SIMISCA BPS</title>
+    <!-- add icon link -->
+    <link rel="icon" href="img/logo.png" type="image/x-icon">
+
 </head>
 
 <body data-aos-duration="1000" data-aos-delay="0">
@@ -28,7 +32,7 @@
     <nav class="navbar nav-1 navbar-expand-lg shadow fixed-top animate__animated animate__slideInDown">
         <div class="container-fluid animate__animated animate__fadeIn animate__delay-1s ">
             <a class="navbar-brand font-weight-bold" href="#">
-                <img src="img/pkl.png" width="30" height="30" class="d-inline-block align-top font-weigth-bold" alt=""> SIMISCA BPS
+                <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top font-weigth-bold" alt=""> SIMISCA BPS
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -61,7 +65,7 @@
     <!-- Penjelasan Section -->
     <div class="konten-1" id="tentang">
         <div class="container py-5">
-            <h3 class="py-4 font-weight-bold" data-aos="fade-down">Tentang SIMISCA</h3>
+            <h3 class="py-4 font-weight-bold" data-aos="fade-down">Tentang SIMISCA BPS</h3>
             <div class="row justify-content-sm-center">
                 <div class="col-sm-5 order-1 order-sm-2">
                     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
@@ -86,8 +90,7 @@
                 </div>
                 <div class="col-sm-5 pt-2 order-2 order-sm-1 content">
                     <p class="font-weight-lighter tentang" data-aos="fade-right">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+                        SIMISCA BPS merupakan sistem informasi berbasis web yang dirancang oleh mahasiswa Polstat STIS dalam rangka Praktik Kerja Lapangan Tahun Ajaran 2020/2021 dengan mengangkat salah satu topik, yaitu Tingkat Mitigas Dan Kesiapsiagaan Bencana di Badan Pusat Statistik. Sistem ini akan mendukung terlaksananya mitigasi dan kesiapsiagaan bencana pada lingkungan Badan Pusat Statistik.
                     </p>
                 </div>
             </div>
@@ -115,16 +118,16 @@
     <!-- Portal Visualisasi (navbar dihapus) -->
     <div id="portalVisualisasi"></div>
     <div class="bg2">
-        <h1 class="aos-init aos-animate" data-aos="fade-down">Judul</h1>
-        <h3 class="aos-init aos-animate" data-aos="fade-up">Sub Judul</h3>
-        <p class="desc aos-init aos-animate" data-aos="fade-down">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus expedita autem eveniet magnam veritatis asperiores amet ipsa, inventore aperiam praesentium?</p>
+        <h1 class="aos-init aos-animate" data-aos="fade-down">Visualisasi Penyajian Data</h1>
+        <h3 class="aos-init aos-animate" data-aos="fade-up">Hasil Kuesioner SMKB dan VMKB</h3>
+        <p class="desc aos-init aos-animate" data-aos="fade-down">Sensus dan Survei Mitigasi dan Kesiapsiagaan Bencana BPS dapat ditampilkan dalam hal berikut.</p>
         <div class="container aos-init aos-animate" data-aos="zoom-in">
             <div class="row justify-content-center">
                 <div class="col-sm-2 bar1">
                     <a class="bar1" href="<?= base_url() ?>/petaTematik"> Peta Tematik</a>
                 </div>
                 <div class="col-sm-2 bar2">
-                    <a class="bar2" href="<?= base_url() ?>/visualisasi">Visualisasi</a>
+                    <a class="bar2" href="<?= base_url() ?>/visualisasi">Grafik</a>
                 </div>
                 <div class="col-sm-2 bar3">
                     <a class="bar3" href="<?= base_url() ?>/tabelDinamis">Tabel Dinamis</a>
@@ -138,15 +141,15 @@
                     <img class="d-block w-100" src="img/map.jpg" alt="First slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Peta Tematik</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veniam, aut quo provident quasi modi similique inventore praesentium ex explicabo!</p>
+                        <p>Tampilan berupa peta dengan persebaran satuan kerja BPS seluruh Indonesia</p>
                         <a class="btn btn-danger" href="<?= base_url(); ?>/petatematik">Selengkapnya</a>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img class="d-block w-100" src="img/visual.jpg" alt="Second slide">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Visualisasi</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veniam, aut quo provident quasi modi similique inventore praesentium ex explicabo!</p>
+                        <h5>Grafik</h5>
+                        <p>Tampilan berupa grafik hasil kuesioner SMKB dan VMKB</p>
                         <a class="btn btn-danger" href="<?= base_url(); ?>/visualisasi">Selengkapnya</a>
                     </div>
                 </div>
@@ -154,7 +157,7 @@
                     <img class="d-block w-100" src="img/tabel.jpg" alt="Third slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Tabel Dinamis</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veniam, aut quo provident quasi modi similique inventore praesentium ex explicabo!</p>
+                        <p>Sajian data lengkap dalam bentuk tabel</p>
                         <a class="btn btn-danger" href="<?= base_url(); ?>/tabeldinamis">Selengkapnya</a>
                     </div>
                 </div>
@@ -180,7 +183,7 @@
                 <div class="logo">
                     <a href="https://bps.go.id" target="_blank"><img src="img/bps.png"></a>
                     <a href="https://stis.ac.id" target="_blank"><img src="img/stis.png"></a>
-                    <a href="https://pkl.stis.ac.id/" target="_blank"><img src="img/pkl.png"></a>
+                    <a href="https://pkl.stis.ac.id/60" target="_blank"><img src="img/pkl.png"></a>
                 </div>
             </div>
             <div class="col-sm-4 col-xl-4">
@@ -205,7 +208,7 @@
                     <li class="mb-3 d-flex">
                         <i class="fas fa-envelope"></i>
                         <div class="ml-3">
-                            <span>simisca@stis.ac.id</span>
+                            <span>pkl@stis.ac.id</span>
                         </div>
                     </li>
                     <li class="mb-3 d-flex">
@@ -232,7 +235,7 @@
             </div>
         </div>
         <p class="credit py-1">
-            © 2021 SIMISCA PKL POLSTAT STIS T.A. 2020/2021
+            © SIMISCA BPS - PKL POLSTAT STIS T.A. 2020/2021
         </p>
     </footer>
 

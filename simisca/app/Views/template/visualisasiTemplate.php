@@ -26,6 +26,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <title>Peta Tematik</title>
+    <!-- add icon link -->
+    <link rel="icon" href="img/logo.png" type="image/x-icon">
 </head>
 
 <body>
