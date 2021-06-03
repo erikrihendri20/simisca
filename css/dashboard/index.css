@@ -48,8 +48,8 @@ a:focus {
 }
 
 .profile_image {
-    width: 70px;
-    height: 90px;
+    width: 90px;
+    height: 105px;
     margin-bottom: 10px;
     padding-bottom: 10px;
 }
@@ -215,31 +215,32 @@ a[data-toggle="collapse"] {
     padding-left: 10px;
 }
 
-.jumlah{
+.jumlah {
     background-color: var(--biru);
-    width:240ppx;
+    width: 240ppx;
     border-radius: 10px;
-    display:grid;
+    display: grid;
 }
 
 .bi bi-building {
-    color:var(--merah);
+    color: var(--merah);
 }
 
-.row{
+.row {
     padding: 15px 10px;
 }
 
-.rate{
+.rate {
     align-content: space-between;
     border-spacing: 10px;
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 10px;
+    margin-right: 5px;
 }
 
-.respon{
-    background-color:var(--biru);
+.respon {
+    background-color: var(--biru);
     border-radius: 10px;
     margin-right: 0px;
     border-spacing: 15px;
@@ -247,35 +248,34 @@ a[data-toggle="collapse"] {
     width: 100%;
 }
 
-.respon .responRate{
+.respon .responRate {
     padding-left: 5px;
     border-spacing: 15px;
     border-spacing: 10px;
-    width:500px;
+    width: 500px;
     padding-right: 30px;
 }
 
-.btn-sm, .dropdown-item{
+.btn-sm,
+.dropdown-item {
     background-color: var(--merah);
     color: var(--kuning);
 }
 
-.dropdown-menu{
+.dropdown-menu {
     background-color: var(--kuning);
 }
 
-
-.dropdown-item{
+.dropdown-item {
     background-color: var(--kuning);
     color: var(--merah)
 }
 
-.dropdown-item:hover{
+.dropdown-item:hover {
     color: var(--biru);
 }
 
-
-.jumlah{
+.jumlah {
     background-color: var(--biru);
     margin-right: 10px;
     border-spacing: 10px;
@@ -283,31 +283,30 @@ a[data-toggle="collapse"] {
     grid-template-columns: 2fr 1fr 1fr;
 }
 
-.bangunan{
+.bangunan {
     color: var(--merah);
     margin: auto;
 }
 
-.ket{
+.ket {
     color: var(--kuning);
 }
 
-
-.box{
-    background-color:var(--merah);
+.box {
+    background-color: var(--merah);
     border-radius: 10px;
     display: grid;
 }
 
-.box .section{
+.box .section {
     height: 2em;
-    margin: 10px; 
+    margin: 10px;
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
 }
 
-.box .section .wilayah{
+.box .section .wilayah {
     font-size: 1.2em;
     padding-top: 0.2em;
     padding-left: 0.5em;
@@ -316,182 +315,185 @@ a[data-toggle="collapse"] {
     width: 190px;
     border-spacing: 10px;
 }
-.box .section .progressBar{
+
+.box .section .progressBar {
     width: 300px;
     height: 1.2em;
     background-color: var(--biru);
-	border-radius: 20px;
+    border-radius: 20px;
     margin-top: 0.4em;
 }
 
-.box .section .progressBar .progressBarFill{
+.box .section .progressBar .progressBarFill {
     /* display: block; */
-	height: 1.2em;
+    height: 1.2em;
     background-color: orange;
-	border-radius: 20px;
+    border-radius: 20px;
     width: 90%;
 }
 
-.visualisasi{
+.visualisasi {
     height: 300px;
-    display:grid;
-    grid-template-columns: 8fr 7fr;
+    display: grid;
+    grid-template-columns: 8fr 7fr auto;
     align-items: center;
-    gap:10px;
+    gap: 10px;
 }
 
 .container {
-    margin-right: 10px;
-    margin: auto;
-    background-color: var(--biru);
-    border-radius: 10px;
-    height: 300px;
-}
-
-.up {
-    background-color: var(--biru); 
-    border-spacing: 15px;
-    margin-right: -15px;
-    width: 500px;
-    border-radius: 10px;
-}
-
-.card{
-    background-color: var(--biru);
-    border: none;
-}
-
-.tahun{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-
-.tahun .btn-group.btn{
-    height: 10px;
-}
-
-.card-img-top{
-    background-color: white;
-    border-radius: 10px;
-}
-
-.publikasi{
     background-color: var(--biru);
     border-radius: 10px;
     border-spacing: 10px;
     height: 300px;
 }
 
-
-.list-group-item:hover{
-    background-color: var(--merah);
-    color: var(--kuning);
-
-}
-
-
-.list-group-item-action{
+.up {
     background-color: var(--biru);
+    border-spacing: 15px;
+    margin-right: -15px;
+    width: 500px;
+    border-radius: 10px;
 }
 
-.list-group-item{
+.card {
     background-color: var(--biru);
     border: none;
-    width: 50%;
-    padding-left: 10px;
 }
 
-.grup{
+.tahun {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.tahun .btn-group.btn {
+    height: 10px;
+}
+
+.card-img-top {
+    background-color: white;
+    border-radius: 10px;
+}
+
+.publikasi {
+    background-color: var(--biru);
+    border-radius: 10px;
+    border-spacing: 10px;
+    height: 300px;
+}
+
+.list-group-item:hover {
+    background-color: var(--merah);
+    color: var(--kuning);
+}
+
+.list-group-item-action {
+    background-color: var(--biru);
+}
+
+.list-group-item {
+    background-color: var(--biru);
+    border: none;
+    width: 80%;
+    padding-left: 50px;
+}
+
+.tinjau {
+    width: 100% !important;
+    background-color: none;
+}
+
+.grup {
     align-content: center;
 }
 
-.form{
+.form {
     background-color: var(--biru);
     margin: auto;
 }
 
-.building{
+.building {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    background-color: var(--biru);
+    margin: auto;
+}
+
+.prof {
     display: grid;
     grid-template-columns: 2fr 3fr;
 }
 
-.prof{
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-}
-
-.satker{
+.satker {
     width: 25%;
-    margin:auto;
+    margin: auto;
 }
 
-.form .profil{
-    width:100%;
-    margin-left: 30px;
+.form .profil {
+    width: 100%;
+    margin-left: 30px auto;
 }
 
-.row .form-control{
+.row .form-control {
     margin-right: 10%;
     margin: auto;
     width: 70%;
 }
 
-.row .ketprof{
+.row .ketprof {
     width: 200px;
 }
 
-.lokasi{
+.lokasi {
     background-color: var(--biru);
     margin: auto;
     display: grid;
     grid-template-columns: 2fr 3fr;
 }
 
-
-.putih{
+.putih {
     background-color: white;
 }
 
-.kuning{
+.kuning {
     background-color: var(--kuning);
 }
 
-.tul{
+.tul {
     color: var(--merah);
 }
 
-.indeks{
+.indeks {
     background-color: var(--biru);
     margin: auto;
     display: grid;
     grid-template-columns: 2fr 3fr;
 }
 
-table{
+table {
     width: 100%;
     margin-left: 15px;
 }
 
-table td{
+table td {
     padding-left: 10px;
 }
 
-.rekomendasi{
+.rekomendasi {
     background-color: var(--biru);
     margin: auto;
     display: grid;
     grid-template-columns: 2fr 3fr;
 }
 
-.area{
+.area {
     width: 70%;
     margin-left: 15px;
 }
 
-.rekomHasil{
+.rekomHasil {
     margin-right: -20px;
 }
+
 
 /* ---------------------------------------------------
     MEDIAQUERIES
@@ -534,63 +536,211 @@ table td{
     .navbar-right {
         flex-direction: unset;
     }
-
-    .jumlah{
+    .jumlah {
         display: none;
     }
-
-    .box{
+    .box {
         grid-template-columns: 1fr;
     }
-
-    .respon{
-        margin: auto;
-        width: 90%;
+    .rate {
+        grid-template-columns: 1fr;
     }
-
-    .responRate{
+    .respon {
+        margin: auto;
+        width: 100%;
+    }
+    .visualisasi {
+        grid: unset;
+        justify-items: center;
+        margin-bottom: 350px !important;
+    }
+    .container {
+        margin: auto !important;
+        width: auto !important;
+    }
+    .publikasi {
+        width: 100%;
+        margin: auto;
+    }
+    .responRate {
         margin-bottom: 5px;
         margin-right: 0px;
     }
-
-    .card-text{
+    .card-text {
         justify-content: center;
     }
-
-    .list-group-item{
-        width:100%;
+    .list-group-item {
+        width: 60%;
         align-content: center;
     }
-
-    .list{
-        width:100%;
+    .list {
+        width: 100%;
         align-content: center;
         font-size: 13px;
         margin-right: 20px;
         margin-left: -5px;
     }
-
-
-    .row .ketprof{
+    .row .ketprof {
         width: 50%;
     }
-
-    .building, .lokasi, .indeks, .rekomendasi{
+    .building,
+    .lokasi,
+    .indeks,
+    .rekomendasi {
         grid-template-columns: 1fr 2fr;
     }
-
-    .prof{
+    .profil {
+        margin-left: 20px;
+    }
+    .prof {
         grid-template-columns: 1fr 3fr;
-        margin-right:-20px;
+        margin-right: -20px;
         margin-left: -50px;
     }
-
-    .satker{
+    .satker {
         margin-right: 40px;
         margin-left: -5px;
     }
+    .hasil {
+        margin-right: 100px;
+    }
+    .building,
+    .lokasi,
+    .indeks,
+    .rekomendasi {
+        grid: unset;
+        align-items: center;
+    }
+    .fa-building,
+    .fa-podcast,
+    .fa-server,
+    .fa-receipt {
+        display: none;
+    }
+}
 
-    .hasil{
-        margin-left:30px;
+@media (max-width: 540px) {
+    .box {
+        grid-template-columns: 1fr;
+        width: 80%;
+    }
+    .rate {
+        grid-template-columns: 1fr auto;
+        width: 100% !important;
+        padding-left: 0px !important;
+    }
+    .respon {
+        margin: auto !important;
+        width: 100% !important;
+    }
+    .rate {
+        margin-bottom: 0px;
+        grid: unset !important;
+        margin-right: -50px;
+    }
+    .responRate {
+        width: 100% !important;
+    }
+    .wilayah {
+        margin: 0px !important;
+    }
+    .visualisasi {
+        margin-top: 0px;
+        padding: 0px;
+        margin: auto;
+        grid: unset;
+    }
+    .btn {
+        padding: 1px 4px !important;
+    }
+    .card-text {
+        margin: 2px;
+    }
+    .tahun {
+        margin: 0px;
+    }
+    .dld {
+        margin: 0px !important;
+    }
+    .container {
+        margin: auto !important;
+    }
+    .publikasi {
+        margin-right: 30px !important;
+        margin-bottom: 70px;
+        margin-top: 10px !important;
+    }
+    .list {
+        height: 30%;
+        margin: 0px;
+    }
+    .building,
+    .lokasi,
+    .indeks,
+    .rekomendasi {
+        grid: unset;
+        align-items: center;
+    }
+    .profil {
+        margin-left: 20px !important;
+        width: 100%;
+        margin: auto;
+    }
+    .profil,
+    .lokasi .mr-5,
+    .indeks .mr-5,
+    .hasil {
+        grid-template-columns: 0fr 1fr;
+        margin-right: 50%;
+    }
+    .fa-building,
+    .fa-podcast,
+    .fa-server,
+    .fa-receipt {
+        display: none;
+    }
+    .text-center {
+        margin-top: 10px !important;
+    }
+    .ket1 {
+        font-size: 11px;
+    }
+    .ket2 {
+        font-size: 8px;
+    }
+    .ket12 {
+        font-size: 12px;
+        margin: 0px !important;
+    }
+    .ket3 {
+        font-size: 13px !important;
+        color: var(--kuning);
+    }
+}
+
+@media (max-width: 360px) {
+    .form-control {
+        margin: 0px;
+    }
+    .section {
+        width: 70% !important;
+    }
+    .box {
+        margin: 0;
+    }
+}
+
+@media (max-width: 320px) {
+    .form-control {
+        margin: 0px;
+    }
+    .progressBar {
+        display: none;
+    }
+    .section {
+        width: 60% !important;
+    }
+    .box {
+        margin: 0;
     }
 }

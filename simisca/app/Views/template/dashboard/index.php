@@ -46,7 +46,7 @@
             </div>
 
             <center>
-                <img src="<?= base_url('img/dashboard/pkl.png'); ?>" class="profile_image" alt="">
+                <img src="<?= base_url('img/dashboard/logo.png'); ?>" class="profile_image" alt="">
             </center>
             <a href="<?= base_url('dashboard'); ?>" class="<?= ($active == 'dashboard') ? 'active' : ''; ?>"><i class="fas fa-home"></i><span>Halaman Utama</span></a>
             <a href="<?= base_url('dashboard/kuesioner'); ?>" class="<?= ($active == 'kuesioner') ? 'active' : ''; ?>"><i class="fas fa-book-open"></i><span>SMKB Satker</span></a>
