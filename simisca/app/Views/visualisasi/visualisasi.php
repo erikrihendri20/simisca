@@ -34,37 +34,25 @@
                             datasets: [{
                                     label: 'Sumber Daya Pendukung',
                                     data: [36, 46, 33, 38, 39, 34, 30],
-                                    borderColor: 'rgb(255, 0, 0)',
-                                    backgroundColor: 'rgba(255, 0, 0,0.5)',
-                                    borderWidth: 2,
-                                    borderRadius: 2,
+                                    backgroundColor: '#003f5c',
                                     borderSkipped: false,
                                 },
                                 {
                                     label: 'Pemulihan dan Penanggulangan Darurat',
                                     data: [28, 38, 26, 32, 30, 25, 24],
-                                    borderColor: 'rgb(0, 0, 255)',
-                                    backgroundColor: 'rgba(0, 0, 255,0.5)',
-                                    borderWidth: 2,
-                                    borderRadius: 2,
+                                    backgroundColor: '#58508d',
                                     borderSkipped: false,
                                 },
                                 {
                                     label: 'Rencana Tanggap Darurat',
                                     data: [30, 34, 26, 30, 33, 30, 33],
-                                    borderColor: 'rgb(255, 255, 0)',
-                                    backgroundColor: 'rgba(255, 255, 0,0.5)',
-                                    borderWidth: 2,
-                                    borderRadius: 2,
+                                    backgroundColor: '#bc5090',
                                     borderSkipped: false,
                                 },
                                 {
                                     label: 'Perlindungan Aset',
                                     data: [71, 75, 62, 72, 78, 59, 61],
-                                    borderColor: 'rgb(0, 255, 0)',
-                                    backgroundColor: 'rgba(0, 255, 0,0.5)',
-                                    borderWidth: 2,
-                                    borderRadius: 2,
+                                    backgroundColor: '#ff6361',
                                     borderSkipped: false,
                                 }
                             ]
@@ -113,10 +101,7 @@
                             datasets: [{
                                 label: 'Karakteristik Wilayah',
                                 data: [7.74, 18.38, 32.50, 42.55],
-                                borderColor: 'rgb(255, 0, 0)',
-                                backgroundColor: 'rgba(255, 0, 0,0.5)',
-                                borderWidth: 2,
-                                borderRadius: 2,
+                                backgroundColor: '#ffa600',
                                 borderSkipped: false,
                             }]
                         };
@@ -178,10 +163,7 @@
                                 datasets: [{
                                     label: 'Persentase',
                                     data: [27.85, 17.60, 8.12, 3.87, 3.48, 2.13, 1.74, 1.35],
-                                    borderColor: 'rgb(255, 99, 0)',
-                                    backgroundColor: 'rgba(255, 99, 0,0.5)',
-                                    borderWidth: 2,
-                                    borderRadius: 2,
+                                    backgroundColor: '#003f5c',
                                     borderSkipped: false,
                                 }]
                             };
@@ -251,28 +233,19 @@
                                 datasets: [{
                                         label: 'Kurang Memadai',
                                         data: [60.15, 68.47, 14.89],
-                                        borderColor: 'rgb(255, 0, 0)',
-                                        backgroundColor: 'rgba(255, 0, 0,0.5)',
-                                        borderWidth: 2,
-                                        borderRadius: 2,
+                                        backgroundColor: '#58508d',
                                         borderSkipped: false,
                                     },
                                     {
                                         label: 'Memadai',
                                         data: [21.08, 23.60, 65.76],
-                                        borderColor: 'rgb(255, 255, 0)',
-                                        backgroundColor: 'rgba(255, 255, 0,0.5)',
-                                        borderWidth: 2,
-                                        borderRadius: 2,
+                                        backgroundColor: '#bc5090',
                                         borderSkipped: false,
                                     },
                                     {
                                         label: 'Sangat Memadai',
                                         data: [18.76, 7.93, 19.34],
-                                        borderColor: 'rgb(0, 255, 0)',
-                                        backgroundColor: 'rgba(0, 255, 0,0.5)',
-                                        borderWidth: 2,
-                                        borderRadius: 2,
+                                        backgroundColor: '#ff6361',
                                         borderSkipped: false,
                                     }
                                 ]
@@ -331,28 +304,20 @@
                                 datasets: [{
                                         label: 'Kurang Baik',
                                         data: [4.45, 6.19],
-                                        borderColor: 'rgb(255, 0, 0)',
-                                        backgroundColor: 'rgba(255, 0, 0,0.5)',
-                                        borderWidth: 2,
-                                        borderRadius: 2,
+                                        backgroundColor: '#003f5c',
                                         borderSkipped: false,
                                     },
                                     {
                                         label: 'Baik',
                                         data: [13.35, 20.12],
                                         borderColor: 'rgb(255, 255, 0)',
-                                        backgroundColor: 'rgba(255, 255, 0,0.5)',
-                                        borderWidth: 2,
-                                        borderRadius: 2,
+                                        backgroundColor: '#bc5090',
                                         borderSkipped: false,
                                     },
                                     {
                                         label: 'Sangat Baik',
                                         data: [82.21, 73.69],
-                                        borderColor: 'rgb(0, 255, 0)',
-                                        backgroundColor: 'rgba(0, 255, 0,0.5)',
-                                        borderWidth: 2,
-                                        borderRadius: 2,
+                                        backgroundColor: '#ffa600',
                                         borderSkipped: false,
                                     }
                                 ]
@@ -432,10 +397,7 @@
                             datasets: [{
                                 label: 'IMKB',
                                 data: [42.29, 61.84, 71.55],
-                                borderColor: 'rgb(25, 74, 0)',
-                                backgroundColor: 'rgba(25, 74, 0,0.5)',
-                                borderWidth: 2,
-                                borderRadius: 2,
+                                backgroundColor: '#ff6361',
                                 borderSkipped: false,
                             }]
                         };
@@ -484,10 +446,7 @@
                             datasets: [{
                                 label: 'Persentase',
                                 data: [2, 9, 13, 34, 42],
-                                borderColor: 'rgb(51,51,51)',
-                                backgroundColor: ['rgba(0, 0, 255,0.5)', 'rgba(51, 204, 51,0.5)', 'rgba(255, 255, 0,0.5)', 'rgba(255, 153, 0,0.5)', 'rgba(255, 0, 0,0.5)'],
-                                borderWidth: 2,
-                                borderRadius: 2,
+                                backgroundColor: ['#003f5c', '#58508d', '#bc5090', '#ff6361', '#ffa600'],
                                 borderSkipped: false,
                                 radius: '60%'
                             }]
@@ -535,8 +494,8 @@
                             datasets: [{
                                     label: 'Pusat',
                                     data: [20, 90, 13, 34],
-                                    borderColor: 'rgb(255,0,0)',
-                                    backgroundColor: 'rgba(0,0,255,0)',
+                                    borderColor: '#003f5c',
+                                    backgroundColor: 'rgba(0,0,0,0)',
                                     borderWidth: 2,
                                     borderRadius: 2,
                                     borderSkipped: false,
@@ -544,7 +503,7 @@
                                 {
                                     label: 'Provinsi',
                                     data: [42, 59, 63, 80],
-                                    borderColor: 'rgb(0,255,255)',
+                                    borderColor: '#ff6361',
                                     backgroundColor: 'rgba(0,0,0,0)',
                                     borderWidth: 2,
                                     borderRadius: 2,
@@ -553,7 +512,7 @@
                                 {
                                     label: 'Kabupaten/Kota',
                                     data: [62, 79, 13, 40],
-                                    borderColor: 'rgb(0,255,0)',
+                                    borderColor: '#bc5090',
                                     backgroundColor: 'rgba(0,0,0,0)',
                                     borderWidth: 2,
                                     borderRadius: 2,
@@ -606,10 +565,7 @@
                             datasets: [{
                                 label: 'Sub IMKB Covid-19',
                                 data: [33.18, 34.25, 35.46, 38.04, 39.83, 40.69, 46.97],
-                                borderColor: 'rgb(51,51,51)',
-                                backgroundColor: 'rgba(0,0,255,0.5)',
-                                borderWidth: 2,
-                                borderRadius: 2,
+                                backgroundColor: '#bc5090',
                                 borderSkipped: false,
                             }]
                         };
@@ -670,10 +626,7 @@
                         datasets: [{
                             label: 'Persentase',
                             data: [27, 49, 18, 5, 1],
-                            borderColor: 'rgb(51,51,51)',
-                            backgroundColor: ['rgba(0, 0, 255,0.5)', 'rgba(51, 204, 51,0.5)', 'rgba(255, 255, 0,0.5)', 'rgba(255, 153, 0,0.5)', 'rgba(255, 0, 0,0.5)'],
-                            borderWidth: 2,
-                            borderRadius: 2,
+                            backgroundColor: ['#003f5c', '#58508d', '#bc5090', '#ff6361', '#ffa600'],
                             borderSkipped: false,
                             radius: '60%'
                         }]
@@ -724,28 +677,19 @@
                         datasets: [{
                                 label: 'Pusat',
                                 data: [79.38, 65.35, 66.07],
-                                borderColor: 'rgb(255, 0, 0)',
-                                backgroundColor: 'rgba(255, 0, 0,0.5)',
-                                borderWidth: 2,
-                                borderRadius: 2,
+                                backgroundColor: '#bc5090',
                                 borderSkipped: false,
                             },
                             {
                                 label: 'Provins',
                                 data: [80.49, 67.97, 66.65],
-                                borderColor: 'rgb(0, 0, 255)',
-                                backgroundColor: 'rgba(0, 0, 255,0.5)',
-                                borderWidth: 2,
-                                borderRadius: 2,
+                                backgroundColor: '#ff6361',
                                 borderSkipped: false,
                             },
                             {
                                 label: 'Kabupaten/Kota',
                                 data: [79.73, 68.36, 66.03],
-                                borderColor: 'rgb(255, 255, 0)',
-                                backgroundColor: 'rgba(255, 255, 0,0.5)',
-                                borderWidth: 2,
-                                borderRadius: 2,
+                                backgroundColor: '#ffa600',
                                 borderSkipped: false,
                             }
                         ]
