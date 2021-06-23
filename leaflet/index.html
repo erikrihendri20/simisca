@@ -36,12 +36,12 @@
 
             if (e.target.feature.geometry.type === 'LineString') {
               highlightLayer.setStyle({
-                color: '#ffff00',
+                color: '#072438',
               });
             } else {
               highlightLayer.setStyle({
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: '#ffffff',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
@@ -51,27 +51,14 @@
             highlightLayer.openPopup();
         }
         var map = L.map('map', {
-            zoomControl:true, maxZoom:28, minZoom:3
-        }).fitBounds([[-16.30647517856473,94.22594160678742],[13.775556861123702,142.53611945491159]]);
+            zoomControl:false, maxZoom:28, minZoom:3
+        }).fitBounds([[-8.770384177601823, 96.37753642267057],[5.206537935743489, 140.1031221166577]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
-        map.createPane('pane_GoogleSatelite_0');
-        map.getPane('pane_GoogleSatelite_0').style.zIndex = 400;
-        var layer_GoogleSatelite_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-            pane: 'pane_GoogleSatelite_0',
-            opacity: 1.0,
-            attribution: '',
-            minZoom: 3,
-            maxZoom: 28,
-            minNativeZoom: 0,
-            maxNativeZoom: 18
-        });
-        layer_GoogleSatelite_0;
-        map.addLayer(layer_GoogleSatelite_0);
         function pop_indo_by_prov_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -150,14 +137,14 @@
             return {
                 pane: 'pane_indo_by_prov_1',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: '#7f7f7f',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(244,197,143,1.0)',
+                fillColor: '#072438',
                 interactive: true,
             }
         }
