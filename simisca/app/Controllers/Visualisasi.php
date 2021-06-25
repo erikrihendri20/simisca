@@ -40,7 +40,7 @@ class Visualisasi extends BaseController
     {
         $model = new Sampel_satker_model();
         $data = [
-            'title' => 'visualisasi',
+            'title' => 'Grafik',
             'css' => 'visualisasi.css',
             'js' => 'visualisasi.js',
             'provinsi' => $model->getSatker()

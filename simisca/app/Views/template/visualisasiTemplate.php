@@ -25,7 +25,7 @@
     <!-- chartjs -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <title>Peta Tematik</title>
+    <title><?= $title; ?></title>
     <!-- add icon link -->
     <link rel="icon" href="img/logo.png" type="image/x-icon">
 </head>
@@ -33,14 +33,14 @@
 <body>
     <nav id="bg2" class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="<?= base_url('#portalvisualisasi') ?>">VISUALISASI<br>SIMISCA BPS</a>
+            <a class="navbar-brand" href="<?= base_url('#portalvisualisasi') ?>"><img src="img/logo.png" width="30" height="30" class="d-inline-block align-top font-weigth-bold mr-2" alt="">SIMISCA BPS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto">
                     <a class="nav-item nav-link " href="<?= base_url() ?>/petaTematik">Peta Tematik <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="<?= base_url() ?>/visualisasi">Visualisasi</a>
+                    <a class="nav-item nav-link" href="<?= base_url() ?>/visualisasi">Grafik</a>
                     <a class="nav-item nav-link active" href="<?= base_url() ?>/tabelDinamis">Tabel Dinamis</a>
                 </div>
             </div>
