@@ -196,7 +196,7 @@ class Dashboard extends BaseController
                 while($data = fgetcsv($handle)){
                     
                     if($count!=0){
-                        $row['kode_satker'] = $data[0];
+                        $row['kode_satker'] = $data[1];
                         $row['tahun'] = date('Y');
                         
                         $row['perlindungan_aset'] = $data[1];
