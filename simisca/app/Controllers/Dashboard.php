@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\Survei_model;
 use App\Models\Satker_model;
 use App\Models\Sampel_satker_model;
+use App\Models\ImkbSatker_model;
 use \PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
@@ -185,6 +186,57 @@ class Dashboard extends BaseController
     {
         if(isset($_POST['script'])){
             $this->rScript();
+        }
+        if(isset($_POST['upload'])){
+            $filename = explode('.' , $_FILES['imkb']['name']);
+            if(end($filename)=='csv'){
+                $handle = fopen($_FILES['imkb']['tmp_name'],'r');
+                $imkb = [];
+                $count = 0;
+                while($data = fgetcsv($handle)){
+                    
+                    if($count!=0){
+                        $row['kode_satker'] = $data[0];
+                        $row['tahun'] = date('Y');
+                        
+                        $row['perlindungan_aset'] = $data[1];
+                        $row['sumber_daya'] = $data[2];
+                        $row['pemulihan'] = $data[3];
+                        $row['rencana_tanggap'] = $data[4];
+                        $row['imkb'] = $data[5];
+                        
+                        $row['perlindungan_aset_bencana'] = $data[6];
+                        $row['sumber_daya_bencana'] = $data[7];
+                        $row['pemulihan_bencana'] = $data[8];
+                        $row['rencana_tanggap_bencana'] = $data[9];
+                        $row['simkb_bencana'] = $data[10];
+
+                        $row['perlindungan_aset_kebakaran'] = $data[11];
+                        $row['sumber_daya_kebakaran'] = $data[12];
+                        $row['pemulihan_kebakaran'] = $data[13];
+                        $row['rencana_tanggap_kebakaran'] = $data[14];
+                        $row['simkb_kebakaran'] = $data[15];
+                        
+                        $row['sumber_daya_covid'] = $data[16];
+                        $row['pemulihan_covid'] = $data[17];
+                        $row['rencana_tanggap_covid'] = $data[18];
+                        $row['simkb_covid19'] = $data[19];
+
+                        $imkb[] = $row;
+                    }
+                    $count++;
+                }
+                $imkbSatkerModel = new ImkbSatker_model();
+                if(!$imkbSatkerModel->matchUpdate($imkb[0]['tahun'],$imkb[0]['kode_satker'])){
+                    $imkbSatkerModel->insertBatch($imkb);
+                }else{
+                    foreach ($imkb as $row) {
+                        $imkbSatkerModel->updateImkb($row);
+                    }
+                }
+            }else{
+                $data['pesan'] = 'hanya file csv yang diizinkan';
+            }
         }
         $surveyModel = new Survei_model();
         $data['rawData'] = $surveyModel->jawabanKuesioner();

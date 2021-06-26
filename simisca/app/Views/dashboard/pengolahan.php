@@ -217,6 +217,7 @@
 
         </thead>
         <tbody>
+            <?php if($rawData): ?>
             <?php foreach ($rawData as $r) : ?>
                 <td><?= $r['id']; ?></td>
                 <td><?= $r['submitdate']; ?></td>
@@ -411,6 +412,7 @@
                 <td><?= $r['423492X6time']; ?></td>
                 <td><?= $r['423492X6X38time']; ?></td>
             <?php endforeach; ?>
+            <?php endif; ?>
         </tbody>
     </table>
 
@@ -430,9 +432,12 @@
             </form>
         </div>
         <div class="card">
-            <h3>Upload Hasil Pengolahan IMKB Satker</h3>
-            <p>Data hasil pengolahan IMKB Satker dapat diupload pada section ini dan secara otomatis visualisasi indeks terbaru muncul pada bagian visualisasi.</p>
-            <p class="cardp"><button id="unggah-hasil" class="btn btn-primary"><span class="fa fa-upload"></span> <b> Unggah Hasil</b></button></p>
+            <form action="" method="POST" enctype="multipart/form-data">
+                <h3>Upload Hasil Pengolahan IMKB Satker</h3>
+                <p>Data hasil pengolahan IMKB Satker dapat diupload pada section ini dan secara otomatis visualisasi indeks terbaru muncul pada bagian visualisasi.</p>
+                <input type="file" name="imkb">
+                <p class="cardp"><button name="upload" id="unggah-hasil" class="btn btn-primary"><span class="fa fa-upload"></span> <b> Unggah Hasil</b></button></p>
+            </form>
         </div>
     </div>
 </div>
