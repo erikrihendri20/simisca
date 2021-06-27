@@ -28,6 +28,8 @@
     <title><?= $title; ?></title>
     <!-- add icon link -->
     <link rel="icon" href="img/logo.png" type="image/x-icon">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 </head>
 
 <body>
@@ -46,9 +48,12 @@
             </div>
         </div>
     </nav>
-    <i class="fas fa-home home"></i><i class="fas fa-long-arrow-alt-right panah">
-        <div class="head"><?= $title; ?></div>
-    </i>
+    <div class="container mt-3">
+
+        <i class="fas fa-home home mr-2"></i><i class="fas fa-long-arrow-alt-right panah">
+            <div class="head"><?= $title; ?></div>
+        </i>
+    </div>
 
 
     <!-- content -->

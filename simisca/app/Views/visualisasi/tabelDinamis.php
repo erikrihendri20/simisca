@@ -3,9 +3,9 @@
 <?= $this->section('content'); ?>
 
 
-<div class="formulir">
+<div class="container formulir">
   <h3>Tabel Dinamis</h3>
-  <form class="col-md-11">
+  <form class="col-md-12">
     <div class="form-row">
       <div class="form-group col-md-12">
         <label for="subjek">Subjek</label>
