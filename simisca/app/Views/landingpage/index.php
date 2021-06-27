@@ -49,10 +49,10 @@
     </nav>
 
     <!-- Masthead -->
-    <div class="jumbotron shadow-lg jumbotron-fluid" style="background-image: url(<?= base_url('img/foto-awal.jpg'); ?>);">
+    <div class="jumbotron shadow-lg" style="background-image: url(<?= base_url('img/foto-awal.jpg'); ?>);">
         <div class="container-fluid">
             <h1 class="display-4 font-weight-bold animate__animated animate__zoomIn">SIMISCA BPS</h1>
-            <p class="lead">Sistem Informasi Mitigasi dan Kesiapsiagaan BPS memuat informasi indeks mitigasi dan kesiapsiagaan seluruh kantor BPS seluruh Indonesia. Sistem ini dibuat oleh Politeknik Statistika STIS Angkatan 60 dalam rangka Praktik Kerja Lapangan T.A.
+            <p class="lead">Sistem Informasi Mitigasi dan Kesiapsiagaan BPS memuat informasi indeks mitigasi dan kesiapsiagaan seluruh kantor BPS Indonesia. Sistem ini dibuat oleh mahasiswa Politeknik Statistika STIS Angkatan 60 dalam rangka Praktik Kerja Lapangan Tahun Ajaran
                 2020/2021
             </p>
         </div>
@@ -88,10 +88,10 @@
                 </div>
                 <div class="col-sm-5 pt-2 order-2 order-sm-1 content">
                     <p class="font-weight-lighter tentang" data-aos="fade-right">
-                        SIMISCA BPS merupakan sistem informasi berbasis web yang dirancang oleh mahasiswa Polstat STIS dalam rangka Praktik Kerja Lapangan Tahun Ajaran 2020/2021 dengan mengangkat salah satu topik, yaitu Tingkat Mitigasi Dan Kesiapsiagaan Bencana di Badan Pusat Statistik. Sistem ini akan mendukung terlaksananya mitigasi dan kesiapsiagaan bencana pada lingkungan Badan Pusat Statistik.
+                        SIMISCA BPS merupakan sistem informasi berbasis web yang dirancang oleh mahasiswa Polstat STIS dalam rangka Praktik Kerja Lapangan Tahun Ajaran 2020/2021 dengan mengangkat salah satu topik, yaitu Tingkat Mitigasi Dan Kesiapsiagaan Bencana di Badan Pusat Statistik.
                     </p>
                     <p class="font-weight-lighter tentang" data-aos="fade-right">
-                        Sistem informasi ini akan mmembantu serta mendukung dalam pelaksaaan kegiatan mitigasi dan kesiapsiagaan bencana di lingkungan Badan Pusat Statistik.
+                        Sistem ini akan membantu serta mendukung civitas pegawai BPS dalam melaksanakan kegiatan mitigasi dan kesiapsiagaan bencana di lingkungan Badan Pusat Statistik sendiri.
                     </p>
                 </div>
             </div>

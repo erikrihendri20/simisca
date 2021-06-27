@@ -164,7 +164,7 @@ html {
 .jumbotron {
     background-size: cover;
     background-position: center;
-    height: 550px;
+    height: 575px;
     width: auto;
     border-radius: 0px 0px 30px 30px;
 }
@@ -180,7 +180,7 @@ html {
     color: white;
     text-align: center;
     letter-spacing: 1px;
-    font-size: 20px;
+    font-size: 22px;
     padding: 5px;
     margin: 40px 50px 0px 50px;
 }
