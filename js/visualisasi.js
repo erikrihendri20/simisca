@@ -106,3 +106,20 @@ $(document).ready(function() {
         getSpiderChart()
     })
 })
+
+function pilihGrafik() {
+    //var skrip = document.getElementsByClassName("skrip")[0];
+    if ($("#grafik").val() != 0) {
+        $(".skrip").attr("src",function(){
+            return "js/grafik/" + $("#grafik").val() + ".js";
+        });
+        //skrip.setAttributeNode("src").value = "js/grafik/" + $("#grafik").val() + ".js";
+    }
+    // console.log($("#grafik").val());
+
+    if($("#grafik").val() >= 10){
+        $(".skrip2").attr("src",function(){
+            return "js/grafik/" + $("#grafik").val() + ".js";
+        });
+    }
+}

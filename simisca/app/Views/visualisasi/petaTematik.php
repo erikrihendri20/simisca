@@ -2,7 +2,7 @@
 
 <?= $this->section('content'); ?>
 
-<div class="menu">
+<div class="container menu">
 
     <button class="tablink col-md-6 pegawai" onclick="openPage('Home', this, '#F4C58F','#072438')">Pegawai</button>
     <button class="tablink col-md-6 satker" onclick="openPage('News', this, '#072438','#F4C58F')" id="defaultOpen">Satuan
@@ -46,7 +46,7 @@
             <p>Filter Sub Indeks dan Wilayah</p>
         </div>
         <div class="form row satker1">
-            <div class="form-group col-md-4 bar1">
+            <div class="form-group col-md-12 bar1">
                 <div class="label">
                     <label for="indeks">Indeks</label>
                 </div>
@@ -56,7 +56,7 @@
                     <option>3</option>
                 </select>
             </div>
-            <div class="form-group col-md-4 bar2">
+            <!-- <div class="form-group col-md-4 bar2">
                 <div class="label">
                     <label for="provinsi">Provinsi</label>
                 </div>
@@ -75,37 +75,36 @@
                     <option>2</option>
                     <option>3</option>
                 </select>
-            </div>
+            </div> -->
         </div>
     </div>
-</div>
+    <div class="top">
+        <div class="content row">
+            <div class="pet col-md-12">
+                <p>PETA</p>
+                <div class="KetPeta">
+                    <div id="mapid" style="width: 600px; height: 600px;"></div>
+                </div>
+            </div>
 
-<div class="top">
-    <div class="content row">
-        <div class="pet col-md-9">
-            <p>PETA</p>
-            <div class="KetPeta">
-                <div id="mapid" style="width: 600px; height: 400px;"></div>
-            </div>
-        </div>
-
-        <div class="stat col-md-2">
-            <div class="label1">
-                <p>Statistik Indeks Satker</p>
-            </div>
-            <div class="prov row">
-                PROVINSI
-            </div>
-            <div class="kota row">
-                KOTA
-            </div>
-            <div class="label1">
-                <p>Statistik Kerentanan</p>
-            </div>
-            <div class="tertinggi row">
-                <p>Sangat rentan</p>
-                <p>Sangat tidak rentan</p>
-            </div>
+            <!-- <div class="stat col-md-2">
+                <div class="label1">
+                    <p>Statistik Indeks Satker</p>
+                </div>
+                <div class="prov row">
+                    PROVINSI
+                </div>
+                <div class="kota row">
+                    KOTA
+                </div>
+                <div class="label1">
+                    <p>Statistik Kerentanan</p>
+                </div>
+                <div class="tertinggi row">
+                    <p>Sangat rentan</p>
+                    <p>Sangat tidak rentan</p>
+                </div>
+            </div> -->
         </div>
     </div>
 </div>

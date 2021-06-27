@@ -27,12 +27,6 @@ i {
   font-size: 16px;
 }
 
-.home {
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-right: 5px;
-}
-
 .head {
   display: inline-block;
   font-family: "Poppins", sans-serif;
@@ -94,7 +88,7 @@ i {
   background-color: #f4c58f;
 }
 
-.tahun {
+#Satker .form-group {
   background-color: #f4c58f;
   padding: 7px 5px;
   margin: 10px 5px;
@@ -103,11 +97,57 @@ i {
   border-radius: 10px;
 }
 
-.isi-tahun {
+#Pegawai .form-group {
+  background-color: #072438;
+  padding: 7px 5px;
+  margin: 10px 5px;
+  color: #f4c58f;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+.option {
   background-color: #072438;
   color: #f4c58f;
   font-weight: 600;
   border: none;
+}
+
+.option2 {
+  background-color: #f4c58f;
+  color: #072438;
+  font-weight: 600;
+  border: none;
+}
+
+#Satker #tombol {
+  background-color: #072438;
+  color: #f4c58f;
+  outline: none;
+  border: 2px solid #072438;
+  transition: 0.5s;
+}
+
+#Satker #tombol:hover {
+  background-color: #f4c58f;
+  color: #072438;
+  outline: none;
+  border: 2px solid #072438;
+}
+
+#Pegawai #tombol {
+  background-color: #f4c58f;
+  color: #072438;
+  outline: none;
+  border: 2px solid #f4c58f;
+  transition: 0.5s;
+}
+
+#Pegawai #tombol:hover {
+  background-color: #072438;
+  color: #f4c58f;
+  outline: none;
+  border: 2px solid #f4c58f;
 }
 
 .title {
@@ -139,11 +179,6 @@ i {
 
 /* DESKTOP*/
 @media (min-width: 992px) {
-  .home {
-    margin-top: 25px;
-    margin-left: 50px;
-    margin-right: 5px;
-  }
   .box {
     height: 300px;
   }
