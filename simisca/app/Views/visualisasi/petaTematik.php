@@ -93,9 +93,7 @@
             <div class="pet col-md-12">
                 <p>PETA</p>
                 <div class="KetPeta">
-                    <div id="mapid" style="width: 800px; height: 600px;">
-                    </div>
-
+                    <div style="overflow: hidden;" data-aos="fade-down"> <iframe id="myIframe" frameborder="0" style="height: 550px; overflow:scroll; width: 1000px" src="map/index.html" marginheight="1" marginwidth="1" name="cboxmain" id="cboxmain" seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true"></iframe> </div>
                 </div>
             </div>
 
