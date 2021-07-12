@@ -83,7 +83,7 @@
             <div class="pet col-md-12">
                 <p>PETA</p>
                 <div class="KetPeta">
-                    <div id="mapid" style="width: 600px; height: 600px;"></div>
+                    <div id="mapid" style="width: 800px; height: 600px;"></div>
                 </div>
             </div>
 

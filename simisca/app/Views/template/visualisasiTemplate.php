@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- leaflet -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <link rel="stylesheet" href="css/leaflet/leaflet.css">
 
     <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/bc6bf428b6.js" crossorigin="anonymous"></script>
@@ -65,9 +65,17 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <!-- leaflet -->
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 
+    <script src="js/leaflet/leaflet.js"></script>
+    <script src="js/leaflet/leaflet.rotatedMarker.js"></script>
+    <script src="js/leaflet/leaflet.pattern.js"></script>
+    <script src="js/leaflet/leaflet-hash.js"></script>
+    <script src="js/leaflet/Autolinker.min.js"></script>
+    <script src="js/leaflet/rbush.min.js"></script>
+    <script src="js/leaflet/labelgun.min.js"></script>
+    <script src="js/leaflet/labels.js"></script>
+    <script src="asset/leaflet/poligon.js"></script>
+    <script src="asset/leaflet/point.js"></script>
 
     <!-- bootsrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
