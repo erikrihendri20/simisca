@@ -13,35 +13,35 @@
             <p>Filter Wilayah</p>
         </div>
         <div class="form row satker2">
-            <div class="form-group col-md-4 bar1">
+            <div class="form-group col-md-6 bar1">
                 <div class="label">
                     <label for="indeks" , style="color: #f4c58f;">Sub IMKB</label>
                 </div>
-                <select style="background-color: #f4c58f;" class="form-control" id="subjek">
+                <select style="background-color: #f4c58f;" class="form-control" id="indeks">
                     <option>Sub IMKB Gempa dan Tsunami</option>
                     <option>Sub IMKB Banjir </option>
                 </select>
             </div>
-            <div class="form-group col-md-4 bar1">
+            <div class="form-group col-md-6 bar1">
                 <div class="label">
-                    <label for="indeks" , style="color: #f4c58f;">Provinsi</label>
+                    <label for="prov" , style="color: #f4c58f;">Provinsi</label>
                 </div>
-                <select style="background-color: #f4c58f;" class="form-control" id="subjek">
+                <select style="background-color: #f4c58f;" class="form-control" id="prov">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
                 </select>
             </div>
-            <div class="form-group col-md-4 bar2">
+            <!-- <div class="form-group col-md-4 bar2">
                 <div class="label">
-                    <label for="provinsi" , style="color: #f4c58f;">Kabupaten/Kota</label>
+                    <label for="kabkota" , style="color: #f4c58f;">Kabupaten/Kota</label>
                 </div>
-                <select style="background-color: #f4c58f;" class="form-control" id="subjek">
+                <select style="background-color: #f4c58f;" class="form-control" id="kabkota">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
                 </select>
-            </div>
+            </div> -->
             <div>
                 <p></p>
             </div>
@@ -55,15 +55,25 @@
             <p>Filter Sub Indeks dan Wilayah</p>
         </div>
         <div class="form row satker1">
-            <div class="form-group col-md-12 bar1">
+            <div class="form-group col-md-6 bar1">
                 <div class="label">
                     <label for="indeks">Indeks</label>
                 </div>
-                <select class="form-control" id="subjek">
+                <select class="form-control" id="indeks" style="color: #f4c58f; background-color:#072438">
                     <option>Sub IMKB Kebakaran Per Provinsi</option>
                     <option>Sub IMKB Covid-19 Per Provinsi</option>
                     <option>Sub IMKB Gempa dan Tsunami</option>
                     <option>Sub IMKB Banjir </option>
+                </select>
+            </div>
+            <div class="form-group col-md-6 bar1">
+                <div class="label">
+                    <label for="prov">Provinsi</label>
+                </div>
+                <select class="form-control" id="prov" style="color: #f4c58f; background-color:#072438">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
                 </select>
             </div>
             <!-- <div class="form-group col-md-4 bar2">
