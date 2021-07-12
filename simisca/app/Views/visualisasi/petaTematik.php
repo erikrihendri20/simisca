@@ -83,12 +83,13 @@
             <div class="pet col-md-12">
                 <p>PETA</p>
                 <div class="KetPeta">
-                    <!-- <div id="mapid" style="width: 600px; height: 600px;"></div> -->
-                    <div style="overflow: hidden;" data-aos="fade-down"> <iframe id="myIframe" frameborder="0" style="height: 550px; overflow:scroll; width: 1000px" src="map/index.html" marginheight="1" marginwidth="1" name="cboxmain" id="cboxmain" seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true"></iframe> </div>
+                    <<<<<<< HEAD=======<div id="mapid" style="width: 800px; height: 600px;">
                 </div>
+                >>>>>>> 1d1f994722141bae901503c9f5f9dd491480a680
             </div>
+        </div>
 
-            <!-- <div class="stat col-md-2">
+        <!-- <div class="stat col-md-2">
                 <div class="label1">
                     <p>Statistik Indeks Satker</p>
                 </div>
@@ -106,8 +107,8 @@
                     <p>Sangat tidak rentan</p>
                 </div>
             </div> -->
-        </div>
     </div>
+</div>
 </div>
 
 <?= $this->endSection(); ?>
