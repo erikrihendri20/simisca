@@ -15,6 +15,15 @@
         <div class="form row satker2">
             <div class="form-group col-md-4 bar1">
                 <div class="label">
+                    <label for="indeks" , style="color: #f4c58f;">Sub IMKB</label>
+                </div>
+                <select style="background-color: #f4c58f;" class="form-control" id="subjek">
+                    <option>Sub IMKB Gempa dan Tsunami</option>
+                    <option>Sub IMKB Banjir </option>
+                </select>
+            </div>
+            <div class="form-group col-md-4 bar1">
+                <div class="label">
                     <label for="indeks" , style="color: #f4c58f;">Provinsi</label>
                 </div>
                 <select style="background-color: #f4c58f;" class="form-control" id="subjek">
@@ -51,9 +60,10 @@
                     <label for="indeks">Indeks</label>
                 </div>
                 <select class="form-control" id="subjek">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
+                    <option>Sub IMKB Kebakaran Per Provinsi</option>
+                    <option>Sub IMKB Covid-19 Per Provinsi</option>
+                    <option>Sub IMKB Gempa dan Tsunami</option>
+                    <option>Sub IMKB Banjir </option>
                 </select>
             </div>
             <!-- <div class="form-group col-md-4 bar2">
@@ -83,7 +93,9 @@
             <div class="pet col-md-12">
                 <p>PETA</p>
                 <div class="KetPeta">
-                    <div id="mapid" style="width: 800px; height: 600px;"></div>
+                    <div id="mapid" style="width: 800px; height: 600px;">
+                    </div>
+
                 </div>
             </div>
 
