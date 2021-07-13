@@ -61,9 +61,7 @@ class ImkbSatker_model extends Model
     public function getPetaSatker($filter)
     {
         $this->builder()->join('satker' , 'imkb_satker.kode_satker=satker.kodesatker');
-        if($filter['kodesatker']!=1){
-            $this->builder()->like('imkb_satker.kode_satker' , substr($filter['kodesatker'] , 0 , 2) , 'after')->notLike('imkb_satker.kode_satker' , substr($filter['kodesatker'] , 2));
-        }
+        
         $this->builder()->select('satker.kodesatker , satker.namasatker');
         switch ($filter['indeks']) {
             case 1:
@@ -73,6 +71,11 @@ class ImkbSatker_model extends Model
             case 2:
                 $this->builder()->select('simkb_covid19 as SIMKB covid 19');
                 break;
+            case 3:
+                if($filter['kodesatker']!=1){
+                    $this->builder()->like('imkb_satker.kode_satker' , substr($filter['kodesatker'] , 0 , 2) , 'after');
+                }
+                $this->builder()->select('simkb_bencana as SIMKB Bencana');
             default:
                 # code...
                 break;

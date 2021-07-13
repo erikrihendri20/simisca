@@ -63,7 +63,7 @@ function openPage(pageName, elmnt, color, color1) {
         layer_OSMStandard_0;
         map.addLayer(layer_OSMStandard_0);
 
-        function pop_INDO_PROV_2016_1(feature, layer) {
+        function pop_layer_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -76,29 +76,41 @@ function openPage(pageName, elmnt, color, color1) {
                 },
                 mouseover: highlightFeature,
             });
+            pop = '';
+            Object.keys(feature.properties).forEach(function(key) {
+
+              pop = pop +  
+              '<tr>\
+              <th scope="row">'+key+'</th>\
+              <td>:' + (feature.properties[key] !== null ? autolinker.link(feature.properties[key].toString()) : '') + '</td>\
+                </tr>';
+              
+            });
             var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['PROVNO'] !== null ? autolinker.link(feature.properties['PROVNO'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['PROVINSI'] !== null ? autolinker.link(feature.properties['PROVINSI'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['IDPROV'] !== null ? autolinker.link(feature.properties['IDPROV'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TAHUN'] !== null ? autolinker.link(feature.properties['TAHUN'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['SUMBER'] !== null ? autolinker.link(feature.properties['SUMBER'].toLocaleString()) : '') + '</td>\
-                    </tr>\
+                    '+pop+'\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_INDO_PROV_2016_1_0() {
+        function style_layer_1(feature) {
             return {
-                pane: 'pane_INDO_PROV_2016_1',
+                pane: 'pane_1',
+                opacity: 1,
+                color: 'rgba(255,4,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(150,153,4,1.0)',
+                interactive: true,
+            }
+            if (feature.properties['Data Kebakaran_SIMKB Kebakaran'] >= 27.880000 && feature.properties['Data Kebakaran_SIMKB Kebakaran'] <= 36.052000 ) {
+            }
+            if (feature.properties['Data Kebakaran_SIMKB Kebakaran'] >= 36.052000 && feature.properties['Data Kebakaran_SIMKB Kebakaran'] <= 38.512000 ) {
+                return {
+                pane: 'pane_1',
                 opacity: 1,
                 color: 'rgba(255,255,255,1.0)',
                 dashArray: '',
@@ -107,24 +119,60 @@ function openPage(pageName, elmnt, color, color1) {
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(220,223,218,1.0)',
-                interactive: false,
+                fillColor: 'rgba(129,132,127,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Data Kebakaran_SIMKB Kebakaran'] >= 38.512000 && feature.properties['Data Kebakaran_SIMKB Kebakaran'] <= 40.942000 ) {
+                return {
+                pane: 'pane_1',
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(102,107,100,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Data Kebakaran_SIMKB Kebakaran'] >= 40.942000 && feature.properties['Data Kebakaran_SIMKB Kebakaran'] <= 43.206000 ) {
+                return {
+                pane: 'pane_1',
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(70,76,67,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Data Kebakaran_SIMKB Kebakaran'] >= 43.206000 && feature.properties['Data Kebakaran_SIMKB Kebakaran'] <= 54.270000 ) {
+                return {
+                pane: 'pane_1',
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(58,63,55,1.0)',
+                interactive: true,
+            }
             }
         }
-        map.createPane('pane_INDO_PROV_2016_1');
-        map.getPane('pane_INDO_PROV_2016_1').style.zIndex = 401;
-        map.getPane('pane_INDO_PROV_2016_1').style['mix-blend-mode'] = 'normal';
-        var layer_INDO_PROV_2016_1 = new L.geoJson(indonesiaGeoJSON, {
-            attribution: '',
-            interactive: false,
-            dataVar: 'indonesiaGeoJSON',
-            layerName: 'layer_INDO_PROV_2016_1',
-            pane: 'pane_INDO_PROV_2016_1',
-            onEachFeature: pop_INDO_PROV_2016_1,
-            style: style_INDO_PROV_2016_1_0,
-        });
-        bounds_group.addLayer(layer_INDO_PROV_2016_1);
-        map.addLayer(layer_INDO_PROV_2016_1);
+        map.createPane('pane_1');
+        map.getPane('pane_1').style.zIndex = 401;
+        map.getPane('pane_1').style['mix-blend-mode'] = 'normal';
+        
 
         function pop_PointBanjirPegawai_2(feature, layer) {
             layer.on({
@@ -158,7 +206,7 @@ function openPage(pageName, elmnt, color, color1) {
         function style_PointBanjirPegawai_2_0(feature) {
             
             return {
-                pane: 'pane_PointBanjirPegawai_2',
+                pane: 'pane_2',
                 radius: 7.2,
                 stroke: false,
                 fill: true,
@@ -168,7 +216,7 @@ function openPage(pageName, elmnt, color, color1) {
             }
             // if (feature.properties['Banjir-Pegawai_IMKB Pegawai'] >= 57.950000 && feature.properties['Banjir-Pegawai_IMKB Pegawai'] <= 68.356000 ) {
             //     return {
-            //     pane: 'pane_PointBanjirPegawai_2',
+            //     pane: 'pane_2',
             //     radius: 7.2,
             //     stroke: false,
             //     fill: true,
@@ -179,83 +227,194 @@ function openPage(pageName, elmnt, color, color1) {
             // }
         }
 
-        map.createPane('pane_PointBanjirPegawai_2');
-        map.getPane('pane_PointBanjirPegawai_2').style.zIndex = 402;
-        map.getPane('pane_PointBanjirPegawai_2').style['mix-blend-mode'] = 'normal';
-        var layer_indonesiaPoint = L.geoJson(); 
+        map.createPane('pane_2');
+        map.getPane('pane_2').style.zIndex = 402;
+        map.getPane('pane_2').style['mix-blend-mode'] = 'normal';
+        var layer_1 = L.geoJson();
+        var layer_2 = L.geoJson(); 
 
-        function manageMapSatker(data) {
+        function resetLayer() {
+            map.removeLayer(globalThis.layer_2);
+            map.removeLayer(globalThis.layer_1);
+        }
+
+
+        function manageSatkerMap(data) {
+            resetLayer();
             data = JSON.parse(data);
-            const type = indonesiaPoint.type;
-            const name = indonesiaPoint.name;
-            const crs = indonesiaPoint.crs;
-            const features = indonesiaPoint.features;
-            let newFeatures = [];
-            features.forEach(feature => {
-                f_type = feature.type;
-                newProp = data.find((data) => data.kodesatker == feature.properties.Kode);
-                f_properties = {
-                    // "Kode": feature.properties.Kode,
-                    // "Nama Satker": feature.properties['Nama Satker'],
-                    "Latitude (Y)": feature.properties['Latitude (Y)'],
-                    "Longitude (X)": feature.properties['Longitude (X)'],
+            if($('#indeks-satker').val()==3){
+                let type, name, crs, features, newFeatures,newPolygon;
+                if($('#prov-satker').val()!=1){
+                    //modif geojson polygon
+                    type = polygonGeoJSON.type;
+                    name = polygonGeoJSON.name;
+                    crs = polygonGeoJSON.crs;
+                    features = polygonGeoJSON.features;
+                    newFeatures = features.filter((polygon) => polygon.properties.kodesatker == $('#prov-satker').val());
+                    newPolygon = {
+                        type : type,
+                        name : name,
+                        crs : crs,
+                        features : newFeatures
+                    }
+                }else newPolygon=polygonGeoJSON;
+    
+    
+                layer_1 = L.geoJson(newPolygon, {
+                    attribution: '',
+                    interactive: true,
+                    dataVar: 'polygonGeoJSON',
+                    layerName: 'layer_1',
+                    pane: 'pane_1',
+                    // onEachFeature: pop_layer_1,
+                    style: style_layer_1,
+                });
+                bounds_group.addLayer(layer_1);
+                map.addLayer(layer_1);
+
+                // modif point geojson
+                type = indonesiaPoint.type;
+                name = indonesiaPoint.name;
+                crs = indonesiaPoint.crs;
+                features = indonesiaPoint.features;
+                newFeatures = [];
+                features.forEach(feature => {
+                    f_type = feature.type;
+                    newProp = data.find((data) => data.kodesatker == feature.properties.Kode);
+                    f_properties = {
+                        // "Kode": feature.properties.Kode,
+                        // "Nama Satker": feature.properties['Nama Satker'],
+                        "Latitude (Y)": feature.properties['Latitude (Y)'],
+                        "Longitude (X)": feature.properties['Longitude (X)'],
+                    }
+                    f_geometry = feature.geometry;
+                    newFeatures.push({type : f_type , properties : {...newProp , ...f_properties} , geometry : f_geometry});
+                });
+    
+                newFeatures = newFeatures.filter((feature) => Object.getOwnPropertyNames(feature.properties).length>2)
+                
+    
+                const newData = {
+                    type : type,
+                    name : name,
+                    crs : crs,
+                    features : newFeatures
                 }
-                f_geometry = feature.geometry;
-                newFeatures.push({type : f_type , properties : {...newProp , ...f_properties} , geometry : f_geometry});
-            });
+                
+    
+                globalThis.layer_2 = L.geoJson(newData, {
+                    attribution: '',
+                    interactive: true,
+                    dataVar: 'indonesiaPoint',
+                    layerName: 'layer_2',
+                    pane: 'pane_2',
+                    onEachFeature: pop_PointBanjirPegawai_2,
+                    pointToLayer: function (feature, latlng) {
+                        var context = {
+                            feature: feature,
+                            variables: {}
+                        };
+                        return L.circleMarker(latlng, style_PointBanjirPegawai_2_0(feature));
+                    },
+                });
+                bounds_group.addLayer(globalThis.layer_2);
+                map.addLayer(globalThis.layer_2);
+            }else{
+                //manage kebakaran dan covid
+                
+                // if($('#prov-satker').val()!=1){
+                //     //modif geojson polygon
+                //     let type = polygonGeoJSON.type;
+                //     let name = polygonGeoJSON.name;
+                //     let crs = polygonGeoJSON.crs;
+                //     let features = polygonGeoJSON.features;
+                //     let newFeatures = features.filter((polygon) => polygon.properties.kodesatker == $('#prov-satker').val());
+                    
+                //     var newPolygon = {
+                //         type : type,
+                //         name : name,
+                //         crs : crs,
+                //         features : newFeatures
+                //     }
+                // }else newPolygon=polygonGeoJSON;
 
-            newFeatures = newFeatures.filter((feature) => Object.getOwnPropertyNames(feature.properties).length>2)
-            
+                
+                polygonGeoJSON.features.forEach(feature => {
+                    newProperty = data.find((d) => d.kodesatker == feature.properties.kodesatker);
+                    feature.properties = newProperty;
+                });
+                layer_1 = L.geoJson(polygonGeoJSON, {
+                    attribution: '',
+                    interactive: true,
+                    dataVar: 'polygonGeoJSON',
+                    layerName: 'layer_1',
+                    pane: 'pane_1',
+                    onEachFeature: pop_layer_1,
+                    style: style_layer_1,
+                });
+                bounds_group.addLayer(layer_1);
+                map.addLayer(layer_1);
 
-            const newData = {
-                type : type,
-                name : name,
-                crs : crs,
-                features : newFeatures
+
+                // if($('#prov-satker').val()!=1){
+                //     //modif geojson polygon
+                //     let type = polygonGeoJSON.type;
+                //     let name = polygonGeoJSON.name;
+                //     let crs = polygonGeoJSON.crs;
+                //     let features = polygonGeoJSON.features;
+                //     let newFeatures = features.filter((polygon) => polygon.properties.kodesatker == $('#prov-satker').val());
+                    
+                //     var newPolygon = {
+                //         type : type,
+                //         name : name,
+                //         crs : crs,
+                //         features : newFeatures
+                //     }
+                // }else newPolygon=polygonGeoJSON;
+
+                
+                // newPolygon.features.forEach(feature => {
+                //     newProperty = data.find((d) => d.kodesatker == feature.properties.kodesatker);
+                //     feature.properties = newProperty;
+                // });
+
+                // console.log(newPolygon);
+                // layer_1 = L.geoJson(newPolygon, {
+                //     attribution: '',
+                //     interactive: true,
+                //     dataVar: 'polygonGeoJSON',
+                //     layerName: 'layer_1',
+                //     pane: 'pane_1',
+                //     onEachFeature: pop_layer_1,
+                //     style: style_layer_1,
+                // });
+                // bounds_group.addLayer(layer_1);
+                // map.addLayer(layer_1);
             }
 
-
-            map.removeLayer(globalThis.layer_indonesiaPoint);
-            
-
-            globalThis.layer_indonesiaPoint = L.geoJson(newData, {
-                attribution: '',
-                interactive: true,
-                dataVar: 'indonesiaPoint',
-                layerName: 'layer_PointBanjirPegawai_2',
-                pane: 'pane_PointBanjirPegawai_2',
-                onEachFeature: pop_PointBanjirPegawai_2,
-                pointToLayer: function (feature, latlng) {
-                    var context = {
-                        feature: feature,
-                        variables: {}
-                    };
-                    return L.circleMarker(latlng, style_PointBanjirPegawai_2_0(feature));
-                },
-            });
-            bounds_group.addLayer(globalThis.layer_indonesiaPoint);
-            map.addLayer(globalThis.layer_indonesiaPoint);
         }
         
 
 
-        reqPetaSatker = () => {
+        initMap = () => {
             $.post('Visualisasi/getPetaSatker' , {
                 indeks : $('#indeks-satker').val(),
                 kodesatker : $('#prov-satker').val()
             },
             (data , status) => {
-                manageMapSatker(data)
+                manageSatkerMap(data)
             })
         }
-        reqPetaSatker()
+
+        initMap();
 
         $('#indeks-satker').change(() => {
-            reqPetaSatker()
+            initMap()
         })
         
 
         $('#prov-satker').change(() => {
-            
-            reqPetaSatker()
+            initMap()
         })
+
+

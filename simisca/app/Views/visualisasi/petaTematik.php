@@ -27,8 +27,9 @@
                     <label for="prov" , style="color: #f4c58f;">Provinsi</label>
                 </div>
                 <select style="background-color: #f4c58f;" class="form-control" id="prov-pegawai">
+                    <option value="1">Semua Provinsi</option>
                     <?php foreach ($satker as $s) :?>
-                        <option value="<?= $s['kodesatker']; ?>"><?= $s['namasatker']; ?></option>
+                        <option value="<?= $s['kodesatker']; ?>"><?= substr($s['namasatker'],4); ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -55,25 +56,33 @@
             <p>Filter Sub Indeks dan Wilayah</p>
         </div>
         <div class="form row satker1">
-            <div class="form-group col-md-6 bar1">
+            <div class="form-group col-md-4 bar1">
+                <div class="label">
+                    <label for="indeks">Tahun</label>
+                </div>
+                <select class="form-control" id="tahun-satker" style="color: #f4c58f; background-color:#072438">
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4 bar1">
                 <div class="label">
                     <label for="indeks">Indeks</label>
                 </div>
                 <select class="form-control" id="indeks-satker" style="color: #f4c58f; background-color:#072438">
                     <option value="1">Sub IMKB Kebakaran Per Provinsi</option>
                     <option value="2">Sub IMKB Covid-19 Per Provinsi</option>
-                    <option value="3">Sub IMKB Gempa dan Tsunami</option>
-                    <option value="4">Sub IMKB Banjir </option>
+                    <option value="3">Sub IMKB Bencana</option>
                 </select>
             </div>
-            <div class="form-group col-md-6 bar1">
+            <div class="form-group col-md-4 bar1" id="form-prov-satker">
                 <div class="label">
                     <label for="prov">Provinsi</label>
                 </div>
                 <select class="form-control" id="prov-satker" style="color: #f4c58f; background-color:#072438">
-                    <option value="1">BPS RI</option>
+                    <option value="1">Semua Provinsi</option>
                     <?php foreach ($satker as $s) :?>
-                        <option value="<?= $s['kodesatker']; ?>"><?= $s['namasatker']; ?></option>
+                        <option value="<?= $s['kodesatker']; ?>"><?= substr($s['namasatker'],4); ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
