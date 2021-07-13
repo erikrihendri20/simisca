@@ -57,4 +57,26 @@ class ImkbSatker_model extends Model
     {
         $this->builder()->update($data , ['kode_satker' => $data['kode_satker'] , 'tahun' => $data['tahun']]);
     }
+
+    public function getPetaSatker($filter)
+    {
+        $this->builder()->join('satker' , 'imkb_satker.kode_satker=satker.kodesatker');
+        if($filter['kodesatker']!=1){
+            $this->builder()->like('imkb_satker.kode_satker' , substr($filter['kodesatker'] , 0 , 2) , 'after')->notLike('imkb_satker.kode_satker' , substr($filter['kodesatker'] , 2));
+        }
+        $this->builder()->select('satker.kodesatker , satker.namasatker');
+        switch ($filter['indeks']) {
+            case 1:
+                // $this->builder()->select('sumber_daya_kebakaran as sumber daya , rencana_tanggap_kebakaran as rencana tanggap , pemulihan_kebakaran as pemulihan , perlindungan_aset_kebakaran as perlindungan aset , simkb_kebakaran as simkb kebakaran');
+                $this->builder()->select('simkb_kebakaran as SIMKB Kebakaran');
+                break;
+            case 2:
+                $this->builder()->select('simkb_covid19 as SIMKB covid 19');
+                break;
+            default:
+                # code...
+                break;
+        }
+        return $this->builder()->get()->getResultArray();
+    }
 }

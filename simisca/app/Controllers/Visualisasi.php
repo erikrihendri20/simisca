@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\ImkbSatker_model;
 use App\Models\Satker_model;
 use App\Models\Pegawai_model;
 use App\Models\Sampel_satker_model;
@@ -50,12 +51,20 @@ class Visualisasi extends BaseController
 
     public function petaTematik()
     {
+        $model = new Sampel_satker_model();
         $data = [
             'title' => 'Peta Tematik',
             'css' => 'tematik.css',
             'js' => 'tematik.js'
         ];
+        $data['satker'] = $model->getSatker();
         return view('visualisasi/petaTematik', $data);
+    }
+
+    public function getPetaSatker()
+    {
+        $model = new ImkbSatker_model();
+        return json_encode($model->getPetaSatker(['indeks' => $this->request->getPost('indeks') , 'kodesatker' => $this->request->getPost('kodesatker')]));
     }
 
     public function tabelDinamis()

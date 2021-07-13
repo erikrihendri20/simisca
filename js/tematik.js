@@ -30,16 +30,19 @@ function openPage(pageName, elmnt, color, color1) {
     $(".tertinggi").css("color", color)
     $(".KetPeta").css("color", color1)
 }
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
+
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
         var highlightLayer;
         function highlightFeature(e) {
             highlightLayer = e.target;
             highlightLayer.openPopup();
         }
-        var map = L.map('mapid', {
+        var map = L.map('mapSatker', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[-21.514034822941824,85.76218142691255],[17.608866805346622,162.21609605929302]]);
+        })
+        .fitBounds([[-21.514034822941824,85.76218142691255],[17.608866805346622,162.21609605929302]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -142,7 +145,7 @@ document.getElementById("defaultOpen").click();
               pop = pop +  
               '<tr>\
               <th scope="row">'+key+'</th>\
-              <td>' + (feature.properties[key] !== null ? autolinker.link(feature.properties[key].toLocaleString()) : '') + '</td>\
+              <td>' + (feature.properties[key] !== null ? autolinker.link(feature.properties[key].toString()) : '') + '</td>\
                 </tr>';
               
             });
@@ -179,14 +182,43 @@ document.getElementById("defaultOpen").click();
         map.createPane('pane_PointBanjirPegawai_2');
         map.getPane('pane_PointBanjirPegawai_2').style.zIndex = 402;
         map.getPane('pane_PointBanjirPegawai_2').style['mix-blend-mode'] = 'normal';
-        var layer_indonesiaPoint; 
+        var layer_indonesiaPoint = L.geoJson(); 
 
-        function manageMap(filter = []) {
-            
-            filter.forEach(f => {
-                
+        function manageMapSatker(data) {
+            data = JSON.parse(data);
+            const type = indonesiaPoint.type;
+            const name = indonesiaPoint.name;
+            const crs = indonesiaPoint.crs;
+            const features = indonesiaPoint.features;
+            let newFeatures = [];
+            features.forEach(feature => {
+                f_type = feature.type;
+                newProp = data.find((data) => data.kodesatker == feature.properties.Kode);
+                f_properties = {
+                    // "Kode": feature.properties.Kode,
+                    // "Nama Satker": feature.properties['Nama Satker'],
+                    "Latitude (Y)": feature.properties['Latitude (Y)'],
+                    "Longitude (X)": feature.properties['Longitude (X)'],
+                }
+                f_geometry = feature.geometry;
+                newFeatures.push({type : f_type , properties : {...newProp , ...f_properties} , geometry : f_geometry});
             });
-            layer_indonesiaPoint = new L.geoJson(indonesiaPoint, {
+
+            newFeatures = newFeatures.filter((feature) => Object.getOwnPropertyNames(feature.properties).length>2)
+            
+
+            const newData = {
+                type : type,
+                name : name,
+                crs : crs,
+                features : newFeatures
+            }
+
+
+            map.removeLayer(globalThis.layer_indonesiaPoint);
+            
+
+            globalThis.layer_indonesiaPoint = L.geoJson(newData, {
                 attribution: '',
                 interactive: true,
                 dataVar: 'indonesiaPoint',
@@ -201,8 +233,29 @@ document.getElementById("defaultOpen").click();
                     return L.circleMarker(latlng, style_PointBanjirPegawai_2_0(feature));
                 },
             });
-            map.removeLayer(layer_indonesiaPoint);
-            map.addLayer(layer_indonesiaPoint);
+            bounds_group.addLayer(globalThis.layer_indonesiaPoint);
+            map.addLayer(globalThis.layer_indonesiaPoint);
         }
+        
 
-        manageMap();
+
+        reqPetaSatker = () => {
+            $.post('Visualisasi/getPetaSatker' , {
+                indeks : $('#indeks-satker').val(),
+                kodesatker : $('#prov-satker').val()
+            },
+            (data , status) => {
+                manageMapSatker(data)
+            })
+        }
+        reqPetaSatker()
+
+        $('#indeks-satker').change(() => {
+            reqPetaSatker()
+        })
+        
+
+        $('#prov-satker').change(() => {
+            
+            reqPetaSatker()
+        })

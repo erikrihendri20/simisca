@@ -17,7 +17,7 @@
                 <div class="label">
                     <label for="indeks" , style="color: #f4c58f;">Sub IMKB</label>
                 </div>
-                <select style="background-color: #f4c58f;" class="form-control" id="indeks">
+                <select style="background-color: #f4c58f;" class="form-control" id="indeks-pegawai">
                     <option>Sub IMKB Gempa dan Tsunami</option>
                     <option>Sub IMKB Banjir </option>
                 </select>
@@ -26,10 +26,10 @@
                 <div class="label">
                     <label for="prov" , style="color: #f4c58f;">Provinsi</label>
                 </div>
-                <select style="background-color: #f4c58f;" class="form-control" id="prov">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
+                <select style="background-color: #f4c58f;" class="form-control" id="prov-pegawai">
+                    <?php foreach ($satker as $s) :?>
+                        <option value="<?= $s['kodesatker']; ?>"><?= $s['namasatker']; ?></option>
+                    <?php endforeach; ?>
                 </select>
             </div>
             <!-- <div class="form-group col-md-4 bar2">
@@ -59,21 +59,22 @@
                 <div class="label">
                     <label for="indeks">Indeks</label>
                 </div>
-                <select class="form-control" id="indeks" style="color: #f4c58f; background-color:#072438">
-                    <option>Sub IMKB Kebakaran Per Provinsi</option>
-                    <option>Sub IMKB Covid-19 Per Provinsi</option>
-                    <option>Sub IMKB Gempa dan Tsunami</option>
-                    <option>Sub IMKB Banjir </option>
+                <select class="form-control" id="indeks-satker" style="color: #f4c58f; background-color:#072438">
+                    <option value="1">Sub IMKB Kebakaran Per Provinsi</option>
+                    <option value="2">Sub IMKB Covid-19 Per Provinsi</option>
+                    <option value="3">Sub IMKB Gempa dan Tsunami</option>
+                    <option value="4">Sub IMKB Banjir </option>
                 </select>
             </div>
             <div class="form-group col-md-6 bar1">
                 <div class="label">
                     <label for="prov">Provinsi</label>
                 </div>
-                <select class="form-control" id="prov" style="color: #f4c58f; background-color:#072438">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
+                <select class="form-control" id="prov-satker" style="color: #f4c58f; background-color:#072438">
+                    <option value="1">BPS RI</option>
+                    <?php foreach ($satker as $s) :?>
+                        <option value="<?= $s['kodesatker']; ?>"><?= $s['namasatker']; ?></option>
+                    <?php endforeach; ?>
                 </select>
             </div>
             <!-- <div class="form-group col-md-4 bar2">
@@ -101,9 +102,7 @@
     <div class="top">
         <div class="content row">
             <div class="pet col-md-12">
-                <p>PETA</p>
-                <div class="KetPeta">
-                    <div style="overflow: hidden;" data-aos="fade-down"> <iframe id="myIframe" frameborder="0" style="height: 550px; overflow:scroll; width: 1000px" src="map/index.html" marginheight="1" marginwidth="1" name="cboxmain" id="cboxmain" seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true"></iframe> </div>
+                <div id="mapSatker" style="width: 1000px; height: 600px;">
                 </div>
             </div>
 
