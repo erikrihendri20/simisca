@@ -13,7 +13,7 @@
     <style>
         #map {
             width: 1200px;
-            height: 400px;
+            height: 500px;
         }
     </style>
     <title></title>
@@ -40,7 +40,7 @@
 
             if (e.target.feature.geometry.type === 'LineString') {
                 highlightLayer.setStyle({
-                    color: '#660007',
+                    color: '#072438',
                 });
             } else {
                 highlightLayer.setStyle({
@@ -100,7 +100,7 @@
                         <td>' + (feature.properties['jmlSatker'] !== null ? autolinker.link(feature.properties['jmlSatker'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">BPS Kab/ Kota</th>\
+                        <th scope="row">BPS Kab/Kota</th>\
                         <td>' + (feature.properties['kabkota'] !== null ? autolinker.link(feature.properties['kabkota'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -108,15 +108,15 @@
                         <td>' + (feature.properties['prov'] !== null ? autolinker.link(feature.properties['prov'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row"> BPS RI</th>\
+                        <th scope="row">BPS RI</th>\
                         <td>' + (feature.properties['desc1'] !== null ? autolinker.link(feature.properties['desc1'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row"> Pusdiklat</th>\
+                        <th scope="row">Pusdiklat</th>\
                         <td>' + (feature.properties['desc2'] !== null ? autolinker.link(feature.properties['desc2'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row"> Polstat STIS</th>\
+                        <th scope="row">Polstat STIS</th>\
                         <td>' + (feature.properties['desc3'] !== null ? autolinker.link(feature.properties['desc3'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
@@ -145,8 +145,6 @@
                 maxHeight: 400
             });
         }
-
-
 
         function style_indo_by_prov_1_0() {
             return {
