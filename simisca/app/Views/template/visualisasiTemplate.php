@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- leaflet -->
+    <?php if($active=='peta tematik') :?>
     <link rel="stylesheet" href="css/leaflet/leaflet.css">
+    <?php endif; ?>
 
     <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/bc6bf428b6.js" crossorigin="anonymous"></script>
@@ -29,7 +31,6 @@
     <!-- add icon link -->
     <link rel="icon" href="img/logo.png" type="image/x-icon">
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 </head>
 
 <body>
@@ -66,6 +67,7 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
+    <?php if($active=='peta tematik') :?>
     <script src="js/leaflet/leaflet.js"></script>
     <script src="js/leaflet/leaflet.rotatedMarker.js"></script>
     <script src="js/leaflet/leaflet.pattern.js"></script>
@@ -76,11 +78,13 @@
     <script src="js/leaflet/labels.js"></script>
     <script src="asset/leaflet/poligon.js"></script>
     <script src="asset/leaflet/point.js"></script>
+    <?php endif; ?>
 
     <!-- bootsrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+    <?php if($active == 'get tabel' || $active == 'tabel dinamis') :?>
     <!-- datatabel -->
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
@@ -90,11 +94,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
+    <?php endif ?>
 
     <!-- chartjs -->
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
     <!-- myscript -->
+    <!-- <?php if($active == 'visualisasi') :?>
+        <?php for ($i=1; $i < 12; $i++) : ?>
+            <script src="<?= base_url('js/grafik/'.$i.'.js'); ?>"></script>
+        <?php endfor; ?>
+    <?php endif; ?> -->
     <script src="<?= base_url() ?>/js/<?= $js; ?>"></script>
 
 </body>

@@ -72,7 +72,8 @@
                 <select class="form-control" id="indeks-satker" style="color: #f4c58f; background-color:#072438">
                     <option value="1">Sub IMKB Kebakaran Per Provinsi</option>
                     <option value="2">Sub IMKB Covid-19 Per Provinsi</option>
-                    <option value="3">Sub IMKB Bencana</option>
+                    <option value="3">Sub IMKB Gempa Tsunami</option>
+                    <option value="4">Sub IMKB Banjir</option>
                 </select>
             </div>
             <div class="form-group col-md-4 bar1" id="form-prov-satker">

@@ -15,7 +15,8 @@ class Visualisasi extends BaseController
         $data = [
             'title' => 'Portal Visualisasi',
             'css' => 'portalVisualisasi.css',
-            'js' => 'portalVisualisasi.js'
+            'js' => 'portalVisualisasi.js',
+            'active' => 'portal visualisasi'
         ];
         return view('visualisasi/portalVisualisasi', $data);
     }
@@ -44,7 +45,8 @@ class Visualisasi extends BaseController
             'title' => 'Grafik',
             'css' => 'visualisasi.css',
             'js' => 'visualisasi.js',
-            'provinsi' => $model->getSatker()
+            'provinsi' => $model->getSatker(),
+            'active' => 'visualisasi'
         ];
         return view('visualisasi/visualisasi', $data);
     }
@@ -55,7 +57,8 @@ class Visualisasi extends BaseController
         $data = [
             'title' => 'Peta Tematik',
             'css' => 'tematik.css',
-            'js' => 'tematik.js'
+            'js' => 'tematik.js',
+            'active' => 'peta tematik'
         ];
         $data['satker'] = $model->getSatker();
         return view('visualisasi/petaTematik', $data);
@@ -72,7 +75,8 @@ class Visualisasi extends BaseController
         $data = [
             'title' => 'Tabel Dinamis',
             'css' => 'tabelDinamis.css',
-            'js' => 'tabelDinamis.js'
+            'js' => 'tabelDinamis.js',
+            'active' => 'tabel dinamis'
         ];
         return view('visualisasi/tabeldinamis', $data);
     }
@@ -91,7 +95,8 @@ class Visualisasi extends BaseController
             ];
             $modelSatker = new Satker_model();
             $data = [
-                'satker' => $modelSatker->filter($filter)
+                'satker' => $modelSatker->filter($filter),
+                'active' => 'get tabel'
             ];
             return view('visualisasi/tabel', $data);
         } else {
@@ -100,7 +105,8 @@ class Visualisasi extends BaseController
             ];
             $modelPegawai = new Pegawai_model();
             $data = [
-                'pegawai' => $modelPegawai->filter($filter)
+                'pegawai' => $modelPegawai->filter($filter),
+                'active' => 'get tabel'
             ];
             return view('visualisasi/tabel', $data);
         }

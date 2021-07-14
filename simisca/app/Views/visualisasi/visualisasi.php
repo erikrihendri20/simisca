@@ -11,8 +11,8 @@
             <div class="form-group row">
                 <label for="grafik" class="col-md-2 col-form-label">Pilih Kategori</label>
                 <div class="col-md-10">
-                    <select class="form-control option mb-3" id="grafik">
-                        <option value="0">Pilih Indeks</option>
+                    <select class="form-control option mb-3" id="grafik-satker">
+                        <!-- <option value="0">Pilih Indeks</option> -->
                         <option value="1">Diagram Batang Indeks Masing-Masing Dimensi Satuan Kerja BPS Menurut Pulau Berdasarkan Dimensi</option>
                         <option value="2">Proporsi Karakteristik Wilayah Satuan Kerja BPS</option>
                         <option value="3">Pengalaman Terdampak Bencana Alam dan Non Alam Satuan Kerja BPS</option>
@@ -32,7 +32,6 @@
                     </select>
                 </div>
                 <div class="col-md-11"></div>
-                <button onclick="pilihGrafik()" type="submit" id="tombol" class="btn btn-primary">Submit</button>
             </div>
         </form>
         <div class="col-md-12">
@@ -44,24 +43,6 @@
                 <script class="skrip" src=""></script>
             </div>
         </div>
-        <!-- <script>
-            // var x = document.getElementById("grafik").selectedIndex;
-            // var opsi = document.getElementsByTagName("option")[x].value;
-            var x = $("#grafik").val();
-            var skrip = document.getElementsByClassName("skrip")[0];
-
-            function pilihGrafik() {
-                if ($("#grafik").val() != 0) {
-                    skrip.getAttributeNode("src").value = "js/grafik/" + $("#grafik").val() + ".js";
-                }
-                console.log($("#grafik").val());
-            }
-            $("#grafik").change(
-                function() {
-                    pilihGrafik();
-                }
-            )
-        </script> -->
     </div>
 
     <div id="Pegawai" class="tabcontent">
@@ -69,8 +50,8 @@
             <div class="form-group row">
                 <label for="grafik" class="col-md-2 col-form-label">Pilih Kategori</label>
                 <div class="col-md-10">
-                    <select onchange="pilihGrafik()" class="form-control option2 mb-3" id="grafik">
-                        <option value="0">Pilih Indeks</option>
+                    <select class="form-control option2 mb-3" id="grafik-pegawai">
+                        <!-- <option value="0">Pilih Indeks</option> -->
                         <option value="10">IMKB Pegawai Dalam Satuan Kerja BPS Menurut Kategori (%)</option>
                         <option value="11">Indeks Pegawai Satuan Kerja BPS
                             Pada Tingkatan Satuan Kerja Menurut Dimensi</option>
@@ -78,7 +59,6 @@
                     </select>
                 </div>
                 <div class="col-md-10"></div>
-                <button onclick="pilihGrafik()" type="submit" id="tombol" class="btn btn-primary">Submit</button>
                 <p>*Hasil Diseminasi PKL Polstat STIS T.A. 2020/2021</p>
             </div>
         </form>
@@ -89,7 +69,6 @@
                 <div class="card-body">
                     <canvas id="chart2"></canvas>
                 </div>
-                <script class="skrip2" src=""></script>
             </div>
         </div>
 
