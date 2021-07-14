@@ -203,7 +203,10 @@ function openPage(pageName, elmnt, color, color1) {
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
         
-        function style_PointBanjirPegawai_2_0(feature) {
+        function style_layer_2(feature) {
+            
+            keys = Object.keys(feature.properties);
+            endKey = keys[keys.length-1];
             
             return {
                 pane: 'pane_2',
@@ -214,17 +217,52 @@ function openPage(pageName, elmnt, color, color1) {
                 fillColor: 'rgba(148,154,169,1.0)',
                 interactive: true,
             }
-            // if (feature.properties['Banjir-Pegawai_IMKB Pegawai'] >= 57.950000 && feature.properties['Banjir-Pegawai_IMKB Pegawai'] <= 68.356000 ) {
-            //     return {
-            //     pane: 'pane_2',
-            //     radius: 7.2,
-            //     stroke: false,
-            //     fill: true,
-            //     fillOpacity: 1,
-            //     fillColor: 'rgba(148,154,169,1.0)',
-            //     interactive: true,
-            // }
-            // }
+            if (feature.properties[endKey] >= 57.950000 && feature.properties[endKey] <= 68.356000 ) {
+            }
+            if (feature.properties[endKey] >= 68.356000 && feature.properties[endKey] <= 70.976000 ) {
+                return {
+                    pane: 'pane_2',
+                    radius: 7.2,
+                    stroke: false,
+                    fill: true,
+                    fillOpacity: 1,
+                    fillColor: 'rgba(131,139,155,1.0)',
+                    interactive: true,
+                }
+            }
+            if (feature.properties[endKey] >= 70.976000 && feature.properties[endKey] <= 73.758000 ) {
+                return {
+                    pane: 'pane_2',
+                    radius: 7.2,
+                    stroke: false,
+                    fill: true,
+                    fillOpacity: 1,
+                    fillColor: 'rgba(112,121,140,1.0)',
+                    interactive: true,
+                }
+            }
+            if (feature.properties[endKey] >= 73.758000 && feature.properties[endKey] <= 76.406000 ) {
+                return {
+                    pane: 'pane_2',
+                    radius: 7.2,
+                    stroke: false,
+                    fill: true,
+                    fillOpacity: 1,
+                    fillColor: 'rgba(75,78,88,1.0)',
+                    interactive: true,
+                }
+            }
+            if (feature.properties[endKey] >= 76.406000 && feature.properties[endKey] <= 84.500000 ) {
+                return {
+                    pane: 'pane_2',
+                    radius: 7.2,
+                    stroke: false,
+                    fill: true,
+                    fillOpacity: 1,
+                    fillColor: 'rgba(37,35,35,1.0)',
+                    interactive: true,
+                }
+            }
         }
 
         map.createPane('pane_2');
@@ -284,11 +322,11 @@ function openPage(pageName, elmnt, color, color1) {
                     f_properties = {
                         // "Kode": feature.properties.Kode,
                         // "Nama Satker": feature.properties['Nama Satker'],
-                        "Latitude (Y)": feature.properties['Latitude (Y)'],
-                        "Longitude (X)": feature.properties['Longitude (X)'],
+                        // "Latitude (Y)": feature.properties['Latitude (Y)'],
+                        // "Longitude (X)": feature.properties['Longitude (X)'],
                     }
                     f_geometry = feature.geometry;
-                    newFeatures.push({type : f_type , properties : {...newProp , ...f_properties} , geometry : f_geometry});
+                    newFeatures.push({type : f_type , properties : {...f_properties , ...newProp} , geometry : f_geometry});
                 });
     
                 newFeatures = newFeatures.filter((feature) => Object.getOwnPropertyNames(feature.properties).length>2)
@@ -301,6 +339,7 @@ function openPage(pageName, elmnt, color, color1) {
                     features : newFeatures
                 }
                 
+
     
                 globalThis.layer_2 = L.geoJson(newData, {
                     attribution: '',
@@ -309,12 +348,13 @@ function openPage(pageName, elmnt, color, color1) {
                     layerName: 'layer_2',
                     pane: 'pane_2',
                     onEachFeature: pop_PointBanjirPegawai_2,
+                    
                     pointToLayer: function (feature, latlng) {
                         var context = {
                             feature: feature,
                             variables: {}
                         };
-                        return L.circleMarker(latlng, style_PointBanjirPegawai_2_0(feature));
+                        return L.circleMarker(latlng, style_layer_2(feature));
                     },
                 });
                 bounds_group.addLayer(globalThis.layer_2);
