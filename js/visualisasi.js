@@ -16,7 +16,6 @@ document.getElementById("defaultOpen").click();
 
 var chart = new Chart($('#chart'));
 var chart2 = new Chart($('#chart2'));
-
 function updateGrafik(val) {
     let labels,data,config;
     if(val==1){
@@ -511,6 +510,7 @@ function updateGrafik(val) {
 }
 
 
+
 $(document).ready(() => {
     updateGrafik($('#grafik-satker').val());
     updateGrafik($('#grafik-pegawai').val());
@@ -519,5 +519,21 @@ $(document).ready(() => {
     })
     $('#grafik-pegawai').change(() => {
         updateGrafik($('#grafik-pegawai').val());
+    })
+    $('#download').click(() => {
+        var a = document.createElement('a');
+        a.href = chart.toBase64Image();
+        a.download = 'chart satker.png';
+
+        // Trigger the download
+        a.click();
+    })
+    $('#download2').click(() => {
+        var a = document.createElement('a');
+        a.href = chart2.toBase64Image();
+        a.download = 'chart pegawai.png';
+
+        // Trigger the download
+        a.click();
     })
 })

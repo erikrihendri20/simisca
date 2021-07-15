@@ -7,7 +7,6 @@
     <button class="tablink pegawai" onclick="openPage('Pegawai', this, '#F4C58F')">Pegawai BPS</button>
 
     <div id="Satker" class="tabcontent">
-        <form action="">
             <div class="form-group row">
                 <label for="grafik" class="col-md-2 col-form-label">Pilih Kategori</label>
                 <div class="col-md-10">
@@ -22,7 +21,6 @@
                         <option value="7">IMKB Satuan Kerja BPS Menurut Kategori (%)</option>
                         <option value="8">Indeks Masing-Masing Dimensi Satuan Kerja Menurut Dimensi Berdasarkan Tingkatan Satuan Kerja</option>
                         <option value="9">IMKB Satuan Kerja BPS Suv Covid-19 Menurut Pulau</option>
-
                     </select>
                 </div>
                 <label for="tahun" class="col-md-2 col-form-label">Pilih Tahun</label>
@@ -31,22 +29,20 @@
                         <option>2020</option>
                     </select>
                 </div>
+                <button class="btn btn-dark" id="download">Download Chart</button>
                 <div class="col-md-11"></div>
             </div>
-        </form>
         <div class="col-md-12">
             <div class="card" style="background-color: white;">
                 <h5 class="card-header my-3" style="text-align: center;"></h5>
                 <div class="card-body">
                     <canvas id="chart"></canvas>
                 </div>
-                <script class="skrip" src=""></script>
             </div>
         </div>
     </div>
 
     <div id="Pegawai" class="tabcontent">
-        <form action="">
             <div class="form-group row">
                 <label for="grafik" class="col-md-2 col-form-label">Pilih Kategori</label>
                 <div class="col-md-10">
@@ -58,10 +54,14 @@
 
                     </select>
                 </div>
-                <div class="col-md-10"></div>
-                <p>*Hasil Diseminasi PKL Polstat STIS T.A. 2020/2021</p>
+                <div class="col-md-10">
+                    <p>*Hasil Diseminasi PKL Polstat STIS T.A. 2020/2021</p>
+                </div>
+                <div class="col-md-10">
+                    <button id="download2" class="btn btn-light" style="display: block;">Download Chart</button>
+                </div>
             </div>
-        </form>
+        
 
         <div class="col-md-12">
             <div class="card" style="background-color: white;">
