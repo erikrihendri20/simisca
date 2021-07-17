@@ -77,6 +77,7 @@
     <script src="js/leaflet/labelgun.min.js"></script>
     <script src="js/leaflet/labels.js"></script>
     <script src="asset/leaflet/poligon.js"></script>
+    <script src="asset/leaflet/poligon2.js"></script>
     <script src="asset/leaflet/point.js"></script>
     <?php endif; ?>
 

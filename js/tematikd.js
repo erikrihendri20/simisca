@@ -29,14 +29,14 @@ function openPage(pageName, elmnt, color, color1) {
     $(".kota").css("color", color)
     $(".tertinggi").css("color", color)
     $(".KetPeta").css("color", color1)
-    $(document).ready(() => {
-        resetLayer();
-        if(pageName=='News'){
-            initMap('satker')
-        }else{
-            initMap('pegawai')
-        }
-    })
+    // $(document).ready(() => {
+    //     resetLayer();
+    //     if(pageName=='News'){
+    //         initMap('satker')
+    //     }else{
+    //         initMap('pegawai')
+    //     }
+    // })
 }
 
 
@@ -403,6 +403,15 @@ function openPage(pageName, elmnt, color, color1) {
                             features : newFeatures
                         }
                     }else newPolygon=polygonGeoJSON;
+                    newPolygon.features.forEach((polygon) => {
+                        console.log(polygon)
+                        polygon.properties={
+                            properties : {
+                                kodesatker : polygon.properties.kodesatker,
+                                namasatker : polygon.properties.namasatker
+                            }
+                        }
+                    })
 
                     layer_1 = L.geoJson(newPolygon, {
                         attribution: '',

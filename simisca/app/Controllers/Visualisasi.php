@@ -64,10 +64,58 @@ class Visualisasi extends BaseController
         return view('visualisasi/petaTematik', $data);
     }
 
-    public function getPetaSatker()
+    public function getPeta($jenis)
     {
-        $model = new ImkbSatker_model();
-        return json_encode($model->getPetaSatker(['indeks' => $this->request->getPost('indeks') , 'kodesatker' => $this->request->getPost('kodesatker')]));
+        if($jenis=='satker'){
+            $model = new ImkbSatker_model();
+            $filter = [
+                'indeks' => $this->request->getPost('indeks'),
+                'kodesatker' => $this->request->getPost('kodesatker'),
+                'tahun' => $this->request->getPost('tahun')
+            ];
+            if($filter['indeks']==3||$filter['indeks']==4){
+                if($filter['kodesatker']==3100){
+                    $data = array_merge($model->getPartPetaSatker($filter) , $model->getPetaSatker($filter));
+                }else{
+                    $data = $model->getPetaSatker($filter);
+                }
+            }else{
+                $data = $model->getPetaSatker($filter);
+            }
+            return json_encode($data);
+        }else{
+            if($this->request->getPost('indeks')==1){
+                $handle = fopen(base_url('asset/imkb/gempa-tsunami-pegawai.csv'),'r');
+                $imkb = [];
+                $count = 0;
+                while($data = fgetcsv($handle)){
+                    if($count!==0){
+                        $row['kodesatker'] = $data[0];
+                        $row['namasatker'] = $data[1];
+                        $row['SIMKB Gempa Tsunami'] = $data[2];
+                        $count++;
+                        $imkb[] = $row;
+                    }
+                    $count++;
+                }
+                return json_encode($imkb);
+            }else{
+                $handle = fopen(base_url('asset/imkb/banjir-pegawai.csv'),'r');
+                $imkb = [];
+                $count = 0;
+                while($data = fgetcsv($handle)){
+                    if($count!==0){
+                        $row['kodesatker'] = $data[0];
+                        $row['namasatker'] = $data[1];
+                        $row['SIMKB Banjir'] = $data[2];
+                        $count++;
+                        $imkb[] = $row;
+                    }
+                    $count++;
+                }
+                return json_encode($imkb);
+            }
+        }
     }
 
     public function tabelDinamis()

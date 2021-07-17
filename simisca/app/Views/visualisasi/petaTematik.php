@@ -18,8 +18,8 @@
                     <label for="indeks" , style="color: #f4c58f;">Sub IMKB</label>
                 </div>
                 <select style="background-color: #f4c58f;" class="form-control" id="indeks-pegawai">
-                    <option>Sub IMKB Gempa dan Tsunami</option>
-                    <option>Sub IMKB Banjir </option>
+                    <option value=1>Sub IMKB Gempa dan Tsunami</option>
+                    <option value=2>Sub IMKB Banjir </option>
                 </select>
             </div>
             <div class="form-group col-md-6 bar1">
@@ -61,8 +61,9 @@
                     <label for="indeks">Tahun</label>
                 </div>
                 <select class="form-control" id="tahun-satker" style="color: #f4c58f; background-color:#072438">
-                    <option value="2020">2020</option>
                     <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
                 </select>
             </div>
             <div class="form-group col-md-4 bar1">

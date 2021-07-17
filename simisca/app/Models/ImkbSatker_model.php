@@ -61,8 +61,8 @@ class ImkbSatker_model extends Model
     public function getPetaSatker($filter)
     {
         $this->builder()->join('satker' , 'imkb_satker.kode_satker=satker.kodesatker');
-        
         $this->builder()->select('satker.kodesatker , satker.namasatker');
+        $this->builder()->where('tahun' , $filter['tahun']);
         switch ($filter['indeks']) {
             case 1:
                 // $this->builder()->select('sumber_daya_kebakaran as sumber daya , rencana_tanggap_kebakaran as rencana tanggap , pemulihan_kebakaran as pemulihan , perlindungan_aset_kebakaran as perlindungan aset , simkb_kebakaran as simkb kebakaran');
@@ -72,10 +72,43 @@ class ImkbSatker_model extends Model
                 $this->builder()->select('simkb_covid19 as SIMKB covid 19');
                 break;
             case 3:
+                $this->builder()->whereIn('satker.kode_resiko' , [1,3]);
                 if($filter['kodesatker']!=1){
                     $this->builder()->like('imkb_satker.kode_satker' , substr($filter['kodesatker'] , 0 , 2) , 'after');
                 }
-                $this->builder()->select('simkb_bencana as SIMKB Bencana');
+                $this->builder()->select('simkb_bencana as SIMKB Gempa Tsunami');
+                break;
+            case 4:
+                $this->builder()->whereIn('satker.kode_resiko' , [2,3]);
+                if($filter['kodesatker']!=1){
+                    $this->builder()->like('imkb_satker.kode_satker' , substr($filter['kodesatker'] , 0 , 2) , 'after');
+                }
+                $this->builder()->select('simkb_bencana as SIMKB Banjir');
+                break;
+            default:
+                # code...
+                break;
+        }
+        return $this->builder()->get()->getResultArray();
+    }
+
+    public function getPartPetaSatker($filter){
+        $this->builder()->join('satker' , 'imkb_satker.kode_satker=satker.kodesatker');
+        $this->builder()->select('satker.kodesatker , satker.namasatker');
+        $this->builder()->where('tahun' , $filter['tahun']);
+        switch ($filter['indeks']) {
+            case 3:
+                $this->builder()->whereIn('imkb_satker.kode_satker' , [1,2,3]);
+                $this->builder()->whereIn('satker.kode_resiko' , [1,3]);
+                $this->builder()->select('simkb_bencana as SIMKB Gempa Tsunami');
+                break;
+            
+            case 4:
+                $this->builder()->whereIn('imkb_satker.kode_satker' , [1,2,3]);
+                $this->builder()->whereIn('satker.kode_resiko' , [2,3]);
+                $this->builder()->select('simkb_bencana as SIMKB Banjir');
+                break;
+            
             default:
                 # code...
                 break;
