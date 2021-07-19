@@ -92,7 +92,7 @@ class Visualisasi extends BaseController
                     if($count!==0){
                         $row['kodesatker'] = $data[0];
                         $row['namasatker'] = $data[1];
-                        $row['SIMKB Gempa Tsunami'] = $data[2];
+                        $row['SIMKB Pegawai Gempa Tsunami'] = $data[2];
                         $count++;
                         $imkb[] = $row;
                     }
@@ -107,7 +107,7 @@ class Visualisasi extends BaseController
                     if($count!==0){
                         $row['kodesatker'] = $data[0];
                         $row['namasatker'] = $data[1];
-                        $row['SIMKB Banjir'] = $data[2];
+                        $row['SIMKB Pegawai Banjir'] = $data[2];
                         $count++;
                         $imkb[] = $row;
                     }

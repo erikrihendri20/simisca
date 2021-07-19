@@ -32,9 +32,9 @@ function openPage(pageName, elmnt, color, color1) {
     $(document).ready(() => {
         resetLayer();
         if(pageName=='News'){
-            initMap('satker')
+            loadMap('satker')
         }else{
-            initMap('pegawai')
+            loadMap('pegawai')
         }
     })
 }
@@ -100,7 +100,7 @@ function pop_layer_1(feature, layer) {
 }
 
 function style_layer_1(feature) {
-    try {
+    if(typeof feature.properties['SIMKB Kebakaran'] != undefined){
         if (feature.properties['SIMKB Kebakaran'] >= 27.880000 && feature.properties['SIMKB Kebakaran'] <= 36.052000 ) {     
             if($('#prov-satker').val()==feature.properties.kodesatker){
                 return {
@@ -131,7 +131,7 @@ function style_layer_1(feature) {
                 interactive: true,
             }
         }
-        if (feature.properties['SIMKB Kebakaran'] >= 36.052000 && feature.properties['SIMKB Kebakaran'] <= 38.512000 ) {
+        else if (feature.properties['SIMKB Kebakaran'] >= 36.052000 && feature.properties['SIMKB Kebakaran'] <= 38.512000 ) {
             if($('#prov-satker').val()==feature.properties.kodesatker){
                 return {
                     pane: 'pane_1',
@@ -161,7 +161,7 @@ function style_layer_1(feature) {
                 interactive: true,
             }
         }
-        if (feature.properties['SIMKB Kebakaran'] >= 38.512000 && feature.properties['SIMKB Kebakaran'] <= 40.942000 ) {
+        else if (feature.properties['SIMKB Kebakaran'] >= 38.512000 && feature.properties['SIMKB Kebakaran'] <= 40.942000 ) {
             if($('#prov-satker').val()==feature.properties.kodesatker){
                 return {
                     pane: 'pane_1',
@@ -191,7 +191,7 @@ function style_layer_1(feature) {
                 interactive: true,
             }
         }
-        if (feature.properties['SIMKB Kebakaran'] >= 40.942000 && feature.properties['SIMKB Kebakaran'] <= 43.206000 ) {
+        else if (feature.properties['SIMKB Kebakaran'] >= 40.942000 && feature.properties['SIMKB Kebakaran'] <= 43.206000 ) {
             if($('#prov-satker').val()==feature.properties.kodesatker){
                 return {
                     pane: 'pane_1',
@@ -221,7 +221,7 @@ function style_layer_1(feature) {
                 interactive: true,
             }
         }
-        if (feature.properties['SIMKB Kebakaran'] >= 43.206000 && feature.properties['SIMKB Kebakaran'] <= 54.270000 ) {
+        else if (feature.properties['SIMKB Kebakaran'] >= 43.206000 && feature.properties['SIMKB Kebakaran'] <= 54.270000 ) {
             if($('#prov-satker').val()==feature.properties.kodesatker){
                 return {
                     pane: 'pane_1',
@@ -250,13 +250,25 @@ function style_layer_1(feature) {
                 fillColor: 'rgba(58,63,55,1.0)',
                 interactive: true,
             }
-        } 
-    } catch (error) {
-        
+        }
     }
-    try {
-        
-        if (feature.properties['SIMKB covid 19'] >= 27.880000 && feature.properties['SIMKB covid 19'] <= 36.052000 ) {
+    if(typeof feature.properties['SIMKB covid 19'] != undefined){
+        if (feature.properties['SIMKB covid 19'] >= 27.830000 && feature.properties['SIMKB covid 19'] <= 36.202000 ) {     
+            if($('#prov-satker').val()==feature.properties.kodesatker){
+                return {
+                    pane: 'pane_1',
+                    opacity: 1,
+                    color: 'rgba(255,255,255,1.0)',
+                    dashArray: '',
+                    lineCap: 'butt',
+                    lineJoin: 'miter',
+                    weight: 5, 
+                    fill: true,
+                    fillOpacity: 1,
+                    fillColor: 'rgba(220,223,218,1.0)',
+                    interactive: true,
+                }
+            }
             return {
                 pane: 'pane_1',
                 opacity: 1,
@@ -271,90 +283,147 @@ function style_layer_1(feature) {
                 interactive: true,
             }
         }
-        if (feature.properties['SIMKB covid 19'] >= 36.052000 && feature.properties['SIMKB covid 19'] <= 38.512000 ) {
+        else if (feature.properties['SIMKB covid 19'] >= 36.202000 && feature.properties['SIMKB covid 19'] <= 39.510000 ) {
+            if($('#prov-satker').val()==feature.properties.kodesatker){
+                return {
+                    pane: 'pane_1',
+                    opacity: 1,
+                    color: 'rgba(255,255,255,1.0)',
+                    dashArray: '',
+                    lineCap: 'butt',
+                    lineJoin: 'miter',
+                    weight: 5, 
+                    fill: true,
+                    fillOpacity: 1,
+                    fillColor: 'rgba(129,132,127,1.0)',
+                    interactive: true,
+                }
+            }
             return {
-            pane: 'pane_1',
-            opacity: 1,
-            color: 'rgba(255,255,255,1.0)',
-            dashArray: '',
-            lineCap: 'butt',
-            lineJoin: 'miter',
-            weight: 1.0, 
-            fill: true,
-            fillOpacity: 1,
-            fillColor: 'rgba(129,132,127,1.0)',
-            interactive: true,
+                pane: 'pane_1',
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(129,132,127,1.0)',
+                interactive: true,
+            }
         }
-        }
-        if (feature.properties['SIMKB covid 19'] >= 38.512000 && feature.properties['SIMKB covid 19'] <= 40.942000 ) {
+        else if (feature.properties['SIMKB covid 19'] >= 39.510000 && feature.properties['SIMKB covid 19'] <= 41.022000 ) {
+            if($('#prov-satker').val()==feature.properties.kodesatker){
+                return {
+                    pane: 'pane_1',
+                    opacity: 1,
+                    color: 'rgba(255,255,255,1.0)',
+                    dashArray: '',
+                    lineCap: 'butt',
+                    lineJoin: 'miter',
+                    weight: 5, 
+                    fill: true,
+                    fillOpacity: 1,
+                    fillColor: 'rgba(102,107,100,1.0)',
+                    interactive: true,
+                }
+            }
             return {
-            pane: 'pane_1',
-            opacity: 1,
-            color: 'rgba(255,255,255,1.0)',
-            dashArray: '',
-            lineCap: 'butt',
-            lineJoin: 'miter',
-            weight: 1.0, 
-            fill: true,
-            fillOpacity: 1,
-            fillColor: 'rgba(102,107,100,1.0)',
-            interactive: true,
+                pane: 'pane_1',
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(102,107,100,1.0)',
+                interactive: true,
+            }
         }
-        }
-        if (feature.properties['SIMKB covid 19'] >= 40.942000 && feature.properties['SIMKB covid 19'] <= 43.206000 ) {
+        else if (feature.properties['SIMKB covid 19'] >= 41.022000 && feature.properties['SIMKB covid 19'] <= 44.548000 ) {
+            if($('#prov-satker').val()==feature.properties.kodesatker){
+                return {
+                    pane: 'pane_1',
+                    opacity: 1,
+                    color: 'rgba(255,255,255,1.0)',
+                    dashArray: '',
+                    lineCap: 'butt',
+                    lineJoin: 'miter',
+                    weight: 5, 
+                    fill: true,
+                    fillOpacity: 1,
+                    fillColor: 'rgba(70,76,67,1.0)',
+                    interactive: true,
+                }
+            }
             return {
-            pane: 'pane_1',
-            opacity: 1,
-            color: 'rgba(255,255,255,1.0)',
-            dashArray: '',
-            lineCap: 'butt',
-            lineJoin: 'miter',
-            weight: 1.0, 
-            fill: true,
-            fillOpacity: 1,
-            fillColor: 'rgba(70,76,67,1.0)',
-            interactive: true,
+                pane: 'pane_1',
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(70,76,67,1.0)',
+                interactive: true,
+            }
         }
-        }
-        if (feature.properties['SIMKB covid 19'] >= 43.206000 && feature.properties['SIMKB covid 19'] <= 54.270000 ) {
+        else if (feature.properties['SIMKB covid 19'] >= 44.548000 && feature.properties['SIMKB covid 19'] <= 59.190000 ) {
+            if($('#prov-satker').val()==feature.properties.kodesatker){
+                return {
+                    pane: 'pane_1',
+                    opacity: 1,
+                    color: 'rgba(255,255,255,1.0)',
+                    dashArray: '',
+                    lineCap: 'butt',
+                    lineJoin: 'miter',
+                    weight: 5, 
+                    fill: true,
+                    fillOpacity: 1,
+                    fillColor: 'rgba(58,63,55,1.0)',
+                    interactive: true,
+                }
+            }
             return {
-            pane: 'pane_1',
-            opacity: 1,
-            color: 'rgba(255,255,255,1.0)',
-            dashArray: '',
-            lineCap: 'butt',
-            lineJoin: 'miter',
-            weight: 1.0, 
-            fill: true,
-            fillOpacity: 1,
-            fillColor: 'rgba(58,63,55,1.0)',
-            interactive: true,
+                pane: 'pane_1',
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(58,63,55,1.0)',
+                interactive: true,
+            }
         }
-        }
-    } catch (error) {
-        
     }
-        return {
-            pane: 'pane_1',
-            opacity: 1,
-            color: 'rgba(255,255,255,1.0)',
-            dashArray: '',
-            lineCap: 'butt',
-            lineJoin: 'miter',
-            weight: 1.0, 
-            fill: true,
-            fillOpacity: 1,
-            fillColor: 'rgba(220,223,218,1.0)',
-            interactive: true,
-        }
-    
+    return {
+        pane: 'pane_1',
+        opacity: 1,
+        color: 'rgba(255,255,255,1.0)',
+        dashArray: '',
+        lineCap: 'butt',
+        lineJoin: 'miter',
+        weight: 1.0, 
+        fill: true,
+        fillOpacity: 1,
+        fillColor: 'rgba(220,223,218,1.0)',
+        interactive: true,
+    } 
 }
 map.createPane('pane_1');
 map.getPane('pane_1').style.zIndex = 401;
 map.getPane('pane_1').style['mix-blend-mode'] = 'normal';
 
 
-function pop_PointBanjirPegawai_2(feature, layer) {
+function pop_layer_2(feature, layer) {
     layer.on({
         mouseout: function(e) {
             if (typeof layer.closePopup == 'function') {
@@ -385,8 +454,234 @@ function pop_PointBanjirPegawai_2(feature, layer) {
 
 function style_layer_2(feature) {
     
-    keys = Object.keys(feature.properties);
-    endKey = keys[keys.length-1];
+    if(typeof feature.properties['SIMKB Satker Gempa Tsunami'] != undefined){
+        if (feature.properties['SIMKB Satker Gempa Tsunami'] >= 3.490000 && feature.properties['SIMKB Satker Gempa Tsunami'] <= 26.916000 ) {
+            return {
+                pane: 'pane_2',
+                radius: 7.2,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(148,154,169,1.0)',
+                interactive: true,
+            }
+        }
+        else if (feature.properties['SIMKB Satker Gempa Tsunami'] >= 26.916000 && feature.properties['SIMKB Satker Gempa Tsunami'] <= 32.058000 ) {
+            return {
+                pane: 'pane_2',
+                radius: 7.2,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(131,139,155,1.0)',
+                interactive: true,
+            }
+        }
+        else if (feature.properties['SIMKB Satker Gempa Tsunami'] >= 32.058000 && feature.properties['SIMKB Satker Gempa Tsunami'] <= 43.628000 ) {
+            return {
+                pane: 'pane_2',
+                radius: 7.2,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(112,121,140,1.0)',
+                interactive: true,
+            }
+        }
+        else if (feature.properties['SIMKB Satker Gempa Tsunami'] >= 43.628000 && feature.properties['SIMKB Satker Gempa Tsunami'] <= 54.056000) {
+            return {
+                pane: 'pane_2',
+                radius: 7.2,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(75,78,88,1.0)',
+                interactive: true,
+            }
+        }
+        else if (feature.properties['SIMKB Satker Gempa Tsunami'] >= 54.056000 && feature.properties['SIMKB Satker Gempa Tsunami'] <= 88.450000 ) {
+            return {
+                pane: 'pane_2',
+                radius: 7.2,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(37,35,35,1.0)',
+                interactive: true,
+            }
+        }
+    }
+    if(typeof feature.properties['SIMKB Satker Banjir'] != undefined){
+        if (feature.properties['SIMKB Satker Banjir'] >= 3.490000 && feature.properties['SIMKB Satker Banjir'] <= 25.060000) {
+            return {
+                pane: 'pane_2',
+                radius: 7.2,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(148,154,169,1.0)',
+                interactive: true,
+            }
+        }
+        else if (feature.properties['SIMKB Satker Banjir'] >= 25.060000 && feature.properties['SIMKB Satker Banjir'] <= 33.676000 ) {
+            return {
+                pane: 'pane_2',
+                radius: 7.2,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(131,139,155,1.0)',
+                interactive: true,
+            }
+        }
+        else if (feature.properties['SIMKB Satker Banjir'] >= 33.676000 && feature.properties['SIMKB Satker Banjir'] <= 40.972000 ) {
+            return {
+                pane: 'pane_2',
+                radius: 7.2,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(112,121,140,1.0)',
+                interactive: true,
+            }
+        }
+        else if (feature.properties['SIMKB Satker Banjir'] >= 40.972000 && feature.properties['SIMKB Satker Banjir'] <= 51.470000 ) {
+            return {
+                pane: 'pane_2',
+                radius: 7.2,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(75,78,88,1.0)',
+                interactive: true,
+            }
+        }
+        else if (feature.properties['SIMKB Satker Banjir'] >= 51.470000 && feature.properties['SIMKB Satker Banjir'] <= 85.040000 ) {
+            return {
+                pane: 'pane_2',
+                radius: 7.2,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(37,35,35,1.0)',
+                interactive: true,
+            }
+        }
+    }
+    if(typeof feature.properties['SIMKB Pegawai Gempa Tsunami'] != undefined){
+        if (feature.properties['SIMKB Pegawai Gempa Tsunami'] >= 58.660000 && feature.properties['SIMKB Pegawai Gempa Tsunami'] <= 67.224000) {
+            return {
+                pane: 'pane_2',
+                radius: 7.2,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(148,154,169,1.0)',
+                interactive: true,
+            }
+        }
+        else if (feature.properties['SIMKB Pegawai Gempa Tsunami'] >= 67.224000 && feature.properties['SIMKB Pegawai Gempa Tsunami'] <= 69.766000 ) {
+            return {
+                pane: 'pane_2',
+                radius: 7.2,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(131,139,155,1.0)',
+                interactive: true,
+            }
+        }
+        else if (feature.properties['SIMKB Pegawai Gempa Tsunami'] >= 69.766000 && feature.properties['SIMKB Pegawai Gempa Tsunami'] <= 72.154000 ) {
+            return {
+                pane: 'pane_2',
+                radius: 7.2,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(112,121,140,1.0)',
+                interactive: true,
+            }
+        }
+        else if (feature.properties['SIMKB Pegawai Gempa Tsunami'] >= 72.154000 && feature.properties['SIMKB Pegawai Gempa Tsunami'] <= 74.746000 ) {
+            return {
+                pane: 'pane_2',
+                radius: 7.2,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(75,78,88,1.0)',
+                interactive: true,
+            }
+        }
+        else if (feature.properties['SIMKB Pegawai Gempa Tsunami'] >= 74.746000 && feature.properties['SIMKB Pegawai Gempa Tsunami'] <= 80.830000 ) {
+            return {
+                pane: 'pane_2',
+                radius: 7.2,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(37,35,35,1.0)',
+                interactive: true,
+            }
+        }
+    }
+    if(typeof feature.properties['SIMKB Pegawai Banjir'] != undefined){
+        if (feature.properties['SIMKB Pegawai Banjir'] >= 57.950000 && feature.properties['SIMKB Pegawai Banjir'] <= 68.356000 ) {
+            return {
+                pane: 'pane_2',
+                radius: 7.2,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(148,154,169,1.0)',
+                interactive: true,
+            }
+        }
+        else if (feature.properties['SIMKB Pegawai Banjir'] >= 68.356000 && feature.properties['SIMKB Pegawai Banjir'] <= 70.976000 ) {
+            return {
+                pane: 'pane_2',
+                radius: 7.2,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(131,139,155,1.0)',
+                interactive: true,
+            }
+        }
+        else if (feature.properties['SIMKB Pegawai Banjir'] >= 70.976000 && feature.properties['SIMKB Pegawai Banjir'] <= 73.758000 ) {
+            return {
+                pane: 'pane_2',
+                radius: 7.2,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(112,121,140,1.0)',
+                interactive: true,
+            }
+        }
+        else if (feature.properties['SIMKB Pegawai Banjir'] >= 73.758000 && feature.properties['SIMKB Pegawai Banjir'] <= 76.406000 ) {
+            return {
+                pane: 'pane_2',
+                radius: 7.2,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(75,78,88,1.0)',
+                interactive: true,
+            }
+        }
+        else if (feature.properties['SIMKB Pegawai Banjir'] >= 76.406000 && feature.properties['SIMKB Pegawai Banjir'] <= 84.500000 ) {
+            return {
+                pane: 'pane_2',
+                radius: 7.2,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(37,35,35,1.0)',
+                interactive: true,
+            }
+        }
+    }
     
     return {
         pane: 'pane_2',
@@ -397,52 +692,7 @@ function style_layer_2(feature) {
         fillColor: 'rgba(148,154,169,1.0)',
         interactive: true,
     }
-    if (feature.properties[endKey] >= 57.950000 && feature.properties[endKey] <= 68.356000 ) {
-    }
-    if (feature.properties[endKey] >= 68.356000 && feature.properties[endKey] <= 70.976000 ) {
-        return {
-            pane: 'pane_2',
-            radius: 7.2,
-            stroke: false,
-            fill: true,
-            fillOpacity: 1,
-            fillColor: 'rgba(131,139,155,1.0)',
-            interactive: true,
-        }
-    }
-    if (feature.properties[endKey] >= 70.976000 && feature.properties[endKey] <= 73.758000 ) {
-        return {
-            pane: 'pane_2',
-            radius: 7.2,
-            stroke: false,
-            fill: true,
-            fillOpacity: 1,
-            fillColor: 'rgba(112,121,140,1.0)',
-            interactive: true,
-        }
-    }
-    if (feature.properties[endKey] >= 73.758000 && feature.properties[endKey] <= 76.406000 ) {
-        return {
-            pane: 'pane_2',
-            radius: 7.2,
-            stroke: false,
-            fill: true,
-            fillOpacity: 1,
-            fillColor: 'rgba(75,78,88,1.0)',
-            interactive: true,
-        }
-    }
-    if (feature.properties[endKey] >= 76.406000 && feature.properties[endKey] <= 84.500000 ) {
-        return {
-            pane: 'pane_2',
-            radius: 7.2,
-            stroke: false,
-            fill: true,
-            fillOpacity: 1,
-            fillColor: 'rgba(37,35,35,1.0)',
-            interactive: true,
-        }
-    }
+    
 }
 
 map.createPane('pane_2');
@@ -498,10 +748,10 @@ function manageMap(data,menu) {
             let type, name, crs, features, newFeatures,newPolygon;
             if($('#prov-satker').val()!=1){
                 //modif geojson polygon
-                type = polygonGeoJSON.type;
-                name = polygonGeoJSON.name;
-                crs = polygonGeoJSON.crs;
-                features = polygonGeoJSON.features;
+                type = polygonGeoJSON2.type;
+                name = polygonGeoJSON2.name;
+                crs = polygonGeoJSON2.crs;
+                features = polygonGeoJSON2.features;
                 newFeatures = features.filter((polygon) => polygon.properties.kodesatker == $('#prov-satker').val());
                 newPolygon = {
                     type : type,
@@ -509,7 +759,7 @@ function manageMap(data,menu) {
                     crs : crs,
                     features : newFeatures
                 }
-            }else newPolygon=polygonGeoJSON;
+            }else newPolygon=polygonGeoJSON2;
 
             layer_1 = L.geoJson(newPolygon, {
                 attribution: '',
@@ -558,7 +808,7 @@ function manageMap(data,menu) {
                 dataVar: 'indonesiaPoint',
                 layerName: 'layer_2',
                 pane: 'pane_2',
-                onEachFeature: pop_PointBanjirPegawai_2,
+                onEachFeature: pop_layer_2,
                 
                 pointToLayer: function (feature, latlng) {
                     var context = {
@@ -693,7 +943,7 @@ function manageMap(data,menu) {
             dataVar: 'indonesiaPoint',
             layerName: 'layer_2',
             pane: 'pane_2',
-            onEachFeature: pop_PointBanjirPegawai_2,
+            onEachFeature: pop_layer_2,
             
             pointToLayer: function (feature, latlng) {
                 var context = {
@@ -712,7 +962,7 @@ function manageMap(data,menu) {
 
 
 
-initMap = (menu) => {
+loadMap = (menu) => {
     if(menu=='satker'){
         $.post('Visualisasi/getPeta/satker' , {
             indeks : $('#indeks-satker').val(),
@@ -735,21 +985,21 @@ initMap = (menu) => {
 
 
 $('#indeks-satker').change(() => {
-    initMap('satker')
+    loadMap('satker')
 })
 
 $('#prov-satker').change(() => {
-    initMap('satker')
+    loadMap('satker')
 })
 
 $('#tahun-satker').change(() => {
-    initMap('satker')
+    loadMap('satker')
 })
 
 $('#indeks-pegawai').change(() => {
-    initMap('pegawai')
+    loadMap('pegawai')
 })
 
 $('#prov-pegawai').change(() => {
-    initMap('pegawai')
+    loadMap('pegawai')
 })

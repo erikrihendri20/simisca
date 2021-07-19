@@ -76,14 +76,14 @@ class ImkbSatker_model extends Model
                 if($filter['kodesatker']!=1){
                     $this->builder()->like('imkb_satker.kode_satker' , substr($filter['kodesatker'] , 0 , 2) , 'after');
                 }
-                $this->builder()->select('simkb_bencana as SIMKB Gempa Tsunami');
+                $this->builder()->select('simkb_bencana as SIMKB Satker Gempa Tsunami');
                 break;
             case 4:
                 $this->builder()->whereIn('satker.kode_resiko' , [2,3]);
                 if($filter['kodesatker']!=1){
                     $this->builder()->like('imkb_satker.kode_satker' , substr($filter['kodesatker'] , 0 , 2) , 'after');
                 }
-                $this->builder()->select('simkb_bencana as SIMKB Banjir');
+                $this->builder()->select('simkb_bencana as SIMKB Satker Banjir');
                 break;
             default:
                 # code...
@@ -100,13 +100,13 @@ class ImkbSatker_model extends Model
             case 3:
                 $this->builder()->whereIn('imkb_satker.kode_satker' , [1,2,3]);
                 $this->builder()->whereIn('satker.kode_resiko' , [1,3]);
-                $this->builder()->select('simkb_bencana as SIMKB Gempa Tsunami');
+                $this->builder()->select('simkb_bencana as SIMKB Satker Gempa Tsunami');
                 break;
             
             case 4:
                 $this->builder()->whereIn('imkb_satker.kode_satker' , [1,2,3]);
                 $this->builder()->whereIn('satker.kode_resiko' , [2,3]);
-                $this->builder()->select('simkb_bencana as SIMKB Banjir');
+                $this->builder()->select('simkb_bencana as SIMKB Satker Banjir');
                 break;
             
             default:
