@@ -18,9 +18,7 @@
                         <option value="4">Indikator Dimensi Sumber Daya Pendukung Menurut Kategori</option>
                         <option value="5">Indikator Dimensi Perlindungan Aset Menurut Kategori</option>
                         <option value="6">IMKB Satuan Kerja BPS Menurut Tingkatan Satuan Kerja</option>
-                        <option value="7">IMKB Satuan Kerja BPS Menurut Kategori (%)</option>
                         <option value="8">Indeks Masing-Masing Dimensi Satuan Kerja Menurut Dimensi Berdasarkan Tingkatan Satuan Kerja</option>
-                        <option value="9">IMKB Satuan Kerja BPS Suv Covid-19 Menurut Pulau</option>
                     </select>
                 </div>
                 <label for="tahun" class="col-md-2 col-form-label">Pilih Tahun</label>
@@ -47,8 +45,6 @@
                 <label for="grafik" class="col-md-2 col-form-label">Pilih Kategori</label>
                 <div class="col-md-10">
                     <select class="form-control option2 mb-3" id="grafik-pegawai">
-                        <!-- <option value="0">Pilih Indeks</option> -->
-                        <option value="10">IMKB Pegawai Dalam Satuan Kerja BPS Menurut Kategori (%)</option>
                         <option value="11">Indeks Pegawai Satuan Kerja BPS
                             Pada Tingkatan Satuan Kerja Menurut Dimensi</option>
 

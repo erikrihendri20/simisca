@@ -120,11 +120,13 @@ class Visualisasi extends BaseController
 
     public function tabelDinamis()
     {
+        $model = new Sampel_satker_model();
         $data = [
             'title' => 'Tabel Dinamis',
             'css' => 'tabelDinamis.css',
             'js' => 'tabelDinamis.js',
-            'active' => 'tabel dinamis'
+            'active' => 'tabel dinamis',
+            'provinsi' => $model->getSatker()
         ];
         return view('visualisasi/tabeldinamis', $data);
     }
@@ -136,10 +138,11 @@ class Visualisasi extends BaseController
                 'tahun' => $this->request->getVar('tahun'),
                 'kodelevel' => $this->request->getVar('kodelevel'),
                 'pilihsemua' => $this->request->getVar('pilihsemua'),
+                'kodeprovinsi' => $this->request->getVar('kodeprovinsi'),
                 'keseluruhan' => $this->request->getVar('keseluruhan'),
                 'bencanaalam' => $this->request->getVar('bencanaalam'),
                 'kebakaran' => $this->request->getVar('kebakaran'),
-                'pandemicovid' => $this->request->getVar('pandemicovid')
+                'covid' => $this->request->getVar('covid')
             ];
             $modelSatker = new Satker_model();
             $data = [
