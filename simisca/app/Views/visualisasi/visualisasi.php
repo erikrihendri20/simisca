@@ -23,8 +23,8 @@
                 </div>
                 <label for="tahun" class="col-md-2 col-form-label">Pilih Tahun</label>
                 <div class="col-md-10">
-                    <select onchange="pilihTahun()" class="form-control option mb-3" id="tahun">
-                        <option>2020</option>
+                    <select class="form-control option mb-3" id="tahun">
+                        <option value="2021">2021</option>
                     </select>
                 </div>
                 <button class="btn btn-dark" id="download">Download Chart</button>

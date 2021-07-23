@@ -18,60 +18,92 @@ var chart = new Chart($('#chart'));
 var chart2 = new Chart($('#chart2'));
 function updateGrafik(val) {
     if(val==1){
-        labels = ["Sumatera", "Jawa-Bali", "Nusa Tenggara", "Kalimantan", "Sulawesi", "Maluku", "Papua"];
-        
-        data = {
-            labels: labels,
-            datasets: [{
-                    label: 'Sumber Daya Pendukung',
-                    data: [36, 46, 33, 38, 39, 34, 30],
-                    backgroundColor: '#003f5c',
-                    borderSkipped: false,
-                },
-                {
-                    label: 'Pemulihan dan Penanggulangan Darurat',
-                    data: [28, 38, 26, 32, 30, 25, 24],
-                    backgroundColor: '#58508d',
-                    borderSkipped: false,
-                },
-                {
-                    label: 'Rencana Tanggap Darurat',
-                    data: [30, 34, 26, 30, 33, 30, 33],
-                    backgroundColor: '#bc5090',
-                    borderSkipped: false,
-                },
-                {
-                    label: 'Perlindungan Aset',
-                    data: [71, 75, 62, 72, 78, 59, 61],
-                    backgroundColor: '#ff6361',
-                    borderSkipped: false,
-                }
-            ]
-        };
-    
-        config = {
-            type: 'bar',
-            data: data,
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                    },
-                    title: {
-                        display: true,
-                        font: {
-                            size: 14,
-                        },
-                        text: 'Diagram Batang Indeks Masing-Masing Dimensi Satuan Kerja BPS Menurut Pulau Berdasarkan Dimensi'
+        $.get('Visualisasi/getImkbTable/'+$('#tahun').val()+'/imkb' , (data , status) => {
+            labels = ["Sumatera", "Jawa-Bali", "Nusa Tenggara", "Kalimantan", "Sulawesi", "Maluku", "Papua"];
+            data = JSON.parse(data)
+            kodePulau = [
+                [11, 12, 13, 14, 15, 16, 17, 18, 19, 21],
+                [31, 32, 33, 34, 35, 36, 51],
+                [52, 53],
+                [61, 62, 63, 64, 65],
+                [71, 72, 73, 74, 75, 76],
+                [81, 82],
+                [91, 94]
+            ];
+            groupPulau = [];
+            kodePulau.forEach(provinsi => {
+                pulau = []
+                provinsi.forEach(prov => {
+                    if(prov==31){
+                        filteredProvinsi = data.filter((d) => d.kodesatker.toString().substring(0,2) == prov || d.kodesatker == 1 || d.kodesatker ==2 || d.kodesatker == 3)
+                    }else{
+                        filteredProvinsi = data.filter((d) => d.kodesatker.toString().substring(0,2) == prov)
                     }
-                }
-            },
-        };
-        globalThis.chart.config = config;
-        globalThis.chart.data = data;
-        globalThis.chart.labels = labels;
-        globalThis.chart.update();
+                    pulau = pulau.concat(filteredProvinsi)
+                })
+                var sdp = 0, ppd = 0, rtd = 0, pra = 0
+                pulau.forEach((p) => {
+                    sdp = sdp + p['dimensi sumber daya pendukung']
+                    rtd = rtd + p['dimensi rencana tanggap darurat']
+                    pra = pra + p['dimensi perlindungan aset']
+                    ppd = ppd + p['dimensi pemulihan dan penanggulangan darurat']
+                })
+                groupProvinsi = {sdp, rtd, pra, ppd}
+                groupPulau.push(groupProvinsi)
+            });
+            data = {
+                labels: labels,
+                datasets: [{
+                        label: 'Sumber Daya Pendukung',
+                        data: [36, 46, 33, 38, 39, 34, 30],
+                        backgroundColor: '#003f5c',
+                        borderSkipped: false,
+                    },
+                    {
+                        label: 'Pemulihan dan Penanggulangan Darurat',
+                        data: [28, 38, 26, 32, 30, 25, 24],
+                        backgroundColor: '#58508d',
+                        borderSkipped: false,
+                    },
+                    {
+                        label: 'Rencana Tanggap Darurat',
+                        data: [30, 34, 26, 30, 33, 30, 33],
+                        backgroundColor: '#bc5090',
+                        borderSkipped: false,
+                    },
+                    {
+                        label: 'Perlindungan Aset',
+                        data: [71, 75, 62, 72, 78, 59, 61],
+                        backgroundColor: '#ff6361',
+                        borderSkipped: false,
+                    }
+                ]
+            };
+        
+            config = {
+                type: 'bar',
+                data: data,
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                        },
+                        title: {
+                            display: true,
+                            font: {
+                                size: 14,
+                            },
+                            text: 'Diagram Batang Indeks Masing-Masing Dimensi Satuan Kerja BPS Menurut Pulau Berdasarkan Dimensi'
+                        }
+                    }
+                },
+            };
+            globalThis.chart.config = config;
+            globalThis.chart.data = data;
+            globalThis.chart.labels = labels;
+            globalThis.chart.update();
+        })
     }else if(val==2){
         labels = ["Dekat Gunung Berapi", "Dataran Tinggi", "Dekat Dengan Sungai", "Daerah Pesisir"];
         data = {
@@ -153,61 +185,136 @@ function updateGrafik(val) {
     globalThis.chart.labels = labels;
     globalThis.chart.update();
     }else if(val==4){
-        labels = ["Sistem Peringatan Dini", "Mobilisasi Sumber Daya", "Perlengkapan Kebutuhan Dasar"];
-        data = {
-            labels: labels,
-            datasets: [{
-                    label: 'Kurang Memadai',
-                    data: [60.15, 68.47, 14.89],
-                    backgroundColor: '#58508d',
-                    borderSkipped: false,
-                },
-                {
-                    label: 'Memadai',
-                    data: [21.08, 23.60, 65.76],
-                    backgroundColor: '#bc5090',
-                    borderSkipped: false,
-                },
-                {
-                    label: 'Sangat Memadai',
-                    data: [18.76, 7.93, 19.34],
-                    backgroundColor: '#ff6361',
-                    borderSkipped: false,
-                }
-            ]
-        };
+        $.get('Visualisasi/getImkbTable/'+$('#tahun').val()+'/imkb' , (data , status) => {
+            data = JSON.parse(data)
+            mobilisasi = []
+            peringatan = []
+            perlengkapan = []
+            data.forEach((d) => {
+                mobilisasi.push(d['total mobilisasi sumber daya'])
+                peringatan.push(d['total sistem peringatan dini'])
+                perlengkapan.push(d['total perlengkapan kebutuhan dasar'])
+            })
 
-        config = {
-            type: 'bar',
-            data: data,
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
+            rataMobilisasi = 1/2*(Math.max.apply(null,mobilisasi) + Math.min.apply(null,mobilisasi))
+            sdMobilisasi = 1/6*(Math.max.apply(null,mobilisasi) - Math.min.apply(null,mobilisasi))
+            rataPeringatan = 1/2*(Math.max.apply(null,peringatan) + Math.min.apply(null,peringatan))
+            sdPeringatan = 1/6*(Math.max.apply(null,peringatan) - Math.min.apply(null,peringatan))
+            rataPerlengkapan = 1/2*(Math.max.apply(null,perlengkapan) + Math.min.apply(null,perlengkapan))
+            sdPerlengkapan = 1/6*(Math.max.apply(null,perlengkapan) - Math.min.apply(null,perlengkapan))
+
+
+
+
+            bawahMobilisasi = rataMobilisasi - sdMobilisasi
+            bawahPeringatan = rataPeringatan - sdPeringatan
+            bawahPerlengkapan = rataPerlengkapan - sdPerlengkapan
+            
+            atasMobilisasi = rataMobilisasi + sdMobilisasi
+            atasPeringatan = rataPeringatan + sdPeringatan
+            atasPerlengkapan = rataPerlengkapan + sdPerlengkapan
+            
+            agregatMobilisasi = {
+                kurang : 0,
+                memadai : 0,
+                sangat : 0 
+            }
+
+            agregatPeringatan = {
+                kurang : 0,
+                memadai : 0,
+                sangat : 0 
+            }
+
+            agregatPerlengkapan = {
+                kurang : 0,
+                memadai : 0,
+                sangat : 0 
+            }
+
+
+            mobilisasi.forEach((m) => {
+                (m<bawahMobilisasi) ? agregatMobilisasi.kurang++ : (m>atasMobilisasi) ? agregatMobilisasi.sangat++ : agregatMobilisasi.memadai++
+            })
+            
+            agregatMobilisasi.kurang = agregatMobilisasi.kurang/517*100
+            agregatMobilisasi.memadai = agregatMobilisasi.memadai/517*100
+            agregatMobilisasi.sangat = agregatMobilisasi.sangat/517*100
+
+            peringatan.forEach((p) => {
+                (p<bawahPeringatan) ? agregatPeringatan.kurang++ : (p>atasPeringatan) ? agregatPeringatan.sangat++ : agregatPeringatan.memadai++
+            })
+
+            agregatPeringatan.kurang = agregatPeringatan.kurang/517*100
+            agregatPeringatan.sangat = agregatPeringatan.sangat/517*100
+            agregatPeringatan.memadai = agregatPeringatan.memadai/517*100
+            
+            perlengkapan.forEach((p) => {
+                (p<bawahPerlengkapan) ? agregatPerlengkapan.kurang++ : (p>atasPerlengkapan) ? agregatPerlengkapan.sangat++ : agregatPerlengkapan.memadai++
+            })
+
+            agregatPerlengkapan.kurang = agregatPerlengkapan.kurang/517*100
+            agregatPerlengkapan.memadai = agregatPerlengkapan.memadai/517*100
+            agregatPerlengkapan.sangat = agregatPerlengkapan.sangat/517*100
+
+            labels = ["Sistem Peringatan Dini", "Mobilisasi Sumber Daya", "Perlengkapan Kebutuhan Dasar"];
+
+            data = {
+                labels: labels,
+                datasets: [{
+                        label: 'Kurang Memadai',
+                        data: [agregatPeringatan.kurang.toFixed(2), agregatMobilisasi.kurang.toFixed(2), agregatPerlengkapan.kurang.toFixed(2)],
+                        backgroundColor: '#58508d',
+                        borderSkipped: false,
                     },
-                    title: {
-                        display:true,
-                        font: {
-                            size: 14,
-                        },
-                        text: 'Indikator Dimensi Sumber Daya Pendukung Menurut Kategori'
+                    {
+                        label: 'Memadai',
+                        data: [agregatPeringatan.memadai.toFixed(2), agregatMobilisasi.memadai.toFixed(2), agregatPerlengkapan.memadai.toFixed(2)],
+                        backgroundColor: '#bc5090',
+                        borderSkipped: false,
                     },
-                },
-                scales: {
-                    x: {
-                        stacked: true,
-                    },
-                    y: {
-                        stacked: true
+                    {
+                        label: 'Sangat Memadai',
+                        data: [agregatPeringatan.sangat.toFixed(2), agregatMobilisasi.sangat.toFixed(2), agregatPerlengkapan.sangat.toFixed(2)],
+                        backgroundColor: '#ff6361',
+                        borderSkipped: false,
                     }
-                }
-            },
-        };
-        globalThis.chart.config = config;
-        globalThis.chart.data = data;
-        globalThis.chart.labels = labels;
-        globalThis.chart.update();
+                ]
+            };
+            config = {
+                type: 'bar',
+                data: data,
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                        },
+                        title: {
+                            display:true,
+                            font: {
+                                size: 14,
+                            },
+                            text: 'Indikator Dimensi Sumber Daya Pendukung Menurut Kategori'
+                        },
+                    },
+                    scales: {
+                        x: {
+                            stacked: true,
+                        },
+                        y: {
+                            stacked: true
+                        }
+                    }
+                },
+            };
+            globalThis.chart.config = config;
+            globalThis.chart.data = data;
+            globalThis.chart.labels = labels;
+            globalThis.chart.update();
+
+        })
+
     }else if(val==5){
         labels = ["Perlindungan Data dan Dokumen", "Perlindungan Properti dan Fasilitas"];
         data = {
