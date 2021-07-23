@@ -145,6 +145,16 @@ class Survei_model extends Model
         
     }
 
+    public function getImkbTable($tahun)
+    {
+        $table = $this->showTable($tahun);
+        if($table){
+            $builder = $this->db->table(end($table));
+            return $builder->get()->getResultArray();
+        }else{
+            return;
+        } 
+    }
     
     
 }
