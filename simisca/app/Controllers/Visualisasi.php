@@ -165,7 +165,7 @@ class Visualisasi extends BaseController
     }
 
 
-    public function getImkbTable($tahun , $subjek)
+    public function getTabulasi($tahun , $subjek)
     {
         $model = new Survei_model();
         $question = $model->getImkbTable($tahun);
@@ -443,4 +443,97 @@ class Visualisasi extends BaseController
         }
         return json_encode($data);
     }
+
+
+    public function getImkbTable($tahun)
+    {
+        $model = new ImkbSatker_model();
+        return json_encode($model->getImkb($tahun));
+    }
+
+    public function getKarakteristikWilayah($tahun)
+    {
+        $model = new Survei_model();
+        $question = $model->getImkbTable($tahun);
+        $data = [];
+
+        foreach ($question as $q) {
+            $imkb = [];
+            $imkb['id'] = $q['id'];
+            $imkb['kodesatker'] = 0;
+
+            if($q['423492X1X66']==1){
+                $imkb['kodesatker'] = 1;
+            }
+            elseif($q['423492X1X66']==2){
+                $imkb['kodesatker'] = substr($q['423492X1X68'],0,2) . "00";
+            }
+            elseif($q['423492X1X66']==3){
+                $imkb['kodesatker'] = $q['423492X1X68'];
+            }
+            elseif($q['423492X1X66']==4){
+                $imkb['kodesatker'] = 3;
+            }
+            elseif($q['423492X1X66']==5){
+                $imkb['kodesatker'] = 2;
+            }
+
+            $imkb['pesisir'] = ($q['423492X3X91']==2) ?  0 : (int)$q['423492X3X91'];
+            $imkb['sungai'] = ($q['423492X3X92']==2) ?  0 : (int)$q['423492X3X92'];
+            $imkb['dataran tinggi'] = ($q['423492X3X93']==2) ?  0 : (int)$q['423492X3X93'];
+            $imkb['gunung api'] = ($q['423492X3X94']==2) ?  0 : (int)$q['423492X3X94'];
+
+            $data[] = $imkb;
+
+        }
+        return json_encode($data);
+    }
+
+    public function getPengalamanSatker($tahun)
+    {
+        $model = new Survei_model();
+        $question = $model->getImkbTable($tahun);
+        $data = [];
+
+        foreach ($question as $q) {
+            $imkb = [];
+            $imkb['id'] = $q['id'];
+            $imkb['kodesatker'] = 0;
+
+            if($q['423492X1X66']==1){
+                $imkb['kodesatker'] = 1;
+            }
+            elseif($q['423492X1X66']==2){
+                $imkb['kodesatker'] = substr($q['423492X1X68'],0,2) . "00";
+            }
+            elseif($q['423492X1X66']==3){
+                $imkb['kodesatker'] = $q['423492X1X68'];
+            }
+            elseif($q['423492X1X66']==4){
+                $imkb['kodesatker'] = 3;
+            }
+            elseif($q['423492X1X66']==5){
+                $imkb['kodesatker'] = 2;
+            }
+
+            
+            $imkb['covid19'] = ($q['423492X5X41']==2) ? 0 : (int)$q['423492X5X41'];
+            $imkb['kebakaran'] = ($q['423492X3X101']==2) ?  0 : (int)$q['423492X3X101'];
+            $imkb['tsunami'] = ($q['423492X3X102']==2) ?  0 : (int)$q['423492X3X102'];
+            $imkb['gempa bumi'] = ($q['423492X3X103']==2) ?  0 : (int)$q['423492X3X103'];
+            $imkb['gunung api'] = ($q['423492X3X104']==2) ?  0 : (int)$q['423492X3X104'];
+            $imkb['banjir'] = ($q['423492X3X105']==2) ?  0 : (int)$q['423492X3X105'];
+            $imkb['banjir bandang'] = ($q['423492X3X106']==2) ?  0 : (int)$q['423492X3X106'];
+            $imkb['kekeringan'] = ($q['423492X3X107']==2) ?  0 : (int)$q['423492X3X107'];
+            $imkb['tanah longsor'] = ($q['423492X3X108']==2) ?  0 : (int)$q['423492X3X108'];
+            $imkb['angin puting beliung'] = ($q['423492X3X109']==2) ?  0 : (int)$q['423492X3X109'];
+
+
+
+            $data[] = $imkb;
+
+        }
+        return json_encode($data);
+    }
+
 }

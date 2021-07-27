@@ -12,13 +12,13 @@
                 <div class="col-md-10">
                     <select class="form-control option mb-3" id="grafik-satker">
                         <!-- <option value="0">Pilih Indeks</option> -->
-                        <option value="1">Diagram Batang Indeks Masing-Masing Dimensi Satuan Kerja BPS Menurut Pulau Berdasarkan Dimensi</option>
-                        <option value="2">Proporsi Karakteristik Wilayah Satuan Kerja BPS</option>
-                        <option value="3">Pengalaman Terdampak Bencana Alam dan Non Alam Satuan Kerja BPS</option>
+                        <option value="1">Proporsi Karakteristik Wilayah Satuan Kerja BPS</option>
+                        <option value="2">Pengalaman Terdampak Bencana Alam dan Non Alam Satuan Kerja BPS</option>
+                        <option value="3">Indikator Dimensi Perlindungan Aset Menurut Kategori</option>
+                        <!-- <option value="1">Diagram Batang Indeks Masing-Masing Dimensi Satuan Kerja BPS Menurut Pulau Berdasarkan Dimensi</option>
                         <option value="4">Indikator Dimensi Sumber Daya Pendukung Menurut Kategori</option>
-                        <option value="5">Indikator Dimensi Perlindungan Aset Menurut Kategori</option>
                         <option value="6">IMKB Satuan Kerja BPS Menurut Tingkatan Satuan Kerja</option>
-                        <option value="8">Indeks Masing-Masing Dimensi Satuan Kerja Menurut Dimensi Berdasarkan Tingkatan Satuan Kerja</option>
+                        <option value="8">Indeks Masing-Masing Dimensi Satuan Kerja Menurut Dimensi Berdasarkan Tingkatan Satuan Kerja</option> -->
                     </select>
                 </div>
                 <label for="tahun" class="col-md-2 col-form-label">Pilih Tahun</label>

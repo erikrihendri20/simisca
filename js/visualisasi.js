@@ -16,12 +16,120 @@ document.getElementById("defaultOpen").click();
 
 var chart = new Chart($('#chart'));
 var chart2 = new Chart($('#chart2'));
+
+function getAvg(grades) {
+    return (grades.reduce(function (p, c) {
+      return p + c;
+    }) / grades.length).toFixed(2);
+}
+
 function updateGrafik(val) {
     if(val==1){
-        $.get('Visualisasi/getImkbTable/'+$('#tahun').val()+'/imkb' , (data , status) => {
+        $.get('Visualisasi/getKarakteristikWilayah/'+$('#tahun').val(), (data , status) => {
+            data = JSON.parse(data)
+            labels = ["Dekat Gunung Berapi", "Dataran Tinggi", "Dekat Dengan Sungai", "Daerah Pesisir"];
+            data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Karakteristik Wilayah',
+                    data: [
+                        (data.filter((d) => d['gunung api'] === 1).length/517*100).toFixed(2),
+                        (data.filter((d) => d['dataran tinggi'] === 1).length/517*100).toFixed(2),
+                        (data.filter((d) => d['sungai'] === 1).length/517*100).toFixed(2),
+                        (data.filter((d) => d['pesisir'] === 1).length/517*100).toFixed(2)
+                    ],
+                    backgroundColor: '#ffa600',
+                    borderSkipped: false,
+                }]
+            };
+        
+            config = {
+                type: 'bar',
+                data: data,
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+        
+                        },
+                        title: {
+                            display: true,
+                            font: {
+                                size: 14,
+                            },
+                            text: 'Proporsi Karakteristik Wilayah Satuan Kerja BPS'
+                        }
+                    }
+                },
+            };
+            globalThis.chart.config = config;
+            globalThis.chart.data = data;
+            globalThis.chart.labels = labels;
+            globalThis.chart.update();
+        })
+    }else if(val==2){
+        $.get('Visualisasi/getPengalamanSatker/'+$('#tahun').val(), (data , status) => {
+            data = JSON.parse(data)
+            labels = ["Zona Merah Covid-19", "Gempa Bumi", "Banjir", "Angin Puting Beliung", "Kebakaran", "Gunung Berapi", "Tanah Longsor", "Tsunami"];
+                data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Persentase',
+                    data: [
+                        (data.filter((d) => d['covid19']===1).length/517*100).toFixed(2),
+                        (data.filter((d) => d['gempa bumi']===1).length/517*100).toFixed(2),
+                        (data.filter((d) => d['banjir']===1).length/517*100).toFixed(2),
+                        (data.filter((d) => d['angin puting beliung']===1).length/517*100).toFixed(2),
+                        (data.filter((d) => d['kebakaran']===1).length/517*100).toFixed(2),
+                        (data.filter((d) => d['gunung api']===1).length/517*100).toFixed(2),
+                        (data.filter((d) => d['tanah longsor']===1).length/517*100).toFixed(2),
+                        (data.filter((d) => d['tsunami']===1).length/517*100).toFixed(2)
+                    ],
+                    backgroundColor: '#003f5c',
+                    borderSkipped: false,
+                }]
+            };
+    
+            config = {
+            type: 'bar',
+            data: data,
+            options: {
+                indexAxis: 'y',
+                // Elements options apply to all of the options unless overridden in a dataset
+                // In this case, we are setting the border of each horizontal bar to be 2px wide
+                elements: {
+                    bar: {
+                        borderWidth: 2,
+                    }
+                },
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false,
+                        position: 'bottom',
+                    },
+                    title: {
+                        display: true,
+                        font: {
+                            size: 14,
+                        },
+                        text: 'Pengalaman Terdampak Bencana Alam dan Non Alam Satuan Kerja BPS'
+                    }
+                }
+            },
+        };
+        globalThis.chart.config = config;
+        globalThis.chart.data = data;
+        globalThis.chart.labels = labels;
+        globalThis.chart.update();
+            
+        })
+    }else if(val==3){
+        $.get('Visualisasi/getImkbTable/'+$('#tahun').val() , (data , status) => {
             labels = ["Sumatera", "Jawa-Bali", "Nusa Tenggara", "Kalimantan", "Sulawesi", "Maluku", "Papua"];
             data = JSON.parse(data)
-            kodePulau = [
+            groupPulau = [
                 [11, 12, 13, 14, 15, 16, 17, 18, 19, 21],
                 [31, 32, 33, 34, 35, 36, 51],
                 [52, 53],
@@ -30,50 +138,60 @@ function updateGrafik(val) {
                 [81, 82],
                 [91, 94]
             ];
-            groupPulau = [];
-            kodePulau.forEach(provinsi => {
+            imkb = []
+            groupPulau.forEach(provinsi => {
                 pulau = []
                 provinsi.forEach(prov => {
                     if(prov==31){
-                        filteredProvinsi = data.filter((d) => d.kodesatker.toString().substring(0,2) == prov || d.kodesatker == 1 || d.kodesatker ==2 || d.kodesatker == 3)
+                        filteredProvinsi = data.filter((d) => d.kodesatker.substring(0,2) == prov || d.kodesatker == 1 || d.kodesatker ==2 || d.kodesatker == 3)
                     }else{
-                        filteredProvinsi = data.filter((d) => d.kodesatker.toString().substring(0,2) == prov)
+                        filteredProvinsi = data.filter((d) => d.kodesatker.substring(0,2) == prov)
                     }
                     pulau = pulau.concat(filteredProvinsi)
                 })
-                var sdp = 0, ppd = 0, rtd = 0, pra = 0
+                dataPulau = {
+                    perlindungan_aset : [],
+                    sumber_daya_pendukung : [],
+                    pemulihan : [],
+                    rencana_tanggap : [],
+                }
                 pulau.forEach((p) => {
-                    sdp = sdp + p['dimensi sumber daya pendukung']
-                    rtd = rtd + p['dimensi rencana tanggap darurat']
-                    pra = pra + p['dimensi perlindungan aset']
-                    ppd = ppd + p['dimensi pemulihan dan penanggulangan darurat']
+                    dataPulau.perlindungan_aset.push(Number(p['perlindungan aset']))
+                    dataPulau.sumber_daya_pendukung.push(Number(p['sumber daya pendukung']))
+                    dataPulau.pemulihan.push(Number(p['pemulihan']))
+                    dataPulau.rencana_tanggap.push(Number(p['rencana tanggap']))
                 })
-                groupProvinsi = {sdp, rtd, pra, ppd}
-                groupPulau.push(groupProvinsi)
+                dataPulau.perlindungan_aset = getAvg(dataPulau.perlindungan_aset)
+                dataPulau.sumber_daya_pendukung = getAvg(dataPulau.sumber_daya_pendukung)
+                dataPulau.pemulihan = getAvg(dataPulau.pemulihan)
+                dataPulau.rencana_tanggap = getAvg(dataPulau.rencana_tanggap)
+                imkb.push(dataPulau)
             });
+
+
             data = {
                 labels: labels,
                 datasets: [{
                         label: 'Sumber Daya Pendukung',
-                        data: [36, 46, 33, 38, 39, 34, 30],
+                        data: [imkb[0].sumber_daya_pendukung, imkb[1].sumber_daya_pendukung, imkb[2].sumber_daya_pendukung, imkb[3].sumber_daya_pendukung, imkb[4].sumber_daya_pendukung, imkb[5].sumber_daya_pendukung, imkb[6].sumber_daya_pendukung],
                         backgroundColor: '#003f5c',
                         borderSkipped: false,
                     },
                     {
                         label: 'Pemulihan dan Penanggulangan Darurat',
-                        data: [28, 38, 26, 32, 30, 25, 24],
+                        data: [imkb[0].pemulihan, imkb[1].pemulihan, imkb[2].pemulihan, imkb[3].pemulihan, imkb[4].pemulihan, imkb[5].pemulihan, imkb[6].pemulihan],
                         backgroundColor: '#58508d',
                         borderSkipped: false,
                     },
                     {
                         label: 'Rencana Tanggap Darurat',
-                        data: [30, 34, 26, 30, 33, 30, 33],
+                        data: [imkb[0].rencana_tanggap, imkb[1].rencana_tanggap, imkb[2].rencana_tanggap, imkb[3].rencana_tanggap, imkb[4].rencana_tanggap, imkb[5].rencana_tanggap, imkb[6].rencana_tanggap],
                         backgroundColor: '#bc5090',
                         borderSkipped: false,
                     },
                     {
                         label: 'Perlindungan Aset',
-                        data: [71, 75, 62, 72, 78, 59, 61],
+                        data: [imkb[0].perlindungan_aset, imkb[1].perlindungan_aset, imkb[2].perlindungan_aset, imkb[3].perlindungan_aset, imkb[4].perlindungan_aset, imkb[5].perlindungan_aset, imkb[6].perlindungan_aset],
                         backgroundColor: '#ff6361',
                         borderSkipped: false,
                     }
@@ -104,88 +222,8 @@ function updateGrafik(val) {
             globalThis.chart.labels = labels;
             globalThis.chart.update();
         })
-    }else if(val==2){
-        labels = ["Dekat Gunung Berapi", "Dataran Tinggi", "Dekat Dengan Sungai", "Daerah Pesisir"];
-        data = {
-            labels: labels,
-            datasets: [{
-                label: 'Karakteristik Wilayah',
-                data: [7.74, 18.38, 32.50, 42.55],
-                backgroundColor: '#ffa600',
-                borderSkipped: false,
-            }]
-        };
-    
-        config = {
-            type: 'bar',
-            data: data,
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-    
-                    },
-                    title: {
-                        display: true,
-                        font: {
-                            size: 14,
-                        },
-                        text: 'Proporsi Karakteristik Wilayah Satuan Kerja BPS'
-                    }
-                }
-            },
-        };
-        globalThis.chart.config = config;
-        globalThis.chart.data = data;
-        globalThis.chart.labels = labels;
-        globalThis.chart.update();
-    }else if(val==3){
-        labels = ["Zona Merah Covid-19", "Gempa Bumi", "Banjir", "Angin Puting Beliung", "Kebakaran", "Gunung Berapi", "Tanah Longsor", "Tsunami"];
-            data = {
-            labels: labels,
-            datasets: [{
-                label: 'Persentase',
-                data: [27.85, 17.60, 8.12, 3.87, 3.48, 2.13, 1.74, 1.35],
-                backgroundColor: '#003f5c',
-                borderSkipped: false,
-            }]
-        };
-
-        config = {
-        type: 'bar',
-        data: data,
-        options: {
-            indexAxis: 'y',
-            // Elements options apply to all of the options unless overridden in a dataset
-            // In this case, we are setting the border of each horizontal bar to be 2px wide
-            elements: {
-                bar: {
-                    borderWidth: 2,
-                }
-            },
-            responsive: true,
-            plugins: {
-                legend: {
-                    display: false,
-                    position: 'bottom',
-                },
-                title: {
-                    display: true,
-                    font: {
-                        size: 14,
-                    },
-                    text: 'Pengalaman Terdampak Bencana Alam dan Non Alam Satuan Kerja BPS'
-                }
-            }
-        },
-    };
-    globalThis.chart.config = config;
-    globalThis.chart.data = data;
-    globalThis.chart.labels = labels;
-    globalThis.chart.update();
     }else if(val==4){
-        $.get('Visualisasi/getImkbTable/'+$('#tahun').val()+'/imkb' , (data , status) => {
+        $.get('Visualisasi/getTabulasi/'+$('#tahun').val()+'/imkb' , (data , status) => {
             data = JSON.parse(data)
             mobilisasi = []
             peringatan = []

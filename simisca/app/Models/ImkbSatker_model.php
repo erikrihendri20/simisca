@@ -115,4 +115,11 @@ class ImkbSatker_model extends Model
         }
         return $this->builder()->get()->getResultArray();
     }
+
+    public function getImkb($tahun)
+    {
+        $this->builder()->where('tahun' , $tahun);
+        $this->builder()->select('kode_satker as kodesatker , perlindungan_aset as perlindungan aset , sumber_daya as sumber daya pendukung , pemulihan , rencana_tanggap as rencana tanggap, imkb');
+        return $this->builder()->get()->getResultArray();
+    }
 }
