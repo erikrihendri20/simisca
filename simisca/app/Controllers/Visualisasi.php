@@ -489,6 +489,90 @@ class Visualisasi extends BaseController
         return json_encode($data);
     }
 
+    public function getKarakteristik($tahun , $jenis)
+    {
+        // $model = new Survei_model();
+        // $question = $model->getKarakteristik($tahun , $jenis);
+        // $kodesatker = [];
+        // foreach ($question as $q) {
+        //     switch ($q['jenis satker']) {
+        //         case '1':
+        //             $kode = '1';
+        //             break;
+                
+        //         case '2':
+        //             $kode = substr($q['kodesatker'],0,2).'00';
+        //             break;
+                
+        //         case '3':
+        //             $kode = $q['kodesatker'];
+        //             break;
+                
+        //         case '4':
+        //             $kode = '3';
+        //             break;
+                
+        //         case '5':
+        //             $kode = '2';
+        //             break;
+                
+        //         default:
+        //             # code...
+        //             break;
+        //     }
+        //     $kodesatker[] = $kode;
+        // }
+        $kodesatker = [3217,
+        1117,
+        1211,
+        3208,
+        7102,
+        5312,
+        3306,
+        1303,
+        3307,
+        3579,
+        1375,
+        1374,
+        1673,
+        3272,
+        7173,
+        3200,
+        1108,
+        3302,
+        3209,
+        3205,
+        8205,
+        7103,
+        7108,
+        5308,
+        5319,
+        7106,
+        1312,
+        1809,
+        1810,
+        3322,
+        1310,
+        1305,
+        3206,
+        7172,
+        3271,
+        1278,
+        7174,
+        7171,
+        7373,
+        1376,
+        3278,
+        8271,
+        3400,
+        8200,
+        7100,
+        ];
+        $model = new ImkbSatker_model();
+        return json_encode($model->getKarakteristik($tahun , $jenis , $kodesatker));
+        
+    }
+
     public function getPengalamanSatker($tahun)
     {
         $model = new Survei_model();

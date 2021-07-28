@@ -15,6 +15,7 @@
                         <option value="1">Proporsi Karakteristik Wilayah Satuan Kerja BPS</option>
                         <option value="2">Pengalaman Terdampak Bencana Alam dan Non Alam Satuan Kerja BPS</option>
                         <option value="3">Indikator Dimensi Perlindungan Aset Menurut Kategori</option>
+                        <option value="4">Tingkat Mitigasi dan Kesiapsiagaan Bencana Berdasarkan Potensi Gunung meletus</option>
                         <!-- <option value="1">Diagram Batang Indeks Masing-Masing Dimensi Satuan Kerja BPS Menurut Pulau Berdasarkan Dimensi</option>
                         <option value="4">Indikator Dimensi Sumber Daya Pendukung Menurut Kategori</option>
                         <option value="6">IMKB Satuan Kerja BPS Menurut Tingkatan Satuan Kerja</option>

@@ -155,6 +155,30 @@ class Survei_model extends Model
             return;
         } 
     }
+
+    public function getKarakteristik($tahun , $jenis)
+    {
+        $table = $this->showTable($tahun);
+        if($table){
+            $builder = $this->db->table(end($table));
+            
+            $builder->like('datestamp','2021','after');
+            $builder->select('423492X1X68 as kodesatker , 423492X1X66 as jenis satker');
+            switch ($jenis) {
+                case 'gunung api':
+                    $builder->select('423492X3X94');
+                    $builder->where('423492X3X94' , 1);
+                    break;
+                
+                default:
+                    # code...
+                    break;
+            }
+            return $builder->get()->getResultArray();
+        }else{
+            return;
+        }
+    }
     
     
 }

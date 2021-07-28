@@ -223,101 +223,25 @@ function updateGrafik(val) {
             globalThis.chart.update();
         })
     }else if(val==4){
-        $.get('Visualisasi/getTabulasi/'+$('#tahun').val()+'/imkb' , (data , status) => {
+        $.get('Visualisasi/getKarakteristik/'+$('#tahun').val()+'/gunung api' , (data , status) => {
             data = JSON.parse(data)
-            mobilisasi = []
-            peringatan = []
-            perlengkapan = []
+            labels = [];
+            dataSIMKB = [];
+            // bg = [];
             data.forEach((d) => {
-                mobilisasi.push(d['total mobilisasi sumber daya'])
-                peringatan.push(d['total sistem peringatan dini'])
-                perlengkapan.push(d['total perlengkapan kebutuhan dasar'])
+                labels.push(d['nama satker'])
+                dataSIMKB.push(Number(d['simkb gunung api']).toFixed(2))
+                // bg.push('#'+Math.floor(Math.random()*16777215).toString(16))
             })
-
-            rataMobilisasi = 1/2*(Math.max.apply(null,mobilisasi) + Math.min.apply(null,mobilisasi))
-            sdMobilisasi = 1/6*(Math.max.apply(null,mobilisasi) - Math.min.apply(null,mobilisasi))
-            rataPeringatan = 1/2*(Math.max.apply(null,peringatan) + Math.min.apply(null,peringatan))
-            sdPeringatan = 1/6*(Math.max.apply(null,peringatan) - Math.min.apply(null,peringatan))
-            rataPerlengkapan = 1/2*(Math.max.apply(null,perlengkapan) + Math.min.apply(null,perlengkapan))
-            sdPerlengkapan = 1/6*(Math.max.apply(null,perlengkapan) - Math.min.apply(null,perlengkapan))
-
-
-
-
-            bawahMobilisasi = rataMobilisasi - sdMobilisasi
-            bawahPeringatan = rataPeringatan - sdPeringatan
-            bawahPerlengkapan = rataPerlengkapan - sdPerlengkapan
-            
-            atasMobilisasi = rataMobilisasi + sdMobilisasi
-            atasPeringatan = rataPeringatan + sdPeringatan
-            atasPerlengkapan = rataPerlengkapan + sdPerlengkapan
-            
-            agregatMobilisasi = {
-                kurang : 0,
-                memadai : 0,
-                sangat : 0 
-            }
-
-            agregatPeringatan = {
-                kurang : 0,
-                memadai : 0,
-                sangat : 0 
-            }
-
-            agregatPerlengkapan = {
-                kurang : 0,
-                memadai : 0,
-                sangat : 0 
-            }
-
-
-            mobilisasi.forEach((m) => {
-                (m<bawahMobilisasi) ? agregatMobilisasi.kurang++ : (m>atasMobilisasi) ? agregatMobilisasi.sangat++ : agregatMobilisasi.memadai++
-            })
-            
-            agregatMobilisasi.kurang = agregatMobilisasi.kurang/517*100
-            agregatMobilisasi.memadai = agregatMobilisasi.memadai/517*100
-            agregatMobilisasi.sangat = agregatMobilisasi.sangat/517*100
-
-            peringatan.forEach((p) => {
-                (p<bawahPeringatan) ? agregatPeringatan.kurang++ : (p>atasPeringatan) ? agregatPeringatan.sangat++ : agregatPeringatan.memadai++
-            })
-
-            agregatPeringatan.kurang = agregatPeringatan.kurang/517*100
-            agregatPeringatan.sangat = agregatPeringatan.sangat/517*100
-            agregatPeringatan.memadai = agregatPeringatan.memadai/517*100
-            
-            perlengkapan.forEach((p) => {
-                (p<bawahPerlengkapan) ? agregatPerlengkapan.kurang++ : (p>atasPerlengkapan) ? agregatPerlengkapan.sangat++ : agregatPerlengkapan.memadai++
-            })
-
-            agregatPerlengkapan.kurang = agregatPerlengkapan.kurang/517*100
-            agregatPerlengkapan.memadai = agregatPerlengkapan.memadai/517*100
-            agregatPerlengkapan.sangat = agregatPerlengkapan.sangat/517*100
-
-            labels = ["Sistem Peringatan Dini", "Mobilisasi Sumber Daya", "Perlengkapan Kebutuhan Dasar"];
 
             data = {
                 labels: labels,
                 datasets: [{
-                        label: 'Kurang Memadai',
-                        data: [agregatPeringatan.kurang.toFixed(2), agregatMobilisasi.kurang.toFixed(2), agregatPerlengkapan.kurang.toFixed(2)],
-                        backgroundColor: '#58508d',
-                        borderSkipped: false,
-                    },
-                    {
-                        label: 'Memadai',
-                        data: [agregatPeringatan.memadai.toFixed(2), agregatMobilisasi.memadai.toFixed(2), agregatPerlengkapan.memadai.toFixed(2)],
-                        backgroundColor: '#bc5090',
-                        borderSkipped: false,
-                    },
-                    {
-                        label: 'Sangat Memadai',
-                        data: [agregatPeringatan.sangat.toFixed(2), agregatMobilisasi.sangat.toFixed(2), agregatPerlengkapan.sangat.toFixed(2)],
-                        backgroundColor: '#ff6361',
-                        borderSkipped: false,
-                    }
-                ]
+                    label: 'SIMKB',
+                    data: dataSIMKB,
+                    backgroundColor: '#5bc0de',
+                    borderSkipped: false,
+                }]
             };
             config = {
                 type: 'bar',
@@ -327,21 +251,14 @@ function updateGrafik(val) {
                     plugins: {
                         legend: {
                             position: 'bottom',
+        
                         },
                         title: {
-                            display:true,
+                            display: true,
                             font: {
                                 size: 14,
                             },
-                            text: 'Indikator Dimensi Sumber Daya Pendukung Menurut Kategori'
-                        },
-                    },
-                    scales: {
-                        x: {
-                            stacked: true,
-                        },
-                        y: {
-                            stacked: true
+                            text: 'Proporsi Karakteristik Wilayah Satuan Kerja BPS'
                         }
                     }
                 },
@@ -350,159 +267,290 @@ function updateGrafik(val) {
             globalThis.chart.data = data;
             globalThis.chart.labels = labels;
             globalThis.chart.update();
-
         })
+    }
+    // else if(val==4){
+    //     $.get('Visualisasi/getTabulasi/'+$('#tahun').val()+'/imkb' , (data , status) => {
+    //         data = JSON.parse(data)
+    //         mobilisasi = []
+    //         peringatan = []
+    //         perlengkapan = []
+    //         data.forEach((d) => {
+    //             mobilisasi.push(d['total mobilisasi sumber daya'])
+    //             peringatan.push(d['total sistem peringatan dini'])
+    //             perlengkapan.push(d['total perlengkapan kebutuhan dasar'])
+    //         })
 
-    }else if(val==5){
-        labels = ["Perlindungan Data dan Dokumen", "Perlindungan Properti dan Fasilitas"];
-        data = {
-            labels: labels,
-            datasets: [{
-                    label: 'Kurang Baik',
-                    data: [4.45, 6.19],
-                    backgroundColor: '#003f5c',
-                    borderSkipped: false,
-                },
-                {
-                    label: 'Baik',
-                    data: [13.35, 20.12],
-                    borderColor: 'rgb(255, 255, 0)',
-                    backgroundColor: '#bc5090',
-                    borderSkipped: false,
-                },
-                {
-                    label: 'Sangat Baik',
-                    data: [82.21, 73.69],
-                    backgroundColor: '#ffa600',
-                    borderSkipped: false,
-                }
-            ]
-        };
+    //         rataMobilisasi = 1/2*(Math.max.apply(null,mobilisasi) + Math.min.apply(null,mobilisasi))
+    //         sdMobilisasi = 1/6*(Math.max.apply(null,mobilisasi) - Math.min.apply(null,mobilisasi))
+    //         rataPeringatan = 1/2*(Math.max.apply(null,peringatan) + Math.min.apply(null,peringatan))
+    //         sdPeringatan = 1/6*(Math.max.apply(null,peringatan) - Math.min.apply(null,peringatan))
+    //         rataPerlengkapan = 1/2*(Math.max.apply(null,perlengkapan) + Math.min.apply(null,perlengkapan))
+    //         sdPerlengkapan = 1/6*(Math.max.apply(null,perlengkapan) - Math.min.apply(null,perlengkapan))
 
-        config = {
-            type: 'bar',
-            data: data,
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                    },
-                    title: {
-                        display:true,
-                        font: {
-                            size: 14,
-                        },
-                        text: 'Indikator Dimensi Perlindungan Aset Menurut Kategori'
-                    },
-                },
-                scales: {
-                    x: {
-                        stacked: true,
-                    },
-                    y: {
-                        stacked: true
-                    }
-                }
-            },
-        };
-        globalThis.chart.config = config;
-        globalThis.chart.data = data;
-        globalThis.chart.labels = labels;
-        globalThis.chart.update();
-    }else if(val==8){
-        labels = ["Kabupaten/Kota", "Provinsi", "Pusat"];
-        data = {
-            labels: labels,
-            datasets: [{
-                label: 'IMKB',
-                data: [42.29, 61.84, 71.55],
-                backgroundColor: '#ff6361',
-                borderSkipped: false,
-            }]
-        };
+
+
+
+    //         bawahMobilisasi = rataMobilisasi - sdMobilisasi
+    //         bawahPeringatan = rataPeringatan - sdPeringatan
+    //         bawahPerlengkapan = rataPerlengkapan - sdPerlengkapan
+            
+    //         atasMobilisasi = rataMobilisasi + sdMobilisasi
+    //         atasPeringatan = rataPeringatan + sdPeringatan
+    //         atasPerlengkapan = rataPerlengkapan + sdPerlengkapan
+            
+    //         agregatMobilisasi = {
+    //             kurang : 0,
+    //             memadai : 0,
+    //             sangat : 0 
+    //         }
+
+    //         agregatPeringatan = {
+    //             kurang : 0,
+    //             memadai : 0,
+    //             sangat : 0 
+    //         }
+
+    //         agregatPerlengkapan = {
+    //             kurang : 0,
+    //             memadai : 0,
+    //             sangat : 0 
+    //         }
+
+
+    //         mobilisasi.forEach((m) => {
+    //             (m<bawahMobilisasi) ? agregatMobilisasi.kurang++ : (m>atasMobilisasi) ? agregatMobilisasi.sangat++ : agregatMobilisasi.memadai++
+    //         })
+            
+    //         agregatMobilisasi.kurang = agregatMobilisasi.kurang/517*100
+    //         agregatMobilisasi.memadai = agregatMobilisasi.memadai/517*100
+    //         agregatMobilisasi.sangat = agregatMobilisasi.sangat/517*100
+
+    //         peringatan.forEach((p) => {
+    //             (p<bawahPeringatan) ? agregatPeringatan.kurang++ : (p>atasPeringatan) ? agregatPeringatan.sangat++ : agregatPeringatan.memadai++
+    //         })
+
+    //         agregatPeringatan.kurang = agregatPeringatan.kurang/517*100
+    //         agregatPeringatan.sangat = agregatPeringatan.sangat/517*100
+    //         agregatPeringatan.memadai = agregatPeringatan.memadai/517*100
+            
+    //         perlengkapan.forEach((p) => {
+    //             (p<bawahPerlengkapan) ? agregatPerlengkapan.kurang++ : (p>atasPerlengkapan) ? agregatPerlengkapan.sangat++ : agregatPerlengkapan.memadai++
+    //         })
+
+    //         agregatPerlengkapan.kurang = agregatPerlengkapan.kurang/517*100
+    //         agregatPerlengkapan.memadai = agregatPerlengkapan.memadai/517*100
+    //         agregatPerlengkapan.sangat = agregatPerlengkapan.sangat/517*100
+
+    //         labels = ["Sistem Peringatan Dini", "Mobilisasi Sumber Daya", "Perlengkapan Kebutuhan Dasar"];
+
+    //         data = {
+    //             labels: labels,
+    //             datasets: [{
+    //                     label: 'Kurang Memadai',
+    //                     data: [agregatPeringatan.kurang.toFixed(2), agregatMobilisasi.kurang.toFixed(2), agregatPerlengkapan.kurang.toFixed(2)],
+    //                     backgroundColor: '#58508d',
+    //                     borderSkipped: false,
+    //                 },
+    //                 {
+    //                     label: 'Memadai',
+    //                     data: [agregatPeringatan.memadai.toFixed(2), agregatMobilisasi.memadai.toFixed(2), agregatPerlengkapan.memadai.toFixed(2)],
+    //                     backgroundColor: '#bc5090',
+    //                     borderSkipped: false,
+    //                 },
+    //                 {
+    //                     label: 'Sangat Memadai',
+    //                     data: [agregatPeringatan.sangat.toFixed(2), agregatMobilisasi.sangat.toFixed(2), agregatPerlengkapan.sangat.toFixed(2)],
+    //                     backgroundColor: '#ff6361',
+    //                     borderSkipped: false,
+    //                 }
+    //             ]
+    //         };
+    //         config = {
+    //             type: 'bar',
+    //             data: data,
+    //             options: {
+    //                 responsive: true,
+    //                 plugins: {
+    //                     legend: {
+    //                         position: 'bottom',
+    //                     },
+    //                     title: {
+    //                         display:true,
+    //                         font: {
+    //                             size: 14,
+    //                         },
+    //                         text: 'Indikator Dimensi Sumber Daya Pendukung Menurut Kategori'
+    //                     },
+    //                 },
+    //                 scales: {
+    //                     x: {
+    //                         stacked: true,
+    //                     },
+    //                     y: {
+    //                         stacked: true
+    //                     }
+    //                 }
+    //             },
+    //         };
+    //         globalThis.chart.config = config;
+    //         globalThis.chart.data = data;
+    //         globalThis.chart.labels = labels;
+    //         globalThis.chart.update();
+
+    //     })
+
+    // }else if(val==5){
+    //     labels = ["Perlindungan Data dan Dokumen", "Perlindungan Properti dan Fasilitas"];
+    //     data = {
+    //         labels: labels,
+    //         datasets: [{
+    //                 label: 'Kurang Baik',
+    //                 data: [4.45, 6.19],
+    //                 backgroundColor: '#003f5c',
+    //                 borderSkipped: false,
+    //             },
+    //             {
+    //                 label: 'Baik',
+    //                 data: [13.35, 20.12],
+    //                 borderColor: 'rgb(255, 255, 0)',
+    //                 backgroundColor: '#bc5090',
+    //                 borderSkipped: false,
+    //             },
+    //             {
+    //                 label: 'Sangat Baik',
+    //                 data: [82.21, 73.69],
+    //                 backgroundColor: '#ffa600',
+    //                 borderSkipped: false,
+    //             }
+    //         ]
+    //     };
+
+    //     config = {
+    //         type: 'bar',
+    //         data: data,
+    //         options: {
+    //             responsive: true,
+    //             plugins: {
+    //                 legend: {
+    //                     position: 'bottom',
+    //                 },
+    //                 title: {
+    //                     display:true,
+    //                     font: {
+    //                         size: 14,
+    //                     },
+    //                     text: 'Indikator Dimensi Perlindungan Aset Menurut Kategori'
+    //                 },
+    //             },
+    //             scales: {
+    //                 x: {
+    //                     stacked: true,
+    //                 },
+    //                 y: {
+    //                     stacked: true
+    //                 }
+    //             }
+    //         },
+    //     };
+    //     globalThis.chart.config = config;
+    //     globalThis.chart.data = data;
+    //     globalThis.chart.labels = labels;
+    //     globalThis.chart.update();
+    // }else if(val==8){
+    //     labels = ["Kabupaten/Kota", "Provinsi", "Pusat"];
+    //     data = {
+    //         labels: labels,
+    //         datasets: [{
+    //             label: 'IMKB',
+    //             data: [42.29, 61.84, 71.55],
+    //             backgroundColor: '#ff6361',
+    //             borderSkipped: false,
+    //         }]
+    //     };
     
-        config = {
-            type: 'bar',
-            data: data,
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                    },
-                    title: {
-                        display: true,
-                        font: {
-                            size: 14,
-                        },
-                        text: 'IMKB Satuan Kerja BPS Menurut Tingkatan Satuan Kerja'
-                    }
-                }
-            },
-        };
-        globalThis.chart.config = config;
-        globalThis.chart.data = data;
-        globalThis.chart.labels = labels;
-        globalThis.chart.update();
-    }else if(val==6){
-        labels = ["Sumber Daya Pendukung", "Rencana Tanggap Darurat", "Pemulihan dan Penanggulangan Darurat", "Perlindungan Aset"];
-        data = {
-            labels: labels,
-            datasets: [{
-                    label: 'Pusat',
-                    data: [20, 90, 13, 34],
-                    borderColor: '#003f5c',
-                    backgroundColor: 'rgba(0,0,0,0)',
-                    borderWidth: 2,
-                    borderRadius: 2,
-                    borderSkipped: false,
-                },
-                {
-                    label: 'Provinsi',
-                    data: [42, 59, 63, 80],
-                    borderColor: '#ff6361',
-                    backgroundColor: 'rgba(0,0,0,0)',
-                    borderWidth: 2,
-                    borderRadius: 2,
-                    borderSkipped: false,
-                },
-                {
-                    label: 'Kabupaten/Kota',
-                    data: [62, 79, 13, 40],
-                    borderColor: '#bc5090',
-                    backgroundColor: 'rgba(0,0,0,0)',
-                    borderWidth: 2,
-                    borderRadius: 2,
-                    borderSkipped: false,
-                }
-            ]
-        };
+    //     config = {
+    //         type: 'bar',
+    //         data: data,
+    //         options: {
+    //             responsive: true,
+    //             plugins: {
+    //                 legend: {
+    //                     position: 'bottom',
+    //                 },
+    //                 title: {
+    //                     display: true,
+    //                     font: {
+    //                         size: 14,
+    //                     },
+    //                     text: 'IMKB Satuan Kerja BPS Menurut Tingkatan Satuan Kerja'
+    //                 }
+    //             }
+    //         },
+    //     };
+    //     globalThis.chart.config = config;
+    //     globalThis.chart.data = data;
+    //     globalThis.chart.labels = labels;
+    //     globalThis.chart.update();
+    // }else if(val==6){
+    //     labels = ["Sumber Daya Pendukung", "Rencana Tanggap Darurat", "Pemulihan dan Penanggulangan Darurat", "Perlindungan Aset"];
+    //     data = {
+    //         labels: labels,
+    //         datasets: [{
+    //                 label: 'Pusat',
+    //                 data: [20, 90, 13, 34],
+    //                 borderColor: '#003f5c',
+    //                 backgroundColor: 'rgba(0,0,0,0)',
+    //                 borderWidth: 2,
+    //                 borderRadius: 2,
+    //                 borderSkipped: false,
+    //             },
+    //             {
+    //                 label: 'Provinsi',
+    //                 data: [42, 59, 63, 80],
+    //                 borderColor: '#ff6361',
+    //                 backgroundColor: 'rgba(0,0,0,0)',
+    //                 borderWidth: 2,
+    //                 borderRadius: 2,
+    //                 borderSkipped: false,
+    //             },
+    //             {
+    //                 label: 'Kabupaten/Kota',
+    //                 data: [62, 79, 13, 40],
+    //                 borderColor: '#bc5090',
+    //                 backgroundColor: 'rgba(0,0,0,0)',
+    //                 borderWidth: 2,
+    //                 borderRadius: 2,
+    //                 borderSkipped: false,
+    //             }
+    //         ]
+    //     };
 
-        config = {
-            type: 'radar',
-            data: data,
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                    },
-                    title: {
-                        display: true,
-                        font: {
-                            size: 14,
-                        },
-                        text: 'Indeks Masing-Masing Dimensi Satuan Kerja Menurut Dimensi Berdasarkan Tingkatan Satuan Kerja'
-                    }
-                }
-            },
-        };
-        globalThis.chart.config = config;
-        globalThis.chart.data = data;
-        globalThis.chart.labels = labels;
-        globalThis.chart.update();  
-    }else if(val==11){
+    //     config = {
+    //         type: 'radar',
+    //         data: data,
+    //         options: {
+    //             responsive: true,
+    //             plugins: {
+    //                 legend: {
+    //                     position: 'bottom',
+    //                 },
+    //                 title: {
+    //                     display: true,
+    //                     font: {
+    //                         size: 14,
+    //                     },
+    //                     text: 'Indeks Masing-Masing Dimensi Satuan Kerja Menurut Dimensi Berdasarkan Tingkatan Satuan Kerja'
+    //                 }
+    //             }
+    //         },
+    //     };
+    //     globalThis.chart.config = config;
+    //     globalThis.chart.data = data;
+    //     globalThis.chart.labels = labels;
+    //     globalThis.chart.update();  
+    // }
+    else if(val==11){
         labels = ["Pulau Nusa Tenggara", "Kepulauan Maluku", "Pulau Papua", "Pulau Sumatera", "Pulau Kalimantan", "Pulau Sulawesi", "Pulau Jawa-Bali"];
         data = {
             labels: labels,

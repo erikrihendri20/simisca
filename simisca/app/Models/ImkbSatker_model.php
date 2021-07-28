@@ -122,4 +122,23 @@ class ImkbSatker_model extends Model
         $this->builder()->select('kode_satker as kodesatker , perlindungan_aset as perlindungan aset , sumber_daya as sumber daya pendukung , pemulihan , rencana_tanggap as rencana tanggap, imkb');
         return $this->builder()->get()->getResultArray();
     }
+
+    public function getkarakteristik($tahun , $jenis , $kodesatker)
+    {
+        $this->builder()->join('satker' , 'imkb_satker.kode_satker = satker.kodesatker');
+        $this->builder()->where('imkb_satker.tahun' , $tahun);
+        $this->builder()->select('imkb_satker.kode_satker as kodesatker , satker.namasatker as nama satker');
+        switch ($jenis) {
+            case 'gunung api':
+                $this->builder()->select('imkb_satker.simkb_bencana as simkb gunung api');
+                $this->builder()->whereIn('kode_satker' , $kodesatker);
+
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+        return $this->builder()->get()->getResultArray();
+    }
 }
