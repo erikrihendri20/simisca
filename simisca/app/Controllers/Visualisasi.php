@@ -522,7 +522,8 @@ class Visualisasi extends BaseController
         //     }
         //     $kodesatker[] = $kode;
         // }
-        $kodesatker = [3217,
+        $kodesatker = [
+        3217,
         1117,
         1211,
         3208,
@@ -532,6 +533,7 @@ class Visualisasi extends BaseController
         1303,
         3307,
         3579,
+
         1375,
         1374,
         1673,
@@ -542,6 +544,7 @@ class Visualisasi extends BaseController
         3302,
         3209,
         3205,
+
         8205,
         7103,
         7108,
@@ -552,6 +555,7 @@ class Visualisasi extends BaseController
         1809,
         1810,
         3322,
+
         1310,
         1305,
         3206,
@@ -562,6 +566,7 @@ class Visualisasi extends BaseController
         7171,
         7373,
         1376,
+        
         3278,
         8271,
         3400,
@@ -569,6 +574,7 @@ class Visualisasi extends BaseController
         7100,
         ];
         $model = new ImkbSatker_model();
+        // dd($model->getKarakteristik($tahun , $jenis , $kodesatker));
         return json_encode($model->getKarakteristik($tahun , $jenis , $kodesatker));
         
     }

@@ -225,6 +225,7 @@ function updateGrafik(val) {
     }else if(val==4){
         $.get('Visualisasi/getKarakteristik/'+$('#tahun').val()+'/gunung api' , (data , status) => {
             data = JSON.parse(data)
+            console.log(data)
             labels = [];
             dataSIMKB = [];
             // bg = [];
