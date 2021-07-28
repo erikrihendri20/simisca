@@ -199,28 +199,28 @@ class Dashboard extends BaseController
                         $row['kode_satker'] = $data[1];
                         $row['tahun'] = date('Y');
                         
-                        $row['perlindungan_aset'] = $data[1];
-                        $row['sumber_daya'] = $data[2];
-                        $row['pemulihan'] = $data[3];
-                        $row['rencana_tanggap'] = $data[4];
-                        $row['imkb'] = $data[5];
+                        $row['perlindungan_aset'] = $data[2];
+                        $row['sumber_daya'] = $data[3];
+                        $row['pemulihan'] = $data[4];
+                        $row['rencana_tanggap'] = $data[5];
+                        $row['imkb'] = $data[6];
                         
-                        $row['perlindungan_aset_bencana'] = $data[6];
-                        $row['sumber_daya_bencana'] = $data[7];
-                        $row['pemulihan_bencana'] = $data[8];
-                        $row['rencana_tanggap_bencana'] = $data[9];
-                        $row['simkb_bencana'] = $data[10];
+                        $row['perlindungan_aset_bencana'] = $data[7];
+                        $row['sumber_daya_bencana'] = $data[8];
+                        $row['pemulihan_bencana'] = $data[9];
+                        $row['rencana_tanggap_bencana'] = $data[10];
+                        $row['simkb_bencana'] = $data[11];
 
-                        $row['perlindungan_aset_kebakaran'] = $data[11];
-                        $row['sumber_daya_kebakaran'] = $data[12];
-                        $row['pemulihan_kebakaran'] = $data[13];
-                        $row['rencana_tanggap_kebakaran'] = $data[14];
-                        $row['simkb_kebakaran'] = $data[15];
+                        $row['perlindungan_aset_kebakaran'] = $data[12];
+                        $row['sumber_daya_kebakaran'] = $data[13];
+                        $row['pemulihan_kebakaran'] = $data[14];
+                        $row['rencana_tanggap_kebakaran'] = $data[15];
+                        $row['simkb_kebakaran'] = $data[16];
                         
-                        $row['sumber_daya_covid'] = $data[16];
-                        $row['pemulihan_covid'] = $data[17];
-                        $row['rencana_tanggap_covid'] = $data[18];
-                        $row['simkb_covid19'] = $data[19];
+                        $row['sumber_daya_covid'] = $data[17];
+                        $row['pemulihan_covid'] = $data[18];
+                        $row['rencana_tanggap_covid'] = $data[19];
+                        $row['simkb_covid19'] = $data[20];
 
                         $imkb[] = $row;
                     }
@@ -277,6 +277,7 @@ class Dashboard extends BaseController
         return view("dashboard/tentang",$data);
     }
 
+    
     
     //--------------------------------------------------------------------
 

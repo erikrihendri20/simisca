@@ -1,12 +1,14 @@
 function requestTabelSatker() {
+  
   $.post('Visualisasi/getTabel/satker', {
     kodelevel: $('#wilayahsatker').val(),
     tahun: $('#tahunsatker').val(),
     pilihsemua: $('#pilihsemua:checked').val(),
+    kodeprovinsi: ($('#provinsi-satker').css('display')=='none') ? 0 : $('#provinsi-satker').val(),
     keseluruhan: $('#keseluruhan:checked').val(),
     bencanaalam: $('#bencanaalam:checked').val(),
     kebakaran: $('#kebakaran:checked').val(),
-    pandemicovid: $('#pandemicovid:checked').val()
+    covid: $('#covid:checked').val()
   }, function(data, status) {
     $('#tabeldinamis').html(data)
   })
@@ -22,54 +24,122 @@ function requestTabelPegawai() {
 }
 
 
-function filtering() {
-  if ($('#subjek').val() == 'Satuan Kerja') {
-    $('#filter-satker').css('display', 'block')
+function changeSubject(){
+  if($('#subjek').val() == 1){
+    $('#filter-satker').css('display', 'flex')
+    $('#filter-pegawai').css('display', 'none')
     requestTabelSatker()
-  } else {
-    $('#filter-pegawai').css('display', 'flex')
-    requestTabelPegawai()
-  }
-  $('#tombol').css('display', 'none')
-  $(document).ready(function() {
-
-    //wilayahsatker
-    $("#wilayahsatker").change(function() {
-      requestTabelSatker()
-    });
-
-    //tahunsatker
-    $("#tahunsatker").change(function() {
-      requestTabelSatker()
-    });
-
-    //indekssatker
-    $('#indeksSatker').change(function() {
-      if ($('#pilihsemua:checked').val() == 1) {
-        $('#keseluruhan').attr('checked', 1);
-        $('#bencanaalam').attr('checked', 1);
-        $('#kebakaran').attr('checked', 1);
-        $('#pandemicovid').attr('checked', 1);
-      }
-      requestTabelSatker()
-    })
-
-    //wilayahpegawai
-    $('#wilayahpegawai').change(function() {
-      requestTabelPegawai()
-    })
-  });
-}
-
-function ubahFilter() {
-  if ($('#subjek').val() == 'Pegawai') {
+  }else{
     $('#filter-satker').css('display', 'none')
     $('#filter-pegawai').css('display', 'flex')
     requestTabelPegawai()
-  } else {
-    $('#filter-pegawai').css('display', 'none')
-    $('#filter-satker').css('display', 'block')
-    requestTabelSatker()
+  }
+
+}
+
+function checkOpsi(){
+  if($('#pilihsemua').is(':checked')){
+    $("#keseluruhan").prop('checked', true)
+    $("#bencanaalam").prop('checked', true)
+    $("#kebakaran").prop('checked', true)
+    $("#covid").prop('checked', true)
   }
 }
 
+$(document).ready(() => {
+  changeSubject()
+  checkOpsi()
+  
+
+  $('#pilihsemua').change(() => {
+    checkOpsi()
+    requestTabelSatker()
+  })
+
+  $('#keseluruhan').change(() => {
+    if($('#keseluruhan').is(':checked')){
+      $("#bencanaalam").prop('checked', true)
+      $("#kebakaran").prop('checked', true)
+      $("#covid").prop('checked', true)
+    }else{
+      $("#pilihsemua").prop('checked', false)
+      $("#bencanaalam").prop('checked', false)
+      $("#kebakaran").prop('checked', false)
+      $("#covid").prop('checked', false)
+    }
+    requestTabelSatker()
+  })
+
+  $('#bencanaalam').change(() => {
+    if(!$(this).is(':checked')){
+      $("#pilihsemua").prop('checked', false)
+      $("#keseluruhan").prop('checked', false)
+    }
+    if($('#bencanaalam').is(':checked')&&$('#kebakaran').is(':checked')&&$('#covid').is(':checked')){
+      $("#keseluruhan").prop('checked', true)
+    }
+    requestTabelSatker()
+  })
+  
+  $('#kebakaran').change(() => {
+    if(!$(this).is(':checked')){
+      $("#pilihsemua").prop('checked', false)
+      $("#keseluruhan").prop('checked', false)
+    }
+    if($('#bencanaalam').is(':checked')&&$('#kebakaran').is(':checked')&&$('#covid').is(':checked')){
+      $("#keseluruhan").prop('checked', true)
+    }
+    requestTabelSatker()
+  })
+  
+  $('#covid').change(() => {
+    if(!$(this).is(':checked')){
+      $("#pilihsemua").prop('checked', false)
+      $("#keseluruhan").prop('checked', false)
+    }
+    if($('#bencanaalam').is(':checked')&&$('#kebakaran').is(':checked')&&$('#covid').is(':checked')){
+      $("#keseluruhan").prop('checked', true)
+    }
+    requestTabelSatker()
+  })
+
+  $('#subjek').change(() => {
+    changeSubject()
+  })
+
+  $('#wilayahsatker').change(() => {
+    if($('#wilayahsatker').val()==3){
+      $('#form-provinsi-satker').css('display','block')
+      $('#provinsi-satker').css('display','block')
+    }else{
+      $('#form-provinsi-satker').css('display','none')
+      $('#provinsi-satker').css('display','none')
+
+    }
+    requestTabelSatker()
+  })
+
+  $('#wilayahpegawai').change(() => {
+    console.log('asdsad')
+    if($('#wilayahpegawai').val()==3){
+      console.log('asdsad')
+      $('#form-provinsi-pegawai').css('display','block')
+      $('#provinsi-pegawai').css('display','block')
+    }else{
+      $('#form-provinsi-pegawai').css('display','none')
+      $('#provinsi-pegawai').css('display','none')
+
+    }
+    requestTabelSatker()
+  })
+
+  $('#provinsi-satker').change(() => {
+    requestTabelSatker()
+  }) 
+
+  $('#provinsi-pegawai').change(() => {
+    requestTabelPegawai()
+  })
+
+
+})
