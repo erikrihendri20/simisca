@@ -319,7 +319,6 @@ SIMKB_Covid <- apply(Dim_SIMKB_Covid,1,mean)
 names(namaSatker) <- c("nama_kantor_bps", "provinsi", "KodeSatker", "Q101")
 result <- data.frame(tabelIMKB["Q103"], tabelIMKB["nama_kantor_bps"],Dim_IMKB,IMKB,Dim_SIMKB_BAlam,SIMKB_BencanaAlam,Dim_SIMKB_Kebakaran,SIMKB_Kebakaran,Dim_SIMKB_Covid,SIMKB_Covid)
 
-#write.csv(result, "result.csv")
-write_xlsx(result, "D:/DASHBOARD_PKL 2.0/Final/HasilPengolahanDashboard.xlsx")
+write.csv(result, "result.csv")
 ```
 
