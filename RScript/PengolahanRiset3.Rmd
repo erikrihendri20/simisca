@@ -1,0 +1,325 @@
+---
+title: "SIMISCA"
+author: "Dashboard Riset 3"
+output: word_document
+---
+# library yang dibutuhkan
+```{r}
+library(readxl)
+library(dplyr)
+library(stringr)
+library(magrittr)
+library(writexl)
+```
+
+# set directory terlebih dahulu
+```{r}
+satker <- read_excel("D:/DASHBOARD_PKL 2.0/Final/satker-raw (9).xlsx")
+satker <- subset(satker, select= -c(2:9,107:182))
+
+satker <- satker %>% mutate(x = case_when(R3B01Q001 == 1~1 , R3B01Q001 == 2~as.numeric(paste(R3B01Q002,'00',sep = '')) , R3B01Q001 == 4~3 , R3B01Q001 == 5~2 , TRUE~R3B01Q003))
+
+satker$R3B01Q003 <- satker$x
+satker <- subset(satker, select= -c(99))
+
+
+col_satker <- colnames(satker) %>%
+  str_replace("R3B004", "R3B04") %>%
+  str_replace("R3B0", "Q") %>%
+  str_remove("Q0") %>%
+  str_replace("\\[1\\]", "a") %>%
+  str_replace("\\[2\\]", "b") %>%
+  str_replace("\\[3\\]", "c") %>%
+  str_replace("\\[4\\]", "d") %>%
+  str_replace("\\[5\\]", "e") %>%
+  str_replace("\\[6\\]", "f") %>%
+  str_replace("\\[7\\]", "g") %>%
+  str_replace("\\[8\\]", "h") %>%
+  str_replace("\\[9\\]", "i")
+
+data_satker <- set_names(satker, col_satker) %>%
+  mutate(Q202 = if_else(Q202 == "M", 1, 2)) %>%
+  mutate_at(vars(Q303a:Q407), 
+            ~ if_else(. == 2, 0, .)) %>%
+  mutate_at(vars(Q408a:Q408d), 
+            ~ if_else(. == "Y", 1, 0, missing = 0)) %>%
+  mutate_at(vars(Q409a:Q412b), 
+            ~ if_else(. == 2, 0, .)) %>%
+  mutate_at(vars(Q413a:Q414), 
+            ~ if_else(. == 2, 0, .)) %>%
+  mutate_at(vars(Q415a:Q416), 
+            ~ if_else(. == 2, 0, .)) %>%
+  mutate_at(vars(Q417a:Q422), 
+            ~ if_else(. == 2, 0, .)) %>%
+  mutate_at(vars(Q423a:Q423c), 
+            ~ if_else(. == "Y", 1, 0, missing = 0)) %>%
+  mutate_at(vars(Q424a:Q505), 
+            ~ if_else(. == 2, 0, .))
+```
+
+```{r}
+namaSatker <- read_excel("D:/DASHBOARD_PKL 2.0/Final/satker.xlsx")
+
+generateNamaSatker <- function(nama){
+    if(nama == "Politeknik Statistika STIS") return(nama)
+    if(nama == "Badan Pusat Statistik RI") return(nama)
+    if(nama == "Pusdiklat BPS") return(nama)
+    
+    paste("BPS", nama, sep = " ")
+}
+
+namaSatker <- select(namaSatker, nama_kantor_bps, provinsi, kode_kabupaten, ket_satker)
+names(namaSatker) <- c("nama_kantor_bps", "provinsi", "Q103", "Q101")
+data_satker <- left_join(data_satker, namaSatker, by = c("Q103", "Q101"))
+
+for(i in 1:length(data_satker$Q426)){
+    if(is.na(data_satker$Q426[i])){
+        data_satker$Q426[i] <- 0
+    }
+}
+
+dt <- data_satker %>% 
+    mutate(nama_kantor_bps = generateNamaSatker(nama_kantor_bps)) %>% 
+    mutate(Q408 = data_satker %>% select(starts_with("Q408")) %>% rowSums(na.rm = T),
+           Q409 = data_satker %>% select(starts_with("Q409")) %>% rowSums(na.rm = T),
+           Q410 = data_satker %>% select(starts_with("Q410")) %>% rowSums(na.rm = T),
+           Q411 = data_satker %>% select(starts_with("Q411")) %>% rowSums(na.rm = T),
+           Q412 = data_satker %>% select(starts_with("Q412")) %>% rowSums(na.rm = T),
+           Q413 = data_satker %>% select(starts_with("Q413")) %>% rowSums(na.rm = T),
+           Q414 = data_satker %>% select(starts_with("Q414")) %>% rowSums(na.rm = T),
+           Q415 = data_satker %>% select(starts_with("Q415")) %>% rowSums(na.rm = T),
+           Q416 = data_satker %>% select(starts_with("Q416")) %>% rowSums(na.rm = T),
+           Q417 = data_satker %>% select(starts_with("Q417")) %>% rowSums(na.rm = T),
+           Q418 = data_satker %>% select(starts_with("Q418")) %>% rowSums(na.rm = T),
+           Q419 = data_satker %>% select(starts_with("Q419")) %>% rowSums(na.rm = T),
+           Q420 = data_satker %>% select(starts_with("Q420")) %>% rowSums(na.rm = T),
+           Q421 = data_satker %>% select(starts_with("Q421")) %>% rowSums(na.rm = T),
+           Q422 = data_satker %>% select(starts_with("Q422")) %>% rowSums(na.rm = T),
+           Q423 = data_satker %>% select(starts_with("Q423")) %>% rowSums(na.rm = T),
+           Q424 = data_satker %>% select(starts_with("Q424")) %>% rowSums(na.rm = T),
+           Q425 = data_satker %>% select(starts_with("Q425")) %>% rowSums(na.rm = T),
+           Q502 = data_satker %>% select(starts_with("Q502")) %>% rowSums(na.rm = T),
+           Q503 = data_satker %>% select(starts_with("Q503")) %>% rowSums(na.rm = T),
+           Q504 = data_satker %>% select(starts_with("Q504")) %>% rowSums(na.rm = T),
+           Q505 = data_satker %>% select(starts_with("Q505")) %>% rowSums(na.rm = T)) 
+
+tabelIMKB <- dt %>% 
+    transmute(nama_kantor_bps, 
+              provinsi,
+              Q103,
+              total.sistem.peringatan.dini = Q407 + Q408 + Q409,
+              total.perlengkapan.kebutuhan.dasar = Q410 + Q413 + Q414 + Q415 + Q416 + Q503 + Q504,
+              total.mobilisasi.sumber.daya = Q422 + Q423 + Q425,
+              indikator1.dimensiSumberDayaPendukung = total.sistem.peringatan.dini + total.perlengkapan.kebutuhan.dasar,
+              indikator2.dimensiSumberDayaPendukung = total.mobilisasi.sumber.daya,
+              dimensiSumberDayaPendukung = indikator1.dimensiSumberDayaPendukung + indikator2.dimensiSumberDayaPendukung,
+              
+              total.pemulihan.pegawai = Q424,
+              total.pemulihan.fasilitas = Q411 + Q412 + Q426,
+              indikator.dimensiPemulihanDanPenanggulanganDarurat = total.pemulihan.pegawai + total.pemulihan.fasilitas,
+              dimensiPemulihanDanPenanggulanganDarurat = indikator.dimensiPemulihanDanPenanggulanganDarurat,
+              
+              total.perlindungan.data.dokumen = Q419 + Q420 + Q421,
+              total.perlindungan.properti.fasilitas = Q417 + Q418,
+              indikator.dimensiPerlindunganAset = total.perlindungan.data.dokumen + total.perlindungan.properti.fasilitas,
+              dimensiPerlindunganAset = indikator.dimensiPerlindunganAset,
+              
+              
+              total.koordinasi.institusi.lain = Q405,
+              total.pembentukan.tim.khusus.bencana = Q406,
+              total.pelatihan = Q401 + Q402 + Q501,
+              total.prosedur.penanggulangan.bencana = Q403 + Q404 + Q502,
+              indikator1.dimensiRencanaTanggapDarurat = total.koordinasi.institusi.lain + total.pembentukan.tim.khusus.bencana + total.pelatihan,
+              indikator2.dimensiRencanaTanggapDarurat = total.prosedur.penanggulangan.bencana,
+              dimensiRencanaTanggapDarurat = indikator1.dimensiRencanaTanggapDarurat+indikator2.dimensiRencanaTanggapDarurat) %>% 
+    arrange(provinsi)
+
+
+
+tabelBencanaAlam <- dt %>% 
+    transmute(nama_kantor_bps, 
+              provinsi,
+              total.sistem.peringatan.dini = Q407 + Q408 + Q409,
+              total.perlengkapan.kebutuhan.dasar = Q410 + Q413 + Q414,
+              total.mobilisasi.sumber.daya = Q422 + Q423 + Q425,
+              indikator1.dimensiSumberDayaPendukung = total.sistem.peringatan.dini + total.perlengkapan.kebutuhan.dasar,
+              indikator2.dimensiSumberDayaPendukung = total.mobilisasi.sumber.daya,
+              dimensiSumberDayaPendukung = indikator1.dimensiSumberDayaPendukung + indikator2.dimensiSumberDayaPendukung,
+              
+              total.pemulihan.pegawai = Q424,
+              total.pemulihan.fasilitas = Q411 + Q412,
+              indikator.dimensiPemulihanDanPenanggulanganDarurat = total.pemulihan.pegawai + total.pemulihan.fasilitas,
+              dimensiPemulihanDanPenanggulanganDarurat = indikator.dimensiPemulihanDanPenanggulanganDarurat,
+              
+              total.perlindungan.data.dokumen = Q419 + Q420 + Q421,
+              total.perlindungan.properti.fasilitas = Q417 + Q418,
+              indikator.dimensiPerlindunganAset = total.perlindungan.data.dokumen + total.perlindungan.properti.fasilitas,
+              dimensiPerlindunganAset = indikator.dimensiPerlindunganAset,
+              
+              
+              total.koordinasi.institusi.lain = Q405,
+              total.pembentukan.tim.khusus.bencana = Q406,
+              total.pelatihan = Q401,
+              total.prosedur.penanggulangan.bencana = Q403 + Q404,
+              indikator1.dimensiRencanaTanggapDarurat = total.koordinasi.institusi.lain + total.pembentukan.tim.khusus.bencana + total.pelatihan,
+              indikator2.dimensiRencanaTanggapDarurat = total.prosedur.penanggulangan.bencana,
+              dimensiRencanaTanggapDarurat = indikator1.dimensiRencanaTanggapDarurat+indikator2.dimensiRencanaTanggapDarurat)%>% 
+    arrange(provinsi)
+
+
+tabelKebakaran <- dt %>% 
+    transmute(nama_kantor_bps, 
+              provinsi,
+              total.sistem.peringatan.dini = Q407 + Q408 + Q409,
+              total.perlengkapan.kebutuhan.dasar = Q410 + Q413 + Q414 + Q415 + Q416,
+              total.mobilisasi.sumber.daya = Q423 + Q425,
+              indikator1.dimensiSumberDayaPendukung = total.sistem.peringatan.dini + total.perlengkapan.kebutuhan.dasar,
+              indikator2.dimensiSumberDayaPendukung = total.mobilisasi.sumber.daya,
+              dimensiSumberDayaPendukung = indikator1.dimensiSumberDayaPendukung + indikator2.dimensiSumberDayaPendukung,
+              
+              total.pemulihan.pegawai = Q422 + Q424,
+              total.pemulihan.fasilitas = Q411 + Q412,
+              indikator.dimensiPemulihanDanPenanggulanganDarurat = total.pemulihan.pegawai + total.pemulihan.fasilitas,
+              dimensiPemulihanDanPenanggulanganDarurat = indikator.dimensiPemulihanDanPenanggulanganDarurat,
+              
+              total.perlindungan.data.dokumen = Q419 + Q420 + Q421,
+              total.perlindungan.properti.fasilitas = Q417 + Q418,
+              indikator.dimensiPerlindunganAset = total.perlindungan.data.dokumen + total.perlindungan.properti.fasilitas,
+              dimensiPerlindunganAset = indikator.dimensiPerlindunganAset,
+              
+              
+              total.koordinasi.institusi.lain = Q405,
+              total.pembentukan.tim.khusus.bencana = Q406,
+              total.pelatihan = Q402,
+              total.prosedur.penanggulangan.bencana = Q403 + Q404,
+              indikator1.dimensiRencanaTanggapDarurat = total.koordinasi.institusi.lain + total.pembentukan.tim.khusus.bencana + total.pelatihan,
+              indikator2.dimensiRencanaTanggapDarurat = total.prosedur.penanggulangan.bencana,
+              dimensiRencanaTanggapDarurat = indikator1.dimensiRencanaTanggapDarurat+indikator2.dimensiRencanaTanggapDarurat) %>%
+    arrange(provinsi)
+
+tabelCovid <- dt %>% 
+    transmute(nama_kantor_bps,
+              provinsi,
+              
+              total.sistem.peringatan.bencana = Q407+Q408,
+              total.perlengkapan.kebutuhan.dasar = Q413 + Q414 + Q503 + Q504,
+              total.mobilisasi.sumber.daya = Q422 + Q423,
+              indikator1.dimensiSumberDayaPendukung = total.perlengkapan.kebutuhan.dasar+total.sistem.peringatan.bencana,
+              indikator2.dimensiSumberDayaPendukung = total.mobilisasi.sumber.daya,
+              dimensiSumberDayaPendukung = indikator1.dimensiSumberDayaPendukung + indikator2.dimensiSumberDayaPendukung,
+              
+              total.pemulihan.pegawai = Q424,
+              total.pemulihan.fasilitas = 0,
+              indikator.dimensiPemulihanDanPenanggulanganDarurat = total.pemulihan.pegawai + total.pemulihan.fasilitas,
+              dimensiPemulihanDanPenanggulanganDarurat = indikator.dimensiPemulihanDanPenanggulanganDarurat,
+              
+              total.perlindungan.data.dokumen = 0,
+              total.perlindungan.properti.fasilitas = 0,
+              indikator.dimensiPerlindunganAset = total.perlindungan.data.dokumen + total.perlindungan.properti.fasilitas,
+              dimensiPerlindunganAset = indikator.dimensiPerlindunganAset,
+              
+              
+              total.koordinasi.institusi.lain = Q405,
+              total.pembentukan.tim.khusus.bencana = 0,
+              total.pelatihan = Q501,
+              total.prosedur.penanggulangan.bencana = Q403 + Q404 + Q502,
+              indikator1.dimensiRencanaTanggapDarurat = total.koordinasi.institusi.lain + total.pembentukan.tim.khusus.bencana + total.pelatihan,
+              indikator2.dimensiRencanaTanggapDarurat = total.prosedur.penanggulangan.bencana,
+              dimensiRencanaTanggapDarurat = indikator1.dimensiRencanaTanggapDarurat+indikator2.dimensiRencanaTanggapDarurat) %>%
+    arrange(provinsi)
+```
+**PCA**
+```{r}
+PCA_Function <- function(tabel){
+  PCA_RencanaTanggapDarurat <- prcomp(tabel[,21:22], scale. =TRUE)
+  PCA_SumberDayaPendukung <- prcomp(tabel[,6:7], scale. =TRUE)
+  return(data.frame(PCA_SumberDayaPendukung$x[,1],PCA_RencanaTanggapDarurat$x[,1]))
+}
+
+PCA_IMKB <- PCA_Function(tabelIMKB)
+PCA_SIMKB_BAlam <- PCA_Function(tabelBencanaAlam)
+PCA_SIMKB_Kebakaran <- PCA_Function(tabelKebakaran)
+PCA_SIMKB_Covid <- PCA_Function(tabelCovid)
+```
+
+**Scaling**
+```{r}
+Scale <- function(x,y){
+  dimPerlindunganAset <- scale(x[16])
+  dimSumberDayaPendukung <- scale(y[1])
+  dimPemulihan <- scale(x[12])
+  dimRencanaTanggapDarurat <- scale(y[2])
+  dt <- data.frame(dimPerlindunganAset,dimSumberDayaPendukung,dimPemulihan,dimRencanaTanggapDarurat)
+  dt <- setNames(dt, c("Dim_PerlindunganAset","Dim_SumberDayaPendukung","Dim_Pemulihan","Dim_RencanaTanggapDarurat"))
+
+  return(dt)
+}
+
+Dim_IMKB <- Scale(tabelIMKB, PCA_IMKB)
+Dim_SIMKB_BAlam <- Scale(tabelBencanaAlam,PCA_SIMKB_BAlam)
+Dim_SIMKB_Kebakaran <- Scale(tabelKebakaran,PCA_SIMKB_Kebakaran)
+Dim_SIMKB_Covid <- Scale(tabelCovid,PCA_SIMKB_Covid)[,2:4]
+```
+
+**Rotasi**
+
+```{r}
+rotasi <- function(x,y){
+  cek <- cor(x,y)
+  if(cek<0){
+    return(x*-1)
+  } else {
+    return(x)
+  }
+}
+```
+
+
+```{r}
+Dim_IMKB[2] <- rotasi(Dim_IMKB[2],tabelIMKB[8])
+Dim_IMKB[4] <- rotasi(Dim_IMKB[4],tabelIMKB[23])
+
+Dim_SIMKB_BAlam[2] <- rotasi(Dim_SIMKB_BAlam[2],tabelBencanaAlam[8])
+Dim_SIMKB_BAlam[4] <- rotasi(Dim_SIMKB_BAlam[4],tabelBencanaAlam[23])
+
+Dim_SIMKB_Kebakaran[2] <- rotasi(Dim_SIMKB_Kebakaran[2],tabelKebakaran[8])
+Dim_SIMKB_Kebakaran[4] <- rotasi(Dim_SIMKB_Kebakaran[4],tabelKebakaran[23])
+
+Dim_SIMKB_Covid[1] <- rotasi(Dim_SIMKB_Covid[1],tabelCovid[8])
+```
+
+**Standarisasi MINMAX**
+
+```{r}
+normalize <- function(x) {
+    return(((x- min(x)) /(max(x)-min(x)))*100)
+}
+```
+
+```{r}
+minimax <- function(x){
+  for(i in 1:length(x)){
+    x[i] <- normalize(x[i])
+  }
+  return(x) 
+}
+
+Dim_IMKB <- minimax(Dim_IMKB)
+Dim_SIMKB_BAlam <- minimax(Dim_SIMKB_BAlam)
+Dim_SIMKB_Kebakaran <- minimax(Dim_SIMKB_Kebakaran)
+Dim_SIMKB_Covid <- minimax(Dim_SIMKB_Covid)
+```
+
+```{r}
+IMKB <- apply(Dim_IMKB,1,mean)
+SIMKB_BencanaAlam <- apply(Dim_SIMKB_BAlam,1,mean)
+SIMKB_Kebakaran <- apply(Dim_SIMKB_Kebakaran,1,mean)
+SIMKB_Covid <- apply(Dim_SIMKB_Covid,1,mean)
+
+names(namaSatker) <- c("nama_kantor_bps", "provinsi", "KodeSatker", "Q101")
+result <- data.frame(tabelIMKB["Q103"], tabelIMKB["nama_kantor_bps"],Dim_IMKB,IMKB,Dim_SIMKB_BAlam,SIMKB_BencanaAlam,Dim_SIMKB_Kebakaran,SIMKB_Kebakaran,Dim_SIMKB_Covid,SIMKB_Covid)
+
+#write.csv(result, "result.csv")
+write_xlsx(result, "D:/DASHBOARD_PKL 2.0/Final/HasilPengolahanDashboard.xlsx")
+```
+
