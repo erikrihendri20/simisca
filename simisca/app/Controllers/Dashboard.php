@@ -6,6 +6,7 @@ use App\Models\Survei_model;
 use App\Models\Satker_model;
 use App\Models\Sampel_satker_model;
 use App\Models\ImkbSatker_model;
+use App\Models\Participan_model;
 use \PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
@@ -27,6 +28,18 @@ class Dashboard extends BaseController
         $data['script'] = 'kuesioner';
         $data['active'] = 'kuesioner';
         $data['title'] = 'Kuesioner';
+        $email = session()->email;
+        $model = new Participan_model();
+        try {
+            $result = $model->getParticipan($email);
+            if(count($result)!=0){
+                $data['token'] = $result[0]['token'];
+            }else{
+                
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
         return view("dashboard/kuesioner",$data);
     }
 

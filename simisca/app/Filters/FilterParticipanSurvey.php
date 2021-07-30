@@ -7,7 +7,7 @@ use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 use App\Models\Participan_model;
 
-class FilterSSO implements FilterInterface
+class FilterParticipanSurvey implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
@@ -17,15 +17,14 @@ class FilterSSO implements FilterInterface
             $result = $model->getParticipan($email);
             if(count($result)==0){
                 session()->set(['kuesioner' => false]);
+                return redirect()->to(base_url('dashboard'));
             }else{
                 session()->set(['kuesioner' => true]);
             }
         } catch (\Throwable $th) {
             // tidak sedang dalam masa survey
             session()->set(['kuesioner' => false]);
-        }
-        if (!session('SSOLog')) {
-            return redirect()->to(base_url('landingpage'));
+            return redirect()->to(base_url('dashboard'));
         }
     }
 
