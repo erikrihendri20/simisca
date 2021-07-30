@@ -11,42 +11,44 @@ use App\Models\Survei_model;
 class Visualisasi extends BaseController
 {
 
-    public function portalVisualisasi()
-    {
-        $data = [
-            'title' => 'Portal Visualisasi',
-            'css' => 'portalVisualisasi.css',
-            'js' => 'portalVisualisasi.js',
-            'active' => 'portal visualisasi'
-        ];
-        return view('visualisasi/portalVisualisasi', $data);
-    }
+    // public function portalVisualisasi()
+    // {
+    //     $data = [
+    //         'title' => 'Portal Visualisasi',
+    //         'css' => 'portalVisualisasi.css',
+    //         'js' => 'portalVisualisasi.js',
+    //         'active' => 'portal visualisasi'
+    //     ];
+    //     return view('visualisasi/portalVisualisasi', $data);
+    // }
 
-    public function getKabupatenKota()
-    {
-        $model = new Sampel_satker_model();
-        $data = $model->getSatker(substr($this->request->getVar('kodelevel'), 0, 2));
-        return json_encode($data);
-    }
+    // public function getKabupatenKota()
+    // {
+    //     $model = new Sampel_satker_model();
+    //     $data = $model->getSatker(substr($this->request->getVar('kodelevel'), 0, 2));
+    //     return json_encode($data);
+    // }
 
-    public function getSpiderChart()
-    {
-        $model = new Satker_model();
-        $filter = [
-            'provinsi' => $this->request->getVar('provinsi'),
-            'kabupaten' => $this->request->getVar('kabupaten')
-        ];
-        return json_encode($model->getSpiderChart($filter));
-    }
+    // public function getSpiderChart()
+    // {
+    //     $model = new Satker_model();
+    //     $filter = [
+    //         'provinsi' => $this->request->getVar('provinsi'),
+    //         'kabupaten' => $this->request->getVar('kabupaten')
+    //     ];
+    //     return json_encode($model->getSpiderChart($filter));
+    // }
 
     public function visualisasi()
     {
-        $model = new Sampel_satker_model();
+        $modelSampleSatker = new Sampel_satker_model();
+        $modelImkbSatker = new ImkbSatker_model();
         $data = [
             'title' => 'Grafik',
             'css' => 'visualisasi.css',
             'js' => 'visualisasi.js',
-            'provinsi' => $model->getSatker(),
+            'provinsi' => $modelSampleSatker->getSatker(),
+            'tahun' => $modelImkbSatker->getTahun(),
             'active' => 'visualisasi'
         ];
         return view('visualisasi/visualisasi', $data);
@@ -54,14 +56,16 @@ class Visualisasi extends BaseController
 
     public function petaTematik()
     {
-        $model = new Sampel_satker_model();
+        $modelSampleSatker = new Sampel_satker_model();
+        $modelImkbSatker = new ImkbSatker_model();
         $data = [
             'title' => 'Peta Tematik',
             'css' => 'tematik.css',
             'js' => 'tematik.js',
-            'active' => 'peta tematik'
+            'active' => 'peta tematik',
+            'tahun' => $modelImkbSatker->getTahun(),
         ];
-        $data['satker'] = $model->getSatker();
+        $data['satker'] = $modelSampleSatker->getSatker();
         return view('visualisasi/petaTematik', $data);
     }
 
@@ -121,11 +125,13 @@ class Visualisasi extends BaseController
 
     public function tabelDinamis()
     {
+        $modelImkbSatker = new ImkbSatker_model();
         $data = [
             'title' => 'Tabel Dinamis',
             'css' => 'tabelDinamis.css',
             'js' => 'tabelDinamis.js',
-            'active' => 'tabel dinamis'
+            'active' => 'tabel dinamis',
+            'tahun' => $modelImkbSatker->getTahun(),
         ];
         return view('visualisasi/tabeldinamis', $data);
     }

@@ -11,7 +11,8 @@ class Filters extends BaseConfig
 		'toolbar'  => \CodeIgniter\Filters\DebugToolbar::class,
 		'honeypot' => \CodeIgniter\Filters\Honeypot::class,
 		'SSOLog'	=> \App\Filters\FilterSSO::class,
-		'ParticipanSurvey' => \App\Filters\FilterParticipanSurvey::class
+		'ParticipanSurvey' => \App\Filters\FilterParticipanSurvey::class,
+		'FilterSuperAdmin' => \App\Filters\FilterSuperAdmin::class
 	];
 
 	// Always applied before every request
@@ -41,6 +42,9 @@ class Filters extends BaseConfig
 		],
 		'ParticipanSurvey' => [
 			'before' => ['dashboard/kuesioner']
+		],
+		'FilterSuperAdmin' => [
+			'before' => ['dashboard/pengolahan']
 		]
 	];
 }

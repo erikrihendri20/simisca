@@ -11,6 +11,11 @@ class FilterSSO implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
+        if(session()->email == 'bps1@bps.go.id' || session()->email == 'nurani.aprilia@bps.go.id'){
+            session()->set(['super admin' => true]);
+        }else{
+            session()->set(['super admin' => false]);
+        }
         $email = session()->email;
         $model = new Participan_model();
         try {

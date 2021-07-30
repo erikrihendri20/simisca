@@ -266,10 +266,10 @@ class Dashboard extends BaseController
         header('Expires: 0');		// no cache
         header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
         header('Cache-Control: private',false);
-        header('Content-Disposition: attachment; filename="'.basename(base_url('RScript/script.R')).'"');
+        header('Content-Disposition: attachment; filename="'.basename(base_url('RScript/script.Rmd')).'"');
         header('Content-Transfer-Encoding: binary');
         header('Connection: close');
-        readfile(base_url('RScript/script.R'));
+        readfile(base_url('RScript/script.Rmd'));
     }
 
     public function profil()

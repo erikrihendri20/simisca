@@ -587,4 +587,11 @@ class ImkbSatker_model extends Model
         }
         return $this->builder()->get()->getResultArray();
     }
+
+    public function getTahun()
+    {
+        $this->builder()->groupBy('tahun');
+        $this->builder()->select('tahun');
+        return $this->builder()->get()->getResultArray();
+    }
 }

@@ -32,8 +32,9 @@
       <div class="form-group col-md-12">
         <label for="tahun">Tahun</label>
         <select class="form-control" id="tahunsatker">
-          <option>2021</option>
-          <option>2022</option>
+          <?php foreach ($tahun as $t) : ?>
+            <option value="<?= $t['tahun']; ?>"><?= $t['tahun']; ?></option>
+          <?php endforeach; ?>
         </select>
       </div>
     </div>
