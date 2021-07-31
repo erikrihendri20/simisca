@@ -28,8 +28,8 @@
                 </div>
                 <select style="background-color: #f4c58f;" class="form-control" id="prov-pegawai">
                     <option value="1">Semua Provinsi</option>
-                    <?php foreach ($satker as $s) :?>
-                        <option value="<?= $s['kodesatker']; ?>"><?= substr($s['namasatker'],4); ?></option>
+                    <?php foreach ($satker as $s) : ?>
+                        <option value="<?= $s['kodesatker']; ?>"><?= substr($s['namasatker'], 4); ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -83,8 +83,8 @@
                 </div>
                 <select class="form-control" id="prov-satker" style="color: #f4c58f; background-color:#072438">
                     <option value="1">Semua Provinsi</option>
-                    <?php foreach ($satker as $s) :?>
-                        <option value="<?= $s['kodesatker']; ?>"><?= substr($s['namasatker'],4); ?></option>
+                    <?php foreach ($satker as $s) : ?>
+                        <option value="<?= $s['kodesatker']; ?>"><?= substr($s['namasatker'], 4); ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -113,7 +113,7 @@
     <div class="top">
         <div class="content row">
             <div class="pet col-md-12">
-                <div id="mapSatker" style="width: 1000px; height: 600px;">
+                <div id="mapSatker">
                 </div>
             </div>
 

@@ -145,6 +145,7 @@ html {
   padding: 100px 20px;
   height: 100%;
   border-radius: 15px 15px 15px 15px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
 #Home {
@@ -167,9 +168,16 @@ html {
   border-radius: 10px;
   padding-bottom: 100px;
   margin: auto;
-  height: 50em;
+  height: 600px;
   display: grid;
   place-content: center;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.pet #mapSatker {
+  width: 1000px;
+  height: 550px;
+  margin-top: 100px;
 }
 
 .KetPeta {
@@ -220,24 +228,35 @@ html {
 
 /* DESKTOP*/
 
-@media (min-width: 992px) {
-  .stat {
-    width: 150%;
+@media (max-width: 1200px) {
+  .pet #mapSatker {
+    width: 800px;
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar-toggler {
+    border-color: white;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2),
+      0 4px 10px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .pet #mapSatker {
+    width: 600px;
   }
 }
 
 @media (max-width: 768px) {
   .pet {
-    width: 95%;
+    height: 550px;
   }
-
-  .stat {
-    margin-top: 30px;
-    width: 40%;
+  .pet #mapSatker {
+    width: 400px;
+    height: 500px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 576px) {
   .filter {
     color: #f4c58f;
     margin: -20px 0 30px 0;
@@ -257,14 +276,15 @@ html {
   }
 
   .pet {
-    width: 90%;
+    height: 500px;
   }
-  .stat {
-    margin-top: 50px;
-    width: 60%;
+
+  .pet #mapSatker {
+    width: 350px;
+    height: 450px;
   }
 }
-
+/* 
 @media (max-width: 400px) {
   .satker1 {
     margin: -1em -10px -3em -10px;
@@ -280,17 +300,4 @@ html {
     background-color: #072438;
     width: 100%;
   }
-
-  .pet {
-    width: 90%;
-  }
-  .stat {
-    width: 60%;
-  }
-}
-
-@media (max-width: 300px) {
-  .stat {
-    width: 70%;
-  }
-}
+} */
