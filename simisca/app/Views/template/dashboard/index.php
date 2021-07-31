@@ -49,9 +49,13 @@
                 <img src="<?= base_url('img/dashboard/logo.png'); ?>" class="profile_image" alt="">
             </center>
             <a href="<?= base_url('dashboard'); ?>" class="<?= ($active == 'dashboard') ? 'active' : ''; ?>"><i class="fas fa-home"></i><span>Halaman Utama</span></a>
+            <?php if(session()->kuesioner): ?>
             <a href="<?= base_url('dashboard/kuesioner'); ?>" class="<?= ($active == 'kuesioner') ? 'active' : ''; ?>"><i class="fas fa-book-open"></i><span>SMKB Satker</span></a>
+            <?php endif; ?>
             <a href="<?= base_url('dashboard/monitoring'); ?>" class="<?= ($active == 'monitoring') ? 'active' : ''; ?>"><i class="fas fa-desktop"></i><span>Monitoring SMKB</span></a>
+            <?php if(session('super admin')): ?>
             <a href="<?= base_url('dashboard/pengolahan'); ?>" class="<?= ($active == 'pengolahan') ? 'active' : ''; ?>"><i class="fas fa-cogs"></i><span>Pengolahan SMKB</span></a>
+            <?php endif; ?>
             <a href="<?= base_url('dashboard/profil'); ?>" class="<?= ($active == 'profil') ? 'active' : ''; ?>"><i class="fas fa-user"></i><span>Profil Anda</span></a>
             <a href="<?= base_url('dashboard/tentang'); ?>" class="<?= ($active == 'tentang') ? 'active' : ''; ?>"><i class="fas fa-info-circle"></i><span>Tentang</span></a>
         </nav>

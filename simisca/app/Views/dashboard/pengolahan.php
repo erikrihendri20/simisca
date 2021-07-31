@@ -8,8 +8,8 @@
         <li>Proses Pengolahan IMKB Satker</li>
         <li>Upload Hasil Pengolahan IMKB Satker</li>
     </ol>
-
-    <table id="raw-data" style="position: absolute; visibility: hidden;">
+    <div style="overflow: scroll; height: 10px; width: 10px; visibility: hidden;">
+    <table id="raw-data" >
         <thead>
             <th>id</th>
             <th>submitdate</th>
@@ -403,6 +403,7 @@
             <?php endif; ?>
         </tbody>
     </table>
+    </div>
 
     <div class="line">
         <div class="card">

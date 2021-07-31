@@ -11,42 +11,44 @@ use App\Models\Survei_model;
 class Visualisasi extends BaseController
 {
 
-    public function portalVisualisasi()
-    {
-        $data = [
-            'title' => 'Portal Visualisasi',
-            'css' => 'portalVisualisasi.css',
-            'js' => 'portalVisualisasi.js',
-            'active' => 'portal visualisasi'
-        ];
-        return view('visualisasi/portalVisualisasi', $data);
-    }
+    // public function portalVisualisasi()
+    // {
+    //     $data = [
+    //         'title' => 'Portal Visualisasi',
+    //         'css' => 'portalVisualisasi.css',
+    //         'js' => 'portalVisualisasi.js',
+    //         'active' => 'portal visualisasi'
+    //     ];
+    //     return view('visualisasi/portalVisualisasi', $data);
+    // }
 
-    public function getKabupatenKota()
-    {
-        $model = new Sampel_satker_model();
-        $data = $model->getSatker(substr($this->request->getVar('kodelevel'), 0, 2));
-        return json_encode($data);
-    }
+    // public function getKabupatenKota()
+    // {
+    //     $model = new Sampel_satker_model();
+    //     $data = $model->getSatker(substr($this->request->getVar('kodelevel'), 0, 2));
+    //     return json_encode($data);
+    // }
 
-    public function getSpiderChart()
-    {
-        $model = new Satker_model();
-        $filter = [
-            'provinsi' => $this->request->getVar('provinsi'),
-            'kabupaten' => $this->request->getVar('kabupaten')
-        ];
-        return json_encode($model->getSpiderChart($filter));
-    }
+    // public function getSpiderChart()
+    // {
+    //     $model = new Satker_model();
+    //     $filter = [
+    //         'provinsi' => $this->request->getVar('provinsi'),
+    //         'kabupaten' => $this->request->getVar('kabupaten')
+    //     ];
+    //     return json_encode($model->getSpiderChart($filter));
+    // }
 
     public function visualisasi()
     {
-        $model = new Sampel_satker_model();
+        $modelSampleSatker = new Sampel_satker_model();
+        $modelImkbSatker = new ImkbSatker_model();
         $data = [
             'title' => 'Grafik',
             'css' => 'visualisasi.css',
             'js' => 'visualisasi.js',
-            'provinsi' => $model->getSatker(),
+            'provinsi' => $modelSampleSatker->getSatker(),
+            'tahun' => $modelImkbSatker->getTahun(),
             'active' => 'visualisasi'
         ];
         return view('visualisasi/visualisasi', $data);
@@ -54,14 +56,16 @@ class Visualisasi extends BaseController
 
     public function petaTematik()
     {
-        $model = new Sampel_satker_model();
+        $modelSampleSatker = new Sampel_satker_model();
+        $modelImkbSatker = new ImkbSatker_model();
         $data = [
             'title' => 'Peta Tematik',
             'css' => 'tematik.css',
             'js' => 'tematik.js',
-            'active' => 'peta tematik'
+            'active' => 'peta tematik',
+            'tahun' => $modelImkbSatker->getTahun(),
         ];
-        $data['satker'] = $model->getSatker();
+        $data['satker'] = $modelSampleSatker->getSatker();
         return view('visualisasi/petaTematik', $data);
     }
 
@@ -121,46 +125,69 @@ class Visualisasi extends BaseController
 
     public function tabelDinamis()
     {
-        $model = new Sampel_satker_model();
+        $modelImkbSatker = new ImkbSatker_model();
         $data = [
             'title' => 'Tabel Dinamis',
             'css' => 'tabelDinamis.css',
             'js' => 'tabelDinamis.js',
             'active' => 'tabel dinamis',
-            'provinsi' => $model->getSatker()
+            'tahun' => $modelImkbSatker->getTahun(),
         ];
         return view('visualisasi/tabeldinamis', $data);
     }
 
-    public function getTabel($subjek)
+    public function getTable($subjek , $indeks , $tahun = 2021)
     {
         if ($subjek == 'satker') {
-            $filter = [
-                'tahun' => $this->request->getVar('tahun'),
-                'kodelevel' => $this->request->getVar('kodelevel'),
-                'pilihsemua' => $this->request->getVar('pilihsemua'),
-                'kodeprovinsi' => $this->request->getVar('kodeprovinsi'),
-                'keseluruhan' => $this->request->getVar('keseluruhan'),
-                'bencanaalam' => $this->request->getVar('bencanaalam'),
-                'kebakaran' => $this->request->getVar('kebakaran'),
-                'covid' => $this->request->getVar('covid')
-            ];
-            $modelSatker = new Satker_model();
-            $data = [
-                'satker' => $modelSatker->filter($filter),
-                'active' => 'get tabel'
-            ];
-            return view('visualisasi/tabel', $data);
+            $model = new ImkbSatker_model();
+            $data['active'] = 'get tabel';
+            switch ($indeks) {
+                case 'kebakaran':
+                    $result = $model->getSatkerTable($indeks , $tahun);
+                    return json_encode($result);
+                    break;
+                
+                case 'covid 19':
+                    $result = $model->getSatkerTable($indeks , $tahun);
+                    return json_encode($result);
+                    break;
+                
+                default:
+                    $result = $model->getSatkerTable($indeks , $tahun);
+                    return json_encode($result);
+                    break;
+            } 
         } else {
-            $filter = [
-                'kodelevel' => $this->request->getVar('kodelevel')
-            ];
-            $modelPegawai = new Pegawai_model();
-            $data = [
-                'pegawai' => $modelPegawai->filter($filter),
-                'active' => 'get tabel'
-            ];
-            return view('visualisasi/tabel', $data);
+            $handle = null;
+            switch ($indeks) {
+                case 'gempa dan tsunami':
+                    $handle = fopen(base_url('asset/imkb/gempa-tsunami-pegawai.csv'),'r');
+                    break;
+                case 'dataran tinggi':
+                    $handle = fopen(base_url('asset/imkb/dataran-tinggi.csv'),'r');
+                    break;         
+                case 'banjir':
+                    $handle = fopen(base_url('asset/imkb/banjir-pegawai.csv'),'r');
+                    break;
+                case 'gunung api':
+                    $handle = fopen(base_url('asset/imkb/gunung-api.csv'),'r');
+                    break;
+                default:
+                    break;
+            }
+
+            $result = [];
+            $count = 0;
+            while($imkb = fgetcsv($handle)){
+                if($count!==0){
+                    $row['nama satker'] = $imkb[1];
+                    $row['simkb '.$indeks] = $imkb[2];
+                    $count++;
+                    $result[] = $row;
+                }
+                $count++;
+            }
+            return json_encode($result);
         }
     }
 

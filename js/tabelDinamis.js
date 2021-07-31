@@ -1,145 +1,145 @@
-function requestTabelSatker() {
-  
-  $.post('Visualisasi/getTabel/satker', {
-    kodelevel: $('#wilayahsatker').val(),
-    tahun: $('#tahunsatker').val(),
-    pilihsemua: $('#pilihsemua:checked').val(),
-    kodeprovinsi: ($('#provinsi-satker').css('display')=='none') ? 0 : $('#provinsi-satker').val(),
-    keseluruhan: $('#keseluruhan:checked').val(),
-    bencanaalam: $('#bencanaalam:checked').val(),
-    kebakaran: $('#kebakaran:checked').val(),
-    covid: $('#covid:checked').val()
-  }, function(data, status) {
-    $('#tabeldinamis').html(data)
-  })
-  
-}
-
-function requestTabelPegawai() {
-  $.post('Visualisasi/getTabel/pegawai', {
-    kodelevel: $('#wilayahpegawai').val()
-  }, function(data, status) {
-    $('#tabeldinamis').html(data)
-  })
-}
-
-
 function changeSubject(){
   if($('#subjek').val() == 1){
     $('#filter-satker').css('display', 'flex')
     $('#filter-pegawai').css('display', 'none')
-    requestTabelSatker()
+    requestTable('satker')
   }else{
     $('#filter-satker').css('display', 'none')
     $('#filter-pegawai').css('display', 'flex')
-    requestTabelPegawai()
+    requestTable('pegawai')
   }
-
 }
 
-function checkOpsi(){
-  if($('#pilihsemua').is(':checked')){
-    $("#keseluruhan").prop('checked', true)
-    $("#bencanaalam").prop('checked', true)
-    $("#kebakaran").prop('checked', true)
-    $("#covid").prop('checked', true)
+function getAvg(grades) {
+  return (grades.reduce(function (p, c) {
+    return p + c;
+  }) / grades.length).toFixed(2);
+}
+
+function loadTable(data) {
+  
+  
+  tbody = ''
+  keys = Object.keys(data[0])
+  th = ''
+  keys.forEach(key => {
+    th = th + '<th>'+key.toUpperCase()+'</th>'
+  })
+  thead = '<tr>'+th+'</tr>'
+  data.forEach((d) => {
+    td = ''
+    keys.forEach(key => {
+      td = td +'<td>'+d[key]+'</td>'
+    });
+    tr='<tr>'+td+'</tr>'
+    tbody = tbody + tr
+  })
+  table = '<table id="table"><thead>'+thead+'</thead><tbody>'+tbody+'</tbody></table>'
+  $('#tabeldinamis').html(table)
+  
+  $('#table').DataTable({
+    dom: 'Bfrtip',
+    buttons: [
+      'copy', 'csv', 'excel', 'pdf', 'print'
+    ]
+  })
+}
+
+function requestTable(subjek){
+  if(subjek=='satker'){
+    $.get('Visualisasi/getTable/satker/'+$('#indeks-satker').val()+'/'+$('#tahunsatker').val() , (data, status) => {
+      data = JSON.parse(data)
+      if(data.length==0) {
+        $('#tabeldinamis').html('Data Belum Tersedia')
+        return
+      }
+      if($('#indeks-satker').val()=='kebakaran'){
+        groupPulau = [
+          11, 12, 13, 14, 15, 16, 17, 18, 19, 21,
+          31, 32, 33, 34, 35, 36, 51,
+          52, 53,
+          61, 62, 63, 64, 65,
+          71, 72, 73, 74, 75, 76,
+          81, 82,
+          91, 94
+        ]
+        dataPulau = []
+        groupPulau.forEach(p => {
+          if(p==31){
+            filtered = data.filter((d) => d['kodesatker'].substr(0,2)==p || d['kodesatker'] == 1 || d['kodesatker'] == 2 || d['kodesatker'] == 3)
+          }else{
+            filtered = data.filter((d) => d['kodesatker'].substr(0,2)==p)
+          }
+          provinsi = data.find((d) => d['kodesatker']==p+'00')
+          imkb = []
+          filtered.forEach((f) => {
+            imkb.push(Number(f['simkb kebakaran']))
+          })
+          
+          provinsi['simkb kebakaran'] = getAvg(imkb)
+          dataPulau.push({'nama satker' : provinsi['nama satker'] , 'simkb kebakaran' : provinsi['simkb kebakaran']})
+        });
+        data=dataPulau
+      }
+      else if($('#indeks-satker').val()=='covid 19'){
+        groupPulau = [
+          11, 12, 13, 14, 15, 16, 17, 18, 19, 21,
+          31, 32, 33, 34, 35, 36, 51,
+          52, 53,
+          61, 62, 63, 64, 65,
+          71, 72, 73, 74, 75, 76,
+          81, 82,
+          91, 94
+        ]
+        dataPulau = []
+        groupPulau.forEach(p => {
+          if(p==31){
+            filtered = data.filter((d) => d['kodesatker'].substr(0,2)==p || d['kodesatker'] == 1 || d['kodesatker'] == 2 || d['kodesatker'] == 3)
+          }else{
+            filtered = data.filter((d) => d['kodesatker'].substr(0,2)==p)
+          }
+          provinsi = data.find((d) => d['kodesatker']==p+'00')
+          imkb = []
+          filtered.forEach((f) => {
+            imkb.push(Number(f['simkb covid 19']))
+          })
+          
+          provinsi['simkb covid 19'] = getAvg(imkb)
+          dataPulau.push({'nama satker' : provinsi['nama satker'] , 'simkb covid 19' : provinsi['simkb covid 19']})
+        });
+        data=dataPulau
+      }
+      loadTable(data)
+    })
   }
+  else{
+    $.get('Visualisasi/getTable/pegawai/'+$('#indeks-pegawai').val() , (data, status) =>{
+      data = JSON.parse(data)
+      console.log(data)
+      loadTable(data)
+    })
+  }
+  
 }
 
 $(document).ready(() => {
+  // config data table
+  
   changeSubject()
-  checkOpsi()
-  
-
-  $('#pilihsemua').change(() => {
-    checkOpsi()
-    requestTabelSatker()
-  })
-
-  $('#keseluruhan').change(() => {
-    if($('#keseluruhan').is(':checked')){
-      $("#bencanaalam").prop('checked', true)
-      $("#kebakaran").prop('checked', true)
-      $("#covid").prop('checked', true)
-    }else{
-      $("#pilihsemua").prop('checked', false)
-      $("#bencanaalam").prop('checked', false)
-      $("#kebakaran").prop('checked', false)
-      $("#covid").prop('checked', false)
-    }
-    requestTabelSatker()
-  })
-
-  $('#bencanaalam').change(() => {
-    if(!$(this).is(':checked')){
-      $("#pilihsemua").prop('checked', false)
-      $("#keseluruhan").prop('checked', false)
-    }
-    if($('#bencanaalam').is(':checked')&&$('#kebakaran').is(':checked')&&$('#covid').is(':checked')){
-      $("#keseluruhan").prop('checked', true)
-    }
-    requestTabelSatker()
-  })
-  
-  $('#kebakaran').change(() => {
-    if(!$(this).is(':checked')){
-      $("#pilihsemua").prop('checked', false)
-      $("#keseluruhan").prop('checked', false)
-    }
-    if($('#bencanaalam').is(':checked')&&$('#kebakaran').is(':checked')&&$('#covid').is(':checked')){
-      $("#keseluruhan").prop('checked', true)
-    }
-    requestTabelSatker()
-  })
-  
-  $('#covid').change(() => {
-    if(!$(this).is(':checked')){
-      $("#pilihsemua").prop('checked', false)
-      $("#keseluruhan").prop('checked', false)
-    }
-    if($('#bencanaalam').is(':checked')&&$('#kebakaran').is(':checked')&&$('#covid').is(':checked')){
-      $("#keseluruhan").prop('checked', true)
-    }
-    requestTabelSatker()
-  })
-
   $('#subjek').change(() => {
     changeSubject()
   })
 
-  $('#wilayahsatker').change(() => {
-    if($('#wilayahsatker').val()==3){
-      $('#form-provinsi-satker').css('display','block')
-      $('#provinsi-satker').css('display','block')
-    }else{
-      $('#form-provinsi-satker').css('display','none')
-      $('#provinsi-satker').css('display','none')
-
-    }
-    requestTabelSatker()
+  $('#indeks-satker').change(() => {
+    requestTable('satker')
   })
-
-  $('#wilayahpegawai').change(() => {
-    console.log('asdsad')
-    if($('#wilayahpegawai').val()==3){
-      console.log('asdsad')
-      $('#form-provinsi-pegawai').css('display','block')
-      $('#provinsi-pegawai').css('display','block')
-    }else{
-      $('#form-provinsi-pegawai').css('display','none')
-      $('#provinsi-pegawai').css('display','none')
-
-    }
-    requestTabelSatker()
+  
+  $('#tahunsatker').change(() => {
+    requestTable('satker')
   })
-
-  $('#provinsi-satker').change(() => {
-    requestTabelSatker()
-  }) 
-
-  $('#provinsi-pegawai').change(() => {
-    requestTabelPegawai()
+  
+  $('#indeks-pegawai').change(() => {
+    requestTable('pegawai')
   })
-
-
+  
 })

@@ -10,7 +10,9 @@ class Filters extends BaseConfig
 		'csrf'     => \CodeIgniter\Filters\CSRF::class,
 		'toolbar'  => \CodeIgniter\Filters\DebugToolbar::class,
 		'honeypot' => \CodeIgniter\Filters\Honeypot::class,
-		'SSOLog'	=> \App\Filters\FilterSSO::class
+		'SSOLog'	=> \App\Filters\FilterSSO::class,
+		'ParticipanSurvey' => \App\Filters\FilterParticipanSurvey::class,
+		'FilterSuperAdmin' => \App\Filters\FilterSuperAdmin::class
 	];
 
 	// Always applied before every request
@@ -35,8 +37,14 @@ class Filters extends BaseConfig
 	// that they should run on, like:
 	//    'isLoggedIn' => ['before' => ['account/*', 'profiles/*']],
 	public $filters = [
-		// 'SSOLog' => [
-		// 	'before' => ['dashboard' , 'dashboard/*']
-		// ]
+		'SSOLog' => [
+			'before' => ['dashboard' , 'dashboard/*']
+		],
+		'ParticipanSurvey' => [
+			'before' => ['dashboard/kuesioner']
+		],
+		'FilterSuperAdmin' => [
+			'before' => ['dashboard/pengolahan']
+		]
 	];
 }
