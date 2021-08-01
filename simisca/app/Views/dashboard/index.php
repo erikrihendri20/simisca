@@ -122,7 +122,7 @@
             <div class="row ket ml-0"><b>Profil Satker</b></div>
             <div class="row prof">
                 <div class="col ketprof" style="color: white;">Nama Satker</div>
-                <input class="col form-control" type="text" placeholder="Nama Satker" aria-label="readonly input example" readonly>
+                <input class="col form-control" type="text" aria-label="readonly input example" readonly value="<?= $profil['namasatker']; ?>">
             </div>
             <div class="row prof">
                 <div class="col ketprof" style="color: white;">Alamat Satker</div>
@@ -146,22 +146,12 @@
             <div class="row ket"><b>Lokasi Geografis</b></div>
             <table class="row tabel">
                 <tbody>
-                    <tr class="putih">
-                        <td class="tul">Wilayah pesisir</td>
-                        <td class="tul pr-3">Ya/Tidak</td>
+                    <?php $no=1; foreach ($lokasi as $key => $value) : ?>
+                    <tr class="<?= ($no % 2 == 0) ? 'kuning' : 'putih'; ?>">
+                        <td class="tul">wilayah <?= $key; ?></td>
+                        <td class="tul pr-3"><?= ($value == 1) ? 'Ya' : 'Tidak'; ?></td>
                     </tr>
-                    <tr class="kuning">
-                        <td class="tul">Wilayah dekat dengan sungai</td>
-                        <td class="tul pr-3">Ya/Tidak</td>
-                    </tr>
-                    <tr class="putih">
-                        <td class="tul">Wilayah dataran tinggi</td>
-                        <td class="tul pr-3">Ya/Tidak</td>
-                    </tr>
-                    <tr class="kuning">
-                        <td class="tul">Wilayah dekat gunung api</td>
-                        <td class="tul pr-3">Ya/Tidak</td>
-                    </tr>
+                    <?php $no++; endforeach; ?>
                 </tbody>
             </table>
         </div>
@@ -173,21 +163,16 @@
             <div class="row ket"><b>Indeks Mitigasi Kesiapsiagaan Bencana (IMKB) Satuan Kerja</b></div>
             <div class="row row-cols-auto">
                 <div class="col btn-group">
-                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Tahun
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">2020</a>
-                        <a class="dropdown-item" href="#">2021</a>
-                        <a class="dropdown-item" href="#">2022</a>
-                    </div>
-                </div>
-                <div class="col mt-2">
-                    <a href=#><i class="fas fa-download" style="color: var(--merah);"></i></a>
+                    <input type="hidden" id="kodesatker" value="<?= $kodesatker; ?>">
+                    <select name="tahun" id="tahun-imkb">
+                        <?php foreach ($tahun as $t) :?>
+                        <option value="<?= $t['tahun']; ?>"><?= $t['tahun']; ?></option>
+                        <?php endforeach ?>
+                    </select>
                 </div>
             </div>
-            <table class="row tabel mr-8">
-                <tbody>
+            <table class="row tabel mr-8" id="imkb">
+                <!-- <tbody>
                     <tr class="putih">
                         <td class="tul">IMKB Satker</td>
                         <td class="tul pr-3">00.00</td>
@@ -204,7 +189,7 @@
                         <td class="tul">Sub Pandemi COVID-19</td>
                         <td class="tul pr-3">00.00</td>
                     </tr>
-                </tbody>
+                </tbody> -->
             </table>
         </div>
     </div>

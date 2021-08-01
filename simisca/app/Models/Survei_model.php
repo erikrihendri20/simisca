@@ -180,5 +180,27 @@ class Survei_model extends Model
         }
     }
     
-    
+    public function getLokasiGeografi($kodesatker)
+    {
+        $table = $this->db->table('lime_old_survey_423492_20210722170229');
+        if(substr($kodesatker,2,4)==0){
+            $table->where('423492X1X66',2);
+            $table->where('423492X1X67',substr($kodesatker,2,4));
+        }
+        elseif ($kodesatker==1) {
+            $table->where('423492X1X66',1);
+        }
+        elseif ($kodesatker==2) {
+            $table->where('423492X1X66',5);
+        }
+        elseif ($kodesatker==3) {
+            $table->where('423492X1X66',4);
+        }
+        else{
+            $table->where('423492X1X66',3);
+            $table->where('423492X1X68',$kodesatker);
+        }
+        $table->select('423492X3X91 as pesisir , 423492X3X92 as sungai , 423492X3X93 as dataran tinggi , 423492X3X94 as gunung berapi' );
+        return $table->get()->getResultArray();
+    }
 }

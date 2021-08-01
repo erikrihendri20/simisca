@@ -594,4 +594,11 @@ class ImkbSatker_model extends Model
         $this->builder()->select('tahun');
         return $this->builder()->get()->getResultArray();
     }
+
+    public function getImkbByKodesatker($kodesatker , $tahun)
+    {
+        $this->builder()->where('kode_satker' , $kodesatker);
+        $this->builder()->where('tahun' , $tahun);
+        return $this->builder()->get()->getResultArray();
+    }
 }

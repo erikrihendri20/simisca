@@ -26,5 +26,9 @@ class Sampel_satker_model extends Model
         }
     }
 
-    
+    public function findByKodesatker($kodesatker)
+    {
+        $this->builder()->where('kodesatker' , $kodesatker);
+        return $this->builder()->get()->getResultArray();
+    }
 }

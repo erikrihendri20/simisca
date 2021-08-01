@@ -1,17 +1,20 @@
 <?= $this->extend('template/dashboard/index'); ?>
 <?= $this->section('content'); ?>
             <div class="menu-content">
-                <div>
-                    <p>Anda login sebagai</p>
+                <div class="card">
+                    <img class="card-img-top img-thumbnail rounded-circle mx-auto d-block mt-4" src="<?= $profil['foto']; ?>" alt="Card image cap" style="width: 200px; height: 200px;">
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <h5 class="list-group-item w-100"><?= strtoupper($profil['nama']); ?></h5>
+                            <li class="list-group-item w-100">Nip : <?= $profil['nip']; ?></li>
+                            <li class="list-group-item w-100">Email : <?= $profil['email']; ?></li>
+                            <li class="list-group-item w-100">Jabatan : <?= $profil['jabatan']; ?></li>
+                            <li class="list-group-item w-100">Provinsi : <?=$profil['provinsi']; ?></li>
+                            <li class="list-group-item w-100">Kabupaten : <?=$profil['kabupaten']; ?></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="email">
-                    <p>Email</p>
-                    <span id="box"></span>
-                </div>
-                <div>
-                    <button id="button-logout">Log out</button>
-                </div>
-                <div class="notifikasi">
+                <!-- <div class="notifikasi">
                     <p>Notifikasi</p>
                 </div>
                 <table class="scroll">
@@ -59,6 +62,6 @@
                             <td>Pengisian kuesioner</td>
                         </tr>
                 </tbody>
-                </table>
+                </table> -->
             </div>
 <?= $this->endSection(); ?>

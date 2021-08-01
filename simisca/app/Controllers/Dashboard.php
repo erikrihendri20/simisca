@@ -15,6 +15,17 @@ class Dashboard extends BaseController
 
     public function index()
     {
+        $kodesatker = substr(session()->kodeOrganisasi,0,4);
+        $data['kodesatker'] = $kodesatker;
+        $sampelSatkerModel = new Sampel_satker_model();
+        $data['profil'] = $sampelSatkerModel->findByKodesatker($kodesatker)[0];
+        $surveyModel = new Survei_model();
+        $lokasi = $surveyModel->getLokasiGeografi($kodesatker);
+        foreach ($lokasi[0] as $key =>$l) {
+            $data['lokasi'][$key] = ($l == 2) ? 0 :1;
+        }
+        $imkbSatkerModel = new ImkbSatker_model();
+        $data['tahun'] = $imkbSatkerModel->getTahun();
         $data['style'] = 'index';
         $data['script'] = 'index';
         $data['active'] = 'dashboard';
@@ -278,6 +289,15 @@ class Dashboard extends BaseController
         $data['script'] = 'profil';
         $data['active'] = 'profil';
         $data['title'] = 'Profil';
+        $data['profil'] = [
+            'foto' => session()->foto,
+            'nama' => session()->nama,
+            'nip' => session()->nip,
+            'email' => session()->email,
+            'jabatan' => session()->jabatan,
+            'provinsi' => session()->provinsi,
+            'kabupaten' => session()->kabupaten
+        ];
         return view("dashboard/Profil",$data);
     }
 
@@ -290,6 +310,12 @@ class Dashboard extends BaseController
         return view("dashboard/tentang",$data);
     }
 
+
+    public function getImkbByKodesatker($kodesatker , $tahun)
+    {
+        $imkbSatkerModel = new ImkbSatker_model();
+        return json_encode($imkbSatkerModel->getImkbByKodesatker($kodesatker , $tahun));
+    }
     
     
     //--------------------------------------------------------------------
