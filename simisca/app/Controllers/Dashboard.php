@@ -9,9 +9,26 @@ use App\Models\ImkbSatker_model;
 use App\Models\Participan_model;
 use \PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use org\jsonrpcphp\JsonRPCClient;
+use CodeIgniter\API\ResponseTrait;
 
 class Dashboard extends BaseController
 {
+
+    use ResponseTrait;
+    private $LS_BASEURL = "http://localhost/limesurvey/";
+    private $LS_USER = "riset3";
+    private $LS_PASSWORD = "riset3";
+    private $rPCClient = null;
+    private $sessionKey= null;
+    private $surveyId = 423492;
+
+
+    public function __construct()
+    {
+        $this->rPCClient = new JsonRPCClient($this->LS_BASEURL.'/admin/remotecontrol');
+        $this->sessionKey = $this->rPCClient->get_session_key( $this->LS_USER, $this->LS_PASSWORD );
+    }
 
     public function index()
     {
@@ -31,6 +48,16 @@ class Dashboard extends BaseController
         $data['active'] = 'dashboard';
         $data['title'] = 'Dashboard';
         return view("dashboard/index",$data);
+    }
+    
+    public function remote()
+    {
+        $data['style'] = 'remote';
+        $data['script'] = 'remote';
+        $data['active'] = 'remote';
+        $data['title'] = 'remote';
+        return view("dashboard/remote",$data);
+        
     }
 
     public function kuesioner()
@@ -62,19 +89,6 @@ class Dashboard extends BaseController
         $data['title'] = 'Kuesioner';
         return view("dashboard/nextKuesioner",$data);
     }
-
-    // public function survey()
-    // {
-    //     Auth();
-    //     if (isset($this->modelSurvei->getToken(session('email'))[0]['token'])) {
-    //         $data = [
-    //             'token' => $this->modelSurvei->getToken(session('email'))[0]['token']
-    //         ];
-    //     } else {
-    //         $data = [];
-    //     }
-    //     return view('dashboard/survei', $data);
-    // }
 
     public function monitoring()
     {
@@ -206,81 +220,124 @@ class Dashboard extends BaseController
         }
     }
 
-    public function pengolahan()
+    public function survey()
     {
-        if(isset($_POST['script'])){
-            $this->rScript();
-        }
-        if(isset($_POST['upload'])){
-            $filename = explode('.' , $_FILES['imkb']['name']);
-            if(end($filename)=='csv'){
-                $handle = fopen($_FILES['imkb']['tmp_name'],'r');
-                $imkb = [];
-                $count = 0;
-                while($data = fgetcsv($handle)){
-                    
-                    if($count!=0){
-                        $row['kode_satker'] = $data[1];
-                        $row['tahun'] = date('Y');
-                        
-                        $row['perlindungan_aset'] = $data[2];
-                        $row['sumber_daya'] = $data[3];
-                        $row['pemulihan'] = $data[4];
-                        $row['rencana_tanggap'] = $data[5];
-                        $row['imkb'] = $data[6];
-                        
-                        $row['perlindungan_aset_bencana'] = $data[7];
-                        $row['sumber_daya_bencana'] = $data[8];
-                        $row['pemulihan_bencana'] = $data[9];
-                        $row['rencana_tanggap_bencana'] = $data[10];
-                        $row['simkb_bencana'] = $data[11];
-
-                        $row['perlindungan_aset_kebakaran'] = $data[12];
-                        $row['sumber_daya_kebakaran'] = $data[13];
-                        $row['pemulihan_kebakaran'] = $data[14];
-                        $row['rencana_tanggap_kebakaran'] = $data[15];
-                        $row['simkb_kebakaran'] = $data[16];
-                        
-                        $row['sumber_daya_covid'] = $data[17];
-                        $row['pemulihan_covid'] = $data[18];
-                        $row['rencana_tanggap_covid'] = $data[19];
-                        $row['simkb_covid19'] = $data[20];
-
-                        $imkb[] = $row;
-                    }
-                    $count++;
-                }
-                $imkbSatkerModel = new ImkbSatker_model();
-                if(!$imkbSatkerModel->matchUpdate($imkb[0]['tahun'],$imkb[0]['kode_satker'])){
-                    $imkbSatkerModel->insertBatch($imkb);
-                }else{
-                    foreach ($imkb as $row) {
-                        $imkbSatkerModel->updateImkb($row);
-                    }
-                }
-            }else{
-                $data['pesan'] = 'hanya file csv yang diizinkan';
-            }
-        }
-        $surveyModel = new Survei_model();
-        $data['rawData'] = $surveyModel->jawabanKuesioner();
-        $data['style'] = 'pengolahan';
-        $data['script'] = 'pengolahan';
-        $data['active'] = 'pengolahan';
-        $data['title'] = 'Pengolahan';
-        return view("dashboard/pengolahan",$data);
+        $data['style'] = 'survey';
+        $data['script'] = 'survey';
+        $data['active'] = 'survey';
+        $data['title'] = 'survey';
+        return view("dashboard/survey",$data);
     }
 
-    private function rScript()
+    public function importSurvey()
     {
-        header('Pragma: public'); 	// required
-        header('Expires: 0');		// no cache
-        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Cache-Control: private',false);
-        header('Content-Disposition: attachment; filename="'.basename(base_url('RScript/script.Rmd')).'"');
-        header('Content-Transfer-Encoding: binary');
-        header('Connection: close');
-        readfile(base_url('RScript/script.Rmd'));
+        $handle = fopen(base_url('asset/survey/limesurvey_survey_423492.lss'),'r');
+        try {
+            $file = base64_encode(stream_get_contents($handle));
+            $import = $this->rPCClient->import_survey($this->sessionKey , $file , 'lss' , null , null);
+            return $this->respondCreated('sukses membuat survey_' . $import);
+        } catch (\Throwable $th) {
+            return $this->fail(json_encode($th));
+        }
+    }
+
+    public function importPartisipan()
+    {
+        $handle = fopen(base_url('asset/survey/partisipan.csv'),'r');
+        $partisipan = [];
+        $count = 0;
+        while($data = fgetcsv($handle)){
+            if($count!=0){   
+                $partisipan[] = (object)[
+                    'firstname' => $data[0],
+                    'lastname' => $data[1],
+                    'email' => $data[2]
+                ];
+            }
+            $count++;
+        }
+        try {
+            $this->rPCClient->activate_survey($this->sessionKey, $this->surveyId);
+        } catch (\Throwable $th) {
+            $this->fail(json_encode($th));
+        }
+        try {
+            $this->rPCClient->activate_tokens($this->sessionKey, $this->surveyId,array());
+        } catch (\Throwable $th) {
+            $this->fail(json_encode($th));
+        }
+
+        try {
+            $import = $this->rPCClient->add_participants($this->sessionKey , $this->surveyId , $partisipan , true);
+        } catch (\Throwable $th) {
+            $this->fail(json_encode($th));
+        }
+    }
+
+    public function exportResponse()
+    {
+        try {
+            $export = $this->rPCClient->export_responses($this->sessionKey , $this->surveyId , 'csv' , null , 'all' , 'code' , 'short' , null , null , null);
+            $decoded = base64_decode($export);
+            $file = 'response.csv';
+            file_put_contents($file, $decoded);
+    
+            if (file_exists($file)) {
+                header('Content-Description: File Transfer');
+                header('Content-Type: application/octet-stream');
+                header('Content-Disposition: attachment; filename="'.basename($file).'"');
+                header('Expires: 0');
+                header('Cache-Control: must-revalidate');
+                header('Pragma: public');
+                header('Content-Length: ' . filesize($file));
+                readfile($file);
+                exit;
+            }
+        } catch (\Throwable $th) {
+            return $this->fail(json_encode($th));
+        }
+    }
+
+    public function downloadRScript()
+    {
+        $handle = fopen(base_url('asset/rScript/script.Rmd'),'r');
+        $file ='script.Rmd';
+        file_put_contents($file, $handle);
+        if (file_exists($file)) {
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename="'.basename($file).'"');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate');
+            header('Pragma: public');
+            header('Content-Length: ' . filesize($file));
+            readfile($file);
+            exit;
+        }
+    }
+
+    public function downloadDaftarSatker()
+    {
+        $handle = fopen(base_url('asset/survey/satker.xlsx'),'r');
+        $file ='satker.xlsx';
+        file_put_contents($file, $handle);
+        if (file_exists($file)) {
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename="'.basename($file).'"');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate');
+            header('Pragma: public');
+            header('Content-Length: ' . filesize($file));
+            readfile($file);
+            exit;
+        }
+    }
+
+    public function deleteSurvey()
+    {
+        $delte = $this->rPCClient->delete_survey($this->sessionKey , $this->surveyId);
+        return json_encode($delte);
     }
 
     public function profil()
