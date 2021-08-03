@@ -12153,33 +12153,6 @@
     <value><![CDATA[1]]></value>
     <scenario><![CDATA[1]]></scenario>
    </row>
-   <row>
-    <cid><![CDATA[30]]></cid>
-    <qid><![CDATA[68]]></qid>
-    <cqid><![CDATA[66]]></cqid>
-    <cfieldname><![CDATA[423492X1X66]]></cfieldname>
-    <method><![CDATA[==]]></method>
-    <value><![CDATA[3]]></value>
-    <scenario><![CDATA[1]]></scenario>
-   </row>
-   <row>
-    <cid><![CDATA[31]]></cid>
-    <qid><![CDATA[67]]></qid>
-    <cqid><![CDATA[66]]></cqid>
-    <cfieldname><![CDATA[423492X1X66]]></cfieldname>
-    <method><![CDATA[==]]></method>
-    <value><![CDATA[2]]></value>
-    <scenario><![CDATA[1]]></scenario>
-   </row>
-   <row>
-    <cid><![CDATA[32]]></cid>
-    <qid><![CDATA[67]]></qid>
-    <cqid><![CDATA[66]]></cqid>
-    <cfieldname><![CDATA[423492X1X66]]></cfieldname>
-    <method><![CDATA[==]]></method>
-    <value><![CDATA[3]]></value>
-    <scenario><![CDATA[1]]></scenario>
-   </row>
   </rows>
  </conditions>
  <groups>
@@ -12736,14 +12709,14 @@ $(document).ready(function () {
     <gid><![CDATA[3]]></gid>
     <type><![CDATA[N]]></type>
     <title><![CDATA[R3B03Q002]]></title>
-    <question><![CDATA[<p>Berapa banyak pegawai yang saat ini termasuk dalam kelompok rentan Â di satuan kerja bapak/ibu/saudara/i?</p>
+    <question><![CDATA[<p>Berapa banyak pegawai yang saat ini termasuk dalam kelompok rentan  di satuan kerja bapak/ibu/saudara/i?</p>
 
 <p><!--data-target harus beda tiap kondef, gaboleh sama--><button class="kondef" data-target="#r3b03q002" data-toggle="modal" type="button">Penjelasan</button><!--id pada tag di bawah harus disamakan dengan data-target tanpa tanda # kurung--></p>
 
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b03q002" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
@@ -12781,14 +12754,14 @@ $(document).ready(function () {
     <gid><![CDATA[3]]></gid>
     <type><![CDATA[N]]></type>
     <title><![CDATA[R3B03Q002]]></title>
-    <question><![CDATA[<p>Berapa banyak pegawai yang saat ini termasuk dalam kelompok rentan Â di satuan kerja bapak/ibu/saudara/i?</p>
+    <question><![CDATA[<p>Berapa banyak pegawai yang saat ini termasuk dalam kelompok rentan  di satuan kerja bapak/ibu/saudara/i?</p>
 
 <p><!--data-target harus beda tiap kondef, gaboleh sama--><button class="kondef" data-target="#r3b03q002" data-toggle="modal" type="button">Penjelasan</button><!--id pada tag di bawah harus disamakan dengan data-target tanpa tanda # kurung--></p>
 
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b03q002" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
@@ -12833,7 +12806,7 @@ $(document).ready(function () {
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b03q003" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
@@ -12868,7 +12841,7 @@ $(document).ready(function () {
 	<p>Dataran tinggi merupakan bagian permukaan bumi yang mendatar dan terletak pada ketinggian lebih dari 600 m di atas permukaan laut.</p>
 	</li>
 	<li>Dekat Gunung Api
-	<p>Gunung api yang dimaksud adalah gunung api aktif. Daerah dekat gunung api merupakan daerah rawan dengan radius â‰¤ 18 km.</p>
+	<p>Gunung api yang dimaksud adalah gunung api aktif. Daerah dekat gunung api merupakan daerah rawan dengan radius ≤ 18 km.</p>
 	</li>
 </ul>
 </div>
@@ -12903,7 +12876,7 @@ $(document).ready(function () {
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b03q003" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
@@ -12938,7 +12911,7 @@ $(document).ready(function () {
 	<p>Dataran tinggi merupakan bagian permukaan bumi yang mendatar dan terletak pada ketinggian lebih dari 600 m di atas permukaan laut.</p>
 	</li>
 	<li>Dekat Gunung Api
-	<p>Gunung api yang dimaksud adalah gunung api aktif. Daerah dekat gunung api merupakan daerah rawan dengan radius â‰¤ 18 km.</p>
+	<p>Gunung api yang dimaksud adalah gunung api aktif. Daerah dekat gunung api merupakan daerah rawan dengan radius ≤ 18 km.</p>
 	</li>
 </ul>
 </div>
@@ -12973,7 +12946,7 @@ $(document).ready(function () {
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b03q004" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
@@ -13015,7 +12988,7 @@ $(document).ready(function () {
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b03q004" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
@@ -13052,7 +13025,7 @@ $(document).ready(function () {
     <title><![CDATA[R3B05Q003]]></title>
     <question><![CDATA[Selama pandemi COVID-19, satuan kerja Bapak/Ibu/Saudara/i menyediakan peralatan pendukung protokol kesehatan berikut?]]></question>
     <preg/>
-    <help><![CDATA[<p style="margin:0cm;"><span style="font-size:11pt;"><span style="line-height:115%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:115%;"><span style="font-family:'Times New Roman', serif;">Isikan â€œYaâ€ atau â€œTidakâ€ sesuai dengan pilihan peralatan pendukung protokol kesehatan yang tertera pada kuesioner.</span></span></span></span></span></span></p>
+    <help><![CDATA[<p style="margin:0cm;"><span style="font-size:11pt;"><span style="line-height:115%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:115%;"><span style="font-family:'Times New Roman', serif;">Isikan “Ya” atau “Tidak” sesuai dengan pilihan peralatan pendukung protokol kesehatan yang tertera pada kuesioner.</span></span></span></span></span></span></p>
 ]]></help>
     <other><![CDATA[N]]></other>
     <mandatory><![CDATA[Y]]></mandatory>
@@ -13072,7 +13045,7 @@ $(document).ready(function () {
     <title><![CDATA[R3B05Q003]]></title>
     <question><![CDATA[Selama pandemi COVID-19, satuan kerja Bapak/Ibu/Saudara/i menyediakan peralatan pendukung protokol kesehatan berikut?]]></question>
     <preg/>
-    <help><![CDATA[<p style="margin:0cm;"><span style="font-size:11pt;"><span style="line-height:115%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:115%;"><span style="font-family:'Times New Roman', serif;">Isikan â€œYaâ€ atau â€œTidakâ€ sesuai dengan pilihan peralatan pendukung protokol kesehatan yang tertera pada kuesioner.</span></span></span></span></span></span></p>
+    <help><![CDATA[<p style="margin:0cm;"><span style="font-size:11pt;"><span style="line-height:115%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:115%;"><span style="font-family:'Times New Roman', serif;">Isikan “Ya” atau “Tidak” sesuai dengan pilihan peralatan pendukung protokol kesehatan yang tertera pada kuesioner.</span></span></span></span></span></span></p>
 ]]></help>
     <other><![CDATA[N]]></other>
     <mandatory><![CDATA[Y]]></mandatory>
@@ -13092,7 +13065,7 @@ $(document).ready(function () {
     <title><![CDATA[R3B05Q004]]></title>
     <question><![CDATA[Selama pandemi COVID-19, apakah satuan kerja Bapak/Ibu/Saudara/i melakukan perawatan (pengecekan) dan pemeliharaan peralatan pendukung protokol kesehatan tersebut?]]></question>
     <preg/>
-    <help><![CDATA[<p style="margin:0cm;"><span style="font-size:11pt;"><span style="line-height:115%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:115%;"><span style="font-family:'Times New Roman', serif;">Isikan â€œYaâ€ jika dilakukan perawatan (pengecekan) dan pemeliharaan terhadap peralatan pendukung protokol kesehatan yang tersedia pada satuan kerja.</span></span></span></span></span></span></p>
+    <help><![CDATA[<p style="margin:0cm;"><span style="font-size:11pt;"><span style="line-height:115%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:115%;"><span style="font-family:'Times New Roman', serif;">Isikan “Ya” jika dilakukan perawatan (pengecekan) dan pemeliharaan terhadap peralatan pendukung protokol kesehatan yang tersedia pada satuan kerja.</span></span></span></span></span></span></p>
 ]]></help>
     <other><![CDATA[N]]></other>
     <mandatory><![CDATA[Y]]></mandatory>
@@ -13112,7 +13085,7 @@ $(document).ready(function () {
     <title><![CDATA[R3B05Q004]]></title>
     <question><![CDATA[Selama pandemi COVID-19, apakah satuan kerja Bapak/Ibu/Saudara/i melakukan perawatan (pengecekan) dan pemeliharaan peralatan pendukung protokol kesehatan tersebut?]]></question>
     <preg/>
-    <help><![CDATA[<p style="margin:0cm;"><span style="font-size:11pt;"><span style="line-height:115%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:115%;"><span style="font-family:'Times New Roman', serif;">Isikan â€œYaâ€ jika dilakukan perawatan (pengecekan) dan pemeliharaan terhadap peralatan pendukung protokol kesehatan yang tersedia pada satuan kerja.</span></span></span></span></span></span></p>
+    <help><![CDATA[<p style="margin:0cm;"><span style="font-size:11pt;"><span style="line-height:115%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:115%;"><span style="font-family:'Times New Roman', serif;">Isikan “Ya” jika dilakukan perawatan (pengecekan) dan pemeliharaan terhadap peralatan pendukung protokol kesehatan yang tersedia pada satuan kerja.</span></span></span></span></span></span></p>
 ]]></help>
     <other><![CDATA[N]]></other>
     <mandatory><![CDATA[Y]]></mandatory>
@@ -13132,7 +13105,7 @@ $(document).ready(function () {
     <title><![CDATA[R3B04Q013]]></title>
     <question><![CDATA[Saat ini, apakah satuan kerja Bapak/Ibu/Saudara/i memiliki peralatan komunikasi berikut?]]></question>
     <preg/>
-    <help><![CDATA[<span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:115%;"><span style="font-family:'Times New Roman', serif;">Isikan dengan ada atau tidaknyaÂ  alat komunikasiÂ  berdasarkanÂ  pilihan yang ada padaÂ  rincian ini di satuan kerja yang Anda tempati</span></span></span>]]></help>
+    <help><![CDATA[<span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:115%;"><span style="font-family:'Times New Roman', serif;">Isikan dengan ada atau tidaknya  alat komunikasi  berdasarkan  pilihan yang ada pada  rincian ini di satuan kerja yang Anda tempati</span></span></span>]]></help>
     <other><![CDATA[N]]></other>
     <mandatory><![CDATA[N]]></mandatory>
     <question_order><![CDATA[3]]></question_order>
@@ -13151,7 +13124,7 @@ $(document).ready(function () {
     <title><![CDATA[R3B04Q013]]></title>
     <question><![CDATA[Saat ini, apakah satuan kerja Bapak/Ibu/Saudara/i memiliki peralatan komunikasi berikut?]]></question>
     <preg/>
-    <help><![CDATA[<span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:115%;"><span style="font-family:'Times New Roman', serif;">Isikan dengan ada atau tidaknyaÂ  alat komunikasiÂ  berdasarkanÂ  pilihan yang ada padaÂ  rincian ini di satuan kerja yang Anda tempati</span></span></span>]]></help>
+    <help><![CDATA[<span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:115%;"><span style="font-family:'Times New Roman', serif;">Isikan dengan ada atau tidaknya  alat komunikasi  berdasarkan  pilihan yang ada pada  rincian ini di satuan kerja yang Anda tempati</span></span></span>]]></help>
     <other><![CDATA[N]]></other>
     <mandatory><![CDATA[N]]></mandatory>
     <question_order><![CDATA[3]]></question_order>
@@ -13170,7 +13143,7 @@ $(document).ready(function () {
     <title><![CDATA[R3B04Q014]]></title>
     <question><![CDATA[Apakah satuan kerja Bapak/Ibu/Saudara/i melakukan perawatan dan pemeliharaan peralatan komunikasi tersebut?]]></question>
     <preg/>
-    <help><![CDATA[<p style="margin-top:12pt;margin-right:0cm;margin-bottom:12pt;margin-left:0cm;text-align:justify;margin:0cm;"><span style="font-size:11pt;"><span style="line-height:115%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:115%;"><span style="font-family:'Times New Roman', serif;">Isikan jawaban â€œYaâ€ apabila terdapat upaya perawatan dan pemeliharaan alat komunikasi di satuan kerja yang Anda tempati jika terdapat minimal satu alat komunikasi yaitu radio, HT dan telepon.</span></span></span></span></span></span></p>
+    <help><![CDATA[<p style="margin-top:12pt;margin-right:0cm;margin-bottom:12pt;margin-left:0cm;text-align:justify;margin:0cm;"><span style="font-size:11pt;"><span style="line-height:115%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:115%;"><span style="font-family:'Times New Roman', serif;">Isikan jawaban “Ya” apabila terdapat upaya perawatan dan pemeliharaan alat komunikasi di satuan kerja yang Anda tempati jika terdapat minimal satu alat komunikasi yaitu radio, HT dan telepon.</span></span></span></span></span></span></p>
 ]]></help>
     <other><![CDATA[N]]></other>
     <mandatory><![CDATA[Y]]></mandatory>
@@ -13190,7 +13163,7 @@ $(document).ready(function () {
     <title><![CDATA[R3B04Q014]]></title>
     <question><![CDATA[Apakah satuan kerja Bapak/Ibu/Saudara/i melakukan perawatan dan pemeliharaan peralatan komunikasi tersebut?]]></question>
     <preg/>
-    <help><![CDATA[<p style="margin-top:12pt;margin-right:0cm;margin-bottom:12pt;margin-left:0cm;text-align:justify;margin:0cm;"><span style="font-size:11pt;"><span style="line-height:115%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:115%;"><span style="font-family:'Times New Roman', serif;">Isikan jawaban â€œYaâ€ apabila terdapat upaya perawatan dan pemeliharaan alat komunikasi di satuan kerja yang Anda tempati jika terdapat minimal satu alat komunikasi yaitu radio, HT dan telepon.</span></span></span></span></span></span></p>
+    <help><![CDATA[<p style="margin-top:12pt;margin-right:0cm;margin-bottom:12pt;margin-left:0cm;text-align:justify;margin:0cm;"><span style="font-size:11pt;"><span style="line-height:115%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:115%;"><span style="font-family:'Times New Roman', serif;">Isikan jawaban “Ya” apabila terdapat upaya perawatan dan pemeliharaan alat komunikasi di satuan kerja yang Anda tempati jika terdapat minimal satu alat komunikasi yaitu radio, HT dan telepon.</span></span></span></span></span></span></p>
 ]]></help>
     <other><![CDATA[N]]></other>
     <mandatory><![CDATA[Y]]></mandatory>
@@ -13208,7 +13181,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[X]]></type>
     <title><![CDATA[R3B04Q015]]></title>
-    <question><![CDATA[<p style="margin:0cm 0cm 10pt;">Saat ini, apakah satuan kerja Bapak/Ibu/Saudara/i memiliki peralatan teknik berikut?Â </p>
+    <question><![CDATA[<p style="margin:0cm 0cm 10pt;">Saat ini, apakah satuan kerja Bapak/Ibu/Saudara/i memiliki peralatan teknik berikut? </p>
 ]]></question>
     <preg/>
     <help><![CDATA[<span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:115%;"><span style="font-family:'Times New Roman', serif;">Isikan dengan ada atau tidaknya minimal satu peralatan teknik di satuan kerja yang Anda tempati dari setiap kategori pilihan pada rincian ini.</span></span></span>]]></help>
@@ -13228,7 +13201,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[X]]></type>
     <title><![CDATA[R3B04Q015]]></title>
-    <question><![CDATA[<p style="margin:0cm 0cm 10pt;">Saat ini, apakah satuan kerja Bapak/Ibu/Saudara/i memiliki peralatan teknik berikut?Â </p>
+    <question><![CDATA[<p style="margin:0cm 0cm 10pt;">Saat ini, apakah satuan kerja Bapak/Ibu/Saudara/i memiliki peralatan teknik berikut? </p>
 ]]></question>
     <preg/>
     <help><![CDATA[<span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:115%;"><span style="font-family:'Times New Roman', serif;">Isikan dengan ada atau tidaknya minimal satu peralatan teknik di satuan kerja yang Anda tempati dari setiap kategori pilihan pada rincian ini.</span></span></span>]]></help>
@@ -13250,7 +13223,7 @@ $(document).ready(function () {
     <title><![CDATA[R3B04Q016]]></title>
     <question><![CDATA[Apakah Satuan kerja Bapak/ibu/Saudara/i melakukan perawatan dan pemeliharaan peralatan teknik tersebut?]]></question>
     <preg/>
-    <help><![CDATA[<p style="margin-bottom:12pt;text-align:justify;margin:0cm;"><span style="font-size:11pt;"><span style="line-height:115%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:115%;"><span style="font-family:'Times New Roman', serif;">Isikan jawaban â€œYaâ€ apabila terdapat kegiatan atau upaya-upaya dari satuan kerja di BPS dalam melakukan perawatan dan pemeliharaan perlengkapan teknik yaitu alat pemadam api ( fire hydran, tabung pemadam api, sprinker ) dan alat penerangan alternatif (senter/lampu emergency/jenset).</span></span></span></span></span></span></p>
+    <help><![CDATA[<p style="margin-bottom:12pt;text-align:justify;margin:0cm;"><span style="font-size:11pt;"><span style="line-height:115%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:115%;"><span style="font-family:'Times New Roman', serif;">Isikan jawaban “Ya” apabila terdapat kegiatan atau upaya-upaya dari satuan kerja di BPS dalam melakukan perawatan dan pemeliharaan perlengkapan teknik yaitu alat pemadam api ( fire hydran, tabung pemadam api, sprinker ) dan alat penerangan alternatif (senter/lampu emergency/jenset).</span></span></span></span></span></span></p>
 ]]></help>
     <other><![CDATA[N]]></other>
     <mandatory><![CDATA[Y]]></mandatory>
@@ -13270,7 +13243,7 @@ $(document).ready(function () {
     <title><![CDATA[R3B04Q016]]></title>
     <question><![CDATA[Apakah Satuan kerja Bapak/ibu/Saudara/i melakukan perawatan dan pemeliharaan peralatan teknik tersebut?]]></question>
     <preg/>
-    <help><![CDATA[<p style="margin-bottom:12pt;text-align:justify;margin:0cm;"><span style="font-size:11pt;"><span style="line-height:115%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:115%;"><span style="font-family:'Times New Roman', serif;">Isikan jawaban â€œYaâ€ apabila terdapat kegiatan atau upaya-upaya dari satuan kerja di BPS dalam melakukan perawatan dan pemeliharaan perlengkapan teknik yaitu alat pemadam api ( fire hydran, tabung pemadam api, sprinker ) dan alat penerangan alternatif (senter/lampu emergency/jenset).</span></span></span></span></span></span></p>
+    <help><![CDATA[<p style="margin-bottom:12pt;text-align:justify;margin:0cm;"><span style="font-size:11pt;"><span style="line-height:115%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:115%;"><span style="font-family:'Times New Roman', serif;">Isikan jawaban “Ya” apabila terdapat kegiatan atau upaya-upaya dari satuan kerja di BPS dalam melakukan perawatan dan pemeliharaan perlengkapan teknik yaitu alat pemadam api ( fire hydran, tabung pemadam api, sprinker ) dan alat penerangan alternatif (senter/lampu emergency/jenset).</span></span></span></span></span></span></p>
 ]]></help>
     <other><![CDATA[N]]></other>
     <mandatory><![CDATA[Y]]></mandatory>
@@ -13294,7 +13267,7 @@ $(document).ready(function () {
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b04q010" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
@@ -13346,7 +13319,7 @@ $(document).ready(function () {
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b04q010" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
@@ -13398,13 +13371,13 @@ $(document).ready(function () {
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b04q009" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
 
 <div class="modal-body">
-<p>Isikan â€œYaâ€ jika terdapat minimal satu sistem peringatan dini bencana di Satuan Kerja Anda, dapatÂ  berupa sistem peringatan dini tradisional (kentongan, lonceng) maupun sistem peringatan dini modern (sirine, detector asap, fire alarm, radio, televisi, sms, internet, media cetak).</p>
+<p>Isikan “Ya” jika terdapat minimal satu sistem peringatan dini bencana di Satuan Kerja Anda, dapat  berupa sistem peringatan dini tradisional (kentongan, lonceng) maupun sistem peringatan dini modern (sirine, detector asap, fire alarm, radio, televisi, sms, internet, media cetak).</p>
 </div>
 
 <div class="modal-footer"><button class="btn btn-default" data-dismiss="modal" type="button">Close</button></div>
@@ -13436,13 +13409,13 @@ $(document).ready(function () {
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b04q009" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
 
 <div class="modal-body">
-<p>Isikan â€œYaâ€ jika terdapat minimal satu sistem peringatan dini bencana di Satuan Kerja Anda, dapatÂ  berupa sistem peringatan dini tradisional (kentongan, lonceng) maupun sistem peringatan dini modern (sirine, detector asap, fire alarm, radio, televisi, sms, internet, media cetak).</p>
+<p>Isikan “Ya” jika terdapat minimal satu sistem peringatan dini bencana di Satuan Kerja Anda, dapat  berupa sistem peringatan dini tradisional (kentongan, lonceng) maupun sistem peringatan dini modern (sirine, detector asap, fire alarm, radio, televisi, sms, internet, media cetak).</p>
 </div>
 
 <div class="modal-footer"><button class="btn btn-default" data-dismiss="modal" type="button">Close</button></div>
@@ -13474,7 +13447,7 @@ $(document).ready(function () {
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b04q007" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
@@ -13512,7 +13485,7 @@ $(document).ready(function () {
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b04q007" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
@@ -13550,7 +13523,7 @@ $(document).ready(function () {
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b04q008" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
@@ -13595,7 +13568,7 @@ $(document).ready(function () {
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b04q008" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
@@ -13636,7 +13609,7 @@ $(document).ready(function () {
     <title><![CDATA[R3B04Q022]]></title>
     <question><![CDATA[Apakah satuan kerja Bapak/Ibu/Saudara/i mengalokasikan dana untuk penanggulangan bencana baik dana dari APBN maupun luar APBN (iuran, sukarela, sumbangan)?]]></question>
     <preg/>
-    <help><![CDATA[<p style="margin-top:12pt;margin-right:0cm;margin-bottom:12pt;margin-left:0cm;text-align:justify;margin:0cm;"><span style="font-size:11pt;"><span style="line-height:150%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:150%;"><span style="font-family:'Times New Roman', serif;">Isikan â€œYaâ€ jika satuan kerja Anda mengalokasikan dana untuk penanggulangan bencana baik dana dari APBN maupun luar APBN (iuran, sukarela, sumbangan). </span></span></span></span></span></span></p>
+    <help><![CDATA[<p style="margin-top:12pt;margin-right:0cm;margin-bottom:12pt;margin-left:0cm;text-align:justify;margin:0cm;"><span style="font-size:11pt;"><span style="line-height:150%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:150%;"><span style="font-family:'Times New Roman', serif;">Isikan “Ya” jika satuan kerja Anda mengalokasikan dana untuk penanggulangan bencana baik dana dari APBN maupun luar APBN (iuran, sukarela, sumbangan). </span></span></span></span></span></span></p>
 ]]></help>
     <other><![CDATA[N]]></other>
     <mandatory><![CDATA[Y]]></mandatory>
@@ -13656,7 +13629,7 @@ $(document).ready(function () {
     <title><![CDATA[R3B04Q022]]></title>
     <question><![CDATA[Apakah satuan kerja Bapak/Ibu/Saudara/i mengalokasikan dana untuk penanggulangan bencana baik dana dari APBN maupun luar APBN (iuran, sukarela, sumbangan)?]]></question>
     <preg/>
-    <help><![CDATA[<p style="margin-top:12pt;margin-right:0cm;margin-bottom:12pt;margin-left:0cm;text-align:justify;margin:0cm;"><span style="font-size:11pt;"><span style="line-height:150%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:150%;"><span style="font-family:'Times New Roman', serif;">Isikan â€œYaâ€ jika satuan kerja Anda mengalokasikan dana untuk penanggulangan bencana baik dana dari APBN maupun luar APBN (iuran, sukarela, sumbangan). </span></span></span></span></span></span></p>
+    <help><![CDATA[<p style="margin-top:12pt;margin-right:0cm;margin-bottom:12pt;margin-left:0cm;text-align:justify;margin:0cm;"><span style="font-size:11pt;"><span style="line-height:150%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:150%;"><span style="font-family:'Times New Roman', serif;">Isikan “Ya” jika satuan kerja Anda mengalokasikan dana untuk penanggulangan bencana baik dana dari APBN maupun luar APBN (iuran, sukarela, sumbangan). </span></span></span></span></span></span></p>
 ]]></help>
     <other><![CDATA[N]]></other>
     <mandatory><![CDATA[Y]]></mandatory>
@@ -13800,7 +13773,7 @@ $(document).ready(function () {
     <title><![CDATA[R3B04Q025]]></title>
     <question><![CDATA[<p>Saat ini, apakah satuan kerja Bapak/Ibu/Saudara/I memiliki kendaraan untuk evakuasi bencana?</p>
 
-<p><span style="font-family:Trebuchet MS,Helvetica,sans-serif;"><em>( Misal : mobil/motor dinas kantor/bisÂ )</em></span>
+<p><span style="font-family:Trebuchet MS,Helvetica,sans-serif;"><em>( Misal : mobil/motor dinas kantor/bis )</em></span>
 <style type="text/css">.kondef {
         margin-left: 10px;
         width: 20px;
@@ -13955,7 +13928,7 @@ $(document).ready(function () {
 <!--Yang di dalam modal-body untuk isinya (ini yang diganti)-->
 
 <div class="modal-body">
-<p>Komputer utama yang dimaksud merupakan komputer yang menyimpan semua data penting satuan kerja tersebut. Isikan â€œYaâ€ jika memiliki Tata letak dan lokasi khusus. Tata letak adalah penggunaan sarana atau peralatan pendukung yang tepat untuk efisiensi penanganan bencana. Lokasi khusus yaitu lokasi penyimpanan yang aman dari bencana.</p>
+<p>Komputer utama yang dimaksud merupakan komputer yang menyimpan semua data penting satuan kerja tersebut. Isikan “Ya” jika memiliki Tata letak dan lokasi khusus. Tata letak adalah penggunaan sarana atau peralatan pendukung yang tepat untuk efisiensi penanganan bencana. Lokasi khusus yaitu lokasi penyimpanan yang aman dari bencana.</p>
 </div>
 
 <div class="modal-footer"><button class="btn btn-primary" data-dismiss="modal" type="button">Close</button></div>
@@ -13983,7 +13956,7 @@ $(document).ready(function () {
     <title><![CDATA[R3B04Q018]]></title>
     <question><![CDATA[<p>Saat ini, apakah satuan kerja Bapak/Ibu/Saudara/i memiliki tata letak dan lokasi khusus untuk melindungi fasilitas dan properti khusus ketika terjadi bencana?</p>
 
-<p><span style="font-family:Trebuchet MS,Helvetica,sans-serif;"><em>( Fasilitas dan properti yang dimaksud Kendaraan Dinas Bermotor, Komputer Utama )Â </em></span><button class="kondef" data-target="#418" data-toggle="modal" type="button">?</button></p>
+<p><span style="font-family:Trebuchet MS,Helvetica,sans-serif;"><em>( Fasilitas dan properti yang dimaksud Kendaraan Dinas Bermotor, Komputer Utama ) </em></span><button class="kondef" data-target="#418" data-toggle="modal" type="button">?</button></p>
 
 <p>
 <style type="text/css">.kondef {
@@ -14018,7 +13991,7 @@ $(document).ready(function () {
 <!--Yang di dalam modal-body untuk isinya (ini yang diganti)-->
 
 <div class="modal-body">
-<p>Komputer utama yang dimaksud merupakan komputer yang menyimpan semua data penting satuan kerja tersebut. Isikan â€œYaâ€ jika memiliki Tata letak dan lokasi khusus. Tata letak adalah penggunaan sarana atau peralatan pendukung yang tepat untuk efisiensi penanganan bencana. Lokasi khusus yaitu lokasi penyimpanan yang aman dari bencana.</p>
+<p>Komputer utama yang dimaksud merupakan komputer yang menyimpan semua data penting satuan kerja tersebut. Isikan “Ya” jika memiliki Tata letak dan lokasi khusus. Tata letak adalah penggunaan sarana atau peralatan pendukung yang tepat untuk efisiensi penanganan bencana. Lokasi khusus yaitu lokasi penyimpanan yang aman dari bencana.</p>
 </div>
 
 <div class="modal-footer"><button class="btn btn-primary" data-dismiss="modal" type="button">Close</button></div>
@@ -14240,7 +14213,7 @@ $(document).ready(function () {
     <title><![CDATA[R3B04Q019]]></title>
     <question><![CDATA[<p>Saat ini, apakah satuan kerja Bapak/Ibu/Saudara/I menyimpan dokumen penting di tempat khusus yang aman?</p>
 
-<p><span style="font-family:Trebuchet MS,Helvetica,sans-serif;"><em>( Misalnya: brankas atau lemari khusus )Â </em></span><button class="kondef" data-target="#419" data-toggle="modal" type="button">?</button></p>
+<p><span style="font-family:Trebuchet MS,Helvetica,sans-serif;"><em>( Misalnya: brankas atau lemari khusus ) </em></span><button class="kondef" data-target="#419" data-toggle="modal" type="button">?</button></p>
 
 <p>
 <style type="text/css">.kondef {
@@ -14303,7 +14276,7 @@ $(document).ready(function () {
     <title><![CDATA[R3B04Q020]]></title>
     <question><![CDATA[Apakah satuan kerja Bapak/Ibu/Saudara/I melakukan perawatan dan pengecekan tempat penyimpanan dokumen tersebut seperti pembersihan secara rutin?]]></question>
     <preg/>
-    <help><![CDATA[<p style="text-align:justify;margin:0cm;"><span style="font-size:11pt;"><span style="line-height:150%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:150%;"><span style="font-family:'Times New Roman', serif;">Isikan â€œYaâ€ jika<b> </b>dilakukan perawatan dan pengecekan tempat penyimpanan dokumen yang dimiliki oleh kantor BPS seperti brankas atau lemari khusus.</span></span></span></span></span></span></p>
+    <help><![CDATA[<p style="text-align:justify;margin:0cm;"><span style="font-size:11pt;"><span style="line-height:150%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:150%;"><span style="font-family:'Times New Roman', serif;">Isikan “Ya” jika<b> </b>dilakukan perawatan dan pengecekan tempat penyimpanan dokumen yang dimiliki oleh kantor BPS seperti brankas atau lemari khusus.</span></span></span></span></span></span></p>
 ]]></help>
     <other><![CDATA[N]]></other>
     <mandatory><![CDATA[Y]]></mandatory>
@@ -14323,7 +14296,7 @@ $(document).ready(function () {
     <title><![CDATA[R3B04Q020]]></title>
     <question><![CDATA[Apakah satuan kerja Bapak/Ibu/Saudara/I melakukan perawatan dan pengecekan tempat penyimpanan dokumen tersebut seperti pembersihan secara rutin?]]></question>
     <preg/>
-    <help><![CDATA[<p style="text-align:justify;margin:0cm;"><span style="font-size:11pt;"><span style="line-height:150%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:150%;"><span style="font-family:'Times New Roman', serif;">Isikan â€œYaâ€ jika<b> </b>dilakukan perawatan dan pengecekan tempat penyimpanan dokumen yang dimiliki oleh kantor BPS seperti brankas atau lemari khusus.</span></span></span></span></span></span></p>
+    <help><![CDATA[<p style="text-align:justify;margin:0cm;"><span style="font-size:11pt;"><span style="line-height:150%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:150%;"><span style="font-family:'Times New Roman', serif;">Isikan “Ya” jika<b> </b>dilakukan perawatan dan pengecekan tempat penyimpanan dokumen yang dimiliki oleh kantor BPS seperti brankas atau lemari khusus.</span></span></span></span></span></span></p>
 ]]></help>
     <other><![CDATA[N]]></other>
     <mandatory><![CDATA[Y]]></mandatory>
@@ -14463,7 +14436,7 @@ $(document).ready(function () {
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b04q001" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
@@ -14502,7 +14475,7 @@ $(document).ready(function () {
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b04q001" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
@@ -14534,13 +14507,13 @@ $(document).ready(function () {
     <gid><![CDATA[7]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q004]]></title>
-    <question><![CDATA[<p style="text-align: justify;">Saat ini, apakah satuan kerja Bapak/Ibu/Saudara/iÂ memiliki kebijakan khusus bagi kelompok rentan terkait kebencanaan? (misalnya saat terjadi bencana, kelompok rentan didahulukan)</p>
+    <question><![CDATA[<p style="text-align: justify;">Saat ini, apakah satuan kerja Bapak/Ibu/Saudara/i memiliki kebijakan khusus bagi kelompok rentan terkait kebencanaan? (misalnya saat terjadi bencana, kelompok rentan didahulukan)</p>
 <!--data-target harus beda tiap kondef, gaboleh sama--><button class="kondef" data-target="#r3b04q004" data-toggle="modal" type="button">Penjelasan</button><!--id pada tag di bawah harus disamakan dengan data-target tanpa tanda # kurung-->
 
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b04q004" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
@@ -14578,13 +14551,13 @@ $(document).ready(function () {
     <gid><![CDATA[7]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q004]]></title>
-    <question><![CDATA[<p style="text-align: justify;">Saat ini, apakah satuan kerja Bapak/Ibu/Saudara/iÂ memiliki kebijakan khusus bagi kelompok rentan terkait kebencanaan? (misalnya saat terjadi bencana, kelompok rentan didahulukan)</p>
+    <question><![CDATA[<p style="text-align: justify;">Saat ini, apakah satuan kerja Bapak/Ibu/Saudara/i memiliki kebijakan khusus bagi kelompok rentan terkait kebencanaan? (misalnya saat terjadi bencana, kelompok rentan didahulukan)</p>
 <!--data-target harus beda tiap kondef, gaboleh sama--><button class="kondef" data-target="#r3b04q004" data-toggle="modal" type="button">Penjelasan</button><!--id pada tag di bawah harus disamakan dengan data-target tanpa tanda # kurung-->
 
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b04q004" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
@@ -14668,13 +14641,13 @@ $(document).ready(function () {
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b04q005" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
 
 <div class="modal-body">
-<p>Isikan â€œYaâ€ jika Satuan Kerja Anda melakukan koordinasi dan kerjasama dengan institusiÂ yang berhubungan dengan kebencanaan, seperti BNPB/BPBD, BPJS, Pemadam Kebakaran, Dinas Kesehatan, dan lain-lain. Contohnya koordinasi dalam mengadakan pelatihan mitigasi dan kesiapsiagaan bencana</p>
+<p>Isikan “Ya” jika Satuan Kerja Anda melakukan koordinasi dan kerjasama dengan institusi yang berhubungan dengan kebencanaan, seperti BNPB/BPBD, BPJS, Pemadam Kebakaran, Dinas Kesehatan, dan lain-lain. Contohnya koordinasi dalam mengadakan pelatihan mitigasi dan kesiapsiagaan bencana</p>
 </div>
 
 <div class="modal-footer"><button class="btn btn-default" data-dismiss="modal" type="button">Close</button></div>
@@ -14706,13 +14679,13 @@ $(document).ready(function () {
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b04q005" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
 
 <div class="modal-body">
-<p>Isikan â€œYaâ€ jika Satuan Kerja Anda melakukan koordinasi dan kerjasama dengan institusiÂ yang berhubungan dengan kebencanaan, seperti BNPB/BPBD, BPJS, Pemadam Kebakaran, Dinas Kesehatan, dan lain-lain. Contohnya koordinasi dalam mengadakan pelatihan mitigasi dan kesiapsiagaan bencana</p>
+<p>Isikan “Ya” jika Satuan Kerja Anda melakukan koordinasi dan kerjasama dengan institusi yang berhubungan dengan kebencanaan, seperti BNPB/BPBD, BPJS, Pemadam Kebakaran, Dinas Kesehatan, dan lain-lain. Contohnya koordinasi dalam mengadakan pelatihan mitigasi dan kesiapsiagaan bencana</p>
 </div>
 
 <div class="modal-footer"><button class="btn btn-default" data-dismiss="modal" type="button">Close</button></div>
@@ -14744,7 +14717,7 @@ $(document).ready(function () {
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b04q006" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
@@ -14782,7 +14755,7 @@ $(document).ready(function () {
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b04q006" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
@@ -15189,7 +15162,7 @@ $(document).ready(function () {
     <gid><![CDATA[5]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B05Q005]]></title>
-    <question><![CDATA[<p style="margin:0cm 0cm 10pt;">SelamaÂ pandemi COVID-19, apakah wilayah satuan kerja Bapak/Ibu/Saudara/i pernah berstatus zona merah berdasarkan peta risiko penyebaran COVID-19?</p>
+    <question><![CDATA[<p style="margin:0cm 0cm 10pt;">Selama pandemi COVID-19, apakah wilayah satuan kerja Bapak/Ibu/Saudara/i pernah berstatus zona merah berdasarkan peta risiko penyebaran COVID-19?</p>
 ]]></question>
     <preg/>
     <help><![CDATA[<p style="margin:0cm;"><span style="font-size:11pt;"><span style="line-height:115%;"><span style="font-family:Arial, sans-serif;"><span lang="en" style="font-size:12pt;" xml:lang="en"><span style="line-height:115%;"><span style="font-family:'Times New Roman', serif;">Wilayah dengan zona merah (risiko tinggi) yang dimaksud adalah kecamatan.</span></span></span></span></span></span></p>
@@ -15231,13 +15204,13 @@ $(document).ready(function () {
     <gid><![CDATA[7]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q002]]></title>
-    <question><![CDATA[<p style="text-align: justify;">Dalam setahun terakhir, apakah satuan kerja Bapak/Ibu/Saudara/i pernah melakukan pelatihan mitigasi dan kesiapsiagaanÂ bencana kebakaranÂ (simulasi/gladi peringatan bencana, sosialisasi, dan lainnya)?</p>
+    <question><![CDATA[<p style="text-align: justify;">Dalam setahun terakhir, apakah satuan kerja Bapak/Ibu/Saudara/i pernah melakukan pelatihan mitigasi dan kesiapsiagaan bencana kebakaran (simulasi/gladi peringatan bencana, sosialisasi, dan lainnya)?</p>
 <!--data-target harus beda tiap kondef, gaboleh sama--><button class="kondef" data-target="#r3b04q002" data-toggle="modal" type="button">Penjelasan</button><!--id pada tag di bawah harus disamakan dengan data-target tanpa tanda # kurung-->
 
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b04q002" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
@@ -15269,13 +15242,13 @@ $(document).ready(function () {
     <gid><![CDATA[7]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q002]]></title>
-    <question><![CDATA[<p style="text-align: justify;">Dalam setahun terakhir, apakah satuan kerja Bapak/Ibu/Saudara/i pernah melakukan pelatihan mitigasi dan kesiapsiagaanÂ bencana kebakaranÂ (simulasi/gladi peringatan bencana, sosialisasi, dan lainnya)?</p>
+    <question><![CDATA[<p style="text-align: justify;">Dalam setahun terakhir, apakah satuan kerja Bapak/Ibu/Saudara/i pernah melakukan pelatihan mitigasi dan kesiapsiagaan bencana kebakaran (simulasi/gladi peringatan bencana, sosialisasi, dan lainnya)?</p>
 <!--data-target harus beda tiap kondef, gaboleh sama--><button class="kondef" data-target="#r3b04q002" data-toggle="modal" type="button">Penjelasan</button><!--id pada tag di bawah harus disamakan dengan data-target tanpa tanda # kurung-->
 
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b04q002" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
@@ -15359,7 +15332,7 @@ $(document).ready(function () {
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b04q003" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
@@ -15397,7 +15370,7 @@ $(document).ready(function () {
 <div aria-labelledby="myModalLabel" class="modal fade" id="r3b04q003" role="dialog" tabindex="-1">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">Ã—</span></button>
+<div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 
 <h4 class="modal-title" id="myModalLabel">Konsep dan Definisi</h4>
 </div>
@@ -15725,7 +15698,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q017aa]]></title>
-    <question><![CDATA[Apakah dalam 1 tahun terakhir dilakukan perawatan dan pengecekan?Â ]]></question>
+    <question><![CDATA[Apakah dalam 1 tahun terakhir dilakukan perawatan dan pengecekan? ]]></question>
     <preg/>
     <help/>
     <other><![CDATA[N]]></other>
@@ -15744,7 +15717,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q017aa]]></title>
-    <question><![CDATA[Apakah dalam 1 tahun terakhir dilakukan perawatan dan pengecekan?Â ]]></question>
+    <question><![CDATA[Apakah dalam 1 tahun terakhir dilakukan perawatan dan pengecekan? ]]></question>
     <preg/>
     <help/>
     <other><![CDATA[N]]></other>
@@ -15762,7 +15735,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B004Q017bb]]></title>
-    <question><![CDATA[Apakah dalam 1 tahun terakhir dilakukan perawatan dan pengecekan?Â ]]></question>
+    <question><![CDATA[Apakah dalam 1 tahun terakhir dilakukan perawatan dan pengecekan? ]]></question>
     <preg/>
     <help/>
     <other><![CDATA[N]]></other>
@@ -15780,7 +15753,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B004Q017bb]]></title>
-    <question><![CDATA[Apakah dalam 1 tahun terakhir dilakukan perawatan dan pengecekan?Â ]]></question>
+    <question><![CDATA[Apakah dalam 1 tahun terakhir dilakukan perawatan dan pengecekan? ]]></question>
     <preg/>
     <help/>
     <other><![CDATA[N]]></other>
@@ -15798,7 +15771,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q017cc]]></title>
-    <question><![CDATA[Apakah dalam 1 tahun terakhir dilakukan perawatan dan pengecekan?Â ]]></question>
+    <question><![CDATA[Apakah dalam 1 tahun terakhir dilakukan perawatan dan pengecekan? ]]></question>
     <preg/>
     <help/>
     <other><![CDATA[N]]></other>
@@ -15816,7 +15789,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q017cc]]></title>
-    <question><![CDATA[Apakah dalam 1 tahun terakhir dilakukan perawatan dan pengecekan?Â ]]></question>
+    <question><![CDATA[Apakah dalam 1 tahun terakhir dilakukan perawatan dan pengecekan? ]]></question>
     <preg/>
     <help/>
     <other><![CDATA[N]]></other>
@@ -15834,7 +15807,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q017dd]]></title>
-    <question><![CDATA[Apakah dalam 1 minggu terakhir dilakukan perawatan dan pengecekan?Â ]]></question>
+    <question><![CDATA[Apakah dalam 1 minggu terakhir dilakukan perawatan dan pengecekan? ]]></question>
     <preg/>
     <help/>
     <other><![CDATA[N]]></other>
@@ -15852,7 +15825,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q017dd]]></title>
-    <question><![CDATA[Apakah dalam 1 minggu terakhir dilakukan perawatan dan pengecekan?Â ]]></question>
+    <question><![CDATA[Apakah dalam 1 minggu terakhir dilakukan perawatan dan pengecekan? ]]></question>
     <preg/>
     <help/>
     <other><![CDATA[N]]></other>
@@ -15870,7 +15843,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q017ee]]></title>
-    <question><![CDATA[Apakah dalam 2 tahun terakhir dilakukan perawatan dan pengecekan?Â ]]></question>
+    <question><![CDATA[Apakah dalam 2 tahun terakhir dilakukan perawatan dan pengecekan? ]]></question>
     <preg/>
     <help/>
     <other><![CDATA[N]]></other>
@@ -15888,7 +15861,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q017ee]]></title>
-    <question><![CDATA[Apakah dalam 2 tahun terakhir dilakukan perawatan dan pengecekan?Â ]]></question>
+    <question><![CDATA[Apakah dalam 2 tahun terakhir dilakukan perawatan dan pengecekan? ]]></question>
     <preg/>
     <help/>
     <other><![CDATA[N]]></other>
@@ -15906,7 +15879,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q017ff]]></title>
-    <question><![CDATA[Apakah dalam 6 bulan terakhir dilakukan perawatan dan pengecekan?Â ]]></question>
+    <question><![CDATA[Apakah dalam 6 bulan terakhir dilakukan perawatan dan pengecekan? ]]></question>
     <preg/>
     <help/>
     <other><![CDATA[N]]></other>
@@ -15924,7 +15897,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q017ff]]></title>
-    <question><![CDATA[Apakah dalam 6 bulan terakhir dilakukan perawatan dan pengecekan?Â ]]></question>
+    <question><![CDATA[Apakah dalam 6 bulan terakhir dilakukan perawatan dan pengecekan? ]]></question>
     <preg/>
     <help/>
     <other><![CDATA[N]]></other>
@@ -15942,7 +15915,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q017gg]]></title>
-    <question><![CDATA[Apakah dalam 1 bulan terakhir dilakukan perawatan dan pengecekan?Â ]]></question>
+    <question><![CDATA[Apakah dalam 1 bulan terakhir dilakukan perawatan dan pengecekan? ]]></question>
     <preg/>
     <help/>
     <other><![CDATA[N]]></other>
@@ -15960,7 +15933,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q017gg]]></title>
-    <question><![CDATA[Apakah dalam 1 bulan terakhir dilakukan perawatan dan pengecekan?Â ]]></question>
+    <question><![CDATA[Apakah dalam 1 bulan terakhir dilakukan perawatan dan pengecekan? ]]></question>
     <preg/>
     <help/>
     <other><![CDATA[N]]></other>
@@ -15978,7 +15951,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q017hh]]></title>
-    <question><![CDATA[Apakah dalam 1 bulan terakhir dilakukan perawatan dan pengecekan?Â ]]></question>
+    <question><![CDATA[Apakah dalam 1 bulan terakhir dilakukan perawatan dan pengecekan? ]]></question>
     <preg/>
     <help/>
     <other><![CDATA[N]]></other>
@@ -15996,7 +15969,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q017hh]]></title>
-    <question><![CDATA[Apakah dalam 1 bulan terakhir dilakukan perawatan dan pengecekan?Â ]]></question>
+    <question><![CDATA[Apakah dalam 1 bulan terakhir dilakukan perawatan dan pengecekan? ]]></question>
     <preg/>
     <help/>
     <other><![CDATA[N]]></other>
@@ -16062,7 +16035,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q013b]]></title>
-    <question><![CDATA[<p>2.Â Â  Â HTÂ </p>
+    <question><![CDATA[<p>2.    HT </p>
 
 <p><img alt="" src="/limesurvey/upload/surveys/423492/images/WhatsApp%20Image%202021-01-30%20at%2013.55.26.jpeg" style="width:220px;height:225px;" /></p>
 
@@ -16086,7 +16059,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q013b]]></title>
-    <question><![CDATA[<p>2.Â Â  Â HTÂ </p>
+    <question><![CDATA[<p>2.    HT </p>
 
 <p><img alt="" src="/limesurvey/upload/surveys/423492/images/WhatsApp%20Image%202021-01-30%20at%2013.55.26.jpeg" style="width:220px;height:225px;" /></p>
 
@@ -16110,7 +16083,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q013c]]></title>
-    <question><![CDATA[<p>3.Â Â  Â Telepon</p>
+    <question><![CDATA[<p>3.    Telepon</p>
 
 <p><img alt="" src="/limesurvey/upload/surveys/423492/images/WhatsApp%20Image%202021-01-30%20at%2013.47.25.jpeg" style="width:225px;height:225px;" /></p>
 
@@ -16134,7 +16107,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q013c]]></title>
-    <question><![CDATA[<p>3.Â Â  Â Telepon</p>
+    <question><![CDATA[<p>3.    Telepon</p>
 
 <p><img alt="" src="/limesurvey/upload/surveys/423492/images/WhatsApp%20Image%202021-01-30%20at%2013.47.25.jpeg" style="width:225px;height:225px;" /></p>
 
@@ -16158,7 +16131,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q015a]]></title>
-    <question><![CDATA[<p>1.Â Â  Â Alat pemadam api (<em>fire hydran</em>, tabung pemadam api, <em>sprinkler)</em>Â </p>
+    <question><![CDATA[<p>1.    Alat pemadam api (<em>fire hydran</em>, tabung pemadam api, <em>sprinkler)</em> </p>
 
 <p><img alt="" src="/limesurvey/upload/surveys/423492/images/WhatsApp%20Image%202021-01-30%20at%2013.42.44%20(1).jpeg" style="width:488px;height:255px;" /></p>
 
@@ -16182,7 +16155,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q015a]]></title>
-    <question><![CDATA[<p>1.Â Â  Â Alat pemadam api (<em>fire hydran</em>, tabung pemadam api, <em>sprinkler)</em>Â </p>
+    <question><![CDATA[<p>1.    Alat pemadam api (<em>fire hydran</em>, tabung pemadam api, <em>sprinkler)</em> </p>
 
 <p><img alt="" src="/limesurvey/upload/surveys/423492/images/WhatsApp%20Image%202021-01-30%20at%2013.42.44%20(1).jpeg" style="width:488px;height:255px;" /></p>
 
@@ -16206,7 +16179,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q015b]]></title>
-    <question><![CDATA[<p>2.Â Â  Â Alat penerangan alternatif (senter/lampu <em>emergency</em>/jenset)Â </p>
+    <question><![CDATA[<p>2.    Alat penerangan alternatif (senter/lampu <em>emergency</em>/jenset) </p>
 
 <p><img alt="" src="/limesurvey/upload/surveys/423492/images/WhatsApp%20Image%202021-01-30%20at%2013.42.44.jpeg" style="width:488px;height:255px;" /></p>
 
@@ -16230,7 +16203,7 @@ $(document).ready(function () {
     <gid><![CDATA[4]]></gid>
     <type><![CDATA[L]]></type>
     <title><![CDATA[R3B04Q015b]]></title>
-    <question><![CDATA[<p>2.Â Â  Â Alat penerangan alternatif (senter/lampu <em>emergency</em>/jenset)Â </p>
+    <question><![CDATA[<p>2.    Alat penerangan alternatif (senter/lampu <em>emergency</em>/jenset) </p>
 
 <p><img alt="" src="/limesurvey/upload/surveys/423492/images/WhatsApp%20Image%202021-01-30%20at%2013.42.44.jpeg" style="width:488px;height:255px;" /></p>
 
@@ -16315,7 +16288,7 @@ $(document).ready(function () {
     <language><![CDATA[en]]></language>
     <scale_id><![CDATA[0]]></scale_id>
     <same_default><![CDATA[0]]></same_default>
-    <relevance><![CDATA[(((!is_empty(423492X1X66.NAOK) && (423492X1X66.NAOK == 2)) or (!is_empty(423492X1X66.NAOK) && (423492X1X66.NAOK == 3))))]]></relevance>
+    <relevance><![CDATA[1]]></relevance>
     <modulename/>
    </row>
    <row>
@@ -16349,7 +16322,7 @@ $(document).ready(function () {
     <language><![CDATA[id]]></language>
     <scale_id><![CDATA[0]]></scale_id>
     <same_default><![CDATA[0]]></same_default>
-    <relevance><![CDATA[(((!is_empty(423492X1X66.NAOK) && (423492X1X66.NAOK == 2)) or (!is_empty(423492X1X66.NAOK) && (423492X1X66.NAOK == 3))))]]></relevance>
+    <relevance><![CDATA[1]]></relevance>
    </row>
    <row>
     <qid><![CDATA[68]]></qid>
@@ -16423,7 +16396,7 @@ $(document).ready(function () {
     <language><![CDATA[id]]></language>
     <scale_id><![CDATA[0]]></scale_id>
     <same_default><![CDATA[0]]></same_default>
-    <relevance><![CDATA[(((!is_empty(423492X1X66.NAOK) && (423492X1X66.NAOK == 3))))]]></relevance>
+    <relevance><![CDATA[1]]></relevance>
     <modulename/>
    </row>
    <row>
@@ -16499,7 +16472,7 @@ $(document).ready(function () {
     <language><![CDATA[en]]></language>
     <scale_id><![CDATA[0]]></scale_id>
     <same_default><![CDATA[0]]></same_default>
-    <relevance><![CDATA[(((!is_empty(423492X1X66.NAOK) && (423492X1X66.NAOK == 3))))]]></relevance>
+    <relevance><![CDATA[1]]></relevance>
     <modulename/>
    </row>
    <row>
@@ -16512,7 +16485,7 @@ $(document).ready(function () {
     <question><![CDATA[<p>Nomor <span style="font-family:Trebuchet MS,Helvetica,sans-serif;"><em>Whatsapp</em></span> ( WA )</p>
 ]]></question>
     <preg/>
-    <help><![CDATA[<p><span lang="EN-US" style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif">Tuliskan nomor Whatsapp ( WA ) responden yang dapat dihubungiÂ </span></span></span><em><span lang="EN-US" style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif">( Kerahasiaan dijaga oleh penyelenggara )</span></span></span></em></p>
+    <help><![CDATA[<p><span lang="EN-US" style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif">Tuliskan nomor Whatsapp ( WA ) responden yang dapat dihubungi </span></span></span><em><span lang="EN-US" style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif">( Kerahasiaan dijaga oleh penyelenggara )</span></span></span></em></p>
 ]]></help>
     <other><![CDATA[N]]></other>
     <mandatory><![CDATA[N]]></mandatory>
@@ -16532,7 +16505,7 @@ $(document).ready(function () {
     <title><![CDATA[R3B02Q003]]></title>
     <question><![CDATA[Nomor <span style="font-family:Trebuchet MS,Helvetica,sans-serif;"><em>Whatsapp</em></span> ( WA )]]></question>
     <preg/>
-    <help><![CDATA[<p><span lang="EN-US" style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif">Tuliskan nomor Whatsapp ( WA ) responden yang dapat dihubungiÂ </span></span></span><em><span lang="EN-US" style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif">( Kerahasiaan dijaga oleh penyelenggara )</span></span></span></em></p>
+    <help><![CDATA[<p><span lang="EN-US" style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif">Tuliskan nomor Whatsapp ( WA ) responden yang dapat dihubungi </span></span></span><em><span lang="EN-US" style="font-size:12.0pt"><span style="line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,serif">( Kerahasiaan dijaga oleh penyelenggara )</span></span></span></em></p>
 ]]></help>
     <other><![CDATA[N]]></other>
     <mandatory><![CDATA[N]]></mandatory>
@@ -18285,7 +18258,7 @@ $(document).ready(function () {
     <usecookie><![CDATA[N]]></usecookie>
     <allowregister><![CDATA[N]]></allowregister>
     <allowsave><![CDATA[Y]]></allowsave>
-    <autonumber_start><![CDATA[3]]></autonumber_start>
+    <autonumber_start><![CDATA[1]]></autonumber_start>
     <autoredirect><![CDATA[N]]></autoredirect>
     <allowprev><![CDATA[Y]]></allowprev>
     <printanswers><![CDATA[N]]></printanswers>
@@ -18361,9 +18334,9 @@ $(document).ready(function () {
 ]]></surveyls_description>
     <surveyls_welcometext><![CDATA[<p style="text-align:center;"><strong>PRAKTIK KERJA LAPANGAN POLITEKNIK STATISTIKA STIS TAHUN 2020/2021</strong></p>
 ]]></surveyls_welcometext>
-    <surveyls_endtext><![CDATA[<h3 style="text-align: center;">Kami mengucapkan terima kasih banyak kepada Bapak/Ibu atas kesediaannya mengisi kuesioner ini. Jawaban yang Bapak/Ibu berikan sangat berguna bagi kelancaran PKL Politeknik Statistika STIS T.A 2020/2021 yang bertema â€œMenuju BPS yang Lebih Baikâ€ ( <em>Towards Better BPS</em> ). Semoga Bapak/Ibu sekeluarga sehat selalu.</h3>
+    <surveyls_endtext><![CDATA[<h3 style="text-align: center;">Kami mengucapkan terima kasih banyak kepada Bapak/Ibu atas kesediaannya mengisi kuesioner ini. Jawaban yang Bapak/Ibu berikan sangat berguna bagi kelancaran PKL Politeknik Statistika STIS T.A 2020/2021 yang bertema “Menuju BPS yang Lebih Baik” ( <em>Towards Better BPS</em> ). Semoga Bapak/Ibu sekeluarga sehat selalu.</h3>
 
-<p style="text-align:center;">Â </p>
+<p style="text-align:center;"> </p>
 
 <p style="text-align:center;"><strong>PRAKTIK KERJA LAPANGAN POLITEKNIK STATISTIKA STIS TAHUN 2020/2021</strong></p>
 ]]></surveyls_endtext>

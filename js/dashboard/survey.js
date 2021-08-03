@@ -27,17 +27,7 @@ importPartisipan = () => {
 }
 
 exportResponse = () => {
-  button = $('#export-response').html()
-  $('#export-response').html('Memproses import partisipan...')
-  $.get('exportResponse' , (data) => {
-    console.log(data)
-  })
-  .fail(() => {
-    $('#export-response').html(button)
-  })
-  .done(() => {
-    $('#export-response').html(button)
-  })
+  window.open('exportResponse')
 }
 
 deleteSurvey = () => {
@@ -52,7 +42,6 @@ deleteSurvey = () => {
   .done(() => {
     $('#delete-survey').html(button)
   })
-
 }
 
 

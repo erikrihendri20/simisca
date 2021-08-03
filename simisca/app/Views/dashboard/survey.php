@@ -6,6 +6,7 @@
         <div class="card-body text-dark">
             <h3>Import Struktur Survay</h3>
             <p>Untuk dapat menjalankan survey SMKB langkah pertama adalah dengan cara mengimport struktur survey</p>
+            
             <button id="import-survey" class="btn btn-dark">Import Struktur Survey</button>
         </div>
     </div>
