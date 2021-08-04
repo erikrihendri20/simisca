@@ -9,13 +9,10 @@
                 </div>
                 <div id="nasionalPart">
                     <div>
-                        <div id="nasionalTable" class="table">
-                            <div id="exportNasional">
-                                <p id="tombolExportNasional">Export Data</p>
-                            </div>
+                        <div id="nasionalTable" class="table py-2" style="height: 265px;">
                             <div>
                                 <table id="detailMonitoringNasional">
-                                    <thead>
+                                    <!-- <thead>
                                         <tr>
                                             <th>Status</th>
                                             <th>Jumlah</th>
@@ -24,35 +21,36 @@
                                     <tbody>
                                         <tr>
                                             <td>Sudah Mengisi</td>
-                                            <td><?= $detailProgressNasional['selesai mengisi']; ?></td>
+                                            <td></td>
                                         </tr>
                                         <tr>
                                             <td>Belum mengisi</td>
-                                            <td><?= $detailProgressNasional['belum mengisi']; ?></td>
+                                            <td></td>
                                         </tr>
                                         <tr>
                                             <td>Belum Selesai</td>
-                                            <td><?= $detailProgressNasional['sudah mengisi']; ?></td>
+                                            <td></td>
                                         </tr>
                                     </tbody>
                                     <tfoot>
                                         <tr>
                                             <th>Total</th>
-                                            <th><?= array_sum($detailProgressNasional); ?></th>
+                                            <th></th>
                                         </tr>
-                                    </tfoot>
+                                    </tfoot> -->
                                 </table>
                             </div>
                         </div>
                     </div>
+                    
                     <div class="cirBar">
                         <div class="percent">
                             <svg>
                                 <circle cx="70" cy="70" r="70"></circle>
-                                <circle cx="70" cy="70" r="70" id="persentaseNasional" style="stroke-dashoffset: calc(440 - (440 * <?= $persentaseNasional; ?>)/100);"></circle>
+                                <circle cx="70" cy="70" r="70" id="persentaseNasional" style="stroke-dashoffset: calc(440 - (440 * 0)/100);"></circle>
                             </svg>
                             <div class="number">
-                                <h2><?= $persentaseNasional; ?><span>%</span></h2>
+                                <h2 id="valuePersentaseNasional">0<span>%</span></h2>
                             </div>
                         </div>
                     </div>
@@ -61,23 +59,7 @@
                     <div>
                         <p>Progress Berdasarkan Provinsi</p>
                     </div>
-                    <div class="box">
-                        <?php foreach ($progressPerProvinsi as $ppp) : ?>
-                            <div class="section">
-                                <div  class="prov">
-                                    <span><?= $ppp['namasatker']; ?></span>
-                                </div>
-                                <div class="progressBar">
-                                    <div class="progressBarFill" style="width: <?= $ppp['persentase']; ?>%;"></div>
-                                </div>
-                                <div class="percentage">
-                                    <span class="changePercent"><?= $ppp['persentase']; ?>%</span>
-                                </div>
-                                <div class="greater">
-                                    <span class="greaterIn">></span>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
+                    <div class="box"  id="progressPerProvinsi">   
                     </div>            
                 </div>
                 <div id="satkerPart">
@@ -85,27 +67,8 @@
                         <p>Status Pengisian Berdasarkan Satuan Kerja</p>
                     </div>
                     <div class="satkerStatusBox">
-                        <div>
-                            <table id="statusPengisian">
-                                <thead>
-                                    <tr>
-                                        <th>Nama Satker</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($statusPengisian as $s) :?>
-                                        <tr>
-                                            <td><?= $s['namasatker']; ?></td>
-                                            <td><?= $s['status']; ?></td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                                <tfoot>
-                                    <th>Total</th>
-                                    <th><?= count($statusPengisian); ?></th>
-                                </tfoot>
-                            </table>
+                        <div id="satkerStatusTable">
+                            
                         </div>
                         
                     </div>

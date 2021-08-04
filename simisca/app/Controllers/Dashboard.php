@@ -93,15 +93,71 @@ class Dashboard extends BaseController
 
     public function monitoring()
     {
-        $data['style'] = 'monitoring';
-        $data['script'] = 'monitoring';
-        $data['active'] = 'monitoring';
-        $data['title'] = 'Monitoring';
-        $export = $this->rPCClient->export_responses($this->sessionKey , $this->surveyId , 'csv' , null , 'all' , 'code' , 'short' , null , null , null);
-        dd($export);
+        try {
+            $data['style'] = 'monitoring';
+            $data['script'] = 'monitoring';
+            $data['active'] = 'monitoring';
+            $data['title'] = 'Monitoring';
+            $satkerModel = new Satker_model();
+            $data['provinsi'] = $satkerModel->getSatker();
+            $export = $this->rPCClient->export_responses($this->sessionKey , $this->surveyId , 'json' , null , 'all' , 'code' , 'short' , null , null , null);
+            $fetch = json_decode(base64_decode($export),true)['responses'];
+            $result = [];
+            foreach ($fetch as $f) {
+                $result[] = array_values($f)[0];
+            }
+            $data['persentaseNasional'] = round(count(array_filter($result , function ($r)
+            {
+                return $r['lastpage'] == 8;
+            }))/517*100,2);
+            return view('dashboard/monitoring',$data);
+        } catch (\Throwable $th) {
+            return view('dashboard/monitoringBerhenti',$data);
+        }
     }
 
 
+    public function getResponses()
+    {
+        $export = $this->rPCClient->export_responses($this->sessionKey , $this->surveyId , 'json' , null , 'all' , 'code' , 'short' , null , null , null);
+        $fetch = json_decode(base64_decode($export),true)['responses'];
+        $result = [];
+        foreach ($fetch as $f) {
+            $row = array_values($f)[0];
+            switch ($row['R3B01Q001']) {
+                case 1:
+                    $row['R3B01Q003'] = 1;
+                    break;
+                
+                case 2:
+                    $row['R3B01Q003'] = $row['R3B01Q003'].'00';
+                    break;
+                
+                case 3:
+                    $row['R3B01Q003'] = $row['R3B01Q003'];
+                    break;
+                
+                case 4:
+                    $row['R3B01Q003'] = 3;
+                    break;
+                
+                case 5:
+                    $row['R3B01Q003'] = 2;
+                    break;
+                
+                default:
+                    # code...
+                    break;
+            }
+            $result[] = $row;
+        }
+        $satkerModel = new Satker_model();
+        return json_encode([
+            'satker' => $satkerModel->findAll(),
+            'provinsi' => $satkerModel->getSatker(),
+            'responses' => $result
+        ]);
+    }
 
     public function monitoringNasional()
     {
@@ -109,108 +165,81 @@ class Dashboard extends BaseController
         $data['script'] = 'monitoringNasional';
         $data['active'] = 'monitoring';
         $data['title'] = 'Monitoring Nasional';
+        $satkerModel = new Satker_model();
+        $data['provinsi'] = $satkerModel->getSatker();
+        $satkerModel = new Satker_model();
+        $data['provinsi'] = $satkerModel->getSatker();
+        $export = $this->rPCClient->export_responses($this->sessionKey , $this->surveyId , 'json' , null , 'all' , 'code' , 'short' , null , null , null);
+        $fetch = json_decode(base64_decode($export),true)['responses'];
+        $result = [];
+        foreach ($fetch as $f) {
+            $result[] = array_values($f)[0];
+        }
+        $selesai = array_filter($result , function ($r)
+        {
+            return $r['lastpage'] == 8;
+        });
+        $sedang = array_filter($result , function ($r)
+        {
+            return $r['lastpage'] == null;
+        });
+        $data['persentaseNasional'] = round(count($selesai)/517*100,2);
+        $satker = $satkerModel->getSatker();
+        // $data['progressPerProvinsi'] = [];
+        // foreach ($satker as $s) {
+        //     $data['progressPerProvinsi'][] = [
+        //         'kodesatker' => $s['kodesatker'],
+        //         'namasatker' => $s['namasatker'],
+        //         'persentase' => $this->persentasePerProvinsi(substr($s['kodesatker'],0,2))
+        //     ];
+        // }
+        
+        
+        $data['detailProgressNasional'] = [
+            'sudah mengisi' => count($selesai),
+            'belum selesai' => count($sedang),
+            'belum mengisi' => 517-count($sedang)-count($selesai)
+        ];
+
+        // dd($data['detailProgressNasional']);
+        
+
+
+        return view('dashboard/monitoringNasional',$data);
         try {
-            $satkerModel = new Satker_model();
-            $data['provinsi'] = $satkerModel->getSatker();
-            $imkbSatkerModel = new ImkbSatker_model();
-            $data['persentaseNasional'] = $imkbSatkerModel->progressNasional();
-            $data['progress'] = [];
-            foreach ($data['provinsi'] as $prov) :
-                $kodesatker = substr($prov['kodesatker'],0,2);
-                $progressProvinsi = $imkbSatkerModel->progressProvinsi($kodesatker);
-                $progress = [
-                    'kodesatker' => $prov['kodesatker'],
-                    'namasatker' => $prov['namasatker'],
-                    'persentase' => $progressProvinsi
-                ];
-                $data['progressPerProvinsi'][]=$progress;
-            endforeach;
-            
-            $data['detailProgressNasional'] = $imkbSatkerModel->detailProgress();
-            $data['statusPengisianNasional'] = $imkbSatkerModel->statusPengisianSatker();
-            
-            $data['statusPengisian'] = [];
-            foreach ($data['statusPengisianNasional'] as $s) :
-                $status['namasatker'] = $s['namasatker'];
-                if($s['lastpage']==null){
-                    $status['status'] = 'belum mengisi';
-                }elseif($s['submitdate']==null){
-                    $status['status'] = 'sedang mengisi';
-                }else{
-                    $status['status'] = 'selesai mengisi';
-                }
-                $data['statusPengisian'][]=$status;
-            endforeach;
-            return view('dashboard/monitoringNasional',$data);
         } catch (\Throwable $th) {
             return view('dashboard/monitoringBerhenti',$data);
             //throw $th;
         }
     }
 
+
     public function persentasePerProvinsi($kodesatker)
     {
-        $surveyModel = new Survey_model();
-        $progressProvinsi = $surveyModel->progressProvinsi($kodesatker);
-        return json_encode($progressProvinsi);
+        $export = $this->rPCClient->export_responses($this->sessionKey , $this->surveyId , 'json' , null , 'all' , 'code' , 'short' , null , null , null);
+        $fetch = json_decode(base64_decode($export),true)['responses'];
+        $result = [];
+        foreach ($fetch as $f) {
+            $row = array_values($f)[0];
+            if($row['lastpage'] == 8 && $row['R3B01Q002']==$kodesatker){
+                $result[] = $row;
+            }
+        }
+        $satkerModel = new Satker_model();
+        $satker = $satkerModel->getSatker($kodesatker);
+        
+        return json_encode(round(count($result)/count($satker)*100,2));
     }
 
     public function monitoringProvinsi($kodesatker)
     {
-        
         $data['style'] = 'monitoringProvinsi';
         $data['script'] = 'monitoringProvinsi';
         $data['active'] = 'monitoring';
         $data['title'] = 'Monitoring Provinsi';
-        try {
-            $satkerModel = new Satker_model();
-            $imkbSatkerModel = new ImkbSatker_model();
-            $data['satker'] = $satkerModel->find($kodesatker);
-            $data['persentaseProvinsi'] = $this->persentasePerProvinsi(substr($kodesatker,0,2));
-
-            $data['detailProgressProvinsi'] = $imkbSatkerModel->detailProgress(substr($kodesatker,0,2));
-            $data['kabupaten'] = $satkerModel->getSatker(substr($kodesatker,0,2));
-            array_unshift($data['kabupaten'] , $data['satker']);
-
-            $data['progressPerkabupaten'] = [];
-            
-            
-            foreach ($data['kabupaten'] as $kab) :
-                $ks = $kab['kodesatker'];
-                $persentase = $imkbSatkerModel->progressKabupaten($ks);
-                if($persentase==null){
-                    $persentase = 0/8*100;
-                }else{
-                    $persentase = $persentase[0]['lastpage']/8*100;
-                }
-                $progress = [
-                    'kodesatker' => $kab['kodesatker'],
-                    'namasatker' => $kab['namasatker'],
-                    'persentase' => $persentase
-                ];
-                $data['progressPerkabupaten'][]=$progress;
-            endforeach;
-
-            $data['statusPengisianProvinsi'] = $imkbSatkerModel->statusPengisianSatker(substr($kodesatker,0,2));
-
-            $data['statusPengisian'] = [];
-            foreach ($data['statusPengisianProvinsi'] as $s) :
-                $status['namasatker'] = $s['namasatker'];
-                if($s['lastpage']==null){
-                    $status['status'] = 'belum mengisi';
-                }elseif($s['submitdate']==null){
-                    $status['status'] = 'sedang mengisi';
-                }else{
-                    $status['status'] = 'selesai mengisi';
-                }
-                $data['statusPengisian'][]=$status;
-            endforeach;
-
-            return view('dashboard/monitoringProvinsi',$data);
-        } catch (\Throwable $th) {
-            return view('dashboard/monitoringBerhenti',$data);
-            //throw $th;
-        }
+        $satkerModel = new Satker_model();
+        $data['satker'] = $satkerModel->find($kodesatker);
+        return view('dashboard/monitoringProvinsi',$data);
     }
 
     public function survey()
@@ -432,14 +461,10 @@ class Dashboard extends BaseController
         return view("dashboard/tentang",$data);
     }
 
-
     public function getImkbByKodesatker($kodesatker , $tahun)
     {
         $imkbSatkerModel = new ImkbSatker_model();
         return json_encode($imkbSatkerModel->getImkbByKodesatker($kodesatker , $tahun));
     }
     
-    
-    //--------------------------------------------------------------------
-
 }

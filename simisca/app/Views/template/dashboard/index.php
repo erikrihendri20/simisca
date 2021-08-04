@@ -54,7 +54,7 @@
             <?php endif; ?>
             <a href="<?= base_url('dashboard/monitoring'); ?>" class="<?= ($active == 'monitoring') ? 'active' : ''; ?>"><i class="fas fa-desktop"></i><span>Monitoring SMKB</span></a>
             <?php if(session('super admin')): ?>
-            <a href="<?= base_url('dashboard/survey'); ?>" class="<?= ($active == 'survey') ? 'active' : ''; ?>"><i class="fas fa-cogs"></i><span>Survey SMKB</span></a>
+            <a href="<?= base_url('dashboard/survey'); ?>" class="<?= ($active == 'survey') ? 'active' : ''; ?>"><i class="fas fa-cogs"></i><span>SMKB Setting</span></a>
             <?php endif; ?>
             <a href="<?= base_url('dashboard/profil'); ?>" class="<?= ($active == 'profil') ? 'active' : ''; ?>"><i class="fas fa-user"></i><span>Profil Anda</span></a>
             <a href="<?= base_url('dashboard/tentang'); ?>" class="<?= ($active == 'tentang') ? 'active' : ''; ?>"><i class="fas fa-info-circle"></i><span>Tentang</span></a>
@@ -106,12 +106,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
     <!-- index -->
-    <?php if ($script == 'index') : ?>
-        <script src="<?= base_url('js/dashboard/index.js'); ?>"></script>
-    <?php else : ?>
-        <script src="<?= base_url('js/dashboard/index.js'); ?>"></script>
-        <script src="<?= base_url('js/dashboard/' . $script . '.js'); ?>"></script>
-    <?php endif; ?>
+    <script src="<?= base_url('js/dashboard/dashboard.js'); ?>"></script>
+    <script src="<?= base_url('js/dashboard/' . $script . '.js'); ?>"></script>
 
 
 

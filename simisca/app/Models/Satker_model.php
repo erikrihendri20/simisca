@@ -13,18 +13,25 @@ class Satker_model extends Model
 
     protected $useTimestamps = true;
 
-    public function getSatker($level = null)
+    public function getSatker($kodesatker = null)
     {
         // $this->builder()->join('index_satker', 'satker.kodesatker=index_satker.kodesatker');
         // $this->builder()->select('satker.kodesatker , satker.namasatker');
-        if ($level == null) {
+        if ($kodesatker == null) {
             $this->builder()->like('satker.kodesatker', '00');
             return $this->builder()->get()->getResultArray();
         } else {
-            $this->builder()->like('satker.kodesatker', $level, 'after')->notLike('satker.kodesatker', '00');
-            return $this->builder()->get()->getResultArray();
+            if($kodesatker==31){
+                $this->builder()->like('satker.kodesatker', $kodesatker, 'after');
+                $this->builder()->orWhereIn('satker.kodesatker' , [1,2,3]);
+                return $this->builder()->get()->getResultArray();
+            }else{
+                $this->builder()->like('satker.kodesatker', $kodesatker, 'after');
+                return $this->builder()->get()->getResultArray();
+            }
         }
     }
+
 
     public function findByKodesatker($kodesatker)
     {

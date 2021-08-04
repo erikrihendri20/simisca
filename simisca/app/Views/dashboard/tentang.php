@@ -1,43 +1,27 @@
 <?= $this->extend('template/dashboard/index'); ?>
 <?= $this->section('content'); ?>
 <div class="menu-content">
-    <div class="container py-3">
-        <header class="text-center text-white">
-            <div class="row">
-                <div class="col-lg-4 mx-auto">
-                    <h1 class="font-weight-bold">Tentang SIMISCA BPS</h1>
+    <div class="card text-light">
+        <h1 class="font-weight-bold text-light text-center pt-4">Tentang SIMISCA BPS</h1>
+        <div class="card-body">
+            <div class="card">
+                <h3>Latar Belakang</h3>
+                <div class="card-body">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non qui porro explicabo, sed, ipsum praesentium repellendus quod sit velit dolorum sint ab, dignissimos quibusdam cum soluta aperiam laborum excepturi. Fugiat.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam soluta minus iste sequi quasi autem animi repellat, eaque accusamus adipisci tempore itaque nesciunt distinctio corporis quas similique nostrum veritatis fuga!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam laboriosam doloribus veritatis non saepe vero repudiandae sed, nulla at voluptas. Eligendi a, hic omnis explicabo nihil in laborum harum dolore?
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, aspernatur fugit ex ullam necessitatibus delectus quidem repellat iusto impedit illo ratione voluptate velit unde vero. Pariatur adipisci sit rem qui.
                 </div>
             </div>
-        </header>
-        <div class="row py-4">
-            <div class="col-lg-6">
-                <div class="card mb-4">
-                    <div class="card-body p-4">
-                        <h4 class="mb-2 font-weight-bold">Latar belakang</h4>
-                        <div class="custom-scrollbar-css">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, soluta, cupiditate. Ad ab, delectus impedit similique voluptate fuga nemo iure, nobis dolorem dolor, quia voluptas aperiam doloremque commodi id?
-                                In? Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                culpa qui officia deserunt mollit anim id est laborum.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="card mb-4">
-                    <div class="card-body p-4">
-                        <h4 class="mb-2 font-weight-bold">Tujuan</h4>
-                        <div class="custom-scrollbar-css">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, soluta, cupiditate. Ad ab, delectus impedit similique voluptate fuga nemo iure, nobis dolorem dolor, quia voluptas aperiam doloremque commodi id?
-                                In? Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                culpa qui officia deserunt mollit anim id est laborum.</p>
-                        </div>
-                    </div>
+            <div class="card">
+                <h3>Tujuan</h3>
+                <div class="card-body">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non qui porro explicabo, sed, ipsum praesentium repellendus quod sit velit dolorum sint ab, dignissimos quibusdam cum soluta aperiam laborum excepturi. Fugiat.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non qui porro explicabo, sed, ipsum praesentium repellendus quod sit velit dolorum sint ab, dignissimos quibusdam cum soluta aperiam laborum excepturi. Fugiat.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non qui porro explicabo, sed, ipsum praesentium repellendus quod sit velit dolorum sint ab, dignissimos quibusdam cum soluta aperiam laborum excepturi. Fugiat.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non qui porro explicabo, sed, ipsum praesentium repellendus quod sit velit dolorum sint ab, dignissimos quibusdam cum soluta aperiam laborum excepturi. Fugiat.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non qui porro explicabo, sed, ipsum praesentium repellendus quod sit velit dolorum sint ab, dignissimos quibusdam cum soluta aperiam laborum excepturi. Fugiat.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non qui porro explicabo, sed, ipsum praesentium repellendus quod sit velit dolorum sint ab, dignissimos quibusdam cum soluta aperiam laborum excepturi. Fugiat.
                 </div>
             </div>
         </div>

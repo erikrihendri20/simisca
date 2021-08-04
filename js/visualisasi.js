@@ -25,49 +25,84 @@ function getAvg(grades) {
 
 function updateGrafik(val) {
     if(val==1){
-        $.get('Visualisasi/getKarakteristikWilayah/'+$('#tahun').val(), (data , status) => {
-            data = JSON.parse(data)
-            labels = ["Dekat Gunung Berapi", "Dataran Tinggi", "Dekat Dengan Sungai", "Daerah Pesisir"];
-            data = {
-                labels: labels,
-                datasets: [{
-                    label: 'Karakteristik Wilayah',
-                    data: [
-                        (data.filter((d) => d['gunung api'] === 1).length/517*100).toFixed(2),
-                        (data.filter((d) => d['dataran tinggi'] === 1).length/517*100).toFixed(2),
-                        (data.filter((d) => d['sungai'] === 1).length/517*100).toFixed(2),
-                        (data.filter((d) => d['pesisir'] === 1).length/517*100).toFixed(2)
-                    ],
-                    backgroundColor: '#ffa600',
-                    borderSkipped: false,
-                }]
-            };
+        // $.get('Visualisasi/getKarakteristikWilayah/'+$('#tahun').val(), (data , status) => {
+        //     data = JSON.parse(data)
+        //     labels = ["Dekat Gunung Berapi", "Dataran Tinggi", "Dekat Dengan Sungai", "Daerah Pesisir"];
+        //     data = {
+        //         labels: labels,
+        //         datasets: [{
+        //             label: 'Karakteristik Wilayah',
+        //             data: [
+        //                 (data.filter((d) => d['gunung api'] === 1).length/517*100).toFixed(2),
+        //                 (data.filter((d) => d['dataran tinggi'] === 1).length/517*100).toFixed(2),
+        //                 (data.filter((d) => d['sungai'] === 1).length/517*100).toFixed(2),
+        //                 (data.filter((d) => d['pesisir'] === 1).length/517*100).toFixed(2)
+        //             ],
+        //             backgroundColor: '#ffa600',
+        //             borderSkipped: false,
+        //         }]
+        //     };
         
-            config = {
-                type: 'bar',
-                data: data,
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
+        //     config = {
+        //         type: 'bar',
+        //         data: data,
+        //         options: {
+        //             responsive: true,
+        //             plugins: {
+        //                 legend: {
+        //                     position: 'bottom',
         
+        //                 },
+        //                 title: {
+        //                     display: true,
+        //                     font: {
+        //                         size: 14,
+        //                     },
+        //                     text: 'Proporsi Karakteristik Wilayah Satuan Kerja BPS'
+        //                 }
+        //             }
+        //         },
+        //     };
+        //     globalThis.chart.config = config;
+        //     globalThis.chart.data = data;
+        //     globalThis.chart.labels = labels;
+        //     globalThis.chart.update();
+        // })
+        labels = ["Dekat Gunung Berapi", "Dataran Tinggi", "Dekat Dengan Sungai", "Daerah Pesisir"];
+        data = {
+            labels: labels,
+            datasets: [{
+                label: 'Karakteristik Wilayah',
+                data: [8.704 , 8.317 , 44.294 , 52.998],
+                backgroundColor: '#ffa600',
+                borderSkipped: false,
+            }]
+        };
+    
+        config = {
+            type: 'bar',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+    
+                    },
+                    title: {
+                        display: true,
+                        font: {
+                            size: 14,
                         },
-                        title: {
-                            display: true,
-                            font: {
-                                size: 14,
-                            },
-                            text: 'Proporsi Karakteristik Wilayah Satuan Kerja BPS'
-                        }
+                        text: 'Proporsi Karakteristik Wilayah Satuan Kerja BPS'
                     }
-                },
-            };
-            globalThis.chart.config = config;
-            globalThis.chart.data = data;
-            globalThis.chart.labels = labels;
-            globalThis.chart.update();
-        })
+                }
+            },
+        };
+        globalThis.chart.config = config;
+        globalThis.chart.data = data;
+        globalThis.chart.labels = labels;
+        globalThis.chart.update();
     }else if(val==2){
         $.get('Visualisasi/getPengalamanSatker/'+$('#tahun').val(), (data , status) => {
             data = JSON.parse(data)
