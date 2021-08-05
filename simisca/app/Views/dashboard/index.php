@@ -18,29 +18,28 @@
                     <span class="ket">Respon Rate</span><br>
                     <span class="ket" style="font-size:12px;">Pengisian SMKB Satker BPS</span>
                     <div>
-                        <div class="btn-group">
-                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Tahun
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">2020</a>
-                                <a class="dropdown-item" href="#">2021</a>
-                                <a class="dropdown-item" href="#">2022</a>
-                            </div>
-                        </div>
+                        <select name="tahun" id="response-rate">
+                            <?php foreach ($tahun as $t) :?>
+                            <option value="<?= $t['tahun']; ?>"><?= $t['tahun']; ?></option>
+                            <?php endforeach ?>
+                            <option value="2022">2022</option>
+                        </select>
                     </div>
                 </div>
             </div>
+            
+
+
             <div class="col-md-7 box">
                 <div class="section">
                     <div class="wilayah mr-3">
                         <span>Kab/Kota</span>
                     </div>
                     <div class="progressBar w-100">
-                        <div class="progressBarFill" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progressBarFill" id="response-rate-kabupaten"  role="progressbar" style="width: 0%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <div class="percentage">
-                        <span class="changePercent mr-1 ml-3">100%</span>
+                        <span class="changePercent mr-1 ml-3" id="response-rate-kabupaten-value">0%</span>
                     </div>
                 </div>
                 <div class="section">
@@ -48,10 +47,10 @@
                         <span>Provinsi</span>
                     </div>
                     <div class="progressBar w-100">
-                        <div class="progressBarFill" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progressBarFill" id="response-rate-provinsi" role="progressbar" style="width: 0%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <div class="percentage">
-                        <span class="changePercent mr-1 ml-3">80%</span>
+                        <span class="changePercent mr-1 ml-3" id="response-rate-provinsi-value">0%</span>
                     </div>
                 </div>
                 <div class="section">
@@ -59,10 +58,10 @@
                         <span>Nasional</span>
                     </div>
                     <div class="progressBar w-100">
-                        <div class="progressBarFill" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progressBarFill" id="response-rate-pusat" role="progressbar" style="width: 0%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <div class="percentage">
-                        <span class="changePercent mr-1 ml-3 ">90%</span>
+                        <span class="changePercent mr-1 ml-3" id="response-rate-pusat-value">0%</span>
                     </div>
                 </div>
             </div>
@@ -71,37 +70,45 @@
 
     <div class="row visualisasi mt-4">
         <div class="container mt-2">
-            <div class="card w-100" style="width: 18rem;">
+            <div class="card w-100" style="width: 18rem; max-height: 100px;">
+                <p class="text-center ket mt-4"><b>Publikasi Hasil Sensus Mitigasi Kesiapsiagaan Bencana BPS</b></p>
                 <div class="row card-body">
-                    <p class="col card-text ket"><b>Jumlah Bencana per Tahun<br>di Area SatKer BPS</b></p>
-                    <div class="col tahun">
-                        <div class="button">
-                            <div class="col btn-group">
-                                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Tahun
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">2020</a>
-                                    <a class="dropdown-item" href="#">2021</a>
-                                    <a class="dropdown-item" href="#">2022</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col mt-2 ml-2 dld">
-                            <a href=#><i class="fas fa-download" style="color: var(--merah);"></i></a>
-                        </div>
-                    </div>
+                    <table>
+                        <tr>
+                            <th>sdadsad</th>
+                            <th>sdadsad</th>
+                            <th>sdadsad</th>
+                            <th>sdadsad</th>
+                        </tr>
+                        <tr>
+                            <td>sadsad</td>
+                            <td>sadsad</td>
+                            <td>sadsad</td>
+                            <td>sadsad</td>
+                        </tr>
+                        <tr>
+                            <td>sadsad</td>
+                            <td>sadsad</td>
+                            <td>sadsad</td>
+                            <td>sadsad</td>
+                        </tr>
+                        <tr>
+                            <td>sadsad</td>
+                            <td>sadsad</td>
+                            <td>sadsad</td>
+                            <td>sadsad</td>
+                        </tr>
+                    </table>
                 </div>
-                <img src="..." class="card-img-top h-" alt="...">
             </div>
         </div>
 
         <div class="publikasi mt-2">
             <p class="text-center ket mt-4"><b>Publikasi Hasil Sensus Mitigasi Kesiapsiagaan Bencana BPS</b></p>
             <div class="list-group">
-                <div class="list ml-2"><a href=# class="list-group-item list-group-item-action ket"><i class="fas fa-map fa-2x"></i><span class="pub ml-2">Peta Tematik</span></a></div>
-                <div class="list ml-2"><a href=# class="list-group-item list-group-item-action ket"><i class="fas fa-chart-line fa-2x"></i><span class="pub ml-2">Visualisasi</span></a></div>
-                <div class="list ml-2"><a href=# class="list-group-item list-group-item-action ket"><i class="fas fa-table fa-2x"></i><span class="pub ml-2">Tabel Dinamis</span></a></div>
+                <div class="list ml-2"><a href="<?= base_url('petaTematik'); ?>" class="list-group-item list-group-item-action ket"><i class="fas fa-map fa-2x"></i><span class="pub ml-2">Peta Tematik</span></a></div>
+                <div class="list ml-2"><a href="<?= base_url('visualisasi'); ?>" class="list-group-item list-group-item-action ket"><i class="fas fa-chart-line fa-2x"></i><span class="pub ml-2">Visualisasi</span></a></div>
+                <div class="list ml-2"><a href=""<?= base_url('tabelDinamis'); ?>"" class="list-group-item list-group-item-action ket"><i class="fas fa-table fa-2x"></i><span class="pub ml-2">Tabel Dinamis</span></a></div>
             </div>
         </div>
     </div>
@@ -198,7 +205,12 @@
         <div class="col satker w-30"><i class="fa fa-receipt fa-8x" style="color:white;"></i></div>
         <div class="col hasil">
             <div class="row ket rekomHasil"><b>Rekomendasi Hasil IMKB</b></div>
-            <textarea class="row form-control area ml-0" type="text" placeholder="Nama Satker" aria-label="readonly input example" readonly></textarea>
+                <ul class="list-group">        
+                    <?php $val=[]; foreach ($lokasi as $key => $value) : ?>
+                        <?= ($value == 1) ? '<li class="list-group-item bg-light">jauhi '.$key.'</li>' :  ''; ?>
+                    <?php $val[]=$value; endforeach; ?>
+                    <?= (array_sum($val) == 0) ? '<li class="list-group-item bg-light">wilayah anda jauh dari ancaman bahaya</li>' : '' ?>
+                </ul>
         </div>
     </div>
 

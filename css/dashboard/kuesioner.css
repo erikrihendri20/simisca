@@ -28,3 +28,7 @@ a:hover {
   border-radius: 10px;
   float: right;
 }
+
+#link-kuesioner:hover {
+  background-color: transparent;
+}

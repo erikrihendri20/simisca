@@ -68,4 +68,10 @@ class Jawaban_model extends Model
     {
         $this->builder()->delete(['tahun' => $tahun]);
     }
+
+    public function getResponseRate($tahun)
+    {
+        $this->builder()->where('tahun' , $tahun);
+        return $this->builder()->get()->getResultArray();
+    }
 }

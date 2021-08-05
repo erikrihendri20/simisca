@@ -109,6 +109,7 @@ function requestTable(subjek){
         });
         data=dataPulau
       }
+      console.log(data)
       loadTable(data)
     })
   }

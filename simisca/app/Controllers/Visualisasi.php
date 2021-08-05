@@ -166,13 +166,16 @@ class Visualisasi extends BaseController
                     $handle = fopen(base_url('asset/imkb/gempa-tsunami-pegawai.csv'),'r');
                     break;
                 case 'dataran tinggi':
-                    $handle = fopen(base_url('asset/imkb/dataran-tinggi.csv'),'r');
+                    $handle = fopen(base_url('asset/imkb/dataran-tinggi-pegawai.csv'),'r');
                     break;         
                 case 'banjir':
                     $handle = fopen(base_url('asset/imkb/banjir-pegawai.csv'),'r');
                     break;
                 case 'gunung api':
-                    $handle = fopen(base_url('asset/imkb/gunung-api.csv'),'r');
+                    $handle = fopen(base_url('asset/imkb/gunung-api-pegawai.csv'),'r');
+                    break;
+                case 'imkb':
+                    $handle = fopen(base_url('asset/imkb/imkb-pegawai.csv'),'r');
                     break;
                 default:
                     break;
@@ -182,10 +185,17 @@ class Visualisasi extends BaseController
             $count = 0;
             while($imkb = fgetcsv($handle)){
                 if($count!==0){
-                    $row['nama satker'] = $imkb[1];
-                    $row['simkb '.$indeks] = $imkb[2];
-                    $count++;
-                    $result[] = $row;
+                    if($indeks!='imkb'){
+                        $row['nama satker'] = $imkb[1];
+                        $row['simkb '.$indeks] = $imkb[2];
+                        $count++;
+                        $result[] = $row;
+                    }else{
+                        $row['nama satker'] = $imkb[1];
+                        $row['IMKB'] = $imkb[2];
+                        $count++;
+                        $result[] = $row;
+                    }
                 }
                 $count++;
             }

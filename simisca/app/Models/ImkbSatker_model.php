@@ -581,6 +581,10 @@ class ImkbSatker_model extends Model
                 $this->builder()->select('satker.namasatker as nama satker , imkb_satker.simkb_bencana as simkb banjir');
                 break;
             
+            case 'imkb':
+                $this->builder()->select('satker.namasatker as nama satker , imkb_satker.IMKB as IMKB');
+                break;
+
             default:
                 # code...
                 break;

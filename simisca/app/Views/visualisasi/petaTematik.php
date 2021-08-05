@@ -48,7 +48,10 @@
             </div>
 
         </div>
-        <p class="ket">*Hasil Diseminasi PKL Polstat STIS</p>
+        <div id="keterangan-pegawai">
+            <p class="ket">*Hasil Diseminasi PKL Polstat STIS</p>
+        </div>
+        
     </div>
 
     <div id="News" class="tabcontent">
@@ -108,6 +111,9 @@
                     <option>3</option>
                 </select>
             </div> -->
+        </div>
+        <div id="keterangan-satker">
+            <p class="ket">*Hasil Diseminasi PKL Polstat STIS</p>
         </div>
     </div>
     <div class="top">

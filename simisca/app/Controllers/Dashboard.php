@@ -31,6 +31,12 @@ class Dashboard extends BaseController
         $this->sessionKey = $this->rPCClient->get_session_key( $this->LS_USER, $this->LS_PASSWORD );
     }
 
+    public function getResponseRate($tahun)
+    {
+        $jawabanModel = new Jawaban_model();
+        return json_encode($jawabanModel->getResponseRate($tahun));
+    }
+
     public function index()
     {
         $kodesatker = substr(session()->kodeOrganisasi,0,4);

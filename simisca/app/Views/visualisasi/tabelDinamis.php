@@ -20,6 +20,7 @@
       <div class="form-group col-md-12">
         <label for="indeks">Indeks</label>
         <select class="form-control" id="indeks-satker">
+          <option value="imkb">IMKB</option>
           <option value="kebakaran">Kebakaran</option>
           <option value="covid 19">Covid 19</option>
           <option value="gempa dan tsunami">Gempa dan Tsunami</option>
@@ -43,6 +44,7 @@
       <div class="form-group col-md-12">
         <label for="indeks">Indeks</label>
         <select class="form-control" id="indeks-pegawai">
+          <option value="imkb">IMKB</option>
           <option value="gempa dan tsunami">Gempa dan Tsunami</option>
           <option value="gunung api">Gunung Berapi</option>
           <option value="dataran tinggi">Dataran Tinggi</option>
