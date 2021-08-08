@@ -70,6 +70,168 @@ var layer_OSMStandard_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}
 layer_OSMStandard_0;
 map.addLayer(layer_OSMStandard_0);
 
+var legend = L.control({position: 'bottomright'});
+function resetLegend(){
+    if($('div').hasClass("info")){
+        map.removeControl(legend);
+    }
+}
+function addLegend(menu){
+    if(menu=='satker'){
+        if($('#indeks-satker').val()==2){
+            function getColor(d) {
+                return d > 44.5  ? '#3a3f37' :
+                        d > 41.0    ? '#464c43' :
+                        d > 39.5  ? '#666b64' :
+                        d > 36.2  ? '#81847f' :
+                        d > 28.8  ? '#969996' :
+                                    '#FFEDA0';
+            }
+            
+            var legend = L.control({position: 'bottomright'});
+            
+            legend.onAdd = function (map) {
+            
+                var div = L.DomUtil.create('div', 'info legend'),
+                    grades = [28.8, 36.2, 39.5, 41.0, 44.5],
+                    labels = [];
+            
+                    div.innerHTML = "<strong> L E G E N D A </strong> <br>"
+                // loop through our density intervals and generate a label with a colored square for each interval
+                for (var i = 0; i < grades.length; i++) {
+                    div.innerHTML +=
+                        '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+                        grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '-59.2');
+                }
+                
+                return div;
+            };
+            
+            legend.addTo(map);        
+        } else if($('#indeks-satker').val()==3){
+            function getColor(d) {
+                return d > 54.1  ? '#252323' :
+                        d > 43.6  ? '#4b4e58' :
+                        d > 32.1  ? '#70798c' :
+                        d > 26.9  ? '#838b98' :
+                        d > 3.5   ? '#949aa9' :
+                                    '#FFEDA0';
+            }
+            
+            var legend = L.control({position: 'bottomright'});
+            
+            legend.onAdd = function (map) {
+                var div = L.DomUtil.create('div', 'info legend'),
+                    grades = [3.5, 26.9, 32.1, 43.6, 54.1],
+                    labels = [];
+                    div.innerHTML = "<strong> L E G E N D A </strong> <br>"
+                // loop through our density intervals and generate a label with a colored square for each interval
+                for (var i = 0; i < grades.length; i++) {
+                    div.innerHTML +=
+                        '<i class="round" style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+                        grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '-88.5');
+                }
+                
+                return div;
+            };
+            
+            legend.addTo(map); 
+        } else if($('#indeks-satker').val()==4){
+            function getColor(d) {
+                return d > 51.5  ? '#252323' :
+                        d > 41.0    ? '#4b4e58' :
+                        d > 33.7  ? '#70798c' :
+                        d > 25.1  ? '#838b98' :
+                        d > 3.5   ? '#949aa9' :
+                            '#FFEDA0';
+            }
+            
+            var legend = L.control({position: 'bottomright'});
+            
+            legend.onAdd = function (map) {
+            
+                var div = L.DomUtil.create('div', 'info legend'),
+                    grades = [3.5, 25.1, 33.7, 41.0, 51.5],
+                    labels = [];
+                    div.innerHTML = "<strong> L E G E N D A </strong> <br>"
+                // loop through our density intervals and generate a label with a colored square for each interval
+                for (var i = 0; i < grades.length; i++) {
+                    div.innerHTML +=
+                        '<i class="round" style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+                        grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '-85.0');
+                }
+            
+                return div;
+            };
+            
+            legend.addTo(map); 
+
+    }
+    } else {
+        if($('#indeks-pegawai').val()==1){
+            function getColor(d) {
+                return d > 74.7  ? '#252323' :
+                    d > 72.2  ? '#4b4e58' :
+                    d > 69.8  ? '#70798c' :
+                    d > 67.2  ? '#838b98' :
+                    d > 58.7  ? '#949aa9' :
+                        '#FFEDA0';
+            }
+            
+            var legend = L.control({position: 'bottomright'});
+            
+            legend.onAdd = function (map) {
+            
+                var div = L.DomUtil.create('div', 'info legend'),
+                    grades = [58.7, 67.2, 69.8, 72.2, 74.7],
+                    labels = [];
+                    div.innerHTML = "<strong> L E G E N D A </strong> <br>"
+                // loop through our density intervals and generate a label with a colored square for each interval
+                for (var i = 0; i < grades.length; i++) {
+                    div.innerHTML +=
+                        '<i class="round" style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+                        grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '-80.8');
+                }
+            
+                return div;
+            };
+            
+            legend.addTo(map); 
+        } else if($('#indeks-pegawai').val()==2){
+            function getColor(d) {
+                return d > 76.4  ? '#252323' :
+                    d > 73.8  ? '#4b4e58' :
+                    d > 71.0  ? '#70798c' :
+                    d > 68.4  ? '#838b98' :
+                    d > 58.0   ? '#949aa9' :
+                        '#FFEDA0';
+            }
+            
+            var legend = L.control({position: 'bottomright'});
+            
+            legend.onAdd = function (map) {
+            
+                var div = L.DomUtil.create('div', 'info legend'),
+                    grades = [58, 68.4, 71, 73.8, 76.4],
+                    labels = [];
+                    div.innerHTML = "<strong> L E G E N D A </strong> <br>"
+                // loop through our density intervals and generate a label with a colored square for each interval
+                for (var i = 0; i < grades.length; i++) {
+                    div.innerHTML +=
+                        '<i class="round" style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+                        grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '-84.5');
+                }
+            
+                return div;
+            };
+            
+            legend.addTo(map); 
+        }
+    }
+    
+        
+}
+
 function pop_layer_1(feature, layer) {
     layer.on({
         mouseout: function(e) {
@@ -861,6 +1023,7 @@ function manageMap(data,menu) {
         }
 
         setView('satker');
+        addLegend('satker');
         
     }
     else{
@@ -956,7 +1119,8 @@ function manageMap(data,menu) {
         bounds_group.addLayer(globalThis.layer_2);
         map.addLayer(globalThis.layer_2);
         
-        setView('pegawai')
+        setView('pegawai');
+        addLegend('pegawai');
     }
 }
 
@@ -985,7 +1149,7 @@ loadMap = (menu) => {
 
 
 $('#indeks-satker').change(() => {
-    loadMap('satker')
+    loadMap('satker');
 })
 
 $('#prov-satker').change(() => {
