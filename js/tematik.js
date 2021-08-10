@@ -71,11 +71,7 @@ layer_OSMStandard_0;
 map.addLayer(layer_OSMStandard_0);
 
 var legend = L.control({position: 'bottomright'});
-function resetLegend(){
-    if($('div').hasClass("info")){
-        map.removeControl(legend);
-    }
-}
+
 function addLegend(menu){
     if(menu=='satker'){
         if($('#indeks-satker').val()==2){
@@ -905,6 +901,7 @@ setView = (menu) => {
 function manageMap(data,menu) {
     resetLayer();
     data = JSON.parse(data);
+    $('.info').css('display' , 'none')
     if(menu == 'satker'){
         if($('#indeks-satker').val()==3||$('#indeks-satker').val()==4){
             let type, name, crs, features, newFeatures,newPolygon;
@@ -1024,6 +1021,7 @@ function manageMap(data,menu) {
 
         setView('satker');
         addLegend('satker');
+
         
     }
     else{
@@ -1122,6 +1120,7 @@ function manageMap(data,menu) {
         setView('pegawai');
         addLegend('pegawai');
     }
+    
 }
 
 
