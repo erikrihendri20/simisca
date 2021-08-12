@@ -52,8 +52,8 @@
             <?php if(session()->kuesioner): ?>
             <a href="<?= base_url('dashboard/kuesioner'); ?>" class="<?= ($active == 'kuesioner') ? 'active' : ''; ?>"><i class="fas fa-book-open"></i><span>SMKB Satker</span></a>
             <?php endif; ?>
-            <a href="<?= base_url('dashboard/monitoring'); ?>" class="<?= ($active == 'monitoring') ? 'active' : ''; ?>"><i class="fas fa-desktop"></i><span>Monitoring SMKB</span></a>
             <?php if(session('super admin')): ?>
+            <a href="<?= base_url('dashboard/monitoring'); ?>" class="<?= ($active == 'monitoring') ? 'active' : ''; ?>"><i class="fas fa-desktop"></i><span>Monitoring SMKB</span></a>
             <a href="<?= base_url('dashboard/survey'); ?>" class="<?= ($active == 'survey') ? 'active' : ''; ?>"><i class="fas fa-cogs"></i><span>SMKB Setting</span></a>
             <?php endif; ?>
             <a href="<?= base_url('dashboard/profil'); ?>" class="<?= ($active == 'profil') ? 'active' : ''; ?>"><i class="fas fa-user"></i><span>Profil Anda</span></a>

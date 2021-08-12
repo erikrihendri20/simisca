@@ -38,6 +38,7 @@
                 <h5 class="card-header my-3" style="text-align: center;"></h5>
                 <div class="card-body">
                     <canvas id="chart"></canvas>
+                    <p id="note-satker" style="display: none;">*Angka indeks yang lebih besar menunjukkan tingkat mitigasi dan kesiapsiagaan bencana yang lebih tinggi</p>
                 </div>
             </div>
         </div>
@@ -67,6 +68,7 @@
                 <h5 class="card-header my-3" style="text-align: center;"></h5>
                 <div class="card-body">
                     <canvas id="chart2"></canvas>
+                    <p id="note-pegawai">*Angka indeks yang lebih besar menunjukkan tingkat mitigasi dan kesiapsiagaan bencana yang lebih tinggi</p>
                 </div>
             </div>
         </div>

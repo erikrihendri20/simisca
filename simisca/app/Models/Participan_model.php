@@ -14,4 +14,9 @@ class Participan_model extends Model
         return $this->builder()->get()->getResultArray();
     }
 
+    public function emptyTable()
+    {
+        $this->builder()->emptyTable();
+    }
+
 }

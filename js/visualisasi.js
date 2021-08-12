@@ -623,6 +623,12 @@ function updateGrafik(val) {
         globalThis.chart2.labels = labels;
         globalThis.chart2.update();
     }
+    
+    if(val==4){
+        $('#note-satker').css('display' , 'block')
+    }else{
+        $('#note-satker').css('display' , 'none')
+    }
 }
 
 

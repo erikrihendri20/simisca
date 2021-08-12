@@ -9,6 +9,7 @@ importSurvey = () => {
   })
   .done(() => {
     $('#import-survey').html(button)
+    cekStatus()
   })
 }
 
@@ -23,6 +24,7 @@ importPartisipan = () => {
   })
   .done(() => {
     $('#import-partisipan').html(button)
+    cekStatus()
   })
 }
 
@@ -41,6 +43,7 @@ deleteSurvey = () => {
   })
   .done(() => {
     $('#delete-survey').html(button)
+    cekStatus()
   })
 }
 
@@ -53,7 +56,37 @@ downloadDaftarSatker = () => {
   window.open("downloadDaftarSatker")
 }
 
+cekStatus = () => {
+  $.get('statusImportSurvey' , (data) => {
+    data = JSON.parse(data)
+    if(data['status'] == "aktif"){
+      $('#status-ok-import').css('display' , 'inline')
+      $('#status-ban-import').css('display' , 'none')
+      
+      $('#keterangan-ok-import').css('display' , 'block')
+      $('#keterangan-ban-import').css('display' , 'none')
+
+      $('#import-survey').css('display' , 'none')
+      $('#delete-survey').css('display' , 'inline')
+    }else{
+      $('#status-ok-import').css('display' , 'none')
+      $('#status-ban-import').css('display' , 'inline')
+      
+      $('#keterangan-ok-import').css('display' , 'none')
+      $('#keterangan-ban-import').css('display' , 'block')
+
+      $('#import-survey').css('display' , 'inline')
+      $('#delete-survey').css('display' , 'none')
+    }
+  })
+  $.get('jumlahPartisipan' , (data) => {
+    data = JSON.parse(data)
+    $('#jumlah-partisipan').html(data['jumlah'])
+  })
+}
+
 $(document).ready(() => {
+  cekStatus()
   $('#import-survey').click(() => {
     importSurvey()
   })
@@ -70,6 +103,9 @@ $(document).ready(() => {
     downloadDaftarSatker()
   })
   $('#delete-survey').click(() => {
-    deleteSurvey()
+    konfirmasi = confirm('anda yakin ingin menghentikan survey ini?')
+    if(konfirmasi){
+      deleteSurvey()
+    }
   })
 })

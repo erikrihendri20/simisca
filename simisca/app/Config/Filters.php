@@ -44,7 +44,7 @@ class Filters extends BaseConfig
 			'before' => ['dashboard/kuesioner']
 		],
 		'FilterSuperAdmin' => [
-			'before' => ['dashboard/pengolahan']
+			'before' => ['dashboard/survey' , 'dashboard/monitoring' , 'dashboard/monitoringProvinsi' , 'dashboard/monitoringNasional']
 		]
 	];
 }

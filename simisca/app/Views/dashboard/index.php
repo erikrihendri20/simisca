@@ -71,32 +71,42 @@
     <div class="row visualisasi mt-4">
         <div class="container mt-2">
             <div class="card w-100" style="width: 18rem; max-height: 100px;">
-                <p class="text-center ket mt-4"><b>Publikasi Hasil Sensus Mitigasi Kesiapsiagaan Bencana BPS</b></p>
+                <p class="text-center ket mt-4"><b>Advanced Release Calendar SIMISCA BPS</b></p>
                 <div class="row card-body">
-                    <table>
-                        <tr>
-                            <th>sdadsad</th>
-                            <th>sdadsad</th>
-                            <th>sdadsad</th>
-                            <th>sdadsad</th>
+                    <table class="" style="width: 500px; font-size: 15px;">
+                        <tr class="text-center">
+                            <th class="text-light border border-light">Nama kegiatan</th>
+                            <th class="text-light border border-light bg-info">Januari</th>
+                            <th class="text-light border border-light bg-warning" colspan="2">Februari</th>
+                            <th class="text-light border border-light bg-success">Maret</th>
                         </tr>
                         <tr>
-                            <td>sadsad</td>
-                            <td>sadsad</td>
-                            <td>sadsad</td>
-                            <td>sadsad</td>
+                            <td class="text-light border border-light">Persiapan Pengisian Kuesioner</td>
+                            <td class="text-light border border-light bg-info">24-31</td>
+                            <td class="text-light border border-light"></td>
+                            <td class="text-light border border-light"></td>
+                            <td class="text-light border border-light"></td>
                         </tr>
                         <tr>
-                            <td>sadsad</td>
-                            <td>sadsad</td>
-                            <td>sadsad</td>
-                            <td>sadsad</td>
+                            <td class="text-light border border-light">Pengisian Kuesioner</td>
+                            <td class="text-light border border-light"></td>
+                            <td class="text-light border border-light bg-warning">01-14</td>
+                            <td class="text-light border border-light"></td>
+                            <td class="text-light border border-light"></td>
                         </tr>
                         <tr>
-                            <td>sadsad</td>
-                            <td>sadsad</td>
-                            <td>sadsad</td>
-                            <td>sadsad</td>
+                            <td class="text-light border border-light">Pengolahan Data</td>
+                            <td class="text-light border border-light"></td>
+                            <td class="text-light border border-light"></td>
+                            <td class="text-light border border-light bg-warning">15-28</td>
+                            <td class="text-light border border-light"></td>
+                        </tr>
+                        <tr>
+                            <td class="text-light border border-light">Pengunggahan Data dan Publikasi</td>
+                            <td class="text-light border border-light"></td>
+                            <td class="text-light border border-light"></td>
+                            <td class="text-light border border-light"></td>
+                            <td class="text-light border border-light bg-success">1-10</td>
                         </tr>
                     </table>
                 </div>
@@ -123,7 +133,7 @@
         </div>
     </div>
 
-    <div class="row building">
+    <!-- <div class="row building">
         <div class="col satker w-30"><i class="fa fa-building fa-8x" style="color:white;"></i></div>
         <div class="col profil">
             <div class="row ket ml-0"><b>Profil Satker</b></div>
@@ -144,7 +154,7 @@
                 <input class="col form-control" type="text" placeholder="Nama Satker" aria-label="readonly input example" readonly>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <div class="row lokasi">
@@ -155,8 +165,8 @@
                 <tbody>
                     <?php $no=1; foreach ($lokasi as $key => $value) : ?>
                     <tr class="<?= ($no % 2 == 0) ? 'kuning' : 'putih'; ?>">
-                        <td class="tul">wilayah <?= $key; ?></td>
-                        <td class="tul pr-3"><?= ($value == 1) ? 'Ya' : 'Tidak'; ?></td>
+                        <td class=" tul">wilayah <?= $key; ?></td>
+                        <td class=" tul pr-3"><?= ($value == 1) ? 'Ya' : 'Tidak'; ?></td>
                     </tr>
                     <?php $no++; endforeach; ?>
                 </tbody>
@@ -181,20 +191,20 @@
             <table class="row tabel mr-8" id="imkb">
                 <!-- <tbody>
                     <tr class="putih">
-                        <td class="tul">IMKB Satker</td>
-                        <td class="tul pr-3">00.00</td>
+                        <td class="text-light tul">IMKB Satker</td>
+                        <td class="text-light tul pr-3">00.00</td>
                     </tr>
                     <tr class="kuning">
-                        <td class="tul">Sub Bencana Alam</td>
-                        <td class="tul pr-3">00.00</td>
+                        <td class="text-light tul">Sub Bencana Alam</td>
+                        <td class="text-light tul pr-3">00.00</td>
                     </tr>
                     <tr class="putih">
-                        <td class="tul">Sub Kebakaran</td>
-                        <td class="tul pr-3">00.00</td>
+                        <td class="text-light tul">Sub Kebakaran</td>
+                        <td class="text-light tul pr-3">00.00</td>
                     </tr>
                     <tr class="kuning">
-                        <td class="tul">Sub Pandemi COVID-19</td>
-                        <td class="tul pr-3">00.00</td>
+                        <td class="text-light tul">Sub Pandemi COVID-19</td>
+                        <td class="text-light tul pr-3">00.00</td>
                     </tr>
                 </tbody> -->
             </table>

@@ -33,8 +33,10 @@ function openPage(pageName, elmnt, color, color1) {
         resetLayer();
         if(pageName=='News'){
             loadMap('satker')
+            $('#note').attr('class' , 'text-light')
         }else{
             loadMap('pegawai')
+            $('#note').attr('class' , 'text-dark')
         }
     })
 }

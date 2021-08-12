@@ -121,6 +121,7 @@
             <div class="pet col-md-12">
                 <div id="mapSatker">
                 </div>
+                <p id="note">*Angka indeks yang lebih besar menunjukkan tingkat mitigasi dan kesiapsiagaan bencana yang lebih tinggi</p>
             </div>
 
             <!-- <div class="stat col-md-2">

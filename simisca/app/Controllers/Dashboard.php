@@ -17,7 +17,7 @@ class Dashboard extends BaseController
 {
 
     use ResponseTrait;
-    private $LS_BASEURL = "http://localhost/limesurvey/";
+    private $LS_BASEURL = "http://simiscabps.stis.ac.id/limesurvey/";
     private $LS_USER = "riset3";
     private $LS_PASSWORD = "riset3";
     private $rPCClient = null;
@@ -296,6 +296,13 @@ class Dashboard extends BaseController
         }
 
         try {
+            $participanModel = new Participan_model();
+            $participanModel->emptyTable();
+        } catch (\Throwable $th) {
+            $this->fail(json_encode($th));
+        }
+
+        try {
             $import = $this->rPCClient->add_participants($this->sessionKey , $this->surveyId , $partisipan , true);
         } catch (\Throwable $th) {
             $this->fail(json_encode($th));
@@ -381,7 +388,7 @@ class Dashboard extends BaseController
             }
             $filtered = array_filter($row , function ($r)
             {
-                return date('Y',strtotime($r['submitdate']))==2022;
+                return date('Y',strtotime($r['submitdate']))==date('Y');
             });
             
             header('Content-Type: text/csv; charset=utf-8');
@@ -455,7 +462,7 @@ class Dashboard extends BaseController
             'provinsi' => session()->provinsi,
             'kabupaten' => session()->kabupaten
         ];
-        return view("dashboard/Profil",$data);
+        return view("dashboard/profil",$data);
     }
 
     public function tentang()
@@ -473,4 +480,33 @@ class Dashboard extends BaseController
         return json_encode($imkbSatkerModel->getImkbByKodesatker($kodesatker , $tahun));
     }
     
+    public function statusImportSurvey()
+    {
+        $listSurvey = $this->rPCClient->list_surveys($this->sessionKey);
+        try {
+            $survey = array_filter($listSurvey , function($l) {
+                return $l['sid']==423492;
+            });
+            if(count($survey)!=0){
+                return json_encode(['status' => 'aktif']);
+            }
+            return json_encode(['status' => 'tidak aktif']);
+        } catch (\Throwable $th) {
+            //throw $th;
+            return json_encode(['status' => 'tidak aktif']);
+        }
+    }
+
+    public function jumlahPartisipan()
+    {
+        $participanModel = new Participan_model();
+        try {
+            return json_encode(['jumlah' => count($participanModel->findAll())]);
+            
+        } catch (\Throwable $th) {
+            return json_encode(['jumlah' => '0']);
+            //throw $th;
+        }
+        return json_encode(['jumlah' => '0']);
+    }
 }
