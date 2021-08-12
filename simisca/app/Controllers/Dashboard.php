@@ -17,7 +17,7 @@ class Dashboard extends BaseController
 {
 
     use ResponseTrait;
-    private $LS_BASEURL = "http://simiscabps.stis.ac.id/limesurvey/";
+    private $LS_BASEURL = "http://localhost/limesurvey/";
     private $LS_USER = "riset3";
     private $LS_PASSWORD = "riset3";
     private $rPCClient = null;
